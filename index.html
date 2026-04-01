@@ -59,6 +59,8 @@
   }
   .header-meta span { display: flex; align-items: center; gap: 6px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: blink 2s infinite; }
+  #syncStatus { transition: color 0.3s; }
+  .syncing { color: var(--yellow) !important; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
   /* GERAL */
@@ -371,7 +373,7 @@
     <div class="header-tag">// plano de negócio — v2.0</div>
     <h1>EMPRESA DE<br><span>SUPORTE TI</span></h1>
     <div class="header-meta">
-      <span><span class="dot"></span> Status: Sincronizado</span>
+      <span><span class="dot"></span> Status: <span id="syncStatus">Sincronizado</span></span>
       <span>// Bragança Paulista, SP</span>
       <span>// 2 sócios</span>
       <span>// Março 2026</span>
@@ -556,11 +558,20 @@ function saveLocal() {
 
 async function save() {
   saveLocal();
+  const status = document.getElementById('syncStatus');
+  if(status) { status.innerText = 'Salvando...'; status.className = 'syncing'; }
   if (sb) {
     const payload = {
       tasksDone, taskOwners, taskTexts, customTasks, investItems, trashItems
     };
-    await sb.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
+    try {
+      const { error } = await sb.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
+      if(error) throw error;
+      if(status) { status.innerText = 'Sincronizado'; status.className = ''; }
+    } catch(e) {
+      console.error("Save error:", e);
+      if(status) { status.innerText = 'Erro ao salvar'; status.style.color = 'var(--red)'; }
+    }
   }
 }
 
@@ -703,9 +714,9 @@ function renderInvest() {
     total += parseFloat(item.val || 0);
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td><span class="invest-cell-text" contenteditable="true" onblur="editInvest(${idx}, 'item', this.innerText)">${item.item}</span></td>
-      <td><span class="invest-cell-text" contenteditable="true" onblur="editInvest(${idx}, 'desc', this.innerText)">${item.desc}</span></td>
-      <td><span class="invest-cell-text invest-cell-value" contenteditable="true" onblur="editInvest(${idx}, 'val', this.innerText)">${item.val}</span></td>
+      <td><span class="invest-cell-text" contenteditable="true" onblur="editInvest(${idx}, 'item', this.innerText)" onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}">${item.item}</span></td>
+      <td><span class="invest-cell-text" contenteditable="true" onblur="editInvest(${idx}, 'desc', this.innerText)" onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}">${item.desc}</span></td>
+      <td><span class="invest-cell-text invest-cell-value" contenteditable="true" onblur="editInvest(${idx}, 'val', this.innerText)" onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}">${item.val}</span></td>
       <td class="invest-row-remove"><button onclick="removeInvest(${idx})">×</button></td>
     `;
     tbody.appendChild(tr);
@@ -715,8 +726,16 @@ function renderInvest() {
 }
 
 window.editInvest = (idx, key, val) => {
-  if (key === 'val') val = parseFloat(val) || 0;
-  investItems[idx][key] = val; save(); renderInvest();
+  if (key === 'val') {
+    // Clean string (remove R$, symbols, commas)
+    val = val.replace(/[^0-9.,]/g, '').replace(',', '.');
+    val = parseFloat(val) || 0;
+  }
+  investItems[idx][key] = val;
+  save(); 
+  // No renderInvest here to avoid stealing focus if they tab fast, but usually it's fine on blur.
+  // We do it to refresh the Totals.
+  renderInvest();
 };
 window.removeInvest = (idx) => { investItems.splice(idx,1); save(); renderInvest(); };
 const addInv = document.getElementById('investAddBtn');
