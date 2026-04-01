@@ -468,7 +468,7 @@ const SB_URL = "https://bbaximodkdadaxtyjuzw.supabase.co";
 const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiYXhpbW9ka2RhZGF4dHlqdXp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwMDgxNzAsImV4cCI6MjA5MDU4NDE3MH0.76IaVw9T8wRq_k29s133_WrAoEkepXiO1Ky5AQDj6fU"; 
 const ROW_ID = "main_flow";
 
-const supabase = (SB_URL && SB_URL !== "SUA_URL_AQUI") ? supabase.createClient(SB_URL, SB_KEY) : null;
+const sb = (SB_URL && SB_URL !== "SUA_URL_AQUI") ? supabase.createClient(SB_URL, SB_KEY) : null;
 
 // ── DATA STRUCTURE ─────────────────────────────────────────
 const SECTIONS = [
@@ -524,7 +524,7 @@ let trashItems = {};
 
 // ── ENGINE ─────────────────────────────────────────────────
 async function init() {
-  if (supabase) {
+  if (sb) {
     await pullFromSupabase();
     subscribeToChanges();
   } else {
@@ -553,17 +553,17 @@ function saveLocal() {
 
 async function save() {
   saveLocal();
-  if (supabase) {
+  if (sb) {
     const payload = {
       tasksDone, taskOwners, taskTexts, customTasks, investItems, trashItems
     };
-    await supabase.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
+    await sb.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
   }
 }
 
 async function pullFromSupabase() {
   try {
-    const { data, error } = await supabase.from('plano_ti_sync').select('data').eq('id', ROW_ID).single();
+    const { data, error } = await sb.from('plano_ti_sync').select('data').eq('id', ROW_ID).single();
     if (data && data.data) {
       const d = data.data;
       tasksDone = d.tasksDone || d.state || {};
@@ -578,7 +578,7 @@ async function pullFromSupabase() {
 }
 
 function subscribeToChanges() {
-  supabase.channel('cloud-updates')
+  sb.channel('cloud-updates')
   .on('postgres_changes', { event: '*', schema: 'public', table: 'plano_ti_sync' }, (payload) => {
     if (payload.new && payload.new.id === ROW_ID) {
       const d = payload.new.data;
