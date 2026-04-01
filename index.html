@@ -323,19 +323,44 @@
   .invest-add-btn:hover { color: var(--accent); background: rgba(0,212,255,0.06); }
   .invest-add-btn::before { content: '+'; font-size: 16px; line-height: 1; }
 
-  /* ALERTAS */
-  .alert { background: rgba(255,214,10,0.05); border: 1px solid rgba(255,214,10,0.2); border-left: 3px solid var(--yellow); padding: 16px 20px; margin-top: 16px; }
-  .alert-title { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
-  .alert p { font-size: 13px; color: var(--muted); }
+  /* FERRAMENTAS */
+  .tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .tool-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .tool-icon {
+    width: 32px; height: 32px; min-width: 32px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.15);
+  }
+  .tool-name { font-size: 13px; font-weight: 600; }
+  .tool-cost { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
+  .free { color: var(--green); }
 
   /* FLUXO */
   .prospect-flow { display: flex; align-items: stretch; gap: 0; margin-bottom: 20px; overflow-x: auto; }
-  .flow-step { flex: 1; min-width: 100px; background: var(--surface); border: 1px solid var(--border); border-right: none; padding: 12px 10px; text-align: center; position: relative; }
+  .flow-step { flex: 1; min-width: 120px; background: var(--surface); border: 1px solid var(--border); border-right: none; padding: 16px 14px; text-align: center; position: relative; }
   .flow-step:last-child { border-right: 1px solid var(--border); }
-  .flow-step::after { content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 14px; z-index: 2; background: var(--bg); padding: 0 2px; }
+  .flow-step::after { content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 16px; z-index: 2; background: var(--bg); padding: 0 2px; }
   .flow-step:last-child::after { display: none; }
-  .flow-day { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--accent); margin-bottom: 4px; }
-  .flow-action { font-size: 11px; color: var(--text); }
+  .flow-day { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--accent); margin-bottom: 6px; }
+  .flow-action { font-size: 12px; color: var(--text); }
+
+  /* UPSELL */
+  .upsell-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .upsell-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent2);
+    padding: 16px;
+  }
+  .upsell-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+  .upsell-card .price { font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: var(--accent2); }
+  .upsell-card p { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
   /* LIXEIRA */
   .trash-section { margin-top: 48px; border-top: 1px dashed var(--border); padding-top: 24px; }
@@ -361,6 +386,9 @@
     .summary-grid { grid-template-columns: 1fr; }
     .header h1 { font-size: 40px; }
     .header-meta { gap: 8px; font-size: 10px; }
+    .tools-grid { grid-template-columns: 1fr; }
+    .upsell-grid { grid-template-columns: 1fr; }
+    .prospect-flow { padding-bottom: 10px; }
   }
 </style>
 </head>
@@ -408,6 +436,37 @@
   <!-- SEÇÕES -->
   <div id="sections-root"></div>
 
+  <!-- FLUXO E ABORDAGEM (FIXO) -->
+  <div class="section">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; border-top: 1px solid var(--border); padding-top: 24px;">// Fluxo por prospect</div>
+    <div class="prospect-flow">
+      <div class="flow-step">
+        <div class="flow-day">DIA 1</div>
+        <div class="flow-action">Visita presencial</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-day">DIA 1</div>
+        <div class="flow-action">Proposta PDF no WhatsApp</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-day">DIA 3</div>
+        <div class="flow-action">Follow-up se silêncio</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-day">DIA 7</div>
+        <div class="flow-action">Último contato</div>
+      </div>
+      <div class="flow-step" style="border-top: 2px solid var(--green)">
+        <div class="flow-day" style="color:var(--green)">FECHOU</div>
+        <div class="flow-action">Assinar contrato</div>
+      </div>
+    </div>
+    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.2);">
+      <div class="alert-title" style="color: var(--green)">💡 Melhor abordagem presencial</div>
+      <p>"Somos da [nome], oferecemos suporte de TI para pequenas empresas em Bragança Paulista. Posso te mostrar como funciona em 5 minutos?" — Se mostrar interesse, marcar reunião e apresentar proposta no notebook.</p>
+    </div>
+  </div>
+
   <!-- INVESTIMENTO -->
   <div class="section" id="investSection">
     <div class="section-header">
@@ -429,7 +488,10 @@
         </tfoot>
       </table>
     </div>
-    <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
+    <div class="invest-actions" style="display:flex; gap:10px; margin-top:12px;">
+      <button class="invest-add-btn" id="investAddBtn" style="margin-top:0;">Adicionar item</button>
+      <button class="invest-save-btn" onclick="save()" style="background:var(--accent); color:var(--bg); border:none; padding:6px 16px; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; cursor:pointer; border-radius:2px; display:flex; align-items:center; gap:6px;">✓ Confirmar Alterações</button>
+    </div>
   </div>
 
   <!-- PROJEÇÃO -->
@@ -441,9 +503,40 @@
         <tbody>
           <tr><td>Mês 1</td><td>5 Basic</td><td class="num neutral">R$ 1.750–2.500</td><td class="num neutral">R$ 875–1.250</td></tr>
           <tr><td>Mês 2</td><td>10 Basic + 2 Std</td><td class="num neutral">R$ 5.100–6.400</td><td class="num neutral">R$ 2.550–3.200</td></tr>
-          <tr class="total-row"><td>Mês 3</td><td>15 TI + SaaS</td><td class="num positive">~R$ 10k–12k</td><td class="num positive">~R$ 5k–6k</td></tr>
+          <tr><td>Mês 3</td><td>10 Basic + 5 Std</td><td class="num positive">R$ 7.500–11.000</td><td class="num positive">R$ 3.750–5.500</td></tr>
+          <tr><td>Mês 3+ SaaS</td><td>+5 clientes SaaS</td><td class="num positive">+R$ 750–1.750</td><td class="num positive">+R$ 375–875</td></tr>
+          <tr class="total-row"><td>Potencial Mês 4</td><td>15 TI + SaaS</td><td class="num positive">~R$ 10.000–12.000</td><td class="num positive">~R$ 5.000–6.000</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- FERRAMENTAS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">06</span><span class="section-title">FERRAMENTAS DE TRABALHO</span></div>
+    <div class="tools-grid">
+      <div class="tool-item"><div class="tool-icon">🖥</div><div><div class="tool-name">AnyDesk</div><div class="tool-cost free">Gratuito</div></div></div>
+      <div class="tool-item"><div class="tool-icon">📱</div><div><div class="tool-name">WhatsApp Business</div><div class="tool-cost free">Gratuito</div></div></div>
+      <div class="tool-item"><div class="tool-icon">☁️</div><div><div class="tool-name">Google Drive</div><div class="tool-cost free">Gratuito 15GB</div></div></div>
+      <div class="tool-item"><div class="tool-icon">📅</div><div><div class="tool-name">Google Agenda</div><div class="tool-cost free">Gratuito</div></div></div>
+      <div class="tool-item"><div class="tool-icon">📋</div><div><div class="tool-name">Notion / Trello</div><div class="tool-cost free">Gratuito</div></div></div>
+      <div class="tool-item"><div class="tool-icon">🎨</div><div><div class="tool-name">Canva</div><div class="tool-cost free">Gratuito</div></div></div>
+      <div class="tool-item"><div class="tool-icon">💳</div><div><div class="tool-name">Inter / Nubank PJ</div><div class="tool-cost free">Gratuito</div></div></div>
+      <div class="tool-item"><div class="tool-icon">🔧</div><div><div class="tool-name">AnyDesk Pro</div><div class="tool-cost">R$ 80/mês</div></div></div>
+    </div>
+  </div>
+
+  <!-- UPSELL SAAS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">07</span><span class="section-title">SAAS — PRODUTO PRÓPRIO</span></div>
+    <div class="upsell-grid">
+      <div class="upsell-card"><h4>🏥 Clínicas</h4><div class="price">R$ 200–400</div><p>Agendamento e prontuário simples.</p></div>
+      <div class="upsell-card"><h4>🧾 Contas</h4><div class="price">R$ 150–250</div><p>Controle de clientes e prazos.</p></div>
+      <div class="upsell-card"><h4>🛒 Comércio</h4><div class="price">R$ 150–300</div><p>Estoque e NF-e simples.</p></div>
+    </div>
+    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.15); margin-top: 16px;">
+      <div class="alert-title" style="color: var(--green);">💰 Divisão SaaS — 50/50</div>
+      <p>Iago: desenvolvimento. Camargo: suporte/vendas. Estratégia: começar com um segmento, validar e replicar.</p>
     </div>
   </div>
 
