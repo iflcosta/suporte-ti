@@ -1,0 +1,40 @@
+"use client"
+
+import { SERVICOS } from "@/constants/landing-data"
+import { Section, SectionTitle } from "@/components/ui/section-components"
+
+export function Services() {
+  return (
+    <Section id="servicos" className="py-24 md:py-32 relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1F1F1F] to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <SectionTitle
+          eyebrow="O que fazemos"
+          title="Soluções completas para sua empresa"
+          subtitle="Da manutenção preventiva à consultoria estratégica, cuidamos de toda a sua infraestrutura de TI."
+        />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SERVICOS.map((servico, i) => (
+            <div
+              key={i}
+              className="group relative bg-[#0F0F0F] border border-[#1F1F1F] p-8 hover:border-[#8B2635]/50 transition-all duration-500 animate-fade-up"
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <div className="absolute top-0 left-0 w-0 h-[2px] bg-[#8B2635] group-hover:w-full transition-all duration-500" />
+              
+              <span className="text-4xl mb-6 block">{servico.icone}</span>
+              <h3 className="font-serif text-xl text-[#F5F0E8] mb-3 group-hover:text-[#C9A962] transition-colors">
+                {servico.titulo}
+              </h3>
+              <p className="text-[#78716c] text-sm leading-relaxed">
+                {servico.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )
+}
