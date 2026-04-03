@@ -32,7 +32,7 @@
   .noise {
     position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity: 0.4;
+    opacity: 0.15;
   }
   .container { 
     max-width: 900px; 
@@ -681,11 +681,11 @@
     font-size: 12px; color: var(--accent);
     white-space: nowrap;
   }
-  /* SCROLLBAR CUSTOMIZADA */
-  ::-webkit-scrollbar { width: 4px; }
+  /* SCROLLBAR CUSTOMIZADA ELITE */
+  ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--accent2); }
+  ::-webkit-scrollbar-thumb { background: #8B2635; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #A63344; }
 </style>
 </head>
 <body>
@@ -931,7 +931,7 @@
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-3"><div class="task-check"></div><span class="task-text">Fazer as 5 primeiras visitas presenciais — foco em contabilidades (Sócio 2 diariamente + Sócio 1 quando flexível)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <div class="task" data-id="s3-3"><div class="task-check"></div><span class="task-text">Fazer as 5 primeiras visitas presenciais </span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos" selected>AMBOS</option>
