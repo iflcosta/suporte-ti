@@ -71,7 +71,7 @@ export default function BusinessHub() {
   }
 
   return (
-    <div className="h-screen bg-[#080808] text-[#F5F0E8] font-sans flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-[#080808] text-[#F5F0E8] font-sans flex flex-col relative">
       {/* Navegação Superior - Oculto na Impressão */}
       <nav className="no-print border-b border-[#1F1F1F] bg-[#0F0F0F] sticky top-0 z-50">
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
@@ -143,13 +143,13 @@ export default function BusinessHub() {
 
       {/* ÁREA DE CONTEÚDO PRINCIPAL */}
       {/* ÁREA DE CONTEÚDO PRINCIPAL (OCUPA O RESTANTE DA TELA) */}
-      <main className="flex-1 relative overflow-hidden bg-[#080808]">
+      <main className="flex-1 relative bg-[#080808]">
         
         {/* VIEWERS DE HTML (IFRAMES) - SEM SCROLL EXTERNO */}
         {activeTab === "dashboard" && (
            <iframe 
              src="/docs/plano-estrategico.html" 
-             className="w-full h-full border-none"
+             className="w-full min-h-[calc(100vh-80px)] border-none"
              title="Dashboard Estratégico"
            />
         )}
@@ -157,14 +157,14 @@ export default function BusinessHub() {
         {activeTab === "trilha" && (
            <iframe 
              src="/docs/trilha-tecnica.html" 
-             className="w-full h-full border-none"
+             className="w-full min-h-[calc(100vh-80px)] border-none"
              title="Trilha de Especialização Técnica"
            />
         )}
 
         {/* COMPONENTES REACT (CONTRATO, PROPOSTA, CHECKLIST) */}
         {(activeTab === "contrato" || activeTab === "proposta" || activeTab === "checklist") && (
-          <div className="absolute inset-0 overflow-y-auto p-6 md:p-12 custom-scrollbar">
+          <div className="relative p-6 md:p-12">
             <div className="print-page bg-white text-black p-[1cm] md:p-[2cm] shadow-[0_0_50px_rgba(0,0,0,0.5)] min-h-[29.7cm] w-full max-w-[21cm] mx-auto text-[11pt] leading-relaxed animate-fade-up">
               
               {/* Header do Documento */}
