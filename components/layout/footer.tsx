@@ -6,6 +6,7 @@ export function Footer() {
     { label: "Planos", href: "#planos" },
     { label: "FAQ", href: "#faq" },
     { label: "Contato", href: "#contato" },
+    { label: "Hub", href: "/negocios" },
   ]
 
   return (
