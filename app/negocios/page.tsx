@@ -169,7 +169,7 @@ export default function BusinessHub() {
               {/* Header do Documento */}
               <div className="text-center mb-12 border-b-4 border-[#8B2635] pb-6">
                 <h1 className="text-2xl md:text-3xl font-serif font-bold uppercase tracking-widest text-[#8B2635] mb-2 leading-tight">
-                  {activeTab === "proposta" ? "Proposta Comercial Elite" : activeTab === "contrato" ? "Contrato de Suporte Especializado" : "Checklist Onboarding T\u00e9cnico"}
+                  {activeTab === "proposta" ? "Proposta Comercial Elite" : activeTab === "contrato" ? "Contrato de Suporte Especializado" : "Checklist Onboarding Técnico"}
                 </h1>
                 <div className="flex items-center justify-center gap-4 text-[10px] font-mono uppercase tracking-[0.4em] font-bold text-gray-500">
                   <span>Il Potere Tech</span>
@@ -184,54 +184,55 @@ export default function BusinessHub() {
                     <div>
                       <p className="font-bold text-[#8B2635] mb-1 italic underline">CONTRATADA (Prestador):</p>
                       <p className="font-bold text-lg">IL POTERE TECH</p>
-                      <p className="text-gray-500">Bragan\u00e7a Paulista/SP</p>
+                      <p className="text-gray-500">Bragança Paulista/SP</p>
                     </div>
                     <div>
                       <p className="font-bold text-black mb-1 italic underline">CONTRATANTE (Cliente):</p>
                       <p className="font-bold text-lg mt-1 border-b border-gray-300">________________________</p>
-                      <p className="text-gray-500">Raz\u00e3o Social / ID</p>
+                      <p className="text-gray-500">Razão Social / ID</p>
                     </div>
                   </div>
 
                   <div className="space-y-4 text-justify leading-snug">
                     <section>
-                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cl\u00e1usula 1\u00aa \u2014 Objeto</h2>
-                      <p>O presente contrato tem por objeto a presta\u00e7\u00e3o de servi\u00e7os de suporte em Tecnologia da Informa\u00e7\u00e3o (TI), incluindo suporte remoto via RustDesk, orienta\u00e7\u00e3o t\u00e9cnica por WhatsApp e visitas presenciais conforme o plano selecionado.</p>
+                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cláusula 1ª — Objeto</h2>
+                      <p>O presente contrato tem por objeto a prestação de serviços de suporte em Tecnologia da Informação (TI), incluindo suporte remoto via RustDesk, orientação técnica por WhatsApp e visitas presenciais conforme o plano selecionado.</p>
                     </section>
                     <section>
-                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cl\u00e1usula 2\u00aa \u2014 Escopo</h2>
-                      <p>Os servi\u00e7os abrangem suporte em hardware, software, redes e perif\u00e9ricos. **N\u00e3o est\u00e3o inclusos:** desenvolvimento de sistemas, design, consultoria jur\u00eddica/cont\u00e1bil ou el\u00e9trica predial.</p>
+                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cláusula 2ª — Escopo</h2>
+                      <p>Os serviços abrangem suporte em hardware, software, redes e periféricos. **Não estão inclusos:** desenvolvimento de sistemas, design, consultoria jurídica/contábil ou elétrica predial.</p>
                     </section>
                     <section>
-                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cl\u00e1usula 3\u00aa \u2014 Atendimento</h2>
-                      <p>Hor\u00e1rio comercial (08:00 \u00e0s 18:00). Incidentes Cr\u00edticos (rede inativa/servidor fora) possuem plant\u00e3o 24/7 conforme prioridade do plano.</p>
+                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cláusula 3ª — Atendimento</h2>
+                      <p>Horário comercial (08:00 às 18:00). Incidentes Críticos (rede inativa/servidor fora) possuem plantão 24/7 conforme prioridade do plano.</p>
                     </section>
                     <section>
-                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cl\u00e1usula 4\u00aa \u2014 Pe\u00e7as</h2>
-                      <p>Pe\u00e7as faturadas separadamente pelo valor de aquisi\u00e7\u00e3o + **10% de taxa de log\u00edstica**. O Contratante deve aprovar o orçamento antes da compra.</p>
+                      <h2 className="text-[11px] font-bold bg-[#8B2635] text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cláusula 4ª — Peças</h2>
+                      <p>Peças faturadas separadamente pelo valor de aquisição + **10% de taxa de logística**. O Contratante deve aprovar o orçamento antes da compra.</p>
                     </section>
                     <section>
-                      <h2 className="text-[11px] font-bold bg-black text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cl\u00e1usula 5\u00aa \u2014 Confidencialidade</h2>
-                      <p>Sigilo absoluto sobre dados e arquivos acessados, em total conformidade com a Lei Geral de Prote\u00e7\u00e3o de Dados (Lei 13.709/18).</p>
+                      <h2 className="text-[11px] font-bold bg-black text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cláusula 5ª — Confidencialidade</h2>
+                      <p>Sigilo absoluto sobre dados e arquivos acessados, em total conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/18).</p>
                     </section>
                     <section>
-                      <h2 className="text-[11px] font-bold bg-black text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cl\u00e1usula 9\u00aa \u2014 Fidelidade Zero</h2>
-                      <p>Rescis\u00e3o permitida a **qualquer momento**, sem multas, mediante aviso pr\u00e9vio formal de 30 dias por canal oficial.</p>
+                      <h2 className="text-[11px] font-bold bg-black text-white inline-block px-3 py-1 mb-2 uppercase italic tracking-tighter">Cláusula 9ª — Fidelidade Zero</h2>
+                      <p>Rescisão permitida a **qualquer momento**, sem multas, mediante aviso prévio formal de 30 dias por canal oficial.</p>
                     </section>
                   </div>
 
                   <div className="mt-20 flex justify-between gap-12 font-serif text-[8pt] italic">
                     <div className="w-1/2 border-t border-black pt-2 text-center text-gray-500">ASSINATURA CLIENTE</div>
-                    <div className="w-1/2 border-t border-[#8B2635] pt-2 text-center text-[#8B2635] font-bold uppercase tracking-widest font-sans underline decoration-[#C9A962]">IL POTERE TECH // BRAGAN\u00c7A</div>
+                    <div className="w-1/2 border-t border-[#8B2635] pt-2 text-center text-[#8B2635] font-bold uppercase tracking-widest font-sans underline decoration-[#C9A962]">IL POTERE TECH // BRAGANÇA</div>
                   </div>
                 </div>
               )}
 
+
               {activeTab === "proposta" && (
                 <div className="prose prose-slate max-w-none text-center font-serif flex flex-col h-full">
                   <div className="bg-[#080808] text-white p-8 mb-10 border-l-8 border-[#8B2635] text-left shadow-lg">
-                    <h2 className="text-[#C9A962] font-serif italic text-2xl mb-4 leading-tight">"Tecnologia fluida n\u00e3o \u00e9 custo, \u00e9 o motor da sua rentabilidade."</h2>
-                    <p className="text-gray-400 font-sans text-sm tracking-wide leading-relaxed">Foco total em PMEs de Bragan\u00e7a Paulista. Sem pegadinhas, sem contratos engessados. Apenas infraestrutura de elite para quem n\u00e3o pode parar.</p>
+                    <h2 className="text-[#C9A962] font-serif italic text-2xl mb-4 leading-tight">"Tecnologia fluida não é custo, é o motor da sua rentabilidade."</h2>
+                    <p className="text-gray-400 font-sans text-sm tracking-wide leading-relaxed">Foco total em PMEs de Bragança Paulista. Sem pegadinhas, sem contratos engessados. Apenas infraestrutura de elite para quem não pode parar.</p>
                   </div>
                   
                   <div className="grid grid-cols-3 gap-0 mb-10 border border-gray-200">
@@ -240,7 +241,7 @@ export default function BusinessHub() {
                       <div className="text-3xl font-bold mb-1 font-sans text-[#080808]">R$ 390</div>
                       <p className="text-[8px] text-gray-400 mb-6 uppercase tracking-[0.2em]">/ mensal</p>
                       <ul className="text-[8pt] text-left space-y-3 uppercase font-sans text-gray-600 font-bold">
-                        <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> At\u00e9 05 PCs</li>
+                        <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> Até 05 PCs</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> Remoto Ilimitado</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> 1 Visita Especializada</li>
                       </ul>
@@ -252,7 +253,7 @@ export default function BusinessHub() {
                       <div className="text-3xl font-bold mb-1 font-sans text-white">R$ 690</div>
                       <p className="text-[8px] text-white/30 mb-6 uppercase tracking-[0.2em]">/ mensal</p>
                       <ul className="text-[8pt] text-left space-y-3 uppercase font-sans text-white/80 font-bold">
-                        <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#C9A962]" /> At\u00e9 15 PCs</li>
+                        <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#C9A962]" /> Até 15 PCs</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#C9A962]" /> Remoto Ilimitado</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#C9A962]" /> 2 Visitas Presenciais</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#C9A962]" /> Monitoramento 24/7</li>
@@ -264,7 +265,7 @@ export default function BusinessHub() {
                       <div className="text-3xl font-bold mb-1 font-sans text-[#080808]">R$ 1.290</div>
                       <p className="text-[8px] text-gray-400 mb-6 uppercase tracking-[0.2em]">/ mensal</p>
                       <ul className="text-[8pt] text-left space-y-3 uppercase font-sans text-gray-600 font-bold">
-                        <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> At\u00e9 40 PCs</li>
+                        <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> Até 40 PCs</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> Resposta em 1h</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> Visitas Semanais</li>
                         <li className="flex items-center gap-2"><CheckSquare size={12} className="text-[#8B2635]" /> Suporte ao Servidor</li>
@@ -277,11 +278,11 @@ export default function BusinessHub() {
                     <div className="grid grid-cols-2 gap-8 text-[9pt]">
                       <div>
                         <strong className="text-black block mb-1 uppercase tracking-tight">Fidelidade Zero</strong>
-                        <p className="text-gray-500 font-sans leading-relaxed text-[8.5pt]">N\u00e3o prendemos clientes por contrato, mas pelo valor da nossa entrega. Cancele quando quiser com 30 dias de aviso.</p>
+                        <p className="text-gray-500 font-sans leading-relaxed text-[8.5pt]">Não prendemos clientes por contrato, mas pelo valor da nossa entrega. Cancele quando quiser com 30 dias de aviso.</p>
                       </div>
                       <div>
-                        <strong className="text-black block mb-1 uppercase tracking-tight">Log\u00cdstica 10%</strong>
-                        <p className="text-gray-500 font-sans leading-relaxed text-[8.5pt]">Transpar\u00eancia total: pe\u00e7as a pre\u00e7o de custo operacional, acrescido de apenas 10% pela gest\u00e3o técnica.</p>
+                        <strong className="text-black block mb-1 uppercase tracking-tight">Logística 10%</strong>
+                        <p className="text-gray-500 font-sans leading-relaxed text-[8.5pt]">Transparência total: peças a preço de custo operacional, acrescido de apenas 10% pela gestão técnica.</p>
                       </div>
                     </div>
                   </div>
@@ -293,28 +294,28 @@ export default function BusinessHub() {
                   <div className="bg-[#080808] text-white p-6 mb-10 flex justify-between items-center border-b-8 border-[#8B2635]">
                     <div>
                       <h2 className="text-[#C9A962] text-xl font-bold uppercase tracking-widest m-0 leading-tight italic font-serif">Onboarding de Elite</h2>
-                      <p className="text-[9px] uppercase tracking-widest text-gray-400 mt-2 font-mono">Protocolo Operacional // Bragan\u00e7a Paulista</p>
+                      <p className="text-[9px] uppercase tracking-widest text-gray-400 mt-2 font-mono">Protocolo Operacional // Bragança Paulista</p>
                     </div>
                     <Target size={50} className="text-[#8B2635] opacity-40" />
                   </div>
 
                   <div className="grid grid-cols-2 gap-8 mb-10">
                     <div className="p-6 bg-gray-50 border border-gray-100">
-                      <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">K.0 \u2014 Arsenal F\u00edsico</h3>
+                      <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">K.0 — Arsenal Físico</h3>
                       <ul className="space-y-2 text-gray-700 font-sans text-[8.5pt] p-0 list-none">
-                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Kit Fixit / Philips Precis\u00e3o</li>
-                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Mult\u00edmetro Digital RMS</li>
-                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Pulseira Antiest\u00e1tica</li>
+                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Kit Fixit / Philips Precisão</li>
+                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Multímetro Digital RMS</li>
+                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Pulseira Antiestática</li>
                         <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Plug Tester (Tomadas)</li>
                       </ul>
                     </div>
                     <div className="p-6 bg-gray-50 border border-gray-100">
-                      <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">K.1 \u2014 Deploy Digital</h3>
+                      <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">K.1 — Deploy Digital</h3>
                       <ul className="space-y-2 text-gray-700 font-sans text-[8.5pt] p-0 list-none">
                         <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Tactical RMM + RustDesk</li>
                         <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Testador de Fonte Profissional</li>
                         <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Certificador de Rede RJ45</li>
-                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Insumos (Pasta MX-4 / \u00c1lcool)</li>
+                        <li className="flex items-center gap-2 font-bold text-black border-l-2 border-[#C9A962] pl-2">Insumos (Pasta MX-4 / Álcool)</li>
                       </ul>
                     </div>
                   </div>
@@ -324,12 +325,12 @@ export default function BusinessHub() {
                     <div className="grid grid-cols-4 gap-4">
                       <div className="p-4 bg-[#080808] text-white border-t-4 border-[#8B2635]">
                          <div className="text-[#C9A962] font-serif italic text-lg mb-1">F1</div>
-                         <div className="text-[8px] font-bold uppercase tracking-tighter">RECON (S\u00f3cio 1)</div>
+                         <div className="text-[8px] font-bold uppercase tracking-tighter">RECON (Sócio 1)</div>
                          <p className="text-[7.5pt] text-gray-400 mt-2 font-sans">Mapear Rack, IPs e Gateways.</p>
                       </div>
                       <div className="p-4 bg-[#080808] text-white border-t-4 border-[#8B2635]">
                          <div className="text-[#C9A962] font-serif italic text-lg mb-1">F2</div>
-                         <div className="text-[8px] font-bold uppercase tracking-tighter">DEPLOY (S\u00f3cio 2)</div>
+                         <div className="text-[8px] font-bold uppercase tracking-tighter">DEPLOY (Sócio 2)</div>
                          <p className="text-[7.5pt] text-gray-400 mt-2 font-sans">Agentes RMM e Etiquetas ID.</p>
                       </div>
                       <div className="p-4 bg-[#080808] text-white border-t-4 border-[#8B2635]">
@@ -347,14 +348,14 @@ export default function BusinessHub() {
                 </div>
               )}
 
-              {/* Footer do Documento para Impress\u00e3o */}
+              {/* Footer do Documento para Impressão */}
               <div className="mt-auto pt-10 text-[8px] text-gray-300 flex justify-between items-end italic border-t border-gray-100 uppercase tracking-widest font-mono">
                 <div>
                   <p className="font-bold text-[#8B2635]">IL POTERE TECH // ELITE IT SOLUTIONS</p>
-                  <p>Bragan\u00e7a Paulista, SP | www.ilpotere.tech</p>
+                  <p>Bragança Paulista, SP | www.ilpotere.tech</p>
                 </div>
                 <div className="text-right text-gray-400">
-                  Ref: Mar\u00e7o 2026 // Hub Control Center
+                  Ref: Março 2026 // Hub Control Center
                 </div>
               </div>
 
