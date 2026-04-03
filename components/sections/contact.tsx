@@ -4,6 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { toast } from "sonner"
+import { useState } from "react"
+import { supabase } from "@/lib/supabase"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -35,6 +37,7 @@ const formSchema = z.object({
 })
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,10 +49,29 @@ export function Contact() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.")
-    form.reset()
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true)
+    try {
+      const { error } = await supabase.from("leads").insert([
+        {
+          name: values.name,
+          email: values.email || null,
+          phone: values.phone || null,
+          company: values.company || null,
+          message: values.message,
+        },
+      ])
+
+      if (error) throw error
+
+      toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.")
+      form.reset()
+    } catch (error) {
+      console.error("Erro ao enviar mensagem:", error)
+      toast.error("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -179,9 +201,10 @@ export function Contact() {
                 />
                 <Button 
                   type="submit" 
-                  className="w-full h-12 bg-[#8B2635] hover:bg-[#A63344] text-[#F5F0E8] font-medium tracking-wide transition-all"
+                  disabled={isSubmitting}
+                  className="w-full h-12 bg-[#8B2635] hover:bg-[#A63344] text-[#F5F0E8] font-medium tracking-wide transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Enviar Mensagem
+                  {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
                 </Button>
               </form>
             </Form>

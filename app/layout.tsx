@@ -22,10 +22,57 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Il Potere Tech — Suporte em TI | Bragança Paulista, SP',
-  description:
-    'Suporte técnico para pequenas empresas em Bragança Paulista. Remoto 24h para emergências, visitas presenciais no horário comercial. Sem fidelidade, sem surpresas.',
-  keywords: 'suporte TI, Bragança Paulista, suporte técnico, informática, TI empresarial',
+  title: {
+    default: "Il Potere Tech — Suporte em TI | Bragança Paulista & Região",
+    template: "%s | Il Potere Tech"
+  },
+  description: "Suporte técnico especializado para clínicas, escritórios de advocacia e contabilidades em Bragança Paulista. TI humana, sem fidelidade e com suporte 24h para emergências.",
+  keywords: ["suporte TI Bragança Paulista", "TI para clínicas", "TI para advogados", "gestão de TI", "infraestrutura de rede", "segurança digital", "suporte técnico especializado"],
+  authors: [{ name: "Il Potere Tech" }],
+  creator: "Il Potere Tech",
+  publisher: "Il Potere Tech",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://ilpotere.tech",
+    siteName: "Il Potere Tech",
+    title: "Il Potere Tech — Suporte em TI que Funciona",
+    description: "Foque no seu negócio, nós cuidamos da tecnologia. Suporte em TI em Bragança Paulista sem amarras de fidelidade.",
+    images: [
+      {
+        url: "/og-image.png", // User would need to provide/generate this
+        width: 1200,
+        height: 630,
+        alt: "Il Potere Tech — Tecnologia que Funciona",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Il Potere Tech — Suporte em TI em Bragança Paulista",
+    description: "TI humanizada e eficiente para pequenas empresas. Sem fidelidade.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export const viewport: Viewport = {

@@ -57,14 +57,14 @@ export const SERVICOS = [
     desc: "Quando o problema exige presença física, estamos lá em horário comercial.",
   },
   {
-    icone: "🔒",
-    titulo: "Segurança Digital",
-    desc: "Proteção contra vírus, backup de dados e políticas de segurança.",
+    icone: "🛡️",
+    titulo: "Backup & Anti-Ransomware",
+    desc: "Estratégia 3-2-1 com backup off-site (nuvem) e imutável, garantindo que seus dados sobrevivam a qualquer ataque ou falha.",
   },
   {
     icone: "📊",
-    titulo: "Consultoria em TI",
-    desc: "Planejamento estratégico para otimizar sua infraestrutura tecnológica.",
+    titulo: "Consultoria Estratégica",
+    desc: "Planejamento para clínicas e escritórios, focando em LGPD, certificados digitais e infraestrutura de alta disponibilidade.",
   },
 ]
 
@@ -78,22 +78,22 @@ export const DIFERENCIAIS = [
 export const FAQ = [
   {
     q: "Como funciona o suporte remoto?",
-    a: "Utilizamos ferramentas seguras de acesso remoto que permitem resolver a maioria dos problemas sem necessidade de visita presencial. Você autoriza o acesso, acompanha tudo na tela e nós resolvemos.",
+    a: "Utilizamos ferramentas seguras (como o RustDesk ou AnyDesk corporativo) que permitem resolver a maioria dos problemas de software e configuração sem que você tenha que esperar por uma visita presencial.",
   },
   {
-    q: "Vocês atendem fora de Bragança Paulista?",
-    a: "Nosso atendimento presencial é focado em Bragança Paulista e região. Para suporte remoto, atendemos empresas de qualquer localidade.",
+    q: "Vocês atendem clínicas e escritórios especializados?",
+    a: "Sim, somos especialistas em infraestrutura para clínicas médicas (LGPD e prontuários), escritórios de advocacia (peticionamento eletrônico) e contabilidades (sistemas de gestão e certificados digitais).",
   },
   {
-    q: "Preciso assinar contrato de fidelidade?",
-    a: "Não. Nossos planos são mensais e você pode cancelar a qualquer momento, sem multas ou taxas adicionais.",
+    q: "Preciso assinar um contrato de fidelidade?",
+    a: "Nossa proposta é baseada na confiança. Se você não estiver satisfeito, pode cancelar no próximo mês, sem multas. Não queremos amarrar nossos clientes com taxas, mas sim com a qualidade do serviço.",
   },
   {
-    q: "O que acontece se eu precisar de mais visitas?",
-    a: "Visitas adicionais são cobradas à parte, com valor previamente acordado. Sem surpresas na fatura.",
+    q: "Como meu backup está seguro contra Ransomware?",
+    a: "Seguimos a regra 3-2-1: Três cópias dos dados, em duas mídias, com uma fora da empresa (off-site). Usamos armazenamento imutável, o que impede que um vírus consiga apagar ou criptografar o backup.",
   },
   {
-    q: "Vocês oferecem suporte para Mac e Linux?",
-    a: "Sim! Atendemos Windows, macOS e as principais distribuições Linux. Nossa equipe é capacitada em múltiplas plataformas.",
+    q: "Vocês fazem manutenção preventiva ou só corretiva?",
+    a: "Nosso foco é a prevenção. Monitoramos sua infraestrutura, backups e atualizações de segurança para garantir que o problema seja resolvido antes mesmo que você perceba.",
   },
 ]
