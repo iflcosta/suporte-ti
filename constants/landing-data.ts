@@ -82,9 +82,9 @@ export const SERVICOS = [
     desc: "Projetos de redes de alta disponibilidade e Wi-Fi corporativo estável, eliminando pontos cegos e quedas de sinal.",
   },
   {
-    icone: "📊",
-    titulo: "Consultoria Estratégica",
-    desc: "Planejamento para clínicas e escritórios, focando em redução de custos operacionais e alta disponibilidade de TI.",
+    icone: "⚙️",
+    titulo: "Suporte a Sistemas (ERP/CRM)",
+    desc: "Instalação e manutenção de sistemas como iClinic, Shosp, ProJuris ou CP-Pro. Garantimos que sua ferramenta principal funcione sem interrupções.",
   },
 ]
 
