@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Plano — Empresa de Suporte TI</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --green: #00ff88;
+    --yellow: #ffd60a;
+    --red: #ff4444;
+    --text: #e2e8f0;
+    --muted: #64748b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    -webkit-tap-highlight-color: transparent;
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; position: relative; z-index: 1; }
+
+  /* HEADER */
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 40px; }
+  .header-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--accent);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-meta {
+    margin-top: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--muted);
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 6px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  /* SUMÁRIO */
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    margin-bottom: 48px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    padding: 20px;
+  }
+  .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--accent); letter-spacing: 1px; }
+  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* SEÇÕES */
+  .section { margin-bottom: 48px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--accent2);
+    background: rgba(124,58,237,0.1);
+    padding: 2px 8px;
+    border: 1px solid rgba(124,58,237,0.3);
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 2px; color: #fff;
+  }
+
+  /* SEMANAS */
+  .week-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .week-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(0,212,255,0.04);
+  }
+  .week-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; font-weight: 600; color: var(--accent);
+  }
+  .week-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; padding: 3px 10px;
+    border: 1px solid;
+  }
+  .badge-legal { color: var(--yellow); border-color: rgba(255,214,10,0.3); background: rgba(255,214,10,0.05); }
+  .badge-brand { color: #f472b6; border-color: rgba(244,114,182,0.3); background: rgba(244,114,182,0.05); }
+  .badge-sales { color: var(--green); border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.05); }
+  .badge-ops { color: var(--accent); border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.05); }
+
+  .week-tasks { padding: 16px 20px; }
+  .task {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(30,30,46,0.8);
+    font-size: 13px;
+  }
+  .task:last-child { border-bottom: none; }
+  .task-check {
+    width: 16px; height: 16px; min-width: 16px;
+    border: 1px solid var(--border);
+    margin-top: 2px;
+  }
+  .task-owner {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 0;
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .owner-select {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border: 1px solid #333;
+    border-radius: 2px;
+    background: #1a1a24;
+    color: #e2e8f0;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.2s;
+    min-width: 72px;
+    text-align: center;
+  }
+  .owner-select option { background: #111118; color: #e2e8f0; }
+  .owner-select.iago {
+    color: #00d4ff;
+    border-color: #00d4ff;
+    background: #0d1f2d;
+  }
+  .owner-select.camargo {
+    color: #f472b6;
+    border-color: #f472b6;
+    background: #2d0f1e;
+  }
+  .owner-select.ambos {
+    color: #00ff88;
+    border-color: #00ff88;
+    background: #0d2d1a;
+  }
+
+  /* FINANCEIRO */
+  .finance-table { width: 100%; border-collapse: collapse; }
+  .finance-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--muted); text-align: left;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .finance-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(30,30,46,0.6);
+    font-size: 13px;
+  }
+  .finance-table tr:last-child td { border-bottom: none; }
+  .finance-table tr:hover td { background: rgba(0,212,255,0.03); }
+  .num { font-family: 'IBM Plex Mono', monospace; }
+  .positive { color: var(--green); }
+  .neutral { color: var(--yellow); }
+  .total-row td { background: rgba(0,212,255,0.05); font-weight: 600; }
+
+  /* JURÍDICO */
+  .legal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .legal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+  .legal-card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--accent); margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .legal-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .legal-card strong { color: var(--text); }
+  .rec-tag {
+    display: inline-block; margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    padding: 3px 8px; background: rgba(0,255,136,0.1);
+    border: 1px solid rgba(0,255,136,0.3); color: var(--green);
+  }
+
+  /* ALERTA */
+  .alert {
+    background: rgba(255,214,10,0.05);
+    border: 1px solid rgba(255,214,10,0.2);
+    border-left: 3px solid var(--yellow);
+    padding: 16px 20px;
+    margin-top: 16px;
+  }
+  .alert-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--yellow);
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 13px; color: var(--muted); }
+
+  /* FERRAMENTAS */
+  .tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .tool-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .tool-icon {
+    width: 32px; height: 32px; min-width: 32px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.15);
+  }
+  .tool-name { font-size: 13px; font-weight: 600; }
+  .tool-cost { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
+  .free { color: var(--green); }
+
+  /* PROSPECÇÃO */
+  .prospect-flow {
+    display: flex; align-items: stretch; gap: 0;
+    margin-bottom: 20px; overflow-x: auto;
+  }
+  .flow-step {
+    flex: 1; min-width: 120px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-right: none;
+    padding: 16px 14px; text-align: center;
+    position: relative;
+  }
+  .flow-step:last-child { border-right: 1px solid var(--border); }
+  .flow-step::after {
+    content: '→';
+    position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+    color: var(--accent); font-size: 16px; z-index: 2;
+    background: var(--bg); padding: 0 2px;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-day { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--accent); margin-bottom: 6px; }
+  .flow-action { font-size: 12px; color: var(--text); }
+
+  /* UPSELL */
+  .upsell-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .upsell-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent2);
+    padding: 16px;
+  }
+  .upsell-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+  .upsell-card .price { font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: var(--accent2); }
+  .upsell-card p { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-left { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
+  .footer-right { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--border); letter-spacing: 3px; }
+
+  /* ── RESPONSIVO TABLET ── */
+  @media (max-width: 768px) {
+    .container { padding: 24px 16px; }
+    .header h1 { font-size: clamp(36px, 10vw, 60px); }
+    .summary-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .legal-grid { grid-template-columns: 1fr; }
+    .upsell-grid { grid-template-columns: 1fr 1fr; }
+    .tools-grid { grid-template-columns: 1fr 1fr; }
+    .finance-table th, .finance-table td { padding: 8px 10px; font-size: 12px; }
+    .invest-table th, .invest-table td { padding: 8px 10px; font-size: 12px; }
+    .section-title { font-size: 22px; }
+  }
+
+  /* ── RESPONSIVO MOBILE ── */
+  @media (max-width: 480px) {
+    .container { padding: 16px 12px; }
+
+    /* Header */
+    .header { padding-bottom: 20px; margin-bottom: 24px; }
+    .header h1 { font-size: clamp(32px, 12vw, 48px); }
+    .header-meta { gap: 10px; font-size: 10px; flex-wrap: wrap; }
+    .global-progress { margin-top: 14px; }
+
+    /* Cards de resumo — empilha 1 coluna */
+    .summary-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 28px; }
+    .stat-card { padding: 14px 16px; }
+    .stat-value { font-size: 26px; }
+
+    /* Seções */
+    .section { margin-bottom: 32px; }
+    .section-header { margin-bottom: 14px; padding-bottom: 10px; gap: 8px; }
+    .section-title { font-size: 20px; }
+    .section-num { font-size: 10px; }
+
+    /* Week block */
+    .week-header { padding: 12px 14px; flex-wrap: wrap; gap: 6px; }
+    .week-title { font-size: 11px; }
+    .week-tasks { padding: 10px 14px; }
+    .progress-bar-wrap { padding: 8px 14px 0; }
+
+    /* Tasks */
+    .task { padding: 9px 4px; gap: 8px; font-size: 12px; align-items: center; }
+    .task-check { width: 20px; height: 20px; min-width: 20px; flex-shrink: 0; }
+    .task-text { font-size: 12px; line-height: 1.5; }
+    .task-remove { opacity: 1 !important; width: 24px; height: 24px; min-width: 24px; font-size: 16px; }
+
+    /* Owner select — maior para toque */
+    .owner-select {
+      font-size: 10px;
+      padding: 4px 6px;
+      min-width: 78px;
+      height: 28px;
+    }
+
+    /* Botão adicionar tarefa */
+    .add-task-btn { font-size: 12px; padding: 8px 10px; }
+
+    /* Grids */
+    .legal-grid { grid-template-columns: 1fr; gap: 10px; }
+    .upsell-grid { grid-template-columns: 1fr; gap: 10px; }
+    .tools-grid { grid-template-columns: 1fr; gap: 8px; }
+    .tool-item { padding: 10px 12px; }
+
+    /* Fluxo de prospecção — scroll horizontal */
+    .prospect-flow { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+    .flow-step { min-width: 100px; padding: 12px 10px; }
+    .flow-action { font-size: 11px; }
+
+    /* Tabela financeira — scroll horizontal */
+    .finance-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .finance-table { min-width: 420px; }
+    .finance-table th, .finance-table td { padding: 8px 10px; font-size: 11px; }
+
+    /* Tabela de investimento */
+    .invest-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .invest-table { min-width: 340px; }
+    .invest-table th, .invest-table td { padding: 8px 10px; font-size: 11px; }
+    .invest-total-value { font-size: 18px; }
+    .invest-add-btn { font-size: 12px; padding: 8px 10px; }
+
+    /* Alertas */
+    .alert { padding: 12px 14px; }
+    .alert p { font-size: 12px; }
+
+    /* Lixeira */
+    .trash-title { font-size: 11px; }
+    .trash-item { padding: 8px 10px; }
+    .trash-item-text { font-size: 11px; }
+    .trash-restore { padding: 3px 8px; font-size: 10px; }
+
+    /* Footer */
+    .footer { flex-direction: column; gap: 8px; margin-top: 40px; }
+    .footer-right { font-size: 16px; }
+
+    /* Cards jurídicos e SaaS */
+    .legal-card { padding: 14px; }
+    .upsell-card { padding: 14px; }
+  }
+
+
+
+
+  /* INVESTIMENTO EDITÁVEL */
+  .invest-table { width: 100%; border-collapse: collapse; }
+  .invest-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--muted); text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .invest-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(30,30,46,0.6);
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .invest-table tr:last-child td { border-bottom: none; }
+  .invest-table tr:hover td { background: rgba(0,212,255,0.03); }
+  .invest-cell-text {
+    outline: none;
+    border-radius: 2px;
+    padding: 2px 4px;
+    transition: background 0.15s;
+    display: inline-block;
+    min-width: 80px;
+  }
+  .invest-cell-text:hover { background: rgba(0,212,255,0.06); cursor: text; }
+  .invest-cell-text:focus {
+    background: rgba(0,212,255,0.1);
+    outline: 1px solid var(--accent);
+  }
+  .invest-cell-value {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--yellow);
+  }
+  .invest-row-remove {
+    width: 24px; text-align: center;
+  }
+  .invest-row-remove button {
+    background: none; border: none; cursor: pointer;
+    color: var(--muted); font-size: 14px;
+    opacity: 0; transition: all 0.15s;
+    padding: 2px 4px; border-radius: 2px;
+  }
+  .invest-table tr:hover .invest-row-remove button { opacity: 1; }
+  .invest-table tr:hover .invest-row-remove button:hover { color: var(--red); background: rgba(255,68,68,0.1); }
+  .invest-total-row td {
+    background: rgba(0,212,255,0.05);
+    font-weight: 600;
+    border-top: 1px solid var(--border);
+  }
+  .invest-total-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; color: var(--accent);
+    letter-spacing: 1px;
+  }
+  .invest-add-btn {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    cursor: pointer; background: none; border: none;
+    padding: 5px 8px; border-radius: 2px;
+    transition: all 0.15s;
+  }
+  .invest-add-btn:hover { color: var(--accent); background: rgba(0,212,255,0.06); }
+  .invest-add-btn::before { content: '+'; font-size: 16px; line-height: 1; }
+  .invest-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    margin-top: 10px; opacity: 0.5;
+  }
+
+  /* LIXEIRA */
+  .trash-section {
+    margin-top: 48px;
+    border-top: 1px dashed var(--border);
+    padding-top: 24px;
+  }
+  .trash-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px; cursor: pointer;
+  }
+  .trash-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .trash-count {
+    background: rgba(255,68,68,0.15);
+    color: var(--red); border: 1px solid rgba(255,68,68,0.3);
+    font-size: 10px; padding: 1px 6px; border-radius: 10px;
+  }
+  .trash-toggle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    background: none; border: none; cursor: pointer;
+    transition: color 0.15s;
+  }
+  .trash-toggle:hover { color: var(--accent); }
+  .trash-list { display: none; }
+  .trash-list.open { display: block; }
+  .trash-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid rgba(255,68,68,0.3);
+    margin-bottom: 6px;
+    font-size: 13px; color: var(--muted);
+  }
+  .trash-item-text { flex: 1; text-decoration: line-through; font-size: 12px; }
+  .trash-item-section {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    padding: 1px 6px;
+  }
+  .trash-restore {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--green);
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.25);
+    padding: 2px 8px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .trash-restore:hover { background: rgba(0,255,136,0.18); }
+  .trash-empty {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    padding: 12px; text-align: center; opacity: 0.5;
+  }
+  .trash-clear {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    background: none; border: 1px solid var(--border);
+    padding: 4px 12px; cursor: pointer; margin-top: 8px;
+    transition: all 0.15s; display: block;
+  }
+  .trash-clear:hover { color: var(--red); border-color: rgba(255,68,68,0.4); }
+
+  /* EDIÇÃO INLINE */
+  .task-text {
+    flex: 1;
+    cursor: text;
+    border-radius: 2px;
+    padding: 1px 4px;
+    transition: background 0.15s;
+    min-width: 0;
+  }
+  .task-text:hover { background: rgba(0,212,255,0.06); }
+  .task-text[contenteditable="true"] {
+    outline: 1px solid var(--accent);
+    background: rgba(0,212,255,0.08);
+    cursor: text;
+    border-radius: 2px;
+  }
+  .task-remove {
+    width: 18px; height: 18px; min-width: 18px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 14px; line-height: 1;
+    cursor: pointer; border-radius: 2px;
+    opacity: 0;
+    transition: all 0.15s;
+    background: none; border: none;
+    margin-top: 2px;
+  }
+  .task:hover .task-remove { opacity: 1; }
+  .task-remove:hover { color: var(--red); background: rgba(255,68,68,0.1); }
+  .add-task-btn {
+    display: flex; align-items: center; gap: 8px;
+    margin: 8px 0 4px 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    cursor: pointer; background: none; border: none;
+    padding: 4px 6px; border-radius: 2px;
+    transition: all 0.15s;
+  }
+  .add-task-btn:hover { color: var(--accent); background: rgba(0,212,255,0.06); }
+  .add-task-btn::before { content: '+'; font-size: 16px; line-height: 1; }
+  .edit-hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    text-align: right; margin-bottom: 8px;
+    opacity: 0.5;
+  }
+
+  /* CHECKBOXES INTERATIVOS */
+  .task {
+    cursor: pointer;
+    transition: background 0.15s;
+    border-radius: 2px;
+    padding: 7px 6px;
+  }
+  .task:hover { background: rgba(0,212,255,0.04); }
+  .task-check {
+    width: 18px; height: 18px; min-width: 18px;
+    border: 1.5px solid var(--muted);
+    border-radius: 3px;
+    margin-top: 2px;
+    position: relative;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .task-check::after {
+    content: '';
+    width: 0; height: 0;
+    border: 2px solid var(--green);
+    border-top: none; border-right: none;
+    transform: rotate(-45deg) scale(0);
+    transition: all 0.15s;
+    position: absolute;
+    top: 3px; left: 2px;
+    width: 8px; height: 5px;
+  }
+  .task.done .task-check {
+    background: rgba(0,255,136,0.15);
+    border-color: var(--green);
+  }
+  .task.done .task-check::after {
+    transform: rotate(-45deg) scale(1);
+  }
+  .task.done > span:first-of-type {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+  .task.done { opacity: 0.6; }
+
+  /* BARRA DE PROGRESSO */
+  .progress-bar-wrap {
+    margin: 0 0 4px 0;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .progress-bar-bg {
+    flex: 1; height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%; width: 0%;
+    background: var(--green);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* CONTADOR GERAL NO HEADER */
+  .global-progress {
+    margin-top: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .global-progress-bg {
+    flex: 1; height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .global-progress-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  .global-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--accent);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-tag">// plano de negócio — v1.0</div>
+    <h1>EMPRESA DE<br><span>SUPORTE TI</span></h1>
+    <div class="header-meta">
+      <span><span class="dot"></span> Status: Pré-operação</span>
+      <span>// Bragança Paulista, SP</span>
+      <span>// 2 sócios</span>
+      <span>// Março 2026</span>
+    </div>
+    <div class="global-progress">
+      <div class="global-progress-bg"><div class="global-progress-fill" id="globalFill"></div></div>
+      <span class="global-label" id="globalLabel">0 / 0 tarefas</span>
+    </div>
+  </div>
+
+  <!-- SUMÁRIO FINANCEIRO -->
+  <div class="edit-hint">// clique duplo na tarefa para editar • × para remover</div>
+<div class="summary-grid">
+    <div class="stat-card">
+      <div class="stat-label">Investimento inicial</div>
+      <div class="stat-value" id="headerInvest">R$190</div>
+      <div class="stat-sub">Sincronizado com seção 04b</div>
+    </div>
+    <div class="stat-card" style="border-top-color: var(--green)">
+      <div class="stat-label">Meta mês 1</div>
+      <div class="stat-value" style="color:var(--green)">R$1.750</div>
+      <div class="stat-sub">5 contratos Basic fechados</div>
+    </div>
+    <div class="stat-card" style="border-top-color: var(--accent2)">
+      <div class="stat-label">Potencial mês 3</div>
+      <div class="stat-value" style="color:var(--accent2)">R$9.250</div>
+      <div class="stat-sub">15 contratos + upsell SaaS</div>
+    </div>
+  </div>
+
+  <!-- SEMANA 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">ESTRUTURA LEGAL & ADMINISTRATIVA</span>
+    </div>
+
+    <div class="week-block">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 1 — Dias 1 a 7</span>
+        <span class="week-badge badge-legal">LEGAL</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s1"></div></div>
+          <span class="progress-label" id="label-s1">0/8</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s1">
+        <div class="task" data-id="s1-1"><div class="task-check"></div><span class="task-text">Definir nome da empresa</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-2"><div class="task-check"></div><span class="task-text">Decidir modelo jurídico: MEI por enquanto (recomendado abrir cada um o seu MEI — veja seção jurídica)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-3"><div class="task-check"></div><span class="task-text">Abrir MEI no gov.br — CNAE 6209-1/00 — gratuito, ~15min</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-4"><div class="task-check"></div><span class="task-text">Abrir conta PJ gratuita — Nubank PJ ou Inter PJ</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-5"><div class="task-check"></div><span class="task-text">Comprar chip novo para número comercial (R$ 50)</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-6"><div class="task-check"></div><span class="task-text">Configurar WhatsApp Business com perfil completo</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-7"><div class="task-check"></div><span class="task-text">Criar email profissional no Registro.br (R$ 50/ano)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-8"><div class="task-check"></div><span class="task-text">Definir divisão financeira — redigir acordo entre sócios por escrito</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-9"><div class="task-check"></div><span class="task-text">Adquirir Uniforme/Apresentação (Polo com logo ou Crachá)</span><span class="task-owner"><select class="owner-select camargo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-10"><div class="task-check"></div><span class="task-text">Montar Kit Físico de Campo (Álcool Isopropílico, Pincel, Limpa Telas)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s1">Adicionar tarefa</button></div>
+              </div>
+    </div>
+
+    <!-- JURÍDICO -->
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h4>⚡ Recomendação — MEI agora</h4>
+        <p>Cada sócio abre seu próprio MEI. <strong>MEI não permite sociedade</strong>, mas vocês podem operar como dois prestadores independentes usando o mesmo nome comercial. Custo zero, 15 minutos cada.</p>
+        <span class="rec-tag">✓ RECOMENDADO PARA INÍCIO</span>
+      </div>
+      <div class="legal-card">
+        <h4>📋 LTDA depois (mês 3+)</h4>
+        <p>Quando tiver faturamento recorrente comprovado, abrir uma <strong>LTDA ou SLU</strong> para emitir NF, ter CNPJ único e proteger os dois juridicamente. Custo: ~R$ 500–1.500 com contador.</p>
+        <span class="rec-tag" style="color:var(--yellow);border-color:rgba(255,214,10,0.3);background:rgba(255,214,10,0.05)">PLANEJADO MÊS 3</span>
+      </div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-title">⚠ Acordo entre sócios</div>
+      <p>Antes de qualquer cliente, definam por escrito: divisão de receita (50/50 ou outro), quem paga o quê, o que acontece se um quiser sair. Um documento simples evita 90% dos conflitos futuros.</p>
+    </div>
+
+    <div class="alert" style="border-left-color: #00d4ff; background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.15); margin-top: 12px;">
+      <div class="alert-title" style="color: #00d4ff;">🔧 Cyber Informática — Parceiro Fornecedor</div>
+      <p><strong style="color:#e2e8f0">Peças e componentes:</strong> usar a Cyber como fornecedor principal. Custo de compra + 20–30% de margem na revenda para o cliente.<br>
+      <strong style="color:#e2e8f0">Manutenções complexas:</strong> encaminhar para a bancada da Cyber quando o suporte remoto não resolver.<br>
+      <strong style="color:#e2e8f0">Formalizar:</strong> combinar preço de custo fixo com o dono — mesmo que informalmente no início.</p>
+    </div>
+
+    <div class="alert" style="border-left-color: #7c3aed; background: rgba(124,58,237,0.03); border-color: rgba(124,58,237,0.15); margin-top: 12px;">
+      <div class="alert-title" style="color: #a78bfa;">🏦 Conta PJ Compartilhada</div>
+      <p>MEI é individual — cada um abre o seu. No <strong style="color:#e2e8f0">Inter PJ</strong>, um sócio abre a conta e adiciona o outro como operador com acesso completo. Funciona como conta conjunta na prática.</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">IDENTIDADE & MATERIAIS</span>
+    </div>
+
+    <div class="week-block" style="border-left-color: #f472b6">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 1 & 2 — 03 a 17 de Abil</span>
+        <span class="week-badge badge-brand">FUNDAÇÃO & MARCA</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s2" style="background: #f472b6"></div></div>
+          <span class="progress-label" id="label-s2">0/8</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s2">
+        <div class="task" data-id="s2-1"><div class="task-check"></div><span class="task-text">Criar logo no Ideogram ou Canva — estilo tech/profissional</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-2"><div class="task-check"></div><span class="task-text">Registrar domínio .com.br — R$ 50/ano</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-3"><div class="task-check"></div><span class="task-text">Criar landing page simples (Next.js ou Carrd — 1 página)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task done" data-id="s2-4"><div class="task-check"></div><span class="task-text">Modelo de proposta comercial de 1 página finalizado (Foco em Produtividade)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task done" data-id="s2-5"><div class="task-check"></div><span class="task-text">Modelo de contrato técnico profissional finalizado (SLA Seguro - 4h/8h)</span><span class="task-owner"><select class="owner-select camargo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-6"><div class="task-check"></div><span class="task-text">Pedir cartões de visita (100–200 unid.) — logo + WhatsApp + site + QR Code</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-7"><div class="task-check"></div><span class="task-text">Instalar RustDesk nos notebooks</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-8"><div class="task-check"></div><span class="task-text">Criar perfil no Google Meu Negócio (SEO local gratuito)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-9"><div class="task-check"></div><span class="task-text">Configurar Campanha Google Ads (R$ 150/mês — Foco em Intenção)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s2">Adicionar tarefa</button></div>
+              </div>
+    </div>
+  </div>
+
+  <!-- SEMANA 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">PROSPECÇÃO & PRIMEIRO CONTRATO</span>
+    </div>
+
+    <div class="week-block" style="border-left-color: var(--green)">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 3 — 18 a 26 de Abril</span>
+        <span class="week-badge badge-sales">PREPARAÇÃO VENDAS</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s3"></div></div>
+          <span class="progress-label" id="label-s3">0/6</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s3">
+        <div class="task" data-id="s3-1"><div class="task-check"></div><span class="task-text">Mapear 20 empresas-alvo em BP (Google Maps — contabilidades, clínicas, farmácias)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-2"><div class="task-check"></div><span class="task-text">Definir roteiro de visitas por bairro/rua (otimizar deslocamento)</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-3"><div class="task-check"></div><span class="task-text">Fazer as 5 primeiras visitas presenciais — foco em contabilidades (Camargo diariamente + Iago quando flexível)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-4"><div class="task-check"></div><span class="task-text">Enviar proposta PDF no mesmo dia da visita via WhatsApp</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-5"><div class="task-check"></div><span class="task-text">Follow-up dia 3 se não respondeu</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-6"><div class="task-check"></div><span class="task-text">Meta: 1 contrato fechado até o final da semana</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-7"><div class="task-check"></div><span class="task-text">Roleplay/Simulação de Atendimento e Venda (Treinar objeções)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-8"><div class="task-check"></div><span class="task-text">Ativar Campanha Meta Ads (R$ 350 — Vídeos e Prova Social Local)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s3">Adicionar tarefa</button></div>
+              </div>
+    </div>
+
+    <!-- FLUXO DE PROSPECÇÃO -->
+    <div style="margin-top: 20px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">// Fluxo por prospect</div>
+      <div class="prospect-flow">
+        <div class="flow-step">
+          <div class="flow-day">DIA 1</div>
+          <div class="flow-action">Visita presencial</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day">DIA 1</div>
+          <div class="flow-action">Proposta PDF no WhatsApp</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day">DIA 3</div>
+          <div class="flow-action">Follow-up se silêncio</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day">DIA 7</div>
+          <div class="flow-action">Último contato</div>
+        </div>
+        <div class="flow-step" style="border-top: 2px solid var(--green); background: rgba(45,106,79,0.1); padding: 15px;">
+          <div class="flow-day" style="color: var(--green-l); font-size: 14px; font-weight: bold;">DIA 27 DE ABRIL</div>
+          <div class="flow-action" style="color: #fff; font-size: 16px;">🚀 GRANDE LANÇAMENTO EM BRAGANÇA</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day" style="color:var(--green)">FECHOU</div>
+          <div class="flow-action">Assinar contrato</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.2);">
+      <div class="alert-title" style="color: var(--green)">💡 Melhor abordagem presencial</div>
+      <p>"Somos da [nome], oferecemos suporte de TI para pequenas empresas em Bragança Paulista. Posso te mostrar como funciona em 5 minutos?" — Se mostrar interesse, marcar reunião e apresentar proposta no notebook.</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 4+ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">OPERAÇÃO & ESCALA</span>
+    </div>
+
+    <div class="week-block" style="border-left-color: var(--accent2)">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 4 em diante — Operação contínua</span>
+        <span class="week-badge badge-ops">OPERAÇÃO</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s4" style="background: var(--accent2)"></div></div>
+          <span class="progress-label" id="label-s4">0/7</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s4">
+        <div class="task" data-id="s4-1"><div class="task-check"></div><span class="task-text">5 novas visitas por semana — meta cumulativa de 15 contratos em 60 dias</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-2"><div class="task-check"></div><span class="task-text">Atendimento remoto pela manhã e noite (RustDesk)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-3"><div class="task-check"></div><span class="task-text">Visitas presenciais programadas conforme plano de cada cliente</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-4"><div class="task-check"></div><span class="task-text">Registrar todos os clientes no Notion ou Trello (nome, plano, vencimento, histórico)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-5"><div class="task-check"></div><span class="task-text">Emitir cobranças mensais via PIX ou boleto (Inter PJ)</span><span class="task-owner"><select class="owner-select camargo" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo" selected>CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-6"><div class="task-check"></div><span class="task-text">Identificar clientes com sistema de gestão ruim → oportunidade SaaS</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-7"><div class="task-check"></div><span class="task-text">Mês 3: avaliar abertura de LTDA e contratação de contador</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="iago">IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task done" data-id="s4-8"><div class="task-check"></div><span class="task-text">Checklist de Onboarding Elite finalizado (Equipe Iago & Camargo)</span><span class="task-owner"><select class="owner-select iago" onclick="event.stopPropagation()">
+        <option value="iago" selected>IAGO</option>
+        <option value="camargo">CAMARGO</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s4">Adicionar tarefa</button></div>
+              </div>
+    </div>
+  </div>
+
+  <!-- INVESTIMENTO INICIAL -->
+  <div class="section" id="investSection">
+    <div class="section-header">
+      <span class="section-num">04b</span>
+      <span class="section-title">INVESTIMENTO INICIAL</span>
+    </div>
+
+    <div class="invest-table-wrap"><table class="invest-table" id="investTable">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Descrição</th>
+          <th>Valor (R$)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="investBody">
+        <!-- linhas geradas pelo JS -->
+      </tbody>
+      <tfoot>
+        <tr class="invest-total-row">
+          <td colspan="2" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;">TOTAL ESTIMADO</td>
+          <td><span class="invest-total-value" id="investTotal">R$ 0</span></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table></div>
+
+    <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
+    <div class="invest-note">// clique em qualquer campo para editar • total sincroniza com o header automaticamente</div>
+  </div>
+
+  <!-- PROJEÇÃO FINANCEIRA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">PROJEÇÃO FINANCEIRA</span>
+    </div>
+
+    <div class="finance-table-wrap"><table class="finance-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Contratos</th>
+          <th>Receita Bruta</th>
+          <th>Por sócio (50/50)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mês 1</td>
+          <td>5 Basic</td>
+          <td class="num neutral">R$ 1.750–2.500</td>
+          <td class="num neutral">R$ 875–1.250</td>
+        </tr>
+        <tr>
+          <td>Mês 2</td>
+          <td>10 Basic + 2 Standard</td>
+          <td class="num neutral">R$ 5.100–6.400</td>
+          <td class="num neutral">R$ 2.550–3.200</td>
+        </tr>
+        <tr>
+          <td>Mês 3</td>
+          <td>10 Basic + 5 Standard</td>
+          <td class="num positive">R$ 7.500–11.000</td>
+          <td class="num positive">R$ 3.750–5.500</td>
+        </tr>
+        <tr>
+          <td>Mês 3+ SaaS</td>
+          <td>+5 clientes SaaS</td>
+          <td class="num positive">+R$ 750–1.750</td>
+          <td class="num positive">+R$ 375–875</td>
+        </tr>
+        <tr class="total-row">
+          <td>Potencial Mês 4</td>
+          <td>15 TI + SaaS</td>
+          <td class="num positive">~R$ 10.000–12.000</td>
+          <td class="num positive">~R$ 5.000–6.000</td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- FERRAMENTAS DE GESTÃO (FREE STACK) -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">STACK DE GESTÃO (FREE)</span>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-item">
+        <div class="tool-icon">🧠</div>
+        <div><div class="tool-name">Notion (Docs e Wiki)</div><div class="tool-cost free">Gratuito / Personal</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">📋</div>
+        <div><div class="tool-name">Trello (Chamados)</div><div class="tool-cost free">Kanban Operacional</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🔐</div>
+        <div><div class="tool-name">Bitwarden (Senhas)</div><div class="tool-cost free">Cofre de Senhas Seguro</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">💰</div>
+        <div><div class="tool-name">Asaas (Cobrança)</div><div class="tool-cost free">Pix, Boletos e Notas</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🛰️</div>
+        <div><div class="tool-name">Tactical RMM</div><div class="tool-cost free">Monitoramento Self-Hosted</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🖥️</div>
+        <div><div class="tool-name">RustDesk</div><div class="tool-cost free">Acesso Remoto Open Source</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">💬</div>
+        <div><div class="tool-name">WhatsApp Business</div><div class="tool-cost free">Canal de Suporte</div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🎨</div>
+        <div><div class="tool-name">Canva (Propostas)</div><div class="tool-cost free">Design de Contratos</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENTE DE IA OPERACIONAL -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06b</span>
+      <span class="section-title">IA AGENT // CO-PILOTO</span>
+    </div>
+    
+    <div class="alert" style="border-left-color: var(--accent); background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.15);">
+      <div class="alert-title" style="color: var(--accent);">🤖 O que o nosso Agente de IA deve fazer:</div>
+      <ul style="list-style:none; padding:10px 0; font-size:13px; color:var(--muted);">
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">• Diagnóstico Rápido:</strong> Traduzir logs complexos de erro em planos de ação imediatos.</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">• Gerador de Relatórios:</strong> Transformar "técnico" em "cliente" (texto profissional para WhatsApp).</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">• Scripting sob demanda:</strong> Gerar arquivos .bat e PowerShell para automação rápida em campo.</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">• Sales Buddy:</strong> Criar roteiros de abordagem para novos nichos (clínicas, contabilidades).</li>
+      </ul>
+      <p style="font-size:12px; opacity:0.7;">Stack sugerida: OpenAI API + Vercel AI SDK ou Claude via Poe.</p>
+    </div>
+
+    <!-- ESTRATÉGIA DE TRÁFEGO -->
+    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.02); border-color: rgba(0,255,136,0.15); margin-top: 12px;">
+      <div class="alert-title" style="color: var(--green);">🎯 Estratégia de Tráfego — Launch Day</div>
+      <p><strong style="color:var(--text);">Google Ads (R$ 150):</strong> Foco total em termos "fundo de funil". Ex: <i>Suporte de TI em Bragança</i>, <i>Conserto de PC empresa</i>. O objetivo é pegar quem já está com urgência.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">Meta Ads (R$ 350):</strong> Foco em vídeos de autoridade. Mostrar o kit de campo, as ferramentas (Tactical RMM) e o diferencial do "Suporte de Elite".</p>
+    </div>
+  </div>
+
+  <!-- UPSELL SAAS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">SAAS — PRODUTO PRÓPRIO</span>
+    </div>
+
+    <div class="upsell-grid">
+      <div class="upsell-card">
+        <h4>🏥 Clínicas</h4>
+        <div class="price">R$ 200–400</div>
+        <p>Agendamento, prontuário simples, lembretes por WhatsApp</p>
+      </div>
+      <div class="upsell-card">
+        <h4>🧾 Contabilidades</h4>
+        <div class="price">R$ 150–250</div>
+        <p>Controle de clientes, prazos fiscais, documentos</p>
+      </div>
+      <div class="upsell-card">
+        <h4>🛒 Comércio/PDV</h4>
+        <div class="price">R$ 150–300</div>
+        <p>Estoque, vendas, NF-e, relatórios simples</p>
+      </div>
+    </div>
+
+    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.15); margin-top: 16px;">
+      <div class="alert-title" style="color: var(--green);">💰 Divisão SaaS — 50/50</div>
+      <p><strong style="color:#e2e8f0">Iago:</strong> desenvolvimento, produto, decisões técnicas.<br>
+      <strong style="color:#e2e8f0">Camargo:</strong> suporte, atendimento ao cliente, decisões comerciais.<br>
+      Receita líquida dividida igualmente.<br>Em caso de divergência:<br><strong style="color:#e2e8f0">Iago tem voto de minerva em decisões técnicas. Camargo em decisões comerciais.</strong></p>
+    </div>
+
+    <div class="alert" style="margin-top: 12px;">
+      <div class="alert-title" style="color: var(--yellow);">⚠ Extras e Projetos</div>
+      <p>Qualquer serviço que não esteja descrito no escopo mensal (ex: cabeamento novo, mudança de sede) deve ser orçado como projeto avulso usando a tabela da seção 07b.</p>
+    </div>
+  </div>
+
+  <!-- CATÁLOGO DE SERVIÇOS AVULSOS -->
+  <div class="section" id="catalogSection">
+    <div class="section-header">
+      <span class="section-num">07b</span>
+      <span class="section-title">CATÁLOGO DE SERVIÇOS AVULSOS</span>
+    </div>
+
+    <div class="finance-table-wrap">
+      <table class="finance-table">
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Tipo</th>
+            <th>Valor Estimado</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Formatação + Setup OS</td>
+            <td>Unidade</td>
+            <td class="num">R$ 180,00</td>
+            <td>Inclui backup de dados e drivers</td>
+          </tr>
+          <tr>
+            <td>Setup de Novo Usuário</td>
+            <td>Unidade</td>
+            <td class="num">R$ 150,00</td>
+            <td>Provisionamento de PC + E-mail + Apps</td>
+          </tr>
+          <tr>
+            <td>Visita Técnica Presencial</td>
+            <td>Hora N1</td>
+            <td class="num">R$ 180,00</td>
+            <td>Mínimo de 1 hora + Deslocamento</td>
+          </tr>
+          <tr>
+            <td>Limpeza Técnica / Física</td>
+            <td>Unidade</td>
+            <td class="num">R$ 80,00</td>
+            <td>Pincel antiestático + Álcool Isopropílico</td>
+          </tr>
+          <tr>
+            <td>Ponto de Rede (Cabeamento)</td>
+            <td>Ponto</td>
+            <td class="num">R$ 120,00</td>
+            <td>Passagem de cabo + conector (mão de obra)</td>
+          </tr>
+          <tr>
+            <td>Adequação LGPD Inicial</td>
+            <td>Projeto</td>
+            <td class="num">R$ 1.500+</td>
+            <td>Mapeamento de dados e riscos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="alert" style="border-left-color: var(--accent2); background: rgba(124,58,237,0.03); border-color: rgba(124,58,237,0.15); margin-top: 12px;">
+      <div class="alert-title" style="color: #a78bfa;">💸 Desconto para Clientes com Plano</div>
+      <p>Clientes dos planos <strong>Professionale</strong> e <strong>Impresa</strong> têm 20% de desconto em qualquer serviço avulso desta lista.</p>
+    </div>
+  </div>
+
+  <!-- LIXEIRA -->
+  <div class="trash-section" id="trashSection">
+    <div class="trash-header" onclick="toggleTrash()">
+      <div class="trash-title">
+        🗑 TAREFAS REMOVIDAS
+        <span class="trash-count" id="trashCount">0</span>
+      </div>
+      <button class="trash-toggle" id="trashToggle">▼ mostrar</button>
+    </div>
+    <div class="trash-list" id="trashList">
+      <div class="trash-empty" id="trashEmpty">Nenhuma tarefa removida.</div>
+      <button class="trash-clear" onclick="clearTrash()">Limpar lixeira permanentemente</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      Gerado em Março/2026 — Confidencial<br>
+      Revisão: quando bater 15 contratos
+    </div>
+    <div class="footer-right">SUPORTE TI // BP</div>
+  </div>
+
+</div>
+<script>
+// ── STORAGE HELPERS ───────────────────────────────────────
+var STORAGE_KEY = 'plano-ti-tasks';
+var OWNER_KEY   = 'plano-ti-owners';
+var TEXT_KEY    = 'plano-ti-texts';
+var EXTRA_KEY   = 'plano-ti-extra';
+var TRASH_KEY   = 'plano-ti-trash';
+var INVEST_KEY  = 'plano-ti-invest';
+
+function loadJSON(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch(e) { return {}; }
+}
+function saveJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+// ── OWNER SELECT ──────────────────────────────────────────
+function applyOwnerStyle(sel, val) {
+  sel.className = 'owner-select ' + val;
+  var map = {
+    iago:    { color: '#00d4ff', borderColor: '#00d4ff', background: '#0d1f2d' },
+    camargo: { color: '#f472b6', borderColor: '#f472b6', background: '#2d0f1e' },
+    ambos:   { color: '#00ff88', borderColor: '#00ff88', background: '#0d2d1a' }
+  };
+  var s = map[val] || map.ambos;
+  sel.style.color       = s.color;
+  sel.style.borderColor = s.borderColor;
+  sel.style.background  = s.background;
+}
+
+// ── PROGRESSO ─────────────────────────────────────────────
+function updateSectionProgress(sectionId) {
+  var sec   = document.querySelector('[data-section="' + sectionId + '"]');
+  if (!sec) return;
+  var done  = sec.querySelectorAll('.task.done').length;
+  var total = sec.querySelectorAll('.task').length;
+  var fill  = document.getElementById('prog-' + sectionId);
+  var label = document.getElementById('label-' + sectionId);
+  if (fill)  fill.style.width = (total ? done/total*100 : 0) + '%';
+  if (label) label.textContent = done + '/' + total;
+}
+function updateGlobalProgress() {
+  var all  = document.querySelectorAll('.task[data-id]').length;
+  var done = document.querySelectorAll('.task[data-id].done').length;
+  var fill  = document.getElementById('globalFill');
+  var label = document.getElementById('globalLabel');
+  if (fill)  fill.style.width = (all ? done/all*100 : 0) + '%';
+  if (label) label.textContent = done + ' / ' + all + ' tarefas';
+}
+
+// ── LIXEIRA ───────────────────────────────────────────────
+function getSectionLabel(id) {
+  var m = { s1:'Semana 1', s2:'Semana 2', s3:'Semana 3', s4:'Semana 4+' };
+  return m[id] || id;
+}
+function renderTrash() {
+  var trash = loadJSON(TRASH_KEY);
+  var list  = document.getElementById('trashList');
+  var count = document.getElementById('trashCount');
+  var empty = document.getElementById('trashEmpty');
+  if (!list) return;
+  var items = Object.keys(trash);
+  count.textContent = items.length;
+  var existing = list.querySelectorAll('.trash-item');
+  for (var i = 0; i < existing.length; i++) existing[i].remove();
+  if (items.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  var clearBtn = list.querySelector('.trash-clear');
+  items.forEach(function(id) {
+    var data = trash[id];
+    var div = document.createElement('div');
+    div.className = 'trash-item';
+    div.dataset.trashId = id;
+    div.innerHTML =
+      '<span class="trash-item-text">' + (data.text || id) + '</span>' +
+      '<span class="trash-item-section">' + getSectionLabel(data.section) + '</span>' +
+      '<button class="trash-restore" data-id="' + id + '">\u21a9 Restaurar</button>';
+    div.querySelector('.trash-restore').addEventListener('click', function() {
+      restoreTask(id);
+    });
+    list.insertBefore(div, clearBtn);
+  });
+}
+function toggleTrash() {
+  var list   = document.getElementById('trashList');
+  var toggle = document.getElementById('trashToggle');
+  var open   = list.classList.toggle('open');
+  toggle.textContent = open ? '\u25b2 ocultar' : '\u25bc mostrar';
+}
+function clearTrash() {
+  if (!confirm('Limpar lixeira permanentemente?')) return;
+  saveJSON(TRASH_KEY, {});
+  renderTrash();
+}
+function moveToTrash(id, text, sectionId) {
+  var trash = loadJSON(TRASH_KEY);
+  trash[id] = { text: text, section: sectionId, removedAt: Date.now() };
+  saveJSON(TRASH_KEY, trash);
+  renderTrash();
+}
+function restoreTask(id) {
+  var trash = loadJSON(TRASH_KEY);
+  var data  = trash[id];
+  if (!data) return;
+  var sectionId = data.section;
+  var section   = document.querySelector('[data-section="' + sectionId + '"]');
+  if (!section) { alert('Seção não encontrada.'); return; }
+  var owners = loadJSON(OWNER_KEY);
+  var texts  = loadJSON(TEXT_KEY);
+  var owner  = owners[id] || 'ambos';
+  var text   = texts[id]  || data.text || 'Tarefa restaurada';
+  var task   = document.querySelector('[data-id="' + id + '"]');
+  if (!task) {
+    task = createTaskEl(sectionId, id, text, owner);
+    section.appendChild(task);
+    bindTask(task);
+  }
+  if (id.indexOf('extra-') === 0) {
+    var ex = loadJSON(EXTRA_KEY);
+    if (!ex[id]) { ex[id] = { section: sectionId, text: text, owner: owner }; saveJSON(EXTRA_KEY, ex); }
+  }
+  delete trash[id];
+  saveJSON(TRASH_KEY, trash);
+  renderTrash();
+  updateSectionProgress(sectionId);
+  updateGlobalProgress();
+}
+
+// ── CRIAR TASK ────────────────────────────────────────────
+function createTaskEl(sectionId, id, text, owner) {
+  owner = owner || 'ambos';
+  var div = document.createElement('div');
+  div.className = 'task';
+  div.dataset.id = id;
+  div.innerHTML =
+    '<div class="task-check"></div>' +
+    '<span class="task-text">' + text + '</span>' +
+    '<span class="task-owner"><select class="owner-select" onclick="event.stopPropagation()">' +
+      '<option value="iago"'    + (owner==='iago'   ?' selected':'') + '>IAGO</option>' +
+      '<option value="camargo"' + (owner==='camargo'?' selected':'') + '>CAMARGO</option>' +
+      '<option value="ambos"'   + (owner==='ambos'  ?' selected':'') + '>AMBOS</option>' +
+    '</select></span>' +
+    '<button class="task-remove" title="Remover">\u00d7</button>';
+  return div;
+}
+
+// ── BIND TASK ─────────────────────────────────────────────
+function bindTask(task) {
+  var id      = task.dataset.id;
+  var select  = task.querySelector('.owner-select');
+  var textEl  = task.querySelector('.task-text');
+  var rmBtn   = task.querySelector('.task-remove');
+
+  var state  = loadJSON(STORAGE_KEY);
+  var owners = loadJSON(OWNER_KEY);
+  var texts  = loadJSON(TEXT_KEY);
+
+  if (state[id]) task.classList.add('done');
+  if (select) {
+    var ownerVal = owners[id] || select.value || 'ambos';
+    select.value = ownerVal;
+    applyOwnerStyle(select, ownerVal);
+  }
+  if (texts[id] && textEl) textEl.textContent = texts[id];
+
+  task.addEventListener('click', function(e) {
+    if (e.target.closest('.owner-select, .task-remove')) return;
+    if (textEl && textEl.contentEditable === 'true') return;
+    task.classList.toggle('done');
+    var s = loadJSON(STORAGE_KEY);
+    s[id] = task.classList.contains('done');
+    saveJSON(STORAGE_KEY, s);
+    var sec = task.closest('[data-section]');
+    if (sec) updateSectionProgress(sec.dataset.section);
+    updateGlobalProgress();
+  });
+
+  if (textEl) {
+    textEl.addEventListener('dblclick', function(e) {
+      e.stopPropagation();
+      textEl.contentEditable = 'true';
+      textEl.focus();
+      var range = document.createRange();
+      range.selectNodeContents(textEl);
+      var sel = window.getSelection();
+      sel.removeAllRanges(); sel.addRange(range);
+    });
+    textEl.addEventListener('blur', function() {
+      textEl.contentEditable = 'false';
+      var t = loadJSON(TEXT_KEY);
+      t[id] = textEl.textContent.trim();
+      saveJSON(TEXT_KEY, t);
+    });
+    textEl.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); textEl.blur(); }
+      if (e.key === 'Escape') {
+        var t = loadJSON(TEXT_KEY);
+        if (t[id]) textEl.textContent = t[id];
+        textEl.contentEditable = 'false';
+      }
+    });
+  }
+
+  if (select) {
+    select.addEventListener('change', function(e) {
+      var val = e.target.value;
+      applyOwnerStyle(select, val);
+      var o = loadJSON(OWNER_KEY);
+      o[id] = val;
+      saveJSON(OWNER_KEY, o);
+    });
+  }
+
+  if (rmBtn) {
+    rmBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var txt   = textEl ? textEl.textContent.trim() : id;
+      var sec   = task.closest('[data-section]');
+      var secId = sec ? sec.dataset.section : 's1';
+      moveToTrash(id, txt, secId);
+      var s = loadJSON(STORAGE_KEY); delete s[id]; saveJSON(STORAGE_KEY, s);
+      if (id.indexOf('extra-') === 0) {
+        var ex = loadJSON(EXTRA_KEY); delete ex[id]; saveJSON(EXTRA_KEY, ex);
+      }
+      task.remove();
+      updateSectionProgress(secId);
+      updateGlobalProgress();
+    });
+  }
+}
+
+// ── ADD BUTTON ────────────────────────────────────────────
+function bindAddButton(btn) {
+  btn.addEventListener('click', function() {
+    var sectionId = btn.dataset.section;
+    var section   = document.querySelector('[data-section="' + sectionId + '"]');
+    if (!section) return;
+    var text = prompt('Texto da nova tarefa:');
+    if (!text || !text.trim()) return;
+    var id   = 'extra-' + sectionId + '-' + Date.now();
+    var task = createTaskEl(sectionId, id, text.trim(), 'ambos');
+    section.appendChild(task);
+    bindTask(task);
+    var ex = loadJSON(EXTRA_KEY);
+    ex[id] = { section: sectionId, text: text.trim(), owner: 'ambos' };
+    saveJSON(EXTRA_KEY, ex);
+    updateSectionProgress(sectionId);
+    updateGlobalProgress();
+  });
+}
+
+// ── RESTORE EXTRAS ────────────────────────────────────────
+function restoreExtras() {
+  var ex    = loadJSON(EXTRA_KEY);
+  var trash = loadJSON(TRASH_KEY);
+  Object.keys(ex).forEach(function(id) {
+    if (trash[id]) return;
+    if (document.querySelector('[data-id="' + id + '"]')) return;
+    var data    = ex[id];
+    var owners  = loadJSON(OWNER_KEY);
+    var owner   = owners[id] || data.owner || 'ambos';
+    var task    = createTaskEl(data.section, id, data.text, owner);
+    var section = document.querySelector('[data-section="' + data.section + '"]');
+    if (section) { section.appendChild(task); bindTask(task); }
+  });
+}
+
+// ── INVESTIMENTO ──────────────────────────────────────────
+var DEFAULT_INVEST = [
+  { id: 'inv-1', item: 'Kit Pen Drives (2x 64GB)', desc: 'Kingston/Sandisk para Ventoy e ISOs',   value: 120 },
+  { id: 'inv-2', item: 'Chip + Email + Dom\u00ednio', desc: 'WhatsApp Business + Registro.br (Anual)', value: 100 },
+  { id: 'inv-3', item: 'Materiais de Campo',     desc: 'Cart\u00f5es de visita + Cabos teste',  value: 150 },
+  { id: 'inv-4', item: 'Marketing (Google+Meta)', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
+  { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Primeira guia DAS simplificada',          value: 70 },
+  { id: 'inv-7', item: '2x VPS (Infraestrutura)', desc: 'Tactical RMM + RustDesk Relay',          value: 50 },
+  { id: 'inv-8', item: 'Uniforme (Camisas Polo)', desc: '2x Unidades com logo bordado',          value: 160 },
+  { id: 'inv-9', item: 'Reserva p/ Imprevistos', desc: 'Fundo para emerg\u00eancias / pe\u00e7as r\u00e1pidas', value: 150 }
+];
+
+function loadInvest() {
+  try {
+    var stored = JSON.parse(localStorage.getItem(INVEST_KEY));
+    return (stored && stored.length) ? stored : DEFAULT_INVEST;
+  } catch(e) { return DEFAULT_INVEST; }
+}
+function saveInvest(data) { localStorage.setItem(INVEST_KEY, JSON.stringify(data)); }
+
+function calcTotal(data) {
+  return data.reduce(function(acc, row) { return acc + (parseFloat(row.value) || 0); }, 0);
+}
+function formatBRL(val) {
+  return 'R$ ' + val.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+function syncHeader(total) {
+  var el = document.getElementById('headerInvest');
+  if (el) el.textContent = 'R$' + total.toFixed(0);
+  var t  = document.getElementById('investTotal');
+  if (t)  t.textContent  = formatBRL(total);
+}
+
+function renderInvestRow(rowData, tbody) {
+  var tr = document.createElement('tr');
+  tr.dataset.investId = rowData.id;
+
+  function makeCell(text, isValue) {
+    var td   = document.createElement('td');
+    if (isValue) td.className = 'invest-cell-value';
+    var span = document.createElement('span');
+    span.className = 'invest-cell-text' + (isValue ? ' invest-cell-value' : '');
+    span.contentEditable = 'true';
+    span.textContent = text;
+    span.addEventListener('blur', function() {
+      var v = span.textContent.trim();
+      var data = loadInvest();
+      var r = null;
+      for (var i = 0; i < data.length; i++) { if (data[i].id === rowData.id) { r = data[i]; break; } }
+      if (!r) return;
+      if (isValue) {
+        var num = parseFloat(v.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+        r.value = num;
+        span.textContent = num;
+        saveInvest(data);
+        syncHeader(calcTotal(data));
+      } else {
+        if (td.cellIndex === 0) r.item = v; else r.desc = v;
+        saveInvest(data);
+      }
+    });
+    span.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); span.blur(); }
+    });
+    td.appendChild(span);
+    return td;
+  }
+
+  tr.appendChild(makeCell(rowData.item, false));
+  tr.appendChild(makeCell(rowData.desc, false));
+  tr.appendChild(makeCell(rowData.value, true));
+
+  var tdRm  = document.createElement('td');
+  tdRm.className = 'invest-row-remove';
+  var btn = document.createElement('button');
+  btn.textContent = '\u00d7';
+  btn.title = 'Remover';
+  btn.addEventListener('click', function() {
+    if (!confirm('Remover "' + rowData.item + '"?')) return;
+    var data = loadInvest().filter(function(d) { return d.id !== rowData.id; });
+    saveInvest(data);
+    tr.remove();
+    syncHeader(calcTotal(data));
+  });
+  tdRm.appendChild(btn);
+  tr.appendChild(tdRm);
+  tbody.appendChild(tr);
+}
+
+function initInvest() {
+  var data  = loadInvest();
+  var tbody = document.getElementById('investBody');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  data.forEach(function(row) { renderInvestRow(row, tbody); });
+  syncHeader(calcTotal(data));
+
+  var addBtn = document.getElementById('investAddBtn');
+  if (addBtn) {
+    addBtn.addEventListener('click', function() {
+      var item = prompt('Nome do item:');
+      if (!item || !item.trim()) return;
+      var desc  = prompt('Descri\u00e7\u00e3o (opcional):') || '';
+      var valRaw = prompt('Valor em R$ (apenas n\u00famero):') || '0';
+      var value  = parseFloat(valRaw.replace(',', '.')) || 0;
+      var id     = 'inv-' + Date.now();
+      var newRow = { id: id, item: item.trim(), desc: desc.trim(), value: value };
+      var data   = loadInvest();
+      data.push(newRow);
+      saveInvest(data);
+      renderInvestRow(newRow, tbody);
+      syncHeader(calcTotal(data));
+    });
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────
+function init() {
+  initInvest();
+  restoreExtras();
+  document.querySelectorAll('.task[data-id]').forEach(function(t) { bindTask(t); });
+  document.querySelectorAll('.add-task-btn').forEach(function(b) { bindAddButton(b); });
+  ['s1','s2','s3','s4'].forEach(updateSectionProgress);
+  updateGlobalProgress();
+  renderTrash();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

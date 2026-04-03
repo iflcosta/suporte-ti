@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trilha Técnica — Il Potere Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #0D0D0D;
+  --bg2:     #110206;
+  --bg3:     #1a0308;
+  --bd:      #2a0810;
+  --bordeaux:#8B1A2E;
+  --brd-l:   #B02240;
+  --brd-d:   #500C16;
+  --parchment:#F0EDE6;
+  --silver:  #9A9A9A;
+  --light:   #CCCCCC;
+  --muted:   #555;
+  --green:   #2D6A4F;
+  --green-l: #52B788;
+  --gold:    #C9A84C;
+  --gold-l:  #E8C97A;
+  --cyan:    #1B7A8A;
+  --cyan-l:  #3ABDD4;
+  --orange:  #8B4513;
+  --orange-l:#D4703A;
+  --purple:  #4A1D5C;
+  --purple-l:#9B59B6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--parchment);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.7}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.3}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;background:rgba(13,13,13,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--brd-d);z-index:100}
+.nav-top{padding:0 1rem;display:flex;align-items:center;height:50px;gap:.2rem;overflow-x:auto;scrollbar-width:none}
+.nav-top::-webkit-scrollbar{display:none}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0;margin-right:1rem}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-il{font-family:'Playfair Display',serif;font-style:italic;color:var(--parchment);font-size:.85rem}
+.nav-potere{font-family:'Playfair Display',serif;font-weight:600;color:var(--parchment);font-size:.95rem;letter-spacing:.15em}
+.nav-div{width:1px;height:28px;background:var(--bordeaux);flex-shrink:0}
+.nav-tech{color:var(--silver);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace}
+.nav-a{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:500;color:var(--silver);text-decoration:none;white-space:nowrap;padding:.22rem .55rem;border-radius:3px;transition:all .15s;flex-shrink:0;letter-spacing:.03em}
+.nav-a:hover{color:var(--parchment);background:rgba(139,26,46,.15)}
+.nav-a.done{color:var(--green-l)!important}
+/* Global progress */
+.nav-progress{padding:.28rem 1rem .32rem;background:#0a0107;border-bottom:1px solid var(--brd-d)}
+.nav-prog-row{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:.8rem}
+.nav-prog-label{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--silver);white-space:nowrap;flex-shrink:0}
+.nav-prog-label span{color:var(--gold-l);font-weight:600}
+.nav-prog-bar{flex:1;height:4px;background:var(--brd-d);border-radius:999px;overflow:hidden}
+.nav-prog-fill{height:100%;background:linear-gradient(90deg,var(--bordeaux),var(--gold));border-radius:999px;transition:width .5s ease;width:0%}
+
+/* ── HERO ── */
+.hero{padding:9rem 1.5rem 4rem;text-align:center;max-width:860px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:1.5rem}
+.diamond{width:7px;height:7px;background:var(--bordeaux);transform:rotate(45deg);display:inline-block;flex-shrink:0}
+.hero-eyebrow span{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bordeaux)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:.5rem;color:var(--parchment)}
+h1 em{color:var(--bordeaux);font-style:italic}
+.hero-slogan{font-family:'Playfair Display',serif;font-style:italic;color:var(--silver);font-size:1.1rem;margin-bottom:1.2rem}
+.hero-sub{font-size:.95rem;color:var(--silver);max-width:640px;margin:0 auto 2.5rem;line-height:1.8}
+.hero-sub strong{color:var(--parchment)}
+.hero-line{width:80px;height:1px;background:var(--bordeaux);margin:2rem auto 0}
+
+/* ── PILARES ── */
+.pilares{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:680px;margin:2.5rem auto 0}
+.pilar{background:var(--bg2);border:1px solid var(--bd);border-top:2px solid var(--bordeaux);padding:1.1rem 1.3rem}
+.pilar-lbl{font-family:'IBM Plex Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--bordeaux);margin-bottom:.5rem}
+.pilar ul{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+.pilar li{font-size:.85rem;color:var(--silver);display:flex;align-items:flex-start;gap:.55rem}
+.pilar li::before{content:'◆';font-size:.45rem;color:var(--bordeaux);flex-shrink:0;margin-top:.45rem}
+@media(max-width:580px){.pilares{grid-template-columns:1fr}}
+
+/* ── MAIN ── */
+main{max-width:880px;margin:0 auto;padding:0 1.2rem 7rem;position:relative;z-index:1}
+
+/* ── SECTION DIVIDER ── */
+.sdiv{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);margin:5rem 0 2rem;display:flex;align-items:center;gap:.7rem}
+.sdiv::before{content:'';width:20px;height:1px;background:var(--bordeaux);flex-shrink:0}
+.sdiv::after{content:'';flex:1;height:1px;background:var(--bd)}
+
+/* ── CARD ── */
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:4px;padding:1.8rem 2rem;margin-bottom:1rem;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.card-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;flex-wrap:wrap}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .7rem;border:1px solid;white-space:nowrap}
+.time{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--silver);display:flex;align-items:center;gap:.3rem}
+.time::before{content:'⏱';font-size:.75rem}
+.card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--parchment);margin-bottom:.6rem;line-height:1.3}
+.card-desc{color:var(--silver);font-size:.92rem;margin-bottom:1.2rem;line-height:1.8}
+.card-desc strong{color:var(--light)}
+
+/* ── LABELS ── */
+.lbl{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--bordeaux);margin-bottom:.5rem;margin-top:1.1rem}
+.lbl:first-of-type{margin-top:0}
+
+/* ── BULLET LIST ── */
+ul.blist{list-style:none;display:flex;flex-direction:column;gap:.35rem;margin-bottom:.4rem}
+ul.blist li{display:flex;align-items:flex-start;gap:.55rem;color:var(--silver);font-size:.9rem;line-height:1.6}
+ul.blist li::before{content:'◆';font-size:.4rem;color:var(--bordeaux);flex-shrink:0;margin-top:.52rem}
+ul.blist li strong{color:var(--light)}
+
+/* ── LINKS ── */
+.llinks{display:flex;flex-direction:column;gap:.45rem}
+.ll{display:flex;align-items:center;gap:.7rem;background:var(--bg3);border:1px solid var(--bd);border-radius:3px;padding:.6rem .9rem;text-decoration:none;color:var(--parchment);transition:all .15s}
+.ll:hover{border-color:rgba(139,26,46,.5);transform:translateX(3px)}
+.ll-icon{font-size:.9rem;flex-shrink:0}
+.ll-body{flex:1;min-width:0}
+.ll-title{font-size:.88rem;font-weight:500;color:var(--parchment);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ll-url{font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--silver);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ll-arr{color:var(--silver);font-size:.8rem;flex-shrink:0}
+
+/* ── CALLOUT ── */
+.callout{background:rgba(139,26,46,.07);border:1px solid rgba(139,26,46,.25);border-left:3px solid var(--bordeaux);border-radius:0 3px 3px 0;padding:.85rem 1.1rem;margin-top:.9rem;font-size:.88rem;color:var(--silver);line-height:1.75;font-style:italic}
+.callout strong{color:var(--parchment);font-style:normal}
+
+/* ── WARN ── */
+.warn{display:flex;align-items:flex-start;gap:.7rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;padding:.75rem 1rem;margin-top:.9rem}
+.warn-icon{font-size:1rem;flex-shrink:0;margin-top:.05rem}
+.warn-txt{font-size:.87rem;color:var(--silver);line-height:1.7}
+.warn-txt strong{color:var(--gold-l)}
+
+/* ── KIT BOX ── */
+.kit{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.18);border-radius:3px;padding:1rem 1.2rem;margin-top:0.9rem}
+.kit-lbl{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-l);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.35rem}
+.kit-item{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--silver);padding:0.2rem 0 0.2rem 1.2rem;position:relative;line-height:1.4}
+.kit-item::before{content:'›';color:var(--gold);position:absolute;left:0;top:0.2rem}
+@media(max-width:540px){.kit-grid{grid-template-columns:1fr}}
+
+/* ── CENARIOS ── */
+.cenarios{background:rgba(45,106,79,0.05);border:1px solid rgba(45,106,79,0.2);border-radius:3px;padding:1rem 1.2rem;margin-top:0.9rem}
+.cenarios-lbl{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-l);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem}
+.cenario{font-size:0.87rem;color:var(--silver);padding:0.4rem 0 0.4rem 1.5rem;border-bottom:1px solid rgba(45,106,79,0.12);position:relative;line-height:1.6;display:block;word-break:break-word;overflow-wrap:anywhere}
+.cenario:last-child{border-bottom:none}
+.cenario::before{content:'→';color:var(--green-l);position:absolute;left:0;top:0.45rem;font-family:'IBM Plex Mono',monospace;font-size:0.8rem}
+.cenario strong{color:var(--light)}
+.cenario code{background:rgba(255,255,255,0.05);padding:0.1rem 0.3rem;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;word-break:break-all}
+
+/* ── COBRAR BOX ── */
+.cobrar{background:rgba(201,168,76,.04);border:1px dashed rgba(201,168,76,.3);border-radius:3px;padding:.8rem 1rem;margin-top:.9rem;font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--silver);line-height:1.8}
+.cobrar-lbl{color:var(--gold-l);font-weight:600;margin-bottom:.3rem;font-size:.67rem;text-transform:uppercase;letter-spacing:.1em}
+
+/* ── PHASE PROGRESS ── */
+.phase-prog{display:flex;align-items:center;gap:.7rem;margin-top:1.3rem}
+.phase-prog-bar{flex:1;height:3px;background:var(--bd);border-radius:999px;overflow:hidden}
+.phase-prog-fill{height:100%;border-radius:999px;transition:width .4s ease;width:0%;background:var(--bordeaux)}
+.phase-prog-txt{font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--silver);white-space:nowrap;flex-shrink:0}
+
+/* ── DONE BUTTON ── */
+.done-btn{display:flex;align-items:center;gap:.55rem;margin-top:.8rem;background:var(--bg3);border:1px solid var(--bd);border-radius:3px;padding:.6rem 1rem;cursor:pointer;font-size:.85rem;color:var(--silver);transition:all .2s;font-family:'Outfit',sans-serif;width:100%}
+.done-btn:hover{border-color:rgba(139,26,46,.5);color:var(--parchment)}
+.done-btn.is-done{background:rgba(45,106,79,.1);border-color:rgba(82,183,136,.35);color:var(--green-l)}
+.done-btn .check{font-size:.95rem;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
+.done-btn .btn-label{flex:1;text-align:left;font-size:.85rem}
+.done-btn .btn-date{font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--silver);flex-shrink:0}
+
+/* ── TIPS ── */
+.tips{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin-top:1.5rem}
+.tip{background:var(--bg2);border:1px solid var(--bd);border-top:2px solid var(--bordeaux);padding:1.1rem 1.2rem}
+.tip strong{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--parchment);display:block;margin-bottom:.4rem}
+.tip p{font-size:.83rem;color:var(--silver);line-height:1.65}
+@media(max-width:680px){.tips{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.tips{grid-template-columns:1fr}}
+
+/* ── RENDA TABLE ── */
+.rtable{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:1.2rem}
+.rtable th{font-family:'IBM Plex Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--silver);text-align:left;padding:.7rem 1rem;border-bottom:1px solid var(--bd)}
+.rtable td{padding:.8rem 1rem;border-bottom:1px solid rgba(42,8,16,.8);color:var(--silver)}
+.rtable .v{color:var(--gold-l);font-family:'IBM Plex Mono',monospace;font-weight:600}
+.rtable tr:hover td{background:rgba(139,26,46,.04)}
+
+footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--bd);position:relative;z-index:1}
+footer span{color:var(--bordeaux)}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--brd-d);border-radius:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-top">
+    <a class="nav-logo" href="#topo">
+      <div class="nav-logo-text"><span class="nav-il">Il</span><span class="nav-potere">POTERE</span></div>
+      <div class="nav-div"></div>
+      <span class="nav-tech">Tech</span>
+    </a>
+    <a class="nav-a" data-phase="m1" href="#m1">M1 Windows</a>
+    <a class="nav-a" data-phase="m2" href="#m2">M2 Redes</a>
+    <a class="nav-a" data-phase="m3" href="#m3">M3 Impressoras</a>
+    <a class="nav-a" data-phase="m4" href="#m4">M4 Segurança</a>
+    <a class="nav-a" data-phase="m5" href="#m5">M5 Backup</a>
+    <a class="nav-a" data-phase="m6" href="#m6">M6 Sistemas PME</a>
+    <a class="nav-a" data-phase="m7" href="#m7">M7 Suporte</a>
+    <a class="nav-a" data-phase="m8" href="#m8">M8 Infra Avançada</a>
+    <a class="nav-a" data-phase="m9" href="#m9">M9 Cloud</a>
+    <a class="nav-a" data-phase="m10" href="#m10">M10 Gestão</a>
+    <a class="nav-a" href="#pendrives">Kit Pen Drive</a>
+    <a class="nav-a" href="#dicas">Dicas</a>
+  </div>
+  <div class="nav-progress">
+    <div class="nav-prog-row">
+      <div class="nav-prog-label">Progresso: <span id="prog-count">0 / 10</span> módulos</div>
+      <div class="nav-prog-bar"><div class="nav-prog-fill" id="prog-fill"></div></div>
+      <div class="nav-prog-label"><span id="prog-pct">0%</span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="topo" class="hero">
+  <div class="hero-eyebrow">
+    <div class="diamond"></div>
+    <span>Trilha Técnica Interna — Il Potere Tech</span>
+    <div class="diamond"></div>
+  </div>
+  <h1>Do Técnico Bom<br>ao <em>Melhor da Cidade</em></h1>
+  <p class="hero-slogan">Autoridade · Lealdade · Resolução</p>
+  <p class="hero-sub">
+    Essa trilha foi feita para que a equipe da Il Potere domine os <strong>problemas reais que aparecem nas PMEs de Bragança Paulista</strong> — contabilidades, clínicas, farmácias, escritórios de advocacia. Cada módulo tem o que estudar, o kit de ferramentas e os cenários que vocês vão encontrar no campo.
+  </p>
+  <div class="hero-line"></div>
+  <div class="pilares">
+    <div class="pilar">
+      <div class="pilar-lbl">⚡ Clientes-alvo</div>
+      <ul>
+        <li>Escritórios de contabilidade</li>
+        <li>Clínicas médicas e odontológicas</li>
+        <li>Farmácias independentes</li>
+        <li>Advocacia e imobiliárias</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-lbl">🎯 O que vocês entregam</div>
+      <ul>
+        <li>Resolução rápida — remoto e presencial</li>
+        <li>Manutenção preventiva mensal</li>
+        <li>SLA 4h (Standard) / 2h (Premium)</li>
+        <li>Documentação e relatórios</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ─── BLOCO 1: FUNDAÇÃO TÉCNICA ─── -->
+<div class="sdiv" id="fundacao">Bloco 1 — Fundação Técnica</div>
+
+<!-- M1 -->
+<div class="card" id="m1" style="--c:var(--cyan-l)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cyan-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--cyan-l);border-color:rgba(58,189,212,.3);background:rgba(58,189,212,.07)">Módulo 1</span>
+    <span class="time">2 a 3 semanas</span>
+  </div>
+  <div class="card-title">Windows Profissional — O pão de cada dia</div>
+  <p class="card-desc">Mais de <strong>90% dos chamados</strong> em PMEs envolve Windows — lento, travado, não liga, atualização quebrada, usuário sem permissão. Dominar esse módulo garante autonomia total na resolução dos chamados mais urgentes.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Reparar inicialização</strong> — bootrec, bcdedit, modo seguro, WinRE</li>
+    <li><strong>Event Viewer</strong> — identificar a causa real de crashes e lentidão</li>
+    <li><strong>Gerenciador de Tarefas avançado</strong> — processos, desempenho, inicialização</li>
+    <li><strong>Windows Update</strong> — forçar, reverter, travar versão, corrigir falhas de atualização</li>
+    <li><strong>SFC e DISM</strong> — reparar arquivos de sistema corrompidos sem reinstalar</li>
+    <li><strong>Perfis de usuário</strong> — criar, reparar perfil corrompido, permissões NTFS</li>
+    <li><strong>BitLocker</strong> — ativar, desativar, recuperar chave corporativa</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.youtube.com/@Baboo" target="_blank" rel="noopener">
+      <span class="ll-icon">📺</span><span class="ll-body"><span class="ll-title">Canal Baboo — Especialista Windows</span><span class="ll-desc">A maior autoridade em Windows no Brasil. Busque por "Limpeza do Windows", "SFC DISM" e "Reparar Boot".</span><span class="ll-url">youtube.com/@Baboo</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://support.microsoft.com/pt-br/windows" target="_blank" rel="noopener">
+      <span class="ll-icon">📖</span><span class="ll-body"><span class="ll-title">Documentação Microsoft Support</span><span class="ll-desc">Para códigos de erro específicos (BSOD) e guias oficiais de instalação limpa.</span><span class="ll-url">support.microsoft.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Windows</div>
+    <div class="kit-grid">
+      <div class="kit-item">Autoruns — controle de inicialização</div>
+      <div class="kit-item">Process Explorer — substituto do task manager</div>
+      <div class="kit-item">CrystalDiskInfo — saúde de HD/SSD</div>
+      <div class="kit-item">Hiren's BootCD — diagnóstico completo</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(58,189,212,.3);background:rgba(58,189,212,.04)">
+    <div class="cenarios-lbl" style="color:var(--cyan-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — Reparo de Sistema:</strong> Execute <code>sfc /scannow</code> e <code>dism /online /cleanup-image /restorehealth</code> em seu PC e descreva o que cada um faz no seu relatório.</div>
+    <div class="cenario"><strong>Missão 2 — Log de Erros:</strong> Abra o "Visualizador de Eventos", vá em "Logs do Windows > Sistema" e encontre o último erro crítico registrado. Identifique o código.</div>
+    <div class="cenario"><strong>Missão 3 — Performance:</strong> Use o "Autoruns" para desativar 3 processos inúteis que iniciam com o Windows sem quebrar o sistema.</div>
+    <div class="cenario"><strong>Missão 4 — Saúde do Disco:</strong> Rode o CrystalDiskInfo em um computador e identifique o "Health Status". Se estiver 'Amarelo', qual a recomendação imediata?</div>
+    <div class="cenario"><strong>Missão 5 — Perfil Corrompido:</strong> Simule a criação de um novo usuário local e mova os dados de <code>C:\Users\Antigo</code> para <code>C:\Users\Novo</code> manualmente.</div>
+  </div>
+
+  <div class="phase-prog" id="m1-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m1-pfill" style="background:var(--cyan-l)"></div></div><div class="phase-prog-txt" id="m1-ptxt">0%</div></div>
+  <button class="done-btn" id="m1-btn" onclick="toggleDone('m1')"><span class="check" id="m1-check">○</span><span class="btn-label" id="m1-label">Marcar módulo como concluído</span><span class="btn-date" id="m1-date"></span></button>
+</div>
+
+<!-- M2 -->
+<div class="card" id="m2">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--orange-l);border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.07)">Módulo 2</span>
+    <span class="time">2 a 3 semanas</span>
+  </div>
+  <div class="card-title">Redes e Conectividade — O segundo maior chamado</div>
+  <p class="card-desc">Sem internet a empresa para. <strong>Redes são o segundo maior tipo de chamado</strong> em PMEs — roteador travado, Wi-Fi fraco, IP errado, sem acesso à impressora de rede, VPN que não conecta.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>IP, DNS, DHCP, Gateway</strong> — entender e configurar manualmente</li>
+    <li><strong>Diagnóstico de rede</strong> — ping, tracert, nslookup, ipconfig, netstat</li>
+    <li><strong>Configurar roteador</strong> — TP-Link e Intelbras (mais comuns em BP)</li>
+    <li><strong>Wi-Fi</strong> — canal, frequência (2.4 vs 5GHz), sinal fraco, interferência</li>
+    <li><strong>VPN</strong> — configurar acesso remoto seguro (RustDesk com relay próprio)</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.youtube.com/@HardwareRedesBrasil" target="_blank" rel="noopener">
+      <span class="ll-icon">📺</span><span class="ll-body"><span class="ll-title">Hardware Redes Brasil — Prof. Alfredo Junior</span><span class="ll-desc">Referência técnica no Brasil. Procure por: "TCP/IP básico", "Configurar DHCP", "Entenda o DNS".</span><span class="ll-url">youtube.com/@HardwareRedesBrasil</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://www.cursoemvideo.com/curso/redes-de-computadores/" target="_blank" rel="noopener">
+      <span class="ll-icon">🎬</span><span class="ll-body"><span class="ll-title">Curso em Vídeo — Redes (Guanabara)</span><span class="ll-desc">Curso gratuito que dá a base teórica necessária para não ficar perdido em termos técnicos.</span><span class="ll-url">cursoemvideo.com/curso/redes-de-computadores/</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Redes</div>
+    <div class="kit-grid">
+      <div class="kit-item">Advanced IP Scanner — mapear rede</div>
+      <div class="kit-item">Angry IP Scanner — alternativa</div>
+      <div class="kit-item">WirelessKeyView — recuperar senhas Wi-Fi</div>
+      <div class="kit-item">NetAdapter Repair — reparar adaptador</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.04)">
+    <div class="cenarios-lbl" style="color:var(--orange-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — IP Fixo e Reserva:</strong> Configure um IP fixo no seu Windows e depois entre no roteador para fazer a "Reserva de Endereço" baseada no seu MAC Address.</div>
+    <div class="cenario"><strong>Missão 2 — Wi-Fi Survey:</strong> Baixe um app "Wi-Fi Analyzer" (Android) ou use o notebook para identificar qual canal Wi-Fi está menos congestionado no seu ambiente.</div>
+    <div class="cenario"><strong>Missão 3 — Diagnóstico via CMD:</strong> Use <code>ping -t 8.8.8.8</code> para ver latência e <code>tracert google.com</code> para identificar o primeiro "salto" (seu gateway) e o salto onde a internet falha.</div>
+    <div class="cenario"><strong>Missão 4 — Mapeamento de Rede:</strong> Rode o Advanced IP Scanner na sua rede local. Identifique todos os aparelhos conectados (inclusive celulares e TVs) e salve o relatório.</div>
+    <div class="cenario"><strong>Missão 5 — VPN Anywhere:</strong> Configure o RustDesk com "Acesso Não Supervisionado" e use um servidor de Relay próprio (ou o público para teste inicial). Tente acessar seu PC usando apenas o 4G do celular. Simule um suporte de emergência.</div>
+  </div>
+
+  <div class="phase-prog" id="m2-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m2-pfill" style="background:var(--orange-l)"></div></div><div class="phase-prog-txt" id="m2-ptxt">0%</div></div>
+  <button class="done-btn" id="m2-btn" onclick="toggleDone('m2')"><span class="check" id="m2-check">○</span><span class="btn-label" id="m2-label">Marcar módulo como concluído</span><span class="btn-date" id="m2-date"></span></button>
+</div>
+
+<!-- M3 -->
+<div class="card" id="m3">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--purple-l);border-color:rgba(155,89,182,.3);background:rgba(155,89,182,.07)">Módulo 3</span>
+    <span class="time">1 a 2 semanas</span>
+  </div>
+  <div class="card-title">Impressoras e Periféricos — O campeão de chamados</div>
+  <p class="card-desc">Impressora é o <strong>maior gerador de chamados em escritórios e clínicas</strong>. Parece simples, mas tem mais variações do que parece — driver, fila travada, rede, papel, toner, fiscal.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Instalar impressora em rede</strong> — via IP fixo, não pela descoberta automática</li>
+    <li><strong>Limpar fila de impressão</strong> — parar spooler, limpar pasta, reiniciar</li>
+    <li><strong>Drivers</strong> — identificar modelo exato, baixar do fabricante (HP, Epson, Canon, Brother)</li>
+    <li><strong>Impressora fiscal / SAT</strong> — configurar, instalar driver, reemissão de NF</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://support.hp.com/br-pt/drivers" target="_blank" rel="noopener">
+      <span class="ll-icon">🖨️</span><span class="ll-body"><span class="ll-title">HP Drivers & Suporte</span><span class="ll-desc">Sempre baixe o "Driver de Instalação Completo". Evite o "HP Smart" se quiser estabilidade em rede.</span><span class="ll-url">support.hp.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://epson.com.br/suporte" target="_blank" rel="noopener">
+      <span class="ll-icon">💧</span><span class="ll-body"><span class="ll-title">Epson Suporte — Linha EcoTank</span><span class="ll-desc">Central de drivers para as L3150/L3250 (as mais comuns em PMEs).</span><span class="ll-url">epson.com.br/suporte</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Impressoras</div>
+    <div class="kit-grid">
+      <div class="kit-item">HP Support Assistant</div>
+      <div class="kit-item">EpsonNet Config (para IP em rede)</div>
+      <div class="kit-item">Script .BAT de Spooler (Essencial)</div>
+      <div class="kit-item">Driver Universal (PCL6)</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(155,89,182,.3);background:rgba(155,89,182,.04)">
+    <div class="cenarios-lbl" style="color:var(--purple-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — Automação de Suporte:</strong> Crie um arquivo <code>limpar_impressora.bat</code> com os comandos: <code>net stop spooler</code>, <code>del /Q /F /S "%systemroot%\System32\Spool\Printers\*.*"</code> e <code>net start spooler</code>. Teste-o.</div>
+    <div class="cenario"><strong>Missão 2 — Instalação Profissional:</strong> Adicione uma impressora de rede "Manualmente", criando uma nova "Porta TCP/IP Padrão" com o IP fixo do dispositivo (evite o WSD).</div>
+    <div class="cenario"><strong>Missão 3 — Periférico Fiscal:</strong> Pesquise o driver do SAT Bematech ou Gertec e identifique no Gerenciador de Dispositivos qual "Porta COM" ele utiliza após instalado.</div>
+    <div class="cenario"><strong>Missão 4 — Compartilhamento Raw:</strong> Ative o compartilhamento de uma impressora USB e tente mapeá-la em outro PC via caminho de rede (<code>\\IP-DO-PC\Nome-Impressora</code>).</div>
+    <div class="cenario"><strong>Missão 5 — O Vilão SNMP:</strong> Em uma impressora instalada, vá em Propriedades da Porta > Configurar Porta e desmarque "Status SNMP Ativado". Explique por que isso resolve o erro de "Offline" intermitente.</div>
+  </div>
+
+  <div class="phase-prog" id="m3-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m3-pfill" style="background:var(--purple-l)"></div></div><div class="phase-prog-txt" id="m3-ptxt">0%</div></div>
+  <button class="done-btn" id="m3-btn" onclick="toggleDone('m3')"><span class="check" id="m3-check">○</span><span class="btn-label" id="m3-label">Marcar módulo como concluído</span><span class="btn-date" id="m3-date"></span></button>
+</div>
+
+<!-- BLOCK M4 - M8 REMAINING (Simplified for now, can expand line by line) -->
+<div class="sdiv" id="diferencial">Bloco 2 — Diferencial Profissional</div>
+
+<!-- REST OF CARDS (Placeholder structure to matches history) -->
+<!-- M4 -->
+<div class="card" id="m4" style="--c:var(--green-l)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--green-l);border-color:rgba(82,183,136,.3);background:rgba(82,183,136,.07)">Módulo 4</span>
+    <span class="time">1 a 2 semanas</span>
+  </div>
+  <div class="card-title">Segurança e Monitoramento — A blindagem da PME</div>
+  <p class="card-desc">Segurança em PMEs não é sobre firewalls de 100 mil reais, mas sobre <strong>higiene digital</strong>. O técnico deve garantir que nenhum funcionário abra a porta para um Ransomware que pode destruir o negócio do cliente.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Endpoint Protection</strong> — configurar e monitorar antivírus (Eset, Kaspersky, Defender)</li>
+    <li><strong>MFA / 2FA</strong> — implementar autenticação em duas etapas em TUDO (E-mail, Sistemas, VPN)</li>
+    <li><strong>Gestão de Senhas</strong> — ensinar o cliente a usar Bitwarden ou similar, eliminando post-its</li>
+    <li><strong>Ransomware Awareness</strong> — como identificar phishing e isolar uma máquina infectada rápido</li>
+    <li><strong>LGPD Básica</strong> — o que a empresa precisa minimamente para não ser multada</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.virustotal.com/" target="_blank" rel="noopener">
+      <span class="ll-icon">🛡️</span><span class="ll-body"><span class="ll-title">VirusTotal</span><span class="ll-desc">Ferramenta essencial para analisar arquivos e links suspeitos antes de abrir.</span><span class="ll-url">virustotal.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://haveibeenpwned.com/" target="_blank" rel="noopener">
+      <span class="ll-icon">📧</span><span class="ll-body"><span class="ll-title">Have I Been Pwned?</span><span class="ll-desc">Verifique se o e-mail do cliente já vazou em algum banco de dados. Ótimo para convencer a trocar senhas.</span><span class="ll-url">haveibeenpwned.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Segurança</div>
+    <div class="kit-grid">
+      <div class="kit-item">Tactical RMM (Agente)</div>
+      <div class="kit-item">Kaspersky TDSSKiller</div>
+      <div class="kit-item">Bitwarden (Gestor)</div>
+      <div class="kit-item">RustDesk (Alternativa Open Source)</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(82,183,136,.3);background:rgba(82,183,136,.04)">
+    <div class="cenarios-lbl" style="color:var(--green-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — Monitoramento Pró-ativo (RMM):</strong> Instale o agente do <i>Tactical RMM</i> no seu PC. Configure um alerta no painel para te avisar por e-mail se o uso de CPU passar de 90% por 5 minutos.</div>
+    <div class="cenario"><strong>Missão 2 — Vulnerabilidade Zero:</strong> Teste o e-mail principal da sua empresa no <i>Have I Been Pwned</i>. Se houver vazamentos, descreva quais foram os incidentes.</div>
+    <div class="cenario"><strong>Missão 3 — MFA na Prática:</strong> Configure o Microsoft Authenticator ou Google Authenticator em uma conta e simule a perda do celular (use os códigos de backup).</div>
+    <div class="cenario"><strong>Missão 4 — Firewall Seletivo:</strong> Crie uma regra no Windows Firewall para bloquear o acesso de um navegador (ex: Edge) à internet e depois reverta.</div>
+    <div class="cenario"><strong>Missão 5 — Análise de Ameaça:</strong> Pegue um link de "Promoção Falsa" no WhatsApp e analise-o no VirusTotal. Veja quantos motores de busca o marcam como Malicioso.</div>
+  </div>
+
+  <div class="phase-prog" id="m4-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m4-pfill" style="background:var(--green-l)"></div></div><div class="phase-prog-txt" id="m4-ptxt">0%</div></div>
+  <button class="done-btn" id="m4-btn" onclick="toggleDone('m4')"><span class="check" id="m4-check">○</span><span class="btn-label" id="m4-label">Marcar módulo como concluído</span><span class="btn-date" id="m4-date"></span></button>
+</div><!-- M5 -->
+<div class="card" id="m5" style="--c:var(--gold-l)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--gold-l);border-color:rgba(232,201,122,.3);background:rgba(232,201,122,.07)">Módulo 5</span>
+    <span class="time">1 a 2 semanas</span>
+  </div>
+  <div class="card-title">Backup e Continuidade — O seguro de vida dos dados</div>
+  <p class="card-desc">Um backup só é real se ele for <strong>testado e estiver fora do alcance de Ransomware</strong>. O técnico da Il Potere não apenas "faz backup", ele garante que o cliente volta a operar em menos de 4h após um desastre.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Regra 3-2-1</strong> — 3 cópias, 2 mídias diferentes, 1 fora da empresa (nuvem)</li>
+    <li><strong>Imagens de Sistema (Bare Metal)</strong> — clonagem e restauração completa de PCs e Servidores</li>
+    <li><strong>Nuvem Profissional</strong> — configurar OneDrive, Google Drive e Backblaze de forma segura</li>
+    <li><strong>NAS e HDs Externos</strong> — configurar rotinas de backup local automatizadas</li>
+    <li><strong>Teste de Restauração</strong> — validar mensalmente se os arquivos estão íntegros</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.veeam.com/br/windows-endpoint-server-backup-free.html" target="_blank" rel="noopener">
+      <span class="ll-icon">💾</span><span class="ll-body"><span class="ll-title">Veeam Agent (Free Edition)</span><span class="ll-desc">A melhor ferramenta gratuita para fazer backup de imagem completa do Windows.</span><span class="ll-url">veeam.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://www.backblaze.com/cloud-backup.html" target="_blank" rel="noopener">
+      <span class="ll-icon">☁️</span><span class="ll-body"><span class="ll-title">Backblaze Personal/Business</span><span class="ll-desc">Referência em backup ilimitado na nuvem com baixo custo.</span><span class="ll-url">backblaze.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Backup</div>
+    <div class="kit-grid">
+      <div class="kit-item">Veeam Agent for Windows</div>
+      <div class="kit-item">Macrium Reflect Free</div>
+      <div class="kit-item">EaseUS Todo Backup</div>
+      <div class="kit-item">Beyond Compare (comparar pastas)</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(232,201,122,.3);background:rgba(232,201,122,.04)">
+    <div class="cenarios-lbl" style="color:var(--gold-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — Proteção em Nuvem:</strong> Configure o OneDrive de um cliente para sincronizar as pastas Área de Trabalho, Documentos e Imagens. Garanta que o "Backup Gerenciado" esteja ativo.</div>
+    <div class="cenario"><strong>Missão 2 — Desastre Total:</strong> Crie uma imagem completa (Bare Metal) do seu sistema usando o Veeam Agent em um HD externo e crie o "Recovery Media" em um Pen Drive.</div>
+    <div class="cenario"><strong>Missão 3 — Teste de Fogo:</strong> Delete permanentemente (Shift+Del) uma pasta importante e tente recuperá-la usando a função "Versões Anteriores" do Windows ou seu backup em nuvem.</div>
+    <div class="cenario"><strong>Missão 4 — Integridade de Mídia:</strong> Use o comando <code>chkdsk /f /r</code> em um HD de backup e analise o log para garantir que não existam bad blocks que possam corromper os dados.</div>
+    <div class="cenario"><strong>Missão 5 — Automação:</strong> Crie uma tarefa no "Agendador de Tarefas" do Windows para rodar um script de cópia simples (<code>robocopy</code>) toda sexta-feira às 18h.</div>
+  </div>
+
+  <div class="phase-prog" id="m5-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m5-pfill" style="background:var(--gold-l)"></div></div><div class="phase-prog-txt" id="m5-ptxt">0%</div></div>
+  <button class="done-btn" id="m5-btn" onclick="toggleDone('m5')"><span class="check" id="m5-check">○</span><span class="btn-label" id="m5-label">Marcar módulo como concluído</span><span class="btn-date" id="m5-date"></span></button>
+</div><!-- M6 -->
+<div class="card" id="m6" style="--c:var(--cyan-l)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cyan-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--cyan-l);border-color:rgba(58,189,212,.3);background:rgba(58,189,212,.07)">Módulo 6</span>
+    <span class="time">2 semanas</span>
+  </div>
+  <div class="card-title">Sistemas PME — Onde o negócio acontece</div>
+  <p class="card-desc">O cliente não usa o Windows, ele usa o <strong>sistema de gestão</strong>. Se o certificado digital vence ou o PJe não abre, o faturamento para. Dominar as "mandingas" do Java e dos tokens é o que te torna indispensável para escritórios.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Certificados Digitais</strong> — Instalação de A1 (arquivo) e A3 (Token/Cartão), exportação e backup</li>
+    <li><strong>Sistemas Jurídicos</strong> — PJe, e-SAJ, Shodo e PJeOffice (o pesadelo dos advogados)</li>
+    <li><strong>ERPs de Mercado</strong> — Noções de Conta Azul, Bling, Omie e sistemas de retaguarda</li>
+    <li><strong>Java para Governo</strong> — Configurar exceções, versões corretas e limpeza de cache para sites do governo</li>
+    <li><strong>Navegadores Legados</strong> — Usar o modo Internet Explorer no Edge para sistemas antigos de prefeituras</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://pje.csjt.jus.br/manual/index.php/Configuracao_do_Ambiente" target="_blank" rel="noopener">
+      <span class="ll-icon">⚖️</span><span class="ll-body"><span class="ll-title">Manual de Configuração PJe</span><span class="ll-desc">Guia oficial para configurar o ambiente de peticionamento eletrônico.</span><span class="ll-url">pje.csjt.jus.br</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://www.itibrasil.com.br/suporte/downloads" target="_blank" rel="noopener">
+      <span class="ll-icon">🔑</span><span class="ll-body"><span class="ll-title">Drivers de Tokens (ITI Brasil)</span><span class="ll-desc">Central de drivers para GD Burti, Safenet e outros tokens A3 comuns.</span><span class="ll-url">itibrasil.com.br</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Sistemas ERP</div>
+    <div class="kit-grid">
+      <div class="kit-item">PJeOffice / Shodo</div>
+      <div class="kit-item">Cadeia de Certificados ICP-BR</div>
+      <div class="kit-item">IE Tab (Extensão p/ Chrome)</div>
+      <div class="kit-item">Java Runtime (Versão estável)</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(58,189,212,.3);background:rgba(58,189,212,.04)">
+    <div class="cenarios-lbl" style="color:var(--cyan-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — O Guardião da Assinatura:</strong> Instale um certificado A1 (pode ser um expirado para teste) e aprenda a exportá-lo com a chave privada marcada para backup.</div>
+    <div class="cenario"><strong>Missão 2 — Advocacia sem Stress:</strong> Instale o PJeOffice e o Shodo no mesmo PC. Certifique-se de que ambos reconheçam o certificado digital no navegador.</div>
+    <div class="cenario"><strong>Missão 3 — Java Tamer:</strong> Adicione os sites <code>*.gov.br</code> e <code>*.fazenda.sp.gov.br</code> na "Lista de Exceções" do Painel de Controle do Java. Defina o nível de segurança para o correto.</div>
+    <div class="cenario"><strong>Missão 4 — Legado Moderno:</strong> Configure a extensão <i>IE Tab</i> ou o "Modo IE" do Edge para abrir o site da prefeitura de BP. Mostre como salvar para abrir sempre assim.</div>
+    <div class="cenario"><strong>Missão 5 — Suporte ERP:</strong> Crie uma conta gratuita no Bling (teste) e identifique onde se configura a Nota Fiscal Eletrônica (Série, Número e Certificado).</div>
+  </div>
+
+  <div class="phase-prog" id="m6-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m6-pfill" style="background:var(--cyan-l)"></div></div><div class="phase-prog-txt" id="m6-ptxt">0%</div></div>
+  <button class="done-btn" id="m6-btn" onclick="toggleDone('m6')"><span class="check" id="m6-check">○</span><span class="btn-label" id="m6-label">Marcar módulo como concluído</span><span class="btn-date" id="m6-date"></span></button>
+</div>
+<!-- ─── BLOCO 3 ─── -->
+<div class="sdiv" id="gestao">Bloco 3 — Gestão e Infra Avançada</div>
+
+<!-- M7 -->
+<div class="card" id="m7" style="--c:var(--purple-l)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--purple-l);border-color:rgba(155,89,182,.3);background:rgba(155,89,182,.07)">Módulo 7</span>
+    <span class="time">2 semanas</span>
+  </div>
+  <div class="card-title">Gestão e Suporte Elite — Stack de Guerra e Processos</div>
+  <p class="card-desc">Atendimento técnico é 20% conserto e 80% <strong>comunicação e organização</strong>. Aqui você domina os processos de SLA e relatórios, unindo-os às ferramentas que automatizam o seu dia a dia.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>SLA e Soft Skills</strong> — Como priorizar chamados e falar com o cliente em momentos de crise</li>
+    <li><strong>Notion & Trello</strong> — Criar a Wiki do cliente e gerir o fluxo: Novo → Campo → Faturamento</li>
+    <li><strong>Bitwarden (Segurança)</strong> — Gestão de senhas compartilhada entre você e o Camargo</li>
+    <li><strong>Asaas (Finanças)</strong> — Automação de cobranças recorrentes, boletos e notas fiscais</li>
+    <li><strong>Relatórios de Valor</strong> — Como reportar o que foi feito no suporte para o dono da empresa</li>
+  </ul>
+
+  <div class="lbl">Links oficiais ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://bitwarden.com/help/getting-started-organizations/" target="_blank" rel="noopener">
+      <span class="ll-icon">🔐</span><span class="ll-body"><span class="ll-title">Bitwarden para Equipes</span><span class="ll-desc">Compartilhamento seguro de credenciais entre os sócios.</span><span class="ll-url">bitwarden.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://notion.so" target="_blank" rel="noopener">
+      <span class="ll-icon">📝</span><span class="ll-body"><span class="ll-title">Notion do Zero</span><span class="ll-desc">Como estruturar a documentação de TI do cliente.</span><span class="ll-url">notion.so</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Arsenal de Guerra</div>
+    <div class="kit-grid">
+      <div class="kit-item">Notion (Docs)</div>
+      <div class="kit-item">Asaas (Cobrança)</div>
+      <div class="kit-item">RustDesk (Acesso)</div>
+      <div class="kit-item">Trello (Fluxo)</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(155,89,182,.3);background:rgba(155,89,182,.04)">
+    <div class="cenarios-lbl" style="color:var(--purple-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — O Historiador:</strong> Mapeie um "Cliente Fake" no Notion: IP do Roteador, Senhas, Modelo da Impressora e Usuários do PC.</div>
+    <div class="cenario"><strong>Missão 2 — Automação de Grana:</strong> Crie uma conta no Asaas e configure um link de cobrança recorrente para simular o primeiro contrato.</div>
+    <div class="cenario"><strong>Missão 3 — Gestão de Crise:</strong> Um cliente liga gritando que "nada funciona". Escreva qual seria sua primeira frase para acalmá-lo e colher as informações necessárias.</div>
+    <div class="cenario"><strong>Missão 4 — Sentinela Digital:</strong> Configure o RustDesk para "Acesso Não Supervisionado" e verifique a saúde do disco via RMM (Tactical RMM).</div>
+    <div class="cenario"><strong>Missão 5 — O Reporte Final:</strong> Escreva um e-mail de fechamento de chamado focando no ganho do cliente (ex: "Otimização de rede realizada para evitar lentidão").</div>
+  </div>
+
+  <div class="phase-prog" id="m7-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m7-pfill" style="background:var(--purple-l)"></div></div><div class="phase-prog-txt" id="m7-ptxt">0%</div></div>
+  <button class="done-btn" id="m7-btn" onclick="toggleDone('m7')"><span class="check" id="m7-check">○</span><span class="btn-label" id="m7-label">Marcar módulo como concluído</span><span class="btn-date" id="m7-date"></span></button>
+</div>
+
+<!-- M8 -->
+<div class="card" id="m8" style="--c:var(--bordeaux); margin-top: 2rem;">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--bordeaux)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--bordeaux);border-color:rgba(139,26,46,.3);background:rgba(139,26,46,.07)">Módulo 8</span>
+    <span class="time">3 a 4 semanas</span>
+  </div>
+  <div class="card-title">Infra Avançada — O coração da rede corporativa</div>
+  <p class="card-desc">Quando a empresa passa de 10-15 funcionários, o "cada um por si" no Windows não funciona mais. Aqui você aprende a arquitetar redes com <strong>Servidores, Virtualização e Domínio (AD)</strong> para centralizar o controle e a segurança.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Windows Server Roles</strong> — AD DS (Active Directory), DNS, DHCP e File Server</li>
+    <li><strong>Virtualização Profissional</strong> — Criar e gerenciar VMs no Hyper-V ou Proxmox</li>
+    <li><strong>Permissões NTFS/SMB</strong> — Hierarquia de pastas (Diretoria, Financeiro, Público) com controle total</li>
+    <li><strong>GPO (Group Policy)</strong> — Padronizar papéis de parede, mapear redes e bloquear pendrives via rede</li>
+    <li><strong>Monitoramento de Ativos</strong> — Ter um painel (Zabbix/CheckMK) para saber se um servidor caiu antes do cliente ligar</li>
+  </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.microsoft.com/pt-br/evalcenter/evaluate-windows-server-2022" target="_blank" rel="noopener">
+      <span class="ll-icon">🏢</span><span class="ll-body"><span class="ll-title">Windows Server Evaluation</span><span class="ll-desc">Baixe a versão de testes do Windows Server para montar seu laboratório de estudos.</span><span class="ll-url">microsoft.com/evalcenter</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://learn.microsoft.com/pt-br/training/paths/active-directory-domain-services/" target="_blank" rel="noopener">
+      <span class="ll-icon">📖</span><span class="ll-body"><span class="ll-title">Curso MS Learn — Active Directory</span><span class="ll-desc">Treinamento oficial da Microsoft sobre como gerenciar identidades em rede.</span><span class="ll-url">learn.microsoft.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="kit">
+    <div class="kit-lbl">🛠 Kit de ferramentas — Infra</div>
+    <div class="kit-grid">
+      <div class="kit-item">RSAT (Ferramentas de Adm Direto)</div>
+      <div class="kit-item">Terminals (Gerenciador de RDP)</div>
+      <div class="kit-item">TreeSize Free (Scan de Servidor)</div>
+      <div class="kit-item">Wireshark (Análise de pacotes)</div>
+    </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
+  <div class="cenarios" style="border-color:rgba(139,26,46,.3);background:rgba(139,26,46,.04)">
+    <div class="cenarios-lbl" style="color:var(--bordeaux)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenario"><strong>Missão 1 — Laboratório Virtual:</strong> Instale o Hyper-V (se tiver Windows Pro) ou VirtualBox e suba uma VM de Windows Server. Configure a rede interna.</div>
+    <div class="cenario"><strong>Missão 2 — Domínio na Prática:</strong> Promova seu servidor a Controlador de Domínio (AD DS) e crie uma Unidade Organizacional (OU) chamada "Il Potere Tech".</div>
+    <div class="cenario"><strong>Missão 3 — Permissões de Ferro:</strong> Crie um compartilhamento de rede no servidor e configure as permissões NTFS para que o grupo "Vendas" só possa Ler arquivos, mas o "Gerente" possa Modificar.</div>
+    <div class="cenario"><strong>Missão 4 — Automação GPO:</strong> Crie uma GPO simples que impeça os usuários de acessarem o Painel de Controle e aplique-a a uma conta de teste no domínio.</div>
+    <div class="cenario"><strong>Missão 5 — Raid & Resiliência:</strong> Explique a diferença prática em termos de falha de hardware entre um RAID 1 (Espelhamento) e um RAID 5 (Paridade). Quando usar cada um?</div>
+  </div>
+
+  <div class="phase-prog" id="m8-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m8-pfill" style="background:var(--bordeaux)"></div></div><div class="phase-prog-txt" id="m8-ptxt">0%</div></div>
+  <button class="done-btn" id="m8-btn" onclick="toggleDone('m8')"><span class="check" id="m8-check">○</span><span class="btn-label" id="m8-label">Marcar módulo como concluído</span><span class="btn-date" id="m8-date"></span></button>
+</div>
+<!-- ─── BLOCO 4 ─── -->
+<div class="sdiv" id="escala">Bloco 4 — Governança e Escala</div>
+
+<!-- M9 -->
+<div class="card" id="m9" style="--c:var(--orange-l)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange-l)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--orange-l);border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.07)">Módulo 9</span>
+    <span class="time">2 semanas</span>
+  </div>
+  <div class="card-title">Adequação LGPD — Segurança Jurídica e Técnica</div>
+  <p class="card-desc">A LGPD é a sua maior aliada para fechar contratos de alto valor. Aqui você aprende a mapear dados, implementar criptografia e garantir que o cliente esteja em conformidade legal, protegendo o dono da empresa de multas pesadas.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Inventário de Dados</strong> — Mapear por onde entram e saem os dados sensíveis no cliente</li>
+    <li><strong>Criptografia & Anonimização</strong> — Implementar BitLocker e VeraCrypt em dispositivos móveis</li>
+    <li><strong>Políticas de Acesso</strong> — Garantir o princípio do "menor privilégio" (quem não precisa, não vê)</li>
+    <li><strong>Segurança Física</strong> — Bloqueio de portas USB, telas e descarte seguro de hardware</li>
+    <li><strong>Argumento de Venda</strong> — Como explicar o risco financeiro da não adequação para o cliente</li>
+  </ul>
+
+  <div class="lbl">Links oficiais ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.gov.br/anpd/pt-br" target="_blank" rel="noopener">
+      <span class="ll-icon">⚖️</span><span class="ll-body"><span class="ll-title">Portal ANPD</span><span class="ll-desc">Acompanhe as normas oficiais para Pequenas e Médias Empresas (PME).</span><span class="ll-url">gov.br/anpd</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática</div>
+  <div class="cenarios" style="border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.04)">
+    <div class="cenarios-lbl" style="color:var(--orange-l)">🎯 Complete as 5 Missões antes de concluir</div>
+    <div class="cenario"><strong>Missão 1 — Mapa de Risco:</strong> Escolha uma clínica parceira e identifique 3 pontos onde os dados do paciente estão vulneráveis hoje.</div>
+    <div class="cenario"><strong>Missão 2 — Criptografia Total:</strong> Ative a criptografia de disco em um notebook de teste e simule a perda da senha de recuperação.</div>
+    <div class="cenario"><strong>Missão 3 — Auditoria de Log:</strong> Use o Visualizador de Eventos para identificar quem acessou o servidor de arquivos nas últimas 24h.</div>
+    <div class="cenario"><strong>Missão 4 — Termo de Uso:</strong> Redija um aviso simples de "Confidencialidade" para ser colado nos monitores das recepções.</div>
+    <div class="cenario"><strong>Missão 5 — Venda Consultiva:</strong> Grave um áudio simulando uma explicação de 2 min sobre por que a Clínica precisa de LGPD.</div>
+  </div>
+
+  <div class="phase-prog" id="m9-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m9-pfill" style="background:var(--orange-l)"></div></div><div class="phase-prog-txt" id="m9-ptxt">0%</div></div>
+  <button class="done-btn" id="m9-btn" onclick="toggleDone('m9')"><span class="check" id="m9-check">○</span><span class="btn-label" id="m9-label">Marcar módulo como concluído</span><span class="btn-date" id="m9-date"></span></button>
+</div>
+
+<!-- M10 -->
+<div class="card" id="m10" style="--c:var(--silver)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--silver)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--silver);border-color:rgba(200,200,200,.3);background:rgba(200,200,200,.07)">Módulo 10</span>
+    <span class="time">Vitalício</span>
+  </div>
+  <div class="card-title">Gestão e Escala — A transição para o topo</div>
+  <p class="card-desc">Este é o fim da trilha técnica e o início da sua jornada como dono de empresa. Como precificar contratos recorrentes, gerir o atendimento com o Camargo e o caminho para o faturamento de 20k+.</p>
+
+  <div class="lbl">O que dominar</div>
+  <ul class="blist">
+    <li><strong>Precificação MSP</strong> — Como calcular o lucro líquido real por contrato e prever faturamento</li>
+    <li><strong>Métricas de Negócio</strong> — Churn (perda), CAC (custo de aquisição) e Lucratividade</li>
+    <li><strong>Upsell SaaS</strong> — Como oferecer o seu software próprio para quem já paga suporte</li>
+    <li><strong>Cultura de Sócios</strong> — Divisão clara de tarefas: Iago (Técnico) e Camargo (Comercial)</li>
+    <li><strong>Escalabilidade</strong> — O momento certo de contratar o primeiro técnico auxiliar</li>
+  </ul>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática</div>
+  <div class="cenarios" style="border-color:rgba(200,200,200,.3);background:rgba(200,200,200,.04)">
+    <div class="cenarios-lbl" style="color:var(--silver)">🎯 Missões de Estratégia</div>
+    <div class="cenario"><strong>Missão 1 — Preço de Ouro:</strong> Use o Dashboard para calcular: Se fecharmos 10 contratos hoje, quanto sobra limpo após as ferramentas?</div>
+    <div class="cenario"><strong>Missão 2 — O Plano de Voo:</strong> Defina 3 metas claras para a Il Potere Tech nos próximos 6 meses.</div>
+    <div class="cenario"><strong>Missão 3 — Estratégia SaaS:</strong> Escreva como você vai ligar o suporte de TI com a venda do software da clínica.</div>
+    <div class="cenario"><strong>Missão 4 — Auditoria Geral:</strong> Revise todos os 9 módulos anteriores e certifique-se de que domina as "Missões 1" de cada um.</div>
+    <div class="cenario"><strong>Missão 5 — Visão 2027:</strong> Onde a Il Potere estará daqui a 1 ano? Escreva seu manifesto de liderança.</div>
+  </div>
+
+  <div class="phase-prog" id="m10-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m10-pfill" style="background:var(--silver)"></div></div><div class="phase-prog-txt" id="m10-ptxt">0%</div></div>
+  <button class="done-btn" id="m10-btn" onclick="toggleDone('m10')"><span class="check" id="m10-check">○</span><span class="btn-label" id="m10-label">Marcar módulo como concluído</span><span class="btn-date" id="m10-date"></span></button>
+</div>
+
+<!-- ─── FERRAMENTAS DE CAMPO ─── -->
+<div class="sdiv" id="pendrives">Recursos — O que levar para o campo</div>
+
+<!-- KIT PEN DRIVE -->
+<div class="card" id="kit-pendrive">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>
+  <p class="card-desc" style="margin-bottom:1.2rem">Use <strong>Ventoy</strong> no pen drive — ele permite carregar múltiplos ISOs num único dispositivo. Organize em pastas como abaixo. Pen drive recomendado: <strong>Kingston 64GB USB 3.0</strong>.</p>
+
+  <div class="lbl">📁 Sistema e Diagnóstico</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Ventoy (multi-ISO no mesmo pen)</div>
+      <div class="kit-item">Windows 10 ISO (MediaCreationTool)</div>
+      <div class="kit-item">Windows 11 ISO</div>
+      <div class="kit-item">Hiren's BootCD PE</div>
+      <div class="kit-item">Memtest86 (teste de RAM)</div>
+      <div class="kit-item">GParted Live (gerenciar partições)</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Segurança</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Malwarebytes portable</div>
+      <div class="kit-item">AdwCleaner</div>
+      <div class="kit-item">RKill (mata processos maliciosos)</div>
+      <div class="kit-item">Kaspersky Rescue Disk ISO</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Windows / Reparo</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Autoruns (inicialização)</div>
+      <div class="kit-item">Process Explorer</div>
+      <div class="kit-item">NTLite (reparar Windows)</div>
+      <div class="kit-item">DriverBooster portable</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Rede</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Advanced IP Scanner</div>
+      <div class="kit-item">WirelessKeyView</div>
+      <div class="kit-item">NetAdapter Repair</div>
+      <div class="kit-item">PingPlotter</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Recuperação de Dados</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Recuva portable</div>
+      <div class="kit-item">TestDisk / PhotoRec</div>
+      <div class="kit-item">MiniTool Partition Wizard</div>
+      <div class="kit-item">CrystalDiskInfo (saúde HD)</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Utilitários e Documentação</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">7-Zip portable</div>
+      <div class="kit-item">HWMonitor (temperatura)</div>
+      <div class="kit-item">CPU-Z / GPU-Z</div>
+      <div class="kit-item">AnyDesk installer</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DICAS ─── -->
+<div class="sdiv" id="dicas">Operação — Como vocês vão trabalhar juntos</div>
+<div class="tips">
+  <div class="tip"><strong>Remoto primeiro, sempre</strong><p>Antes de marcar visita, tente resolver pelo AnyDesk. Resolve mais rápido, o cliente paga menos e vocês atendem mais. Visita presencial só quando o remoto não resolve.</p></div>
+  <div class="tip"><strong>Fotografar tudo</strong><p>Antes de mexer em qualquer coisa, fotografie o estado atual. Antes e depois. Isso é a sua prova do ponto de partida caso algo dê errado.</p></div>
+  <div class="tip"><strong>Nunca mexa no que não foi pedido</strong><p>Se foi chamado para o Wi-Fi, mexa no Wi-Fi. Mencione outros problemas, mas não altere sem autorização para evitar responsabilidade por erros antigos.</p></div>
+  <div class="tip"><strong>Documentar = se proteger</strong><p>Toda visita tem resumo no WhatsApp ou Notion. Se o cliente reclamar, você tem o histórico completo. Documentação é proteção jurídica.</p></div>
+  <div class="tip"><strong>Divisão de foco</strong><p>Camargo assume mais o comercial e financeiro (prospecção e contratos). Iago assume mais o técnico e desenvolvimento (sistemas e automações).</p></div>
+  <div class="tip"><strong>Usar IA como Vantagem</strong><p>Não sabe o erro? Use a IA com contexto: "cliente com Windows 10, sistema X, erro Y". Resolva em 2 minutos o que levaria horas de busca no Google.</p></div>
+</div>
+
+<table class="rtable" style="margin-top:1.5rem">
+  <thead><tr><th>Meta</th><th>Carteira</th><th>Faturamento estimado</th></tr></thead>
+  <tbody>
+    <tr><td>Mês 1–2</td><td>3–5 contratos Basic</td><td class="v">R$ 1.250–2.500/mês</td></tr>
+    <tr><td>Mês 3</td><td>10 Basic + 2 Standard</td><td class="v">R$ 5.800–7.500/mês</td></tr>
+    <tr><td>Mês 4–6</td><td>15 TI + Upsell SaaS</td><td class="v">R$ 9.500–12.500/mês</td></tr>
+    <tr><td>Mês 12+</td><td>Base mista + Premium</td><td class="v">R$ 15.000–22.000/mês</td></tr>
+  </tbody>
+</table>
+
+</main>
+
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:.5rem">
+    <div class="diamond"></div>
+    <span style="font-family:'Playfair Display',serif;font-style:italic;color:var(--parchment);font-size:1rem">Il Potere del Tech</span>
+    <div class="diamond"></div>
+  </div>
+  <span>Autoridade · Lealdade · Resolução</span>
+</footer>
+
+<script>
+const PHASES = ['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10'];
+const TOTAL  = PHASES.length;
+const KEY    = 'ilpotere-trilha-ti';
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+  catch(e) { return {}; }
+}
+function save(s) {
+  try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e) {}
+}
+function fmt(ts) {
+  if (!ts) return '';
+  return new Date(ts).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
+}
+function applyPhase(pid, state) {
+  const done  = !!state[pid];
+  const btn   = document.getElementById(pid+'-btn');
+  const check = document.getElementById(pid+'-check');
+  const label = document.getElementById(pid+'-label');
+  const date  = document.getElementById(pid+'-date');
+  const pfill = document.getElementById(pid+'-pfill');
+  const ptxt  = document.getElementById(pid+'-ptxt');
+  const navA  = document.querySelector('[data-phase="'+pid+'"]');
+  if (!btn) return;
+  if (done) {
+    btn.classList.add('is-done');
+    check.textContent = '✓';
+    label.textContent = 'Módulo concluído';
+    date.textContent  = fmt(state[pid]);
+    pfill.style.width = '100%';
+    ptxt.textContent  = '100%';
+    if (navA) navA.classList.add('done');
+  } else {
+    btn.classList.remove('is-done');
+    check.textContent = '○';
+    label.textContent = 'Marcar módulo como concluído';
+    date.textContent  = '';
+    pfill.style.width = '0%';
+    ptxt.textContent  = '0%';
+    if (navA) navA.classList.remove('done');
+  }
+}
+function updateGlobal(state) {
+  const count = PHASES.filter(p => !!state[p]).length;
+  const pct   = Math.round(count / TOTAL * 100);
+  const countEl = document.getElementById('prog-count');
+  const pctEl   = document.getElementById('prog-pct');
+  const fillEl  = document.getElementById('prog-fill');
+  if (countEl) countEl.textContent = count + ' / ' + TOTAL;
+  if (pctEl) pctEl.textContent   = pct + '%';
+  if (fillEl) fillEl.style.width  = pct + '%';
+}
+function toggleDone(pid) {
+  const state = load();
+  if (state[pid]) delete state[pid]; else state[pid] = Date.now();
+  save(state);
+  applyPhase(pid, state);
+  updateGlobal(state);
+}
+(function init() {
+  const state = load();
+  PHASES.forEach(p => applyPhase(p, state));
+  updateGlobal(state);
+})();
+</script>
+</body>
+</html>
