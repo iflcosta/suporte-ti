@@ -1054,7 +1054,7 @@
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task done" data-id="s4-8"><div class="task-check"></div><span class="task-text">Checklist de Onboarding Elite finalizado (Equipe Sócio 1 & Sócio 2)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <div class="task" data-id="s4-8"><div class="task-check"></div><span class="task-text">Checklist de Onboarding Elite finalizado (Equipe Sócio 1 & Sócio 2)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
         <option value="socio1" selected>SÓCIO 1</option>
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
@@ -1730,6 +1730,8 @@ function initInvest() {
 
 // ── INIT ──────────────────────────────────────────────────
 function init() {
+  // Limpar todos os checks salvos — o usuário marca manualmente
+  saveJSON(STORAGE_KEY, {});
   initInvest();
   restoreExtras();
   document.querySelectorAll('.task[data-id]').forEach(function(t) { bindTask(t); });
