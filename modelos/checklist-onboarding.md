@@ -1,6 +1,21 @@
 # Checklist de Onboarding Técnico: A "Hora 1" Elite (V2)
 
-Este guia operacional agora inclui o **Kit Físico de Elite**, garantindo que a Il Potere Tech tenha 100% de controle sobre a infraestrutura do cliente desde o primeiro minuto.
+Este guia operacional inclui o **Kit Físico de Elite**, garantindo que a infraestrutura do cliente tenha 100% de controle desde o primeiro minuto.
+
+```css
+.task {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 10px;
+    padding: 7px 6px;
+    border-bottom: 1px solid rgba(30,30,46,0.8);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s;
+    border-radius: 2px;
+    word-break: break-word; /* Blindagem contra textos longos */
+}
+```
 
 ---
 
@@ -33,7 +48,7 @@ Este guia operacional agora inclui o **Kit Físico de Elite**, garantindo que a 
 
 ---
 
-## 💻 FASE 2: IMPLANTAÇÃO NAS ESTAÇÕES (Camargo)
+## 💻 FASE 2: IMPLANTAÇÃO NAS ESTAÇÕES (Sócio 2)
 - [ ] **ID de Máquina:** Colar etiqueta física no gabinete com o nome (Ex: `ALV-FIN-01`).
 - [ ] **Agentes de Suporte:** Instalação silenciosa do **Tactical RMM** e **RustDesk**.
 - [ ] **Saúde do Disco (S.M.A.R.T):** Relatar qualquer alerta de disco no amarelo/vermelho.

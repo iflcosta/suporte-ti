@@ -52,6 +52,6 @@ Somos uma empresa local de suporte técnico com foco em **Pequenas e Médias Emp
 ---
 
 ### Vamos otimizar sua TI agora?
-**Iago Lopes & Camargo**
+**Sócio 1 & Sócio 2**
 WhatsApp: (11) 9 ____-____ | contato@ilpotere.tech | www.ilpotere.tech
 *Respondemos em até 2 horas em horário comercial.*
