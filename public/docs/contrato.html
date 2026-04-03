@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrato de Prestação de Serviços de TI — Il Potere Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bordeaux: #8B2635;
+      --gold: #C9A962;
+      --black: #0F0F0F;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #1a1a1a;
+      background: #f4f4f4;
+    }
+
+    /* Botão de imprimir — oculto no print */
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bordeaux);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(139,38,53,0.4);
+      z-index: 999;
+      transition: background 0.2s;
+    }
+    .print-btn:hover { background: #a63344; }
+
+    /* Página A4 */
+    .page {
+      width: 21cm;
+      min-height: 29.7cm;
+      margin: 1.5cm auto;
+      background: white;
+      padding: 1.8cm 2cm;
+      box-shadow: 0 0 40px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    /* Cabeçalho */
+    .doc-header {
+      text-align: center;
+      border-bottom: 2.5px solid var(--bordeaux);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .doc-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--bordeaux);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+    .doc-header .subtitle {
+      font-size: 7.5pt;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 5px;
+      font-family: 'Inter', monospace;
+    }
+
+    /* Seções */
+    .section-label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--bordeaux);
+      border-bottom: 1px solid rgba(139,38,53,0.25);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* Grid partes */
+    .partes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      border: 1px solid #e5e5e5;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .partes-grid .parte-bloco { font-size: 8.5pt; line-height: 1.7; }
+    .partes-grid .parte-bloco .label-col {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid #eee;
+    }
+    .partes-grid .parte-bloco .label-col.bordeaux { color: var(--bordeaux); border-color: rgba(139,38,53,0.2); }
+    .parte-bloco span { color: #555; }
+    .parte-bloco strong { color: #111; }
+
+    /* Plano contratado */
+    .plano-box {
+      border: 1px solid #e5e5e5;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    .plano-opcoes {
+      display: flex;
+      gap: 20px;
+      margin: 8px 0;
+      font-size: 8.5pt;
+    }
+    .plano-opcoes label { display: flex; align-items: center; gap: 6px; }
+    .checkbox { width: 11px; height: 11px; border: 1.5px solid #aaa; display: inline-block; flex-shrink: 0; }
+    .plano-valor { font-size: 8.5pt; color: #555; margin-top: 4px; }
+
+    /* Cláusulas */
+    .clausula { margin-bottom: 10px; }
+    .clausula-titulo {
+      display: inline-block;
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 2px 8px;
+      margin-bottom: 4px;
+      color: white;
+    }
+    .clausula-titulo.bordeaux { background: var(--bordeaux); }
+    .clausula-titulo.black { background: var(--black); }
+    .clausula p { font-size: 8.5pt; color: #333; }
+
+    .divider-dashed {
+      border: none;
+      border-top: 1px dashed #ccc;
+      margin: 14px 0;
+    }
+
+    /* Assinaturas */
+    .assinaturas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    .assinatura-bloco { border-top: 1.5px solid #222; padding-top: 6px; }
+    .assinatura-bloco .assin-label {
+      font-size: 6pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    .assinatura-bloco .assin-label.bordeaux { color: var(--bordeaux); }
+    .assinatura-bloco .assin-label.gray { color: #666; }
+    .assinatura-bloco p { font-size: 8pt; color: #444; margin-top: 2px; }
+    .assinatura-bloco .linha { border-bottom: 1px solid #bbb; height: 22px; margin: 10px 0 3px; }
+
+    /* Anexo I */
+    .anexo-header {
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--bordeaux);
+      border-top: 2px solid var(--bordeaux);
+      padding-top: 10px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .planos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 1px solid #e5e5e5;
+    }
+    .plano-col {
+      padding: 14px;
+      border-right: 1px solid #e5e5e5;
+    }
+    .plano-col:last-child { border-right: none; }
+    .plano-col.destaque { background: var(--bordeaux); color: white; position: relative; }
+    .plano-col .plano-name {
+      font-size: 6pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #999;
+      margin-bottom: 4px;
+    }
+    .plano-col.destaque .plano-name { color: rgba(255,255,255,0.5); }
+    .plano-col .plano-price {
+      font-size: 18pt;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .plano-col.destaque .plano-price { color: white; }
+    .plano-col .plano-price span { font-size: 7pt; font-weight: 400; color: #aaa; }
+    .plano-col.destaque .plano-price span { color: rgba(255,255,255,0.5); }
+    .plano-col ul { list-style: none; font-size: 7.5pt; color: #555; }
+    .plano-col ul li + li { margin-top: 3px; }
+    .plano-col.destaque ul { color: rgba(255,255,255,0.8); }
+    .tag-mais-vendido {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #111;
+      font-size: 5.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .doc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 7pt;
+      color: #aaa;
+      font-style: italic;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+    .doc-footer strong { color: #777; font-style: normal; }
+
+    /* PRINT */
+    @media print {
+      body { background: white; }
+      .print-btn { display: none !important; }
+      .page {
+        margin: 0;
+        padding: 1.5cm 1.8cm;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">⎙ &nbsp;Salvar como PDF</button>
+
+  <div class="page">
+
+    <!-- Cabeçalho -->
+    <div class="doc-header">
+      <h1>Contrato de Prestação de Serviços de TI</h1>
+      <p class="subtitle">Il Potere Tech &nbsp;//&nbsp; Bragança Paulista, SP</p>
+    </div>
+
+    <!-- Identificação das Partes -->
+    <div class="section-label">Identificação das Partes</div>
+    <div class="partes-grid">
+      <div class="parte-bloco">
+        <div class="label-col bordeaux">Contratado (Prestador)</div>
+        <span>Razão Social: </span><strong>Il Potere Tech</strong><br>
+        <span>CPF/MEI: </span>________________________<br>
+        <span>Endereço: </span>Bragança Paulista, SP<br>
+        <span>WhatsApp: </span>(11) 9 ____-____
+      </div>
+      <div class="parte-bloco">
+        <div class="label-col">Contratante (Cliente)</div>
+        <span>Nome Social: </span>________________________<br>
+        <span>CNPJ / CPF: </span>________________________<br>
+        <span>Endereço: </span>________________________<br>
+        <span>Telefone: </span>_____________ &nbsp;<span>E-mail: </span>_____________
+      </div>
+    </div>
+
+    <!-- Plano Contratado -->
+    <div class="section-label">Plano Contratado</div>
+    <div class="plano-box">
+      <div class="plano-opcoes">
+        <label><span class="checkbox"></span> Plano Basic — R$ 400/mês</label>
+        <label><span class="checkbox"></span> Plano Standard — R$ 800/mês</label>
+        <label><span class="checkbox"></span> Plano Premium — R$ 1.800/mês</label>
+      </div>
+      <p class="plano-valor">Valor mensal: R$&nbsp;____________ &nbsp;|&nbsp; Vencimento: Todo dia ______ de cada mês</p>
+    </div>
+
+    <!-- CLÁUSULAS BLOCO A -->
+    <div class="clausula">
+      <div class="clausula-titulo bordeaux">Cláusula 1ª — Objeto do Contrato</div>
+      <p>O presente contrato tem por objeto a prestação de serviços de suporte em Tecnologia da Informação (TI) ao Contratante, conforme plano selecionado acima, incluindo suporte remoto e/ou presencial, conforme descrito no Anexo I — Descrição dos Planos.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo bordeaux">Cláusula 2ª — Escopo dos Serviços</div>
+      <p>Os serviços abrangem exclusivamente suporte em hardware, software, redes e periféricos de informática. <strong>Não estão incluídos:</strong> desenvolvimento de sistemas, criação de sites, design, consultoria jurídica ou contábil, instalações elétricas prediais ou qualquer serviço não relacionado a TI.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo bordeaux">Cláusula 2b — Horário de Atendimento</div>
+      <p>O suporte remoto está disponível 24h/7d exclusivamente para incidentes críticos que impactem diretamente o funcionamento da empresa. O horário comercial é de segunda a sexta das 08h às 18h e sábados das 08h às 13h. O atendimento segue prioridade por plano: <strong>Premium</strong> têm atendimento imediato; <strong>Standard</strong> têm prioridade intermediária; <strong>Basic</strong> são atendidos em ordem de chegada.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo bordeaux">Cláusula 4ª — Peças e Componentes</div>
+      <p>O fornecimento de peças e componentes não está incluído na mensalidade. Quando necessário, o Contratante será previamente informado e aprovará a aquisição antes de qualquer compra. O custo é acrescido de <strong>10% (dez por cento)</strong> a título de taxa de logística, faturado separadamente. Horas técnicas adicionais acima de 2h por visita: <strong>R$ 50,00/hora</strong>.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo bordeaux">Cláusula 5ª — Confidencialidade</div>
+      <p>O Contratado compromete-se a manter sigilo absoluto sobre todas as informações, dados, credenciais, sistemas e arquivos acessados durante a prestação dos serviços, não podendo divulgá-los sob qualquer hipótese durante a vigência do contrato e por prazo indeterminado após seu encerramento.</p>
+    </div>
+
+    <hr class="divider-dashed">
+
+    <!-- CLÁUSULAS BLOCO B -->
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 1b — Garantia dos Serviços</div>
+      <p>O Contratado garante suporte por 30 (trinta) dias para os serviços prestados. A garantia é baseada no uso correto do equipamento e não cobre danos causados por terceiros, uso indevido ou eventos externos. Em caso de reincidência do mesmo problema no período, o atendimento retorna sem custo adicional.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 2b — Reembolso</div>
+      <p>Em caso de falha comprovadamente causada por negligência do Contratado, sua responsabilidade ficará limitada ao ressarcimento do componente fisicamente danificado. O Contratado não se responsabiliza por perda de dados, lucros cessantes, danos indiretos ou dados não preservados pelo Contratante.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 3b — Acesso e Autorização</div>
+      <p>O Contratante autoriza formalmente o Contratado a acessar seus sistemas, equipamentos, redes e dados, estritamente para fins da prestação dos serviços contratados. O Contratado compromete-se a utilizar tais acessos somente para as atividades previstas neste contrato.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 4b — Pagamento</div>
+      <p>O pagamento deverá ser realizado até o dia <strong>_____</strong> de cada mês, via transferência bancária ou Pix. Em caso de atraso, incidirão juros de <strong>1% ao mês</strong> e multa de <strong>2%</strong> sobre o valor devido. O não pagamento por 2 (dois) meses consecutivos acarretará suspensão automática dos serviços.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 5b — Implantação e Configuração Inicial</div>
+      <p>Serviços de implantação, configuração inicial de infraestrutura, instalação de softwares e setup de equipamentos não estão incluídos na mensalidade e são vendidos separadamente. O valor será definido conforme escopo acordado previamente.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 6b — Reajuste</div>
+      <p>O valor mensal será reajustado anualmente pelo índice <strong>IPCA</strong>, acrescido de no máximo <strong>3% (três por cento)</strong>, mediante comunicação prévia de 30 (trinta) dias ao Contratante.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 7b — Vigência e Rescisão (Fidelidade Zero)</div>
+      <p>O contrato é celebrado por prazo indeterminado, podendo ser rescindido por qualquer das partes mediante aviso prévio de <strong>30 (trinta) dias</strong>, sem aplicação de multas rescisórias de qualquer natureza.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Migração de Plano</div>
+      <p>Em caso de aumento no número de equipamentos ou mudança de necessidade operacional, o Contratante poderá solicitar migração para o plano adequado mediante comunicação prévia, com prazo de até 5 (cinco) dias úteis para efetivação.</p>
+    </div>
+    <div class="clausula">
+      <div class="clausula-titulo black">Cláusula 18 — Foro</div>
+      <p>Fica eleito o foro da Comarca de <strong>Bragança Paulista, Estado de São Paulo</strong>, para dirimir quaisquer questões relativas ao presente contrato, com renúncia expressa a qualquer outro foro privilegiado.</p>
+    </div>
+
+    <!-- Data e Assinaturas -->
+    <p style="font-size:8.5pt; color:#555; margin-top:16px;">Bragança Paulista, _____ de __________________________ de 2025.</p>
+    <div class="assinaturas">
+      <div class="assinatura-bloco">
+        <div class="assin-label bordeaux">Contratado (Prestador)</div>
+        <div class="linha"></div>
+        <p>Nome: Iago Lopes</p>
+        <p>CPF/CNPJ: _______________________</p>
+      </div>
+      <div class="assinatura-bloco">
+        <div class="assin-label gray">Contratante (Cliente)</div>
+        <div class="linha"></div>
+        <p>Nome: _______________________</p>
+        <p>CPF/CNPJ: _______________________</p>
+      </div>
+    </div>
+
+    <!-- Anexo I -->
+    <div class="anexo-header">Anexo I — Descrição dos Planos</div>
+    <div class="planos-grid">
+      <div class="plano-col">
+        <div class="plano-name">Basic</div>
+        <div class="plano-price">R$ 400<span>/mês</span></div>
+        <ul>
+          <li>• Até 05 estações de trabalho</li>
+          <li>• Suporte remoto ilimitado</li>
+          <li>• 1 visita presencial/mês</li>
+          <li>• Atendimento em ordem de chegada</li>
+        </ul>
+      </div>
+      <div class="plano-col destaque">
+        <div class="tag-mais-vendido">Mais Vendido</div>
+        <div class="plano-name">Standard</div>
+        <div class="plano-price">R$ 800<span>/mês</span></div>
+        <ul>
+          <li>• Até 15 estações de trabalho</li>
+          <li>• Suporte remoto ilimitado</li>
+          <li>• 2 visitas presenciais/mês</li>
+          <li>• Monitoramento 24/7</li>
+          <li>• Prioridade no atendimento</li>
+        </ul>
+      </div>
+      <div class="plano-col">
+        <div class="plano-name">Premium</div>
+        <div class="plano-price">R$ 1.800<span>/mês</span></div>
+        <ul>
+          <li>• Até 40 estações de trabalho</li>
+          <li>• Suporte remoto ilimitado</li>
+          <li>• Visitas semanais</li>
+          <li>• Monitoramento 24/7</li>
+          <li>• Resposta prioritária (1h)</li>
+          <li>• Relatório mensal de saúde</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <div><strong>IL POTERE TECH — SOLUÇÕES PROATIVAS EM TI</strong><br>Bragança Paulista, SP &nbsp;|&nbsp; www.ilpotere.tech</div>
+      <div style="text-align:right; font-family: monospace; letter-spacing: 0.15em; text-transform: uppercase;">Documento de Uso Restrito</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

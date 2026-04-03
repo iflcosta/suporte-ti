@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta Comercial — Il Potere Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bordeaux: #8B2635;
+      --gold: #C9A962;
+      --black: #0F0F0F;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #1a1a1a;
+      background: #f4f4f4;
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bordeaux);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(139,38,53,0.4);
+      z-index: 999;
+      transition: background 0.2s;
+    }
+    .print-btn:hover { background: #a63344; }
+
+    .page {
+      width: 21cm;
+      min-height: 29.7cm;
+      margin: 1.5cm auto;
+      background: white;
+      padding: 1.8cm 2cm;
+      box-shadow: 0 0 40px rgba(0,0,0,0.12);
+    }
+
+    /* Cabeçalho */
+    .doc-header {
+      text-align: center;
+      border-bottom: 2.5px solid var(--bordeaux);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .doc-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--bordeaux);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+    .doc-header .sub { font-size: 7.5pt; color: #888; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 5px; }
+
+    /* Quote */
+    .quote {
+      border-left: 3px solid var(--bordeaux);
+      padding: 8px 14px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 10pt;
+      color: #444;
+      margin-bottom: 18px;
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--bordeaux);
+      border-bottom: 1px solid rgba(139,38,53,0.25);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* 8 Pilares */
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .pilar {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      padding: 8px 9px;
+    }
+    .pilar h4 {
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--bordeaux);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .pilar p { font-size: 7pt; color: #666; line-height: 1.4; }
+
+    /* Canais */
+    .canais-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+      margin-bottom: 14px;
+    }
+    .canal h3 { font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 4px; }
+    .canal h3.bordeaux { color: var(--bordeaux); }
+    .canal p { font-size: 8pt; color: #555; }
+
+    /* Planos */
+    .planos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 14px;
+    }
+    .plano-col {
+      padding: 14px;
+      border-right: 1px solid #e5e5e5;
+    }
+    .plano-col:last-child { border-right: none; }
+    .plano-col.destaque {
+      background: var(--bordeaux);
+      color: white;
+      position: relative;
+    }
+    .plano-col .plano-name {
+      font-size: 6pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.2em; color: #999; margin-bottom: 4px;
+    }
+    .plano-col.destaque .plano-name { color: rgba(255,255,255,0.5); }
+    .plano-col .plano-price {
+      font-size: 18pt; font-weight: 700; color: #111;
+      line-height: 1; margin-bottom: 6px;
+    }
+    .plano-col .plano-price span { font-size: 7pt; font-weight: 400; color: #aaa; }
+    .plano-col.destaque .plano-price { color: white; }
+    .plano-col.destaque .plano-price span { color: rgba(255,255,255,0.5); }
+    .plano-col ul { list-style: none; font-size: 7.5pt; color: #555; }
+    .plano-col ul li + li { margin-top: 3px; }
+    .plano-col.destaque ul { color: rgba(255,255,255,0.85); }
+    .tag-mv {
+      position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: #111;
+      font-size: 5.5pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.15em; padding: 2px 8px; white-space: nowrap;
+    }
+
+    /* Avulsos */
+    .avulsos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-bottom: 14px;
+    }
+    .avulso-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #555;
+      padding: 5px 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .avulso-item strong { color: #111; white-space: nowrap; margin-left: 8px; }
+    .avulso-item:nth-child(3n + 1) { border-right: 1px solid #eee; }
+    .avulso-item:nth-child(3n + 2) { border-right: 1px solid #eee; }
+
+    /* Garantia e Diferenciais */
+    .rodape-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .garantia-box {
+      background: #f4f4f4;
+      padding: 12px 14px;
+    }
+    .garantia-box h4 {
+      font-size: 6.5pt; font-weight: 700; text-transform: uppercase;
+      color: var(--bordeaux); letter-spacing: 0.15em;
+      border-bottom: 1px solid rgba(139,38,53,0.2); padding-bottom: 4px; margin-bottom: 6px;
+    }
+    .garantia-box p { font-size: 7.5pt; color: #666; }
+    .diferenciais-box {
+      background: var(--black);
+      padding: 12px 14px;
+      color: white;
+    }
+    .diferenciais-box h4 {
+      font-size: 6.5pt; font-weight: 700; text-transform: uppercase;
+      color: var(--gold); letter-spacing: 0.15em;
+      border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; margin-bottom: 6px;
+    }
+    .diferenciais-box ul { list-style: none; font-size: 7.5pt; color: rgba(255,255,255,0.7); }
+    .diferenciais-box ul li + li { margin-top: 3px; }
+    .diferenciais-box strong { color: white; }
+
+    /* Footer */
+    .doc-footer {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      font-size: 7pt; color: #aaa; font-style: italic;
+      border-top: 1px solid #eee; padding-top: 10px; margin-top: 6px;
+    }
+    .doc-footer strong { color: #777; font-style: normal; }
+
+    @media print {
+      body { background: white; }
+      .print-btn { display: none !important; }
+      .page {
+        margin: 0; padding: 1.5cm 1.8cm;
+        box-shadow: none; width: 100%; min-height: auto;
+      }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">⎙ &nbsp;Salvar como PDF</button>
+
+  <div class="page">
+
+    <!-- Cabeçalho -->
+    <div class="doc-header">
+      <h1>Proposta Comercial</h1>
+      <p class="sub">Il Potere Tech &nbsp;//&nbsp; Bragança Paulista, SP</p>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote">
+      "Sua tecnologia não deve ser um custo de manutenção, mas um motor de produtividade ininterrupta."
+    </div>
+
+    <!-- 8 Pilares -->
+    <div class="section-label">Nossos 8 Pilares de Solução</div>
+    <div class="pilares-grid">
+      <div class="pilar">
+        <h4>Suporte Remoto</h4>
+        <p>Acesso seguro para resolver problemas rapidamente, sem deslocamento.</p>
+      </div>
+      <div class="pilar">
+        <h4>Presença Física</h4>
+        <p>Engenharia especializada in loco, no horário comercial.</p>
+      </div>
+      <div class="pilar">
+        <h4>Backup & Anti-Ransom</h4>
+        <p>Estratégia 3-2-1 com nuvem imutável. Dados protegidos.</p>
+      </div>
+      <div class="pilar">
+        <h4>Monitoramento 24/7</h4>
+        <p>Detecção proativa: resolvemos antes que você perceba.</p>
+      </div>
+      <div class="pilar">
+        <h4>Adequação LGPD</h4>
+        <p>Conformidade legal para clínicas, advogados e PMEs.</p>
+      </div>
+      <div class="pilar">
+        <h4>Cloud & Colaboração</h4>
+        <p>Gestão de M365 e Google Workspace. Trabalhe de qualquer lugar.</p>
+      </div>
+      <div class="pilar">
+        <h4>Infraestrutura</h4>
+        <p>Redes CAT6, Racks organizados e Wi-Fi corporativo estável.</p>
+      </div>
+      <div class="pilar">
+        <h4>Suporte a Sistemas</h4>
+        <p>Especialistas em ERP, CRM e sistemas sectoriais sem interrupções.</p>
+      </div>
+    </div>
+
+    <!-- Canais -->
+    <div class="canais-grid">
+      <div class="canal">
+        <h3 class="bordeaux">O que resolvemos no Remoto</h3>
+        <p><strong>90% dos chamados:</strong> lentidão, erros de e-mail, softwares, vírus e gestão de usuários. Resolução em minutos.</p>
+      </div>
+      <div class="canal">
+        <h3>O que resolvemos no Presencial</h3>
+        <p><strong>Engenharia Física:</strong> hardware, cabeamento de rede, racks, impressoras e toda infraestrutura de campo.</p>
+      </div>
+    </div>
+
+    <!-- Planos -->
+    <div class="section-label">Planos Mensais</div>
+    <div class="planos-grid">
+      <div class="plano-col">
+        <div class="plano-name">Basic</div>
+        <div class="plano-price">R$ 400<span>/mês</span></div>
+        <ul>
+          <li>• Até 05 estações de trabalho</li>
+          <li>• Suporte remoto ilimitado</li>
+          <li>• 1 visita presencial/mês</li>
+          <li>• Atendimento em fila padrão</li>
+        </ul>
+      </div>
+      <div class="plano-col destaque">
+        <div class="tag-mv">Mais Vendido</div>
+        <div class="plano-name">Standard</div>
+        <div class="plano-price">R$ 800<span>/mês</span></div>
+        <ul>
+          <li>• Até 15 estações de trabalho</li>
+          <li>• Suporte remoto ilimitado</li>
+          <li>• 2 visitas presenciais/mês</li>
+          <li>• Monitoramento 24/7</li>
+          <li>• Prioridade no atendimento</li>
+        </ul>
+      </div>
+      <div class="plano-col">
+        <div class="plano-name">Premium</div>
+        <div class="plano-price">R$ 1.800<span>/mês</span></div>
+        <ul>
+          <li>• Até 40 estações de trabalho</li>
+          <li>• Suporte remoto ilimitado</li>
+          <li>• Visitas semanais</li>
+          <li>• Monitoramento 24/7</li>
+          <li>• Resposta prioritária (1h)</li>
+          <li>• Relatório mensal de saúde</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Avulsos -->
+    <div class="section-label">Projetos & Serviços Avulsos (Opcional)</div>
+    <div class="avulsos-grid">
+      <div class="avulso-item"><span>Formatação Estação (OS + Driver)</span><strong>R$ 180</strong></div>
+      <div class="avulso-item"><span>Limpeza Técnica de Hardware</span><strong>R$ 90</strong></div>
+      <div class="avulso-item"><span>Configuração Servidor / NAS</span><strong>R$ 350</strong></div>
+      <div class="avulso-item"><span>Auditoria de Segurança / LGPD</span><strong>R$ 500</strong></div>
+      <div class="avulso-item"><span>Implantação Cloud (M365/G Suite)</span><strong>R$ 450</strong></div>
+      <div class="avulso-item"><span>Projeto de Redes / Racks CAT6</span><strong>Sob Consulta</strong></div>
+    </div>
+
+    <!-- Garantia + Diferenciais -->
+    <div class="rodape-grid">
+      <div class="garantia-box">
+        <h4>Garantia de Resolução</h4>
+        <p>Se não houver solução técnica viável para o problema apresentado, o valor da visita excedente não será faturado. Sem letra miúda.</p>
+      </div>
+      <div class="diferenciais-box">
+        <h4>Diferenciais de Elite</h4>
+        <ul>
+          <li>• <strong>Fidelidade Zero:</strong> cancele quando quiser, sem multas.</li>
+          <li>• <strong>Transparência:</strong> relatório mensal de saúde do ambiente.</li>
+          <li>• <strong>Acesso Direto:</strong> você fala com o sócio, não com um atendente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <div><strong>IL POTERE TECH — SOLUÇÕES PROATIVAS EM TI</strong><br>Bragança Paulista, SP &nbsp;|&nbsp; www.ilpotere.tech</div>
+      <div style="text-align:right; font-family: monospace; letter-spacing: 0.15em; text-transform: uppercase;">Documento de Uso Restrito</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
