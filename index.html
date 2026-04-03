@@ -212,8 +212,8 @@
     min-width: 72px;
     text-align: center;
   }
-  .owner-select.iago { color: #00d4ff; border-color: #00d4ff; background: #0d1f2d; }
-  .owner-select.camargo { color: #f472b6; border-color: #f472b6; background: #2d0f1e; }
+  .owner-select.socio1 { color: #00d4ff; border-color: #00d4ff; background: #0d1f2d; }
+  .owner-select.socio2 { color: #f472b6; border-color: #f472b6; background: #2d0f1e; }
   .owner-select.ambos { color: #00ff88; border-color: #00ff88; background: #0d2d1a; }
   .task-remove {
     width: 18px; height: 18px; min-width: 18px;
@@ -536,7 +536,7 @@
     </div>
     <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.15); margin-top: 16px;">
       <div class="alert-title" style="color: var(--green);">💰 Divisão SaaS — 50/50</div>
-      <p>Iago: desenvolvimento. Camargo: suporte/vendas. Estratégia: começar com um segmento, validar e replicar.</p>
+      <p>Sócio 1: desenvolvimento. Sócio 2: suporte/vendas. Estratégia: começar com um segmento, validar e replicar.</p>
     </div>
   </div>
 
@@ -575,33 +575,33 @@ const SECTIONS = [
     { id: 's1-2', text: 'Decidir modelo jurídico (MEI)', owner: 'ambos' },
     { id: 's1-3', text: 'Abrir MEI no gov.br (6209-1/00)', owner: 'ambos' },
     { id: 's1-4', text: 'Abrir conta PJ (Inter/Nubank)', owner: 'ambos' },
-    { id: 's1-5', text: 'Comprar chip comercial', owner: 'camargo' },
-    { id: 's1-6', text: 'Configurar WhatsApp Business', owner: 'camargo' },
-    { id: 's1-7', text: 'Criar email profissional', owner: 'iago' },
+    { id: 's1-5', text: 'Comprar chip comercial', owner: 'socio2' },
+    { id: 's1-6', text: 'Configurar WhatsApp Business', owner: 'socio2' },
+    { id: 's1-7', text: 'Criar email profissional', owner: 'socio1' },
     { id: 's1-8', text: 'Definir divisão financeira por escrito', owner: 'ambos' }
   ]},
   { id: 's2', num: '02', title: 'IDENTIDADE & MATERIAIS', badge: 'MARCA', badgeClass:'badge-brand', tasks: [
-    { id: 's2-1', text: 'Desenvolver logo (Canva/Ideogram)', owner: 'iago' },
-    { id: 's2-2', text: 'Registrar domínio .com.br', owner: 'iago' },
-    { id: 's2-3', text: 'Criar landing page simples', owner: 'iago' },
+    { id: 's2-1', text: 'Desenvolver logo (Canva/Ideogram)', owner: 'socio1' },
+    { id: 's2-2', text: 'Registrar domínio .com.br', owner: 'socio1' },
+    { id: 's2-3', text: 'Criar landing page simples', owner: 'socio1' },
     { id: 's2-4', text: 'Criar proposta comercial PDF', owner: 'ambos' },
-    { id: 's2-5', text: 'Criar contrato de prestação de serviços', owner: 'iago' },
-    { id: 's2-6', text: 'Pedir cartões de visita com QR Code', owner: 'camargo' },
+    { id: 's2-5', text: 'Criar contrato de prestação de serviços', owner: 'socio1' },
+    { id: 's2-6', text: 'Pedir cartões de visita com QR Code', owner: 'socio2' },
     { id: 's2-7', text: 'Instalar AnyDesk p/ suporte remoto', owner: 'ambos' },
-    { id: 's2-8', text: 'Criar Google Meu Negócio', owner: 'iago' }
+    { id: 's2-8', text: 'Criar Google Meu Negócio', owner: 'socio1' }
   ]},
   { id: 's3', num: '03', title: 'PROSPECÇÃO & VENDAS', badge: 'SALES', badgeClass:'badge-sales', tasks: [
     { id: 's3-1', text: 'Mapear 20 empresas-alvo no Maps', owner: 'ambos' },
-    { id: 's3-2', text: 'Definir roteiro de visitas presencial', owner: 'camargo' },
-    { id: 's3-3', text: 'Fazer 5 visitas presenciais/semana', owner: 'camargo' },
+    { id: 's3-2', text: 'Definir roteiro de visitas presencial', owner: 'socio2' },
+    { id: 's3-3', text: 'Fazer 5 visitas presenciais/semana', owner: 'socio2' },
     { id: 's3-4', text: 'Enviar propostas via WhatsApp', owner: 'ambos' },
-    { id: 's3-5', text: 'Follow-up de propostas pendentes', owner: 'camargo' },
+    { id: 's3-5', text: 'Follow-up de propostas pendentes', owner: 'socio2' },
     { id: 's3-6', text: 'Meta: Fechar 1º contrato recorrente', owner: 'ambos' }
   ]},
   { id: 's4', num: '04', title: 'OPERAÇÃO & ESCALA', badge: 'OPS', badgeClass:'badge-ops', tasks: [
-    { id: 's4-1', text: 'Gestão de chamados (Notion/Trello)', owner: 'iago' },
-    { id: 's4-2', text: 'Visitas mensais de check-up', owner: 'camargo' },
-    { id: 's4-3', text: 'Emitir cobranças (Inter PJ)', owner: 'iago' },
+    { id: 's4-1', text: 'Gestão de chamados (Notion/Trello)', owner: 'socio1' },
+    { id: 's4-2', text: 'Visitas mensais de check-up', owner: 'socio2' },
+    { id: 's4-3', text: 'Emitir cobranças (Inter PJ)', owner: 'socio1' },
     { id: 's4-4', text: 'Identificar oportunidade para SaaS', owner: 'ambos' }
   ]}
 ];
@@ -764,8 +764,8 @@ function createTaskEl(id, defaultText, defaultOwner, sectionId) {
     <span class="task-text" contenteditable="false">${text}</span>
     <span class="task-owner">
       <select class="owner-select ${owner}" onclick="event.stopPropagation()">
-        <option value="iago" ${owner==='iago'?'selected':''}>IAGO</option>
-        <option value="camargo" ${owner==='camargo'?'selected':''}>CAMARGO</option>
+        <option value="socio1" ${owner==='socio1'?'selected':''}>SÓCIO 1</option>
+        <option value="socio2" ${owner==='socio2'?'selected':''}>SÓCIO 2</option>
         <option value="ambos" ${owner==='ambos'?'selected':''}>AMBOS</option>
       </select>
     </span>

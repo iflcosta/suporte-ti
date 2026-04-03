@@ -50,7 +50,7 @@ Este guia foi criado para que os sócios da Il Potere Tech dominem tecnicamente 
 ## 6. Ferramentas que vocês DEVEM conhecer (Sugestão Técnica)
 *   **Suporte Remoto**: RustDesk (Open Source/Self-hosted) ou AnyDesk.
 *   **Monitoramento (RMM)**: Atera, NinjaOne ou Tactical RMM (para quem quer economizar no início).
-*   **Organização**: Trello ou Notion para gerenciar os tickets (chamados) dos clientes.
+*   **Organização**: Trello ou Notion para gerenciar os tickets (Sócio 1/Sócio 2) dos clientes.
 
 ---
 
