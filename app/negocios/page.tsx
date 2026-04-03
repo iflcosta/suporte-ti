@@ -2,7 +2,11 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import { Printer, ShieldCheck, FileText, CheckSquare, Lock, Zap, Target, DollarSign, LayoutDashboard, GraduationCap } from "lucide-react"
+import { 
+  Printer, ShieldCheck, FileText, CheckSquare, Lock, Zap, Target, 
+  DollarSign, LayoutDashboard, GraduationCap, Monitor, UserCheck, 
+  Shield, Activity, Cloud, Wifi, Settings 
+} from "lucide-react"
 
 const PASSWORD_KEY = "ilpotere2026"
 
@@ -142,10 +146,9 @@ export default function BusinessHub() {
       </nav>
 
       {/* ÁREA DE CONTEÚDO PRINCIPAL */}
-      {/* ÁREA DE CONTEÚDO PRINCIPAL (OCUPA O RESTANTE DA TELA) */}
       <main className="flex-1 relative bg-[#080808]">
         
-        {/* VIEWERS DE HTML (IFRAMES) - SEM SCROLL EXTERNO */}
+        {/* VIEWERS DE HTML (IFRAMES) */}
         {activeTab === "dashboard" && (
            <iframe 
              src="/docs/plano-estrategico.html" 
@@ -165,12 +168,12 @@ export default function BusinessHub() {
         {/* COMPONENTES REACT (CONTRATO, PROPOSTA, CHECKLIST) */}
         {(activeTab === "contrato" || activeTab === "proposta" || activeTab === "checklist") && (
           <div className="relative p-6 md:p-12">
-            <div className="print-page bg-white text-black p-[1cm] md:p-[2cm] shadow-[0_0_50px_rgba(0,0,0,0.5)] min-h-[29.7cm] w-full max-w-[21cm] mx-auto text-[11pt] leading-relaxed animate-fade-up">
+            <div className="print-page bg-white text-black p-[1cm] md:p-[2cm] shadow-[0_0_50px_rgba(0,0,0,0.5)] min-h-[29.7cm] w-full max-w-[21cm] mx-auto text-[11pt] leading-relaxed animate-fade-up flex flex-col">
               
               {/* Header do Documento */}
               <div className="text-center mb-12 border-b-2 border-[#8B2635] pb-4">
                 <h1 className="text-2xl md:text-3xl font-serif font-bold uppercase tracking-widest text-[#8B2635]">
-                  {activeTab === "proposta" ? "Proposta Comercial Elite" : activeTab === "contrato" ? "Contrato de Suporte Especializado" : "Checklist Onboarding técnico"}
+                  {activeTab === "proposta" ? "Proposta Comercial" : activeTab === "contrato" ? "Contrato de Suporte Especializado" : "Checklist Onboarding técnico"}
                 </h1>
                 <p className="text-[10px] font-mono uppercase tracking-[0.3em] font-light text-gray-500 mt-2">
                   Il Potere Tech // Bragança Paulista, SP
@@ -218,43 +221,79 @@ export default function BusinessHub() {
 
               {activeTab === "proposta" && (
                 <div className="prose prose-slate max-w-none text-center font-serif flex flex-col h-full">
-                  <p className="text-sm mb-12 italic text-gray-600 block border-l-4 border-[#8B2635] pl-4 mx-auto max-w-md">"Sua tecnologia não deve ser um custo de manutenção, mas um motor de produtividade ininterrupta."</p>
+                  <p className="text-sm mb-8 italic text-gray-600 block border-l-4 border-[#8B2635] pl-4 mx-auto max-w-md italic">"Sua tecnologia não deve ser um custo de manutenção, mas um motor de produtividade ininterrupta."</p>
                   
-                  <div className="grid grid-cols-2 gap-8 text-left mb-12">
-                    <div className="p-6 bg-gray-50 border border-gray-100 flex flex-col gap-2">
-                      <h3 className="font-bold uppercase tracking-tighter text-[#8B2635] mb-2 flex items-center gap-2"><Zap size={20} /> Suporte Remoto</h3>
-                      <p className="text-[9pt] leading-tight text-gray-600">Resolução instantânea para lentidão, vírus e e-mails. Foco em eliminar o tempo de inatividade da equipe.</p>
+                  {/* Grid de 8 Pilares de Solução */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left mb-10">
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Monitor size={14} /> Suporte Remoto</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Acesso seguro para resolver problemas rapidamente.</p>
                     </div>
-                    <div className="p-6 bg-black text-white flex flex-col gap-2">
-                      <h3 className="font-bold uppercase tracking-tighter text-[#C9A962] mb-2 flex items-center gap-2"><CheckSquare size={20} /> Presença Física</h3>
-                      <p className="text-[9pt] leading-tight text-gray-400">Visitas especializadas para manutenção de hardware, infraestrutura de rede e periféricos críticos.</p>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><UserCheck size={14} /> Presencial</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Presença física especializada no horário comercial.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Shield size={14} /> Backup & Anti-Ransom</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Estratégia 3-2-1 com nuvem imutável e segura.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Activity size={14} /> Monitoramento 24/7</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Detecção proativa 24/7 de falhas silenciosas.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Lock size={14} /> Adequação LGPD</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Conformidade legal para clínicas e advogados.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Cloud size={14} /> Cloud & Colaboração</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Gestão de M365 e Google Workspace em qualquer lugar.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Wifi size={14} /> Infraestrutura</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Redes de alta disponibilidade e Wi-Fi estável.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 border border-gray-100">
+                      <h4 className="font-bold text-[9pt] uppercase tracking-tighter text-[#8B2635] mb-1 flex items-center gap-2"><Settings size={14} /> Suporte a Sistemas</h4>
+                      <p className="text-[8pt] text-gray-500 leading-tight">Especialistas em ERP/CRM sem interrupções.</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-0 mb-12 border border-gray-200">
-                    <div className="p-8 bg-white">
-                      <h4 className="text-[10px] tracking-widest uppercase mb-4 text-gray-400 font-sans">BASIC</h4>
-                      <div className="text-3xl font-bold mb-4 font-sans text-gray-800">R$ 390</div>
-                      <ul className="text-[8pt] text-left space-y-2 uppercase leading-snug font-sans text-gray-500">
+                  <div className="grid grid-cols-2 gap-8 text-left mb-10 border-y border-gray-100 py-6">
+                    <div>
+                      <h3 className="font-bold uppercase tracking-widest text-[#8B2635] text-[10px]">O que resolvemos no Remoto</h3>
+                      <p className="text-[8.5pt] text-gray-600">Lentidão, Erros de E-mail, Softwares, Vírus e Gestão de Usuários. Resolução instantânea.</p>
+                    </div>
+                    <div>
+                      <h3 className="font-bold uppercase tracking-widest text-black text-[10px]">O que resolvemos no Presencial</h3>
+                      <p className="text-[8.5pt] text-gray-600">Engenharia Física em Hardware, Cabeamento de Rede, Racks e Infraestrutura.</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-0 mb-10 border border-gray-200">
+                    <div className="p-6 bg-white border-r">
+                      <h4 className="text-[9px] tracking-widest uppercase mb-2 text-gray-400 font-sans">BASIC</h4>
+                      <div className="text-2xl font-bold mb-2 font-sans text-gray-800">R$ 390</div>
+                      <ul className="text-[7.5pt] text-left space-y-1 uppercase font-sans text-gray-500 list-none p-0">
                         <li>• Até 05 PCs</li>
                         <li>• Suporte Remoto Ilimitado</li>
                         <li>• 1 Visita Presencial</li>
                       </ul>
                     </div>
-                    <div className="p-8 bg-[#8B2635] text-white shadow-2xl relative z-10 scale-105">
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#C9A962] text-black text-[8px] px-4 py-1 font-bold uppercase tracking-widest">Mais Vendido</span>
-                      <h4 className="text-[10px] tracking-widest uppercase mb-4 text-white/50 font-sans">STANDARD</h4>
-                      <div className="text-3xl font-bold mb-4 font-sans">R$ 690</div>
-                      <ul className="text-[8pt] text-left space-y-2 uppercase leading-snug font-sans">
+                    <div className="p-6 bg-[#8B2635] text-white shadow-xl relative z-10 scale-105">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#C9A962] text-black text-[7px] px-3 py-1 font-bold uppercase tracking-widest">Mais Vendido</span>
+                      <h4 className="text-[9px] tracking-widest uppercase mb-2 text-white/50 font-sans">STANDARD</h4>
+                      <div className="text-2xl font-bold mb-2 font-sans">R$ 690</div>
+                      <ul className="text-[7.5pt] text-left space-y-1 uppercase font-sans list-none p-0">
                         <li>• Até 15 PCs</li>
                         <li>• Monitoramento 24/7</li>
                         <li>• 2 Visitas Presenciais</li>
                       </ul>
                     </div>
-                    <div className="p-8 bg-white">
-                      <h4 className="text-[10px] tracking-widest uppercase mb-4 text-gray-400 font-sans">PREMIUM</h4>
-                      <div className="text-3xl font-bold mb-4 font-sans text-gray-800">R$ 1290</div>
-                      <ul className="text-[8pt] text-left space-y-2 uppercase leading-snug font-sans text-gray-500">
+                    <div className="p-6 bg-white border-l">
+                      <h4 className="text-[9px] tracking-widest uppercase mb-2 text-gray-400 font-sans">PREMIUM</h4>
+                      <div className="text-2xl font-bold mb-2 font-sans text-gray-800">R$ 1290</div>
+                      <ul className="text-[7.5pt] text-left space-y-1 uppercase font-sans text-gray-500 list-none p-0">
                         <li>• Até 40 PCs</li>
                         <li>• Resposta Prioritária (1h)</li>
                         <li>• Visitas Semanais</li>
@@ -262,14 +301,30 @@ export default function BusinessHub() {
                     </div>
                   </div>
 
-                  <div className="mt-auto bg-gray-50 p-6 flex items-center justify-between">
-                    <div className="text-left flex-1 border-r border-gray-200 pr-6 mr-6">
-                      <h4 className="font-bold flex items-center gap-2 text-sm uppercase"><DollarSign size={18} className="text-[#8B2635]" /> Fidelidade Zero</h4>
-                      <p className="text-[9pt] text-gray-500">Acreditamos no nosso valor, não em multas. Cancele com 30 dias de aviso prévio.</p>
+                  <div className="mb-10 text-left">
+                    <h3 className="font-bold uppercase tracking-widest text-[#8B2635] text-[10px] mb-4 border-b pb-1">Projetos & Serviços Avulsos (Opcional)</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 text-[8.5pt] text-gray-600">
+                      <div className="flex justify-between pr-4 border-r border-gray-100"><span>Formatação Estação</span> <span className="font-bold text-black">R$ 180</span></div>
+                      <div className="flex justify-between px-4 border-r border-gray-100"><span>Limpeza Técnica</span> <span className="font-bold text-black">R$ 90</span></div>
+                      <div className="flex justify-between pl-4"><span>Config. Servidor/NAS</span> <span className="font-bold text-black">R$ 350</span></div>
+                      <div className="flex justify-between pr-4 border-r border-gray-100"><span>Auditoria LGPD/Segur.</span> <span className="font-bold text-black">R$ 500</span></div>
+                      <div className="flex justify-between px-4 border-r border-gray-100"><span>Implantação Cloud</span> <span className="font-bold text-black">R$ 450</span></div>
+                      <div className="flex justify-between pl-4"><span>Projeto Redes/Rack</span> <span className="font-bold text-black">Sob Consulta</span></div>
                     </div>
-                    <div className="text-right flex flex-col">
-                      <span className="text-[10px] uppercase tracking-widest font-sans text-gray-400">Contate o Sócio</span>
-                      <span className="font-bold font-sans text-gray-800">(11) 9 ____-____</span>
+                  </div>
+
+                  <div className="mt-auto grid grid-cols-2 gap-4">
+                    <div className="bg-gray-100 p-4 text-left">
+                      <h4 className="font-bold text-[9px] uppercase tracking-widest text-[#8B2635] mb-2 font-sans border-b border-[#8B2635]/20 pb-2 flex justify-between items-center">GARANTIA DE RESOLUÇÃO <Shield size={12}/></h4>
+                      <p className="text-[7.5pt] text-gray-500 leading-snug">Se não houver solução técnica viável para o problema apresentado, o valor da visita excedente não será faturado.</p>
+                    </div>
+                    <div className="bg-[#0F0F0F] p-4 text-left text-white">
+                      <h4 className="font-bold text-[9px] uppercase tracking-widest text-[#C9A962] mb-2 font-sans border-b border-white/10 pb-2">DIFERENCIAIS DE ELITE</h4>
+                      <ul className="text-[7.5pt] text-gray-400 space-y-1 list-none p-0 italic">
+                        <li>• <strong className="text-white">Fidelidade Zero:</strong> Cancele quando quiser.</li>
+                        <li>• <strong className="text-white">Transparência:</strong> Relatórios Mensais de Saúde.</li>
+                        <li>• <strong className="text-white">Acesso Total:</strong> Atendimento com o Sócio.</li>
+                      </ul>
                     </div>
                   </div>
                 </div>

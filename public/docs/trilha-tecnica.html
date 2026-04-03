@@ -324,9 +324,9 @@ footer span{color:var(--bordeaux)}
   <ul class="blist">
     <li><strong>IP, DNS, DHCP, Gateway</strong> — entender e configurar manualmente</li>
     <li><strong>Diagnóstico de rede</strong> — ping, tracert, nslookup, ipconfig, netstat</li>
-    <li><strong>Configurar roteador</strong> — TP-Link e Intelbras (mais comuns em BP)</li>
-    <li><strong>Wi-Fi</strong> — canal, frequência (2.4 vs 5GHz), sinal fraco, interferência</li>
-    <li><strong>VPN</strong> — configurar acesso remoto seguro (RustDesk com relay próprio)</li>
+    <li><strong>Configurar roteador/AP</strong> — TP-Link Omada e Ubiquiti UniFi (Padrão Elite)</li>
+    <li><strong>Wi-Fi Corporativo</strong> — canal, frequência, roaming e densidade de usuários</li>
+    <li><strong>Engenharia Física</strong> — Organização de Racks (Padrão Il Potere), Cabeamento CAT6 e Identificação</li>
   </ul>
 
   <div class="lbl">Links verificados ✓</div>
@@ -343,20 +343,22 @@ footer span{color:var(--bordeaux)}
     <div class="kit-lbl">🛠 Kit de ferramentas — Redes</div>
     <div class="kit-grid">
       <div class="kit-item">Advanced IP Scanner — mapear rede</div>
-      <div class="kit-item">Angry IP Scanner — alternativa</div>
-      <div class="kit-item">WirelessKeyView — recuperar senhas Wi-Fi</div>
-      <div class="kit-item">NetAdapter Repair — reparar adaptador</div>
+      <div class="kit-item">UniFi Design Center — projetar Wi-Fi</div>
+      <div class="kit-item">WirelessKeyView — recuperar senhas</div>
+      <div class="kit-item">NetAdapter Repair — reparar software</div>
+      <div class="kit-item">Testador de Cabo RJ45 (Hardware)</div>
     </div>
   </div>
 
   <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
   <div class="cenarios" style="border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.04)">
-    <div class="cenarios-lbl" style="color:var(--orange-l)">🎯 Complete as 5 Missões antes de marcar como concluído</div>
+    <div class="cenarios-lbl" style="color:var(--orange-l)">🎯 Complete as 6 Missões antes de marcar como concluído</div>
     <div class="cenario"><strong>Missão 1 — IP Fixo e Reserva:</strong> Configure um IP fixo no seu Windows e depois entre no roteador para fazer a "Reserva de Endereço" baseada no seu MAC Address.</div>
     <div class="cenario"><strong>Missão 2 — Wi-Fi Survey:</strong> Baixe um app "Wi-Fi Analyzer" (Android) ou use o notebook para identificar qual canal Wi-Fi está menos congestionado no seu ambiente.</div>
-    <div class="cenario"><strong>Missão 3 — Diagnóstico via CMD:</strong> Use <code>ping -t 8.8.8.8</code> para ver latência e <code>tracert google.com</code> para identificar o primeiro "salto" (seu gateway) e o salto onde a internet falha.</div>
-    <div class="cenario"><strong>Missão 4 — Mapeamento de Rede:</strong> Rode o Advanced IP Scanner na sua rede local. Identifique todos os aparelhos conectados (inclusive celulares e TVs) e salve o relatório.</div>
-    <div class="cenario"><strong>Missão 5 — VPN Anywhere:</strong> Configure o RustDesk com "Acesso Não Supervisionado" e use um servidor de Relay próprio (ou o público para teste inicial). Tente acessar seu PC usando apenas o 4G do celular. Simule um suporte de emergência.</div>
+    <div class="cenario"><strong>Missão 3 — Diagnóstico via CMD:</strong> Use <code>ping -t 8.8.8.8</code> para ver latência e <code>tracert google.com</code> para identificar o primeiro "salto" e o ponto de falha.</div>
+    <div class="cenario"><strong>Missão 4 — Mapeamento de Rede:</strong> Rode o Advanced IP Scanner na sua rede local. Identifique todos os aparelhos conectados e salve o relatório.</div>
+    <div class="cenario"><strong>Missão 5 — VPN Anywhere:</strong> Configure o RustDesk com "Acesso Não Supervisionado" e use um servidor de Relay próprio (ou o público). Teste o acesso via 4G.</div>
+    <div class="cenario"><strong>Missão 6 — Engenharia de Campo:</strong> Desenhe o layout de um "Rack de Elite" (Patch Panel → Switch → Gestor Horizontal). Explique a importância do fluxo de ar e do uso de velcro em vez de lacres plásticos.</div>
   </div>
 
   <div class="phase-prog" id="m2-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m2-pfill" style="background:var(--orange-l)"></div></div><div class="phase-prog-txt" id="m2-ptxt">0%</div></div>
