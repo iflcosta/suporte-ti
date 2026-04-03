@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import Link from "next/link"
 import { Printer, ShieldCheck, FileText, CheckSquare, Lock, Zap, Target, DollarSign, LayoutDashboard, GraduationCap } from "lucide-react"
 
 const PASSWORD_KEY = "ilpotere2026"
@@ -75,7 +76,12 @@ export default function BusinessHub() {
       <nav className="no-print border-b border-[#1F1F1F] bg-[#0F0F0F] sticky top-0 z-50">
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="text-[#8B2635] font-serif text-xl font-bold italic underline border-b-2 border-[#8B2635] pb-1">Il Potere</div>
+            <Link 
+              href="/" 
+              className="text-[#8B2635] font-serif text-xl font-bold italic underline border-b-2 border-[#8B2635] pb-1 hover:text-[#A63344] transition-colors cursor-pointer"
+            >
+              Il Potere
+            </Link>
             <div className="h-4 w-[1px] bg-[#1F1F1F]"></div>
             <span className="text-xs font-mono text-[#78716c] tracking-widest uppercase hidden md:inline">Business Control Center</span>
           </div>
