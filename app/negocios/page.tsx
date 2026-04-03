@@ -277,25 +277,27 @@ export default function BusinessHub() {
               {activeTab === "checklist" && (
                 <div className="prose prose-slate max-w-none text-[10pt]">
                   <h2 className="text-sm font-bold bg-black text-white inline-block px-3 py-1 mb-6 uppercase italic">Arsenal de Campo // Il Potere Tech</h2>
-                  <div className="grid grid-cols-2 gap-12 mb-10 border-b border-gray-100 pb-10">
-                    <div>
-                      <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">Elétrica e Rede</h3>
-                      <ul className="list-disc ml-4 space-y-2 text-gray-600">
-                        <li>Testador de Tomada (Plug Tester)</li>
-                        <li>Testador de Fonte Profissional</li>
-                        <li>Multímetro Digital RMS</li>
-                        <li>Certificador de Cabo RJ45</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">Limpeza e Diagnóstico</h3>
-                      <ul className="list-disc ml-4 space-y-2 text-gray-600">
-                        <li>Álcool Isopropílico 99% + Ar Comprimido</li>
-                        <li>Pasta Térmica de Prata (Arctic Silver)</li>
-                        <li>Kit Pen Drives (Ventoy com Windows 10/11)</li>
-                        <li>Scanner de Rede Advanced IP</li>
-                      </ul>
-                    </div>
+                  <div>
+                    <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">Elétrica e Rede (Investimento)</h3>
+                    <ul className="list-disc ml-4 space-y-2 text-gray-600">
+                      <li>Testador de Tomada (Plug Tester): R$ 45</li>
+                      <li>Testador de Fonte Profissional: R$ 85</li>
+                      <li>Multímetro Digital RMS: R$ 120</li>
+                      <li>Certificador de Cabo RJ45: R$ 60</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#8B2635] text-[10px] uppercase mb-4 tracking-widest border-b border-[#8B2635] pb-1">Limpeza e Diagnóstico (Investimento)</h3>
+                    <ul className="list-disc ml-4 space-y-2 text-gray-600">
+                      <li>Kit Fixit / Precisão: R$ 150</li>
+                      <li>Insumos (Álcool/Pasta Térmica): R$ 70</li>
+                      <li>Kit Pen Drives (2x 64GB): R$ 120</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-black text-white p-4 mb-10 flex justify-between items-center font-mono text-xs uppercase tracking-widest">
+                    <span>Total por Kit (Elite):</span>
+                    <span className="text-[#C9A962] font-bold text-lg">R$ 650,00</span>
                   </div>
 
                   <div className="bg-gray-50 p-6 md:p-8 flex flex-col gap-6">

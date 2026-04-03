@@ -18,6 +18,7 @@ export function Header() {
     { label: "Planos", href: "#planos" },
     { label: "FAQ", href: "#faq" },
     { label: "Contato", href: "#contato" },
+    { label: "Portal do Sócio", href: "/negocios" },
   ]
 
   return (
