@@ -25,7 +25,7 @@ Este guia operacional agora inclui o **Kit Físico de Elite**, garantindo que a 
 
 ---
 
-## 🚀 FASE 1: RECONHECIMENTO DE INFRA (Iago)
+## 🚀 FASE 1: RECONHECIMENTO DE INFRA (Sócio 1)
 - [ ] **Mapear Rack:** Foto do roteador, switch e modem.
 - [ ] **Teste Elétrico:** Rodar o *Plug Tester* em todas as tomadas onde há computadores.
 - [ ] **IP Scanner:** Identificar e catalogar todos os dispositivos (PCs, Impressoras, IoT).

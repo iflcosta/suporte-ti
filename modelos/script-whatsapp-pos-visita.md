@@ -1,4 +1,4 @@
-# Script de WhatsApp: Pós-Visita Comercial (Camargo)
+# Script de WhatsApp: Pós-Visita Comercial (Sócio 2)
 
 Este script deve ser enviado em até **2 horas após a visita presencial**, acompanhado do PDF da proposta.
 
@@ -19,4 +19,4 @@ Dê uma olhadinha nos planos (o **[Sugestão de Plano]** me pareceu o mais adequ
 Fico à disposição para tirarmos qualquer dúvida e darmos o próximo passo para blindar a sua operação.
 
 Um abraço, 
-**Camargo — Il Potere Tech**"
+**Sócio 2 — Il Potere Tech**"
