@@ -22,6 +22,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ilpotere.tech"),
   title: {
     default: "Il Potere Tech — Suporte em TI | Bragança Paulista & Região",
     template: "%s | Il Potere Tech"
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     description: "Foque no seu negócio, nós cuidamos da tecnologia. Suporte em TI em Bragança Paulista sem amarras de fidelidade.",
     images: [
       {
-        url: "/og-image.png", // User would need to provide/generate this
+        url: "/logo.png", // Use logo as placeholder for now
         width: 1200,
         height: 630,
         alt: "Il Potere Tech — Tecnologia que Funciona",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Il Potere Tech — Suporte em TI em Bragança Paulista",
     description: "TI humanizada e eficiente para pequenas empresas. Sem fidelidade.",
-    images: ["/og-image.png"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -70,8 +71,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
   },
 }
 
