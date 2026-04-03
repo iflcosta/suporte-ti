@@ -235,6 +235,31 @@
       }
       @page { size: A4; margin: 0; }
     }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      body { background: white; }
+      .print-btn { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 10px; }
+      .page {
+        width: 100%;
+        margin: 0;
+        padding: 1.2rem 1rem;
+        box-shadow: none;
+        border-radius: 0;
+        min-height: unset;
+      }
+      .doc-header h1 { font-size: 14pt; }
+      .pilares-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .canais-grid { grid-template-columns: 1fr; }
+      .planos-grid { grid-template-columns: 1fr; }
+      .plano-col { border-right: none; border-bottom: 1px solid #e5e5e5; }
+      .avulsos-grid { grid-template-columns: 1fr; }
+      .avulso-item:nth-child(n) { border-right: none; }
+      .rodape-grid { grid-template-columns: 1fr; }
+      .doc-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .pilar h4, .pilar p { font-size: 8pt; }
+      .section-label { font-size: 7pt; }
+    }
   </style>
 </head>
 <body>

@@ -179,12 +179,6 @@ export default function BusinessHub() {
                 </button>
               </React.Fragment>
             ))}
-            {(activeTab === "contrato" || activeTab === "proposta" || activeTab === "checklist") && (
-              <button onClick={handlePrint}
-                className="ml-2 bg-[#8B2635] text-white px-3 py-1.5 md:px-4 md:py-2 flex items-center gap-1.5 hover:bg-[#A63344] transition-colors text-[10px] md:text-xs font-semibold uppercase tracking-tighter shadow-lg shadow-[#8B2635]/20">
-                <Printer size={14} /> {activeTab === "checklist" ? "Imprimir" : "Abrir PDF"}
-              </button>
-            )}
           </div>
         </div>
       </nav>

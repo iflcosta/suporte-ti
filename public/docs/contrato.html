@@ -263,6 +263,32 @@
         margin: 0;
       }
     }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      body { background: white; }
+      .print-btn { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 10px; }
+      .page {
+        width: 100%;
+        margin: 0;
+        padding: 1.2rem 1rem;
+        box-shadow: none;
+        border-radius: 0;
+        min-height: unset;
+      }
+      .doc-header h1 { font-size: 14pt; }
+      .partes-grid { grid-template-columns: 1fr; gap: 12px; }
+      .plano-opcoes { flex-direction: column; gap: 8px; }
+      .planos-grid { grid-template-columns: 1fr; }
+      .plano-col { border-right: none; border-bottom: 1px solid #e5e5e5; }
+      .plano-col:last-child { border-bottom: none; }
+      .plano-col .plano-price { font-size: 14pt; }
+      .assinaturas { grid-template-columns: 1fr; gap: 20px; }
+      .tag-mais-vendido { font-size: 5pt; }
+      .clausula p, .parte-bloco { font-size: 8pt; }
+      .clausula-titulo { font-size: 6pt; margin-bottom: 3px; }
+      .section-label { font-size: 6pt; }
+    }
   </style>
 </head>
 <body>
