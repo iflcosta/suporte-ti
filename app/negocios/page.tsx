@@ -78,8 +78,9 @@ export default function BusinessHub() {
           <div className="flex items-center gap-4">
             <Link 
               href="/" 
-              className="text-[#8B2635] font-serif text-xl font-bold italic underline border-b-2 border-[#8B2635] pb-1 hover:text-[#A63344] transition-colors cursor-pointer"
+              className="px-4 py-2 bg-[#141414] border border-[#1F1F1F] text-[#8B2635] font-serif text-lg font-bold italic hover:bg-[#8B2635] hover:text-white transition-all shadow-lg hover:shadow-[#8B2635]/20 flex items-center gap-2 group"
             >
+              <span className="group-hover:-translate-x-1 transition-transform">←</span>
               Il Potere
             </Link>
             <div className="h-4 w-[1px] bg-[#1F1F1F]"></div>
