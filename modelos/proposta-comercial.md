@@ -1,54 +1,57 @@
-# Proposta Comercial: Il Potere Tech — Suporte de Elite
+# PROPOSTA COMERCIAL: Suporte em TI de ELITE
 
-## 🚀 "Sua TI não deve ser um custo, mas um motor de produtividade."
-
-Prezado(a) [Nome do Gestor],
-
-Hoje, em Bragança Paulista, a maioria das empresas perde até **40 horas mensais** de produtividade por problemas simples: internet lenta, máquinas travando ou falta de segurança. A Il Potere Tech nasceu para eliminar esse desperdício.
+**IL POTERE TECH // Bragança Paulista, SP**
 
 ---
 
-### 🛡️ O Que Entregamos (Gestão Proativa)
-Diferente do "Técnico do Bairro" que só aparece quando algo quebra, nós monitoramos sua rede **24h por dia**. Se um disco der sinal de falha, nós saberemos antes de você — e resolveremos sem interromper seu fluxo de trabalho.
+## 🚀 SOBRE NÓS
+Somos uma empresa local de suporte técnico com foco em **Pequenas e Médias Empresas (PMEs)**. Operamos com um modelo simples: **Sem Fidelidade** e **Sem Surpresas**. Tecnologia funcionando é a sua produtividade em alta, e nós cuidamos da infraestrutura para você focar no que importa.
 
-| BENEFÍCIO | SUPORTE COMUM | IL POTERE TECH |
+---
+
+## 🛡️ COMO ATENDEMOS
+
+### SUPORTE REMOTO (Proativo)
+- Via AnyDesk / RustDesk ou WhatsApp.
+- Resolvendo em tempo real: lentidão, vírus, e-mail, dúvidas de Office.
+- Monitoramento 24/7 de hardware (Sabemos antes que algo quebre).
+
+### VISITA PRESENCIAL (Especializado)
+- Conforme o plano contratado ou sob demanda.
+- Resolvendo: hardware, redes, cabos, impressoras físicas e roteadores.
+- Substituição de peças e limpeza técnica.
+
+---
+
+## 💰 PLANOS MENSAIS (Fidelidade Zero)
+
+| BASIC | STANDARD | PREMIUM |
 | :--- | :--- | :--- |
-| **Resolução** | Demorada e Reativa | **Proativa (RMM 24/7)** |
-| **Prazos (SLA)** | "Melhor Esforço" | **SLA Seguro (até 4h)** |
-| **Foco** | Consertar PCs | **Produtividade do Time** |
-| **Previsibilidade** | Custos Surpresa | **Mensalidade Fixa** |
+| **R$ 390/mês** | **R$ 690/mês** | **R$ 1.290/mês** |
+| *Foco: 01 a 05 PCs* | *Foco: 06 a 15 PCs* | *Foco: 16 a 40 PCs* |
+| **Ilimitado** Remoto | **Ilimitado** Remoto | **Ilimitado** Remoto |
+| 1 Visita Presencial mensal | 2 Visitas Presenciais mensais | Visitas Semanais |
+| Resposta em até 4h | Resposta em até 2h | Resposta Prioritária (1h) |
 
 ---
 
-### 💰 Planos de Suporte e Gestão
-
-#### **1. ESSENZIALE — R$ 350/mês**
-*Foco: Microempresas e Home Office (até 5 PCs).*
-- Suporte Remoto Ilimitado (RustDesk).
-- 1 Visita Presencial mensal (Check-up).
-- Monitoramento de Saúde das Máquinas.
-
-#### **2. PROFESSIONALE — R$ 1.200/mês**
-*Foco: PMEs em crescimento (até 15 PCs).*
-- Suporte Remoto prioritário.
-- 2 Visitas Presenciais mensais.
-- Gestão de Segurança e Backup.
-- **Destaque:** Redução de 30% em chamados reativos no 1º mês.
-
-#### **3. IMPRESA — R$ 2.500/mês**
-*Foco: Operações Críticas e Clínicas (até 30 PCs).*
-- Atendimento 24/7 via WhatsApp.
-- Visitas Ilimitadas (conforme necessidade).
-- Gestão Completa de Servidores e Redes.
-- Consultoria de Expansão e Performance.
+## ⚙️ SERVIÇOS AVULSOS (Para não-assinantes)
+- **Visita Técnica Avulsa (N1):** R$ 180,00 por visita.
+- **Hora Técnica Adicional:** R$ 120,00/hora.
+- *Nota: Projetos de rede e infraestrutura são orçados separadamente com 20% de desconto para clientes com plano.*
 
 ---
 
-### ✅ Compromisso Il Potere
-Nosso objetivo é que você **esqueça que tem TI**. Nós cuidamos da tecnologia para que você foque em gerar faturamento.
+## 🛡️ POLÍTICA DE GARANTIA E DIFERENCIAIS
 
-**Vamos otimizar sua empresa esta semana?**
-Atenciosamente,
+1. **Garantia de 30 Dias:** Para o mesmo problema especificamente resolvido.
+2. **Fidelidade Zero:** Cancele quando quiser com apenas 30 dias de aviso prévio. Sem multas abusivas.
+3. **Logística Transparente:** Peças compradas a preço de custo + 10% de taxa de logística (sem markup abusivo).
+4. **Empresa Local:** Estamos em Bragança Paulista. Atendimento rápido e presença física no seu negócio.
+
+---
+
+### Vamos otimizar sua TI agora?
 **Iago Lopes & Camargo**
-*Diretores Executivos — Il Potere Tech*
-*www.ilpotere.tech*
+WhatsApp: (11) 9 ____-____ | contato@ilpotere.tech | www.ilpotere.tech
+*Respondemos em até 2 horas em horário comercial.*

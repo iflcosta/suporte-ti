@@ -1,50 +1,67 @@
-# INSTRUMENTO PARTICULAR DE CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE SUPORTE DE TI E GESTÃO TECNOLÓGICA
+# CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE TI
 
-Pelo presente instrumento particular, as partes abaixo qualificadas:
+**IL POTERE TECH // Bragança Paulista, SP**
 
-**CONTRATADA:** [NOME DA SUA EMPRESA / IL POTERE TECH], inscrita no CNPJ sob o nº [00.000.000/0000-00], sediada em Bragança Paulista/SP.
-**CONTRATANTE:** [NOME DO CLIENTE / RAZÃO SOCIAL], inscrita no CNPJ sob o nº [00.000.000/0000-00], com sede em [ENDEREÇO COMPLETO].
+---
 
-Têm entre si, justo e contratado, o que segue nas cláusulas abaixo:
+### IDENTIFICAÇÃO DAS PARTES
 
-### 1. DO OBJETO
-O presente contrato tem por objeto a prestação de serviços de suporte técnico em informática, gestão de infraestrutura de TI e monitoramento preventivo (RMM), compreendendo:
-- Suporte remoto e presencial para computadores e redes.
-- Gestão de backups e segurança de rede.
-- Instalação e configuração de softwares padrão.
-- Monitoramento de saúde de hardware (discos, CPU, memória).
+**CONTRATADO (Prestador):**
+[Nome do Sócio Responsável] | CPF: __.__.__-___ | CNPJ MEI: __.__.__/____-__
+Endereço: Bragança Paulista, SP | WhatsApp: (11) 9 ____-____
 
-### 2. DOS PLANOS E VALORES
-A CONTRATANTE opta pelo plano **[NOME DO PLANO]**, com o valor fixo mensal de **R$ [VALOR]**, com vencimento todo dia [DIA] de cada mês via boleto bancário ou transferência Pix.
+**CONTRATANTE (Cliente):**
+Razão Social / Nome: ____________________________________________________
+CNPJ / CPF: ____________________ | Responsável: ____________________
+Endereço: ____________________________________________________
+Telefone: (__) ___________ | E-mail: ____________________________
 
-### 3. DO ACORDO DE NÍVEL DE SERVIÇO (SLA)
-A CONTRATADA se compromete a respeitar os seguintes prazos máximos para **primeiro atendimento técnico** (Resposta):
+---
 
-| GRAVIDADE | SUPORTE REMOTO | SUPORTE PRESENCIAL | DEFINIÇÃO |
-| :--- | :--- | :--- | :--- |
-| **CRÍTICO** | 4 Horas | 8 Horas | Servidor ou rede fora do ar; parada total da operação. |
-| **URGENTE** | 12 Horas Úteis | Verificação | Usuário impedido de trabalhar; problema grave sem contorno. |
-| **ROTINA** | 48 Horas Úteis | Verificação | Erros leves; instalação de apps; dúvidas de uso. |
+### PLANO CONTRATADO
 
-### 4. DAS EXCLUSÕES DE ESCOPO
-Não estão inclusos no suporte mensal fixo:
-- Fornecimento de peças de hardware, cabos e componentes (estes serão orçados à parte).
-- Recuperação de dados de discos com falha física (Laboratório externo).
-- Serviços de cabeamento estruturado novo ou reformas elétricas.
-- Suporte a softwares de terceiros de nicho específico (ex: ERPs médicos) além da instalação básica.
+( ) Plano Basic — R$ 390/mês
+( ) Plano Standard — R$ 690/mês
+( ) Plano Premium — R$ 1.290/mês
 
-### 5. DA VIGÊNCIA E FIDELIDADE
-O contrato tem vigência de **12 (doze) meses**.
-- **Período de Experiência:** Nos primeiros 90 (noventa) dias, qualquer parte poderá rescindir o contrato sem aplicação de multa, mediante aviso prévio de 15 dias.
-- **Rescisão Antecipada:** Após os 90 dias, o cancelamento antes do término do prazo requer aviso prévio de 30 dias e multa de [10 a 20%] do valor restante das parcelas.
+**Valor mensal: R$ ___________ | Vencimento: Todo dia 10 de cada mês**
 
-### 6. DA CONFIDENCIALIDADE E LGPD
-Ambas as partes se comprometem a manter total sigilo sobre dados, senhas e informações acessadas durante a vigência, em conformidade com a Lei Geral de Proteção de Dados (L13.709/18).
+---
 
-Local: Bragança Paulista/SP, data [DATA].
+### Cláusula 1ª — OBJETO DO CONTRATO
+O presente contrato tem por objeto a prestação de serviços de suporte em Tecnologia da Informação (TI) no Contratante, conforme o plano selecionado acima, incluindo suporte remoto via AnyDesk/RustDesk, orientação técnica por WhatsApp e visitas presenciais conforme descrito no Anexo I.
 
-__________________________________________
-**CONTRANTANTE (ASSINATURA)**
+### Cláusula 2ª — ESCOPO DOS SERVIÇOS
+Os serviços abrangem exclusivamente suporte em hardware (computadores e notebooks), software, redes e periféricos de informática. **Não estão inclusos:** desenvolvimento de sistemas, criação de sites, serviços de design, consultoria jurídica ou contábil, instalações elétricas prediais ou qualquer serviço não relacionado diretamente à TI.
 
-__________________________________________
-**CONTRATADA (IL POTERE TECH / IAGO LOPES)**
+### Cláusula 3ª — HORÁRIO DE ATENDIMENTO
+O suporte remoto está disponível em horário comercial (08:00 às 18:00). Atendimento exclusivo para **Incidentes Críticos** (servidor fora do ar, rede total inativa) está disponível 24h por dia, 7 dias por semana. Chamados não urgentes serão atendidos por ordem de chegada e prioridade do plano.
+
+### Cláusula 4ª — PEÇAS E COMPONENTES
+O fornecimento de peças, componentes e materiais **não está incluso** na mensalidade. Quando necessário, o Contratante será previamente informado e aprovará o custo. As peças serão cobradas pelo valor de aquisição acrescido de **10% (dez por cento)** a título de taxa de logística, emitido em faturamento separado.
+
+### Cláusula 5ª — CONFIDENCIALIDADE
+O Contratado compromete-se a manter sigilo absoluto sobre todas as informações, dados, senhas, sistemas e arquivos acessados durante a prestação dos serviços, em conformidade com a LGPD (Lei 13.709/18).
+
+### Cláusula 6ª — GARANTIA DOS SERVIÇOS
+Os serviços prestados possuem garantia de 30 (trinta) dias para o mesmo problema especificamente resolvido. A garantia será invalidada caso o Contratante ou terceiros realizem qualquer alteração no sistema, equipamento ou configurações após o atendimento sem autorização prévia por escrito.
+
+### Cláusula 7ª — RESPONSABILIDADE
+Em caso de dano comprovadamente causado por negligência do Contratado, sua responsabilidade ficará limitada ao custo de reparo do componente fisicamente danificado, excluindo-se lucros cessantes ou danos indiretos de perda de dados. O Contratante é o único responsável por manter rotinas de backup atualizadas.
+
+### Cláusula 8ª — PAGAMENTO E REAJUSTE
+O pagamento deverá ser realizado até o dia 10 de cada mês via PIX ou Transferência. O valor mensal será reajustado anualmente pelo índice IPCA acumulado ou pelo percentual fixo de 5% (o que for maior).
+
+### Cláusula 9ª — VIGÊNCIA E RESCISÃO (FIDELIDADE ZERO)
+O contrato é celebrado por prazo indeterminado. Ambas as partes podem solicitar a rescisão do contrato a qualquer momento, **sem aplicação de multa**, mediante apenas o **Aviso Prévio de 30 (trinta) dias** enviado formalmente por e-mail ou WhatsApp.
+
+### Cláusula 10ª — FORO
+Fica eleito o foro da Comarca de Bragança Paulista, Estado de São Paulo, para dirimir quaisquer controvérsias oriundas do presente contrato.
+
+Bragança Paulista, ______ de ________________ de 2026.
+
+---
+
+**[NOME DO SÓCIO] // CONTRATADO (IL POTERE TECH)**
+
+**[NOME DO RESPONSÁVEL] // CONTRATANTE (CLIENTE)**

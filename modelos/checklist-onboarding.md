@@ -1,55 +1,56 @@
-# Checklist de Onboarding Técnico: A "Hora 1" Elite
+# Checklist de Onboarding Técnico: A "Hora 1" Elite (V2)
 
-Este checklist foi desenhado para ser executado em dupla (Iago & Camargo), garantindo que em 60-90 minutos a rede do cliente esteja 100% mapeada e sob controle.
-
----
-
-## 🎒 Preparação (Pré-visita)
-- [ ] Pendrives de Boot (Ventoy com Windows 10/11, ferramentas de remoção de vírus).
-- [ ] Etiquetas físicas (para colar nas máquinas com o ID).
-- [ ] Pasta no Notion do Cliente já criada.
-- [ ] Instalador do **Tactical RMM Agent** e **RustDesk** prontos para rede.
+Este guia operacional agora inclui o **Kit Físico de Elite**, garantindo que a Il Potere Tech tenha 100% de controle sobre a infraestrutura do cliente desde o primeiro minuto.
 
 ---
 
-## 🚀 Fase 1: Reconhecimento e Infra (Iago)
-*Foco: O coração da empresa.*
-- [ ] **Mapear Roteador/Modem:** Capturar IP, marca, modelo e tirar foto das conexões.
-- [ ] **Mapear Switch/Rack:** Verificar se há desorganização crítica de cabos.
-- [ ] **Servidor/Storage:** Identificar quem é o servidor de arquivos e o estado visual do hardware.
-- [ ] **Escaneamento de Rede:** Rodar *Advanced IP Scanner* para achar impressoras e dispositivos ocultos.
-- [ ] **Senhas de Infra:** Solicitar as senhas de acesso ao roteador e rede Wi-Fi.
+## 🎒 0. KIT FÍSICO DO TÉCNICO (Equipamentos de Campo)
+
+### FERRAMENTAS & LIMPEZA
+- [ ] **Kit Fixit:** Chaves Philips, Torx, Fenda e Espátulas de precisão.
+- [ ] **Pulseira Antiestática:** Proteção essencial para manuseio interno de PCs.
+- [ ] **Limpeza Técnica:** Álcool Isopropílico 99%, Ar Comprimido (Lata) e Pasta Térmica (ex: Arctic Silver / MX-4).
+- [ ] **Pincel Antiestático e Flanelas de Microfibra.**
+
+### DIAGNÓSTICO ELÉTRICO & REDES
+- [ ] **Testador de Fonte:** Verificar voltagens de saída (RTX/PL-01).
+- [ ] **Multímetro Digital:** Testar tomadas, extensões e cabos.
+- [ ] **Testador de Cabo de Rede (RJ45):** Validar a crimpagem e integridade do cabo.
+- [ ] **Testador de Tomada (Plug Tester):** Verificar aterramento e inversão de polaridade.
+
+### CABOS & ADAPTADORES (Kit SOS)
+- [ ] Cabo HDMI / DisplayPort.
+- [ ] Adaptadores USB-C para HDMI / USB-A.
+- [ ] Conversor USB para SATA / IDE (Acesso a dados de HDs antigos).
 
 ---
 
-## 💻 Fase 2: Estação de Trabalho (Camargo)
-*Foco: Onde os usuários sentem o suporte.*
-- [ ] **Inventário Rápido:** Nomear a máquina (ex: `CLI-REC-01`) e colar a etiqueta física.
-- [ ] **Instalação Tactical RMM:** Instalar o agente e confirmar que apareceu no Painel Dashboard.
-- [ ] **Instalação RustDesk:** Configurar para acesso não supervisionado (Senha fixa estratégica).
-- [ ] **Saúde do Disco (Iago via Dashboard):** Enquanto Camargo instala, Iago verifica remotamente se há discos morrendo (S.M.A.R.T).
-- [ ] **Remover Bloatware:** Desinstalar apps inúteis que deixam o PC lento (McAfee Trial e similares).
+## 🚀 FASE 1: RECONHECIMENTO DE INFRA (Iago)
+- [ ] **Mapear Rack:** Foto do roteador, switch e modem.
+- [ ] **Teste Elétrico:** Rodar o *Plug Tester* em todas as tomadas onde há computadores.
+- [ ] **IP Scanner:** Identificar e catalogar todos os dispositivos (PCs, Impressoras, IoT).
+- [ ] **Senhas de Acesso:** Capturar senhas de Wi-Fi e painel do roteador.
 
 ---
 
-## 📄 Fase 3: Segurança e Backup (Iago & Camargo)
-- [ ] **Backup Interno:** Verificar se há algum backup rodando (HD Externo / Nuvem). Se não houver, reportar como urgência.
-- [ ] **Antivírus:** Confirmar se há um AV ativo ou se usaremos o padrão Windows Defender + RMM.
-- [ ] **Contas de Usuário:** Verificar se os usuários são Admin ou Padrão (Recomendar Padrão para segurança).
+## 💻 FASE 2: IMPLANTAÇÃO NAS ESTAÇÕES (Camargo)
+- [ ] **ID de Máquina:** Colar etiqueta física no gabinete com o nome (Ex: `ALV-FIN-01`).
+- [ ] **Agentes de Suporte:** Instalação silenciosa do **Tactical RMM** e **RustDesk**.
+- [ ] **Saúde do Disco (S.M.A.R.T):** Relatar qualquer alerta de disco no amarelo/vermelho.
+- [ ] **Organização de Cabos:** Tentar organizar o mínimo possível atrás do monitor com fita hellerman (enforca-gato).
 
 ---
 
-## 🤝 Fase 4: Experiência do Usuário (Onboarding Humano)
-- [ ] **Apresentação:** "Olá, sou o [Nome], a partir de hoje cuidamos da TI de vocês".
-- [ ] **Instrução de Chamado:** Explicar que agora os pedidos devem ser por WhatsApp/Trello para não haver perda de informação.
-- [ ] **Adesivo de Suporte:** Colar adesivo com o WhatsApp de suporte no monitor ou gabinete.
+## 📄 FASE 3: SEGURANÇA E BACKUP
+- [ ] **Auditoria de Backup:** Localizar onde os arquivos importantes estão salvos (físico ou nuvem).
+- [ ] **Contas e Senhas:** Auditar se os usuários estão logados como "Usuário Comum" (Recomendado) ou "Administrador".
 
 ---
 
-## 📋 Fase 5: Enceerramento e Relatório "Hora 1"
-- [ ] Tirar fotos finais de tudo (Organização do Rack, etc).
-- [ ] Fazer uma reunião de 5 minutos com o dono/gestor.
-- [ ] **Checklist de Entrega:** Entregar o relatório inicial (ex: "Achamos 3 máquinas com disco em risco e 1 roteador desatualizado").
+## 🤝 FASE 4: ONBOARDING DO USUÁRIO & ENCERRAMENTO
+- [ ] **Adesivo Suporte:** Colar adesivo de suporte discreto com o WhatsApp de atendimento.
+- [ ] **Treinamento de Chamado:** Explicar para o funcionário que o suporte remoto é via WhatsApp para agilidade.
+- [ ] **Relatório de Diagnóstico:** Entregar o resumo da visita (Ex: "Roteador inseguro detectado, sugerimos troca").
 
 ---
-**Padrão Sugerido de Hostname:** `[CLIENTE]-[DEP]-[SEQ]` (Ex: `ILP-REC-01`)
+**Padrão Sugerido de Hostname:** `[CLIENTE]-[DEP]-[SEQ]` (Ex: `ST-ADM-01`)
