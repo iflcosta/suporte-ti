@@ -62,9 +62,29 @@ export const SERVICOS = [
     desc: "Estratégia 3-2-1 com backup off-site (nuvem) e imutável, garantindo que seus dados sobrevivam a qualquer ataque ou falha.",
   },
   {
+    icone: "🕵️",
+    titulo: "Monitoramento 24/7",
+    desc: "Detecção proativa de falhas. Resolvemos o problema antes mesmo que sua equipe perceba que algo aconteceu.",
+  },
+  {
+    icone: "📋",
+    titulo: "Adequação LGPD",
+    desc: "Segurança de dados e conformidade legal para clínicas e advogados, protegendo informações sensíveis de pacientes e clientes.",
+  },
+  {
+    icone: "☁️",
+    titulo: "Cloud & Colaboração",
+    desc: "Migração e gestão de Microsoft 365 e Google Workspace para que sua empresa trabalhe em qualquer lugar com segurança.",
+  },
+  {
+    icone: "🛰️",
+    titulo: "Infraestrutura & Wi-Fi",
+    desc: "Projetos de redes de alta disponibilidade e Wi-Fi corporativo estável, eliminando pontos cegos e quedas de sinal.",
+  },
+  {
     icone: "📊",
     titulo: "Consultoria Estratégica",
-    desc: "Planejamento para clínicas e escritórios, focando em LGPD, certificados digitais e infraestrutura de alta disponibilidade.",
+    desc: "Planejamento para clínicas e escritórios, focando em redução de custos operacionais e alta disponibilidade de TI.",
   },
 ]
 
