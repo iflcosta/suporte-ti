@@ -664,8 +664,8 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-tag">// plano de negócio — v1.0</div>
-    <h1>EMPRESA DE<br><span>SUPORTE TI</span></h1>
+    <div class="header-tag">// plano estratégico — 2026</div>
+    <h1>IL POTERE<br><span>TECH</span></h1>
     <div class="header-meta">
       <span><span class="dot"></span> Status: Pré-operação</span>
       <span>// Bragança Paulista, SP</span>
@@ -682,8 +682,8 @@
 <div class="summary-grid">
     <div class="stat-card">
       <div class="stat-label">Investimento inicial</div>
-      <div class="stat-value" id="headerInvest">R$2.500</div>
-      <div class="stat-sub">Sincronizado com seção 04b</div>
+      <div class="stat-value" id="headerInvest">R$2.190</div>
+      <div class="stat-sub">Kit de Campo + Ads + Registro</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
       <div class="stat-label">Meta mês 1</div>
@@ -1263,9 +1263,9 @@ function saveJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
 function applyOwnerStyle(sel, val) {
   sel.className = 'owner-select ' + val;
   var map = {
-    socio1:  { color: '#00d4ff', borderColor: '#00d4ff', background: '#0d1f2d' },
-    socio2:  { color: '#f472b6', borderColor: '#f472b6', background: '#2d0f1e' },
-    ambos:   { color: '#00ff88', borderColor: '#00ff88', background: '#0d2d1a' }
+    fundador: { color: '#00d4ff', borderColor: '#00d4ff', background: '#0d1f2d' },
+    equipe:   { color: '#f472b6', borderColor: '#f472b6', background: '#2d0f1e' },
+    ambos:    { color: '#00ff88', borderColor: '#00ff88', background: '#0d2d1a' }
   };
   var s = map[val] || map.ambos;
   sel.style.color       = s.color;
@@ -1495,7 +1495,8 @@ var DEFAULT_INVEST = [
   { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Provisão para abertura e primeira guia',          value: 70 },
   { id: 'inv-7', item: 'Infra Cloud (VPS)', desc: 'Tactical RMM + RustDesk Relay (Mensal)',          value: 50 },
   { id: 'inv-8', item: 'Uniforme (Elite)', desc: '2x Camisas Polo com logo bordado',          value: 160 },
-  { id: 'inv-a', item: 'Reserva Técnica', desc: 'Pequenos componentes e cabos para estoque inicial', value: 200 }
+  { id: 'inv-a', item: 'Reserva Técnica', desc: 'Pequenos componentes e cabos para estoque inicial', value: 200 },
+  { id: 'inv-b', item: 'Extra Contingência', desc: 'Reserva para imprevistos de campo', value: 200 }
 ];
 
 function loadInvest() {
