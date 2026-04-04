@@ -284,6 +284,7 @@ footer span{color:var(--bordeaux)}
     <li><strong>SFC e DISM</strong> — reparar arquivos de sistema corrompidos sem reinstalar</li>
     <li><strong>Perfis de usuário</strong> — criar, reparar perfil corrompido, permissões NTFS</li>
     <li><strong>BitLocker</strong> — ativar, desativar, recuperar chave corporativa</li>
+    <li><strong>Hardware Assessment</strong> — identificar gargalos de SSD e RAM; prever ciclo de vida do equipamento</li>
   </ul>
 
   <div class="lbl">Links verificados ✓</div>
@@ -360,6 +361,13 @@ footer span{color:var(--bordeaux)}
     </div>
   </div>
 
+  <div class="lbl">🛠 Engenharia de Campo — Infraestrutura Física</div>
+  <div class="cenarios" style="border-color:rgba(212,112,58,.3);background:rgba(212,112,58,0.08); margin-bottom: 20px;">
+    <div class="cenario"><strong>Rack Clean-up:</strong> Organização lógica, identificação de cabos e garantia de Fluxo de Ar (evitar superaquecimento).</div>
+    <div class="cenario"><strong>Certified Cabling:</strong> Padrões T568A/B. Uso de testadores para garantir gigabit em redes CAT6.</div>
+    <div class="cenario"><strong>Wi-Fi Survey:</strong> Uso de mapas de calor e dimensionamento de densidade de sinal via controladoras UniFi ou Omada.</div>
+  </div>
+
   <div class="lbl">🛠 Mão na Massa — Missão Prática (obrigatória para concluir)</div>
   <div class="cenarios" style="border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.04)">
     <div class="cenarios-lbl" style="color:var(--orange-l)">🎯 Complete as 6 Missões antes de marcar como concluído</div>
@@ -368,7 +376,7 @@ footer span{color:var(--bordeaux)}
     <div class="cenario"><strong>Missão 3 — Diagnóstico via CMD:</strong> Use <code>ping -t 8.8.8.8</code> para ver latência e <code>tracert google.com</code> para identificar o primeiro "salto" e o ponto de falha.</div>
     <div class="cenario"><strong>Missão 4 — Mapeamento de Rede:</strong> Rode o Advanced IP Scanner na sua rede local. Identifique todos os aparelhos conectados e salve o relatório.</div>
     <div class="cenario"><strong>Missão 5 — VPN Anywhere:</strong> Configure o RustDesk com "Acesso Não Supervisionado" e use um servidor de Relay próprio (ou o público). Teste o acesso via 4G.</div>
-    <div class="cenario"><strong>Missão 6 — Engenharia de Campo:</strong> Desenhe o layout de um "Rack de Elite" (Patch Panel → Switch → Gestor Horizontal). Explique a importância do fluxo de ar e do uso de velcro em vez de lacres plásticos.</div>
+    <div class="cenario"><strong>Missão 6 — Engenharia de Elite:</strong> Desenhe ou organize fisicamente 1 Rack seguindo o padrão Il Potere (Patch Panel → Switch → Gestor). Realize a crimpagem perfeita de um cabo CAT6 e teste a continuidade.</div>
   </div>
 
   <div class="phase-prog" id="m2-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m2-pfill" style="background:var(--orange-l)"></div></div><div class="phase-prog-txt" id="m2-ptxt">0%</div></div>
@@ -447,7 +455,7 @@ footer span{color:var(--bordeaux)}
     <li><strong>MFA / 2FA</strong> — implementar autenticação em duas etapas em TUDO (E-mail, Sistemas, VPN)</li>
     <li><strong>Gestão de Senhas</strong> — ensinar o cliente a usar Bitwarden ou similar, eliminando post-its</li>
     <li><strong>Ransomware Awareness</strong> — como identificar phishing e isolar uma máquina infectada rápido</li>
-    <li><strong>LGPD Básica</strong> — o que a empresa precisa minimamente para não ser multada</li>
+    <li><strong>LGPD Aplicada</strong> — mapeamento básico de dados sensíveis e higiene digital jurídica</li>
   </ul>
 
   <div class="lbl">Links verificados ✓</div>
@@ -478,6 +486,7 @@ footer span{color:var(--bordeaux)}
     <div class="cenario"><strong>Missão 3 — MFA na Prática:</strong> Configure o Microsoft Authenticator ou Google Authenticator em uma conta e simule a perda do celular (use os códigos de backup).</div>
     <div class="cenario"><strong>Missão 4 — Firewall Seletivo:</strong> Crie uma regra no Windows Firewall para bloquear o acesso de um navegador (ex: Edge) à internet e depois reverta.</div>
     <div class="cenario"><strong>Missão 5 — Análise de Ameaça:</strong> Pegue um link de "Promoção Falsa" no WhatsApp e analise-o no VirusTotal. Veja quantos motores de busca o marcam como Malicioso.</div>
+    <div class="cenario"><strong>Missão 6 — Diagnóstico LGPD:</strong> Escolha uma clínica ou escritório parceiro e identifique 3 pontos onde os dados (físicos ou digitais) estão vulneráveis hoje.</div>
   </div>
 
   <div class="phase-prog" id="m4-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m4-pfill" style="background:var(--green-l)"></div></div><div class="phase-prog-txt" id="m4-ptxt">0%</div></div>
@@ -604,6 +613,7 @@ footer span{color:var(--bordeaux)}
     <li><strong>Notion & Trello</strong> — Criar a Wiki do cliente e gerir o fluxo: Novo → Campo → Faturamento</li>
     <li><strong>Bitwarden (Segurança)</strong> — Gestão de senhas compartilhada entre você e o sócio</li>
     <li><strong>Asaas (Finanças)</strong> — Automação de cobranças recorrentes, boletos e notas fiscais</li>
+    <li><strong>Protocolo CX (O Fator Uau)</strong> — Cable management na mesa do usuário, limpeza de periféricos e remoção de lixo físico pós-suporte</li>
     <li><strong>Relatórios de Valor</strong> — Como reportar o que foi feito no suporte para o dono da empresa</li>
   </ul>
 
@@ -657,6 +667,7 @@ footer span{color:var(--bordeaux)}
     <li><strong>Virtualização Profissional</strong> — Criar e gerenciar VMs no Hyper-V ou Proxmox</li>
     <li><strong>Permissões NTFS/SMB</strong> — Hierarquia de pastas (Diretoria, Financeiro, Público) com controle total</li>
     <li><strong>GPO (Group Policy)</strong> — Padronizar papéis de parede, mapear redes e bloquear pendrives via rede</li>
+    <li><strong>Identidade Híbrida</strong> — Sincronizar o AD local com o Azure AD (Entra ID) via AD Connect para Single Sign-On</li>
     <li><strong>Monitoramento de Ativos</strong> — Ter um painel (Zabbix/CheckMK) para saber se um servidor caiu antes do cliente ligar</li>
   </ul>
 
@@ -703,33 +714,36 @@ footer span{color:var(--bordeaux)}
     <span class="badge" style="color:var(--orange-l);border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.07)">Módulo 9</span>
     <span class="time">2 semanas</span>
   </div>
-  <div class="card-title">Adequação LGPD — Segurança Jurídica e Técnica</div>
-  <p class="card-desc">A LGPD é a sua maior aliada para fechar contratos de alto valor. Aqui você aprende a mapear dados, implementar criptografia e garantir que o cliente esteja em conformidade legal, protegendo o dono da empresa de multas pesadas.</p>
+  <div class="card-title">Modern Cloud Admin — Microsoft 365 & Google Workspace</div>
+  <p class="card-desc">As PMEs não querem mais servidores barulhentos. Aqui você aprende a dominar os tenants de nuvem, gerenciar e-mails corporativos, segurança de acesso e colaboração segura (SharePoint/Teams), o serviço de maior valor recorrente hoje.</p>
 
   <div class="lbl">O que dominar</div>
   <ul class="blist">
-    <li><strong>Inventário de Dados</strong> — Mapear por onde entram e saem os dados sensíveis no cliente</li>
-    <li><strong>Criptografia & Anonimização</strong> — Implementar BitLocker e VeraCrypt em dispositivos móveis</li>
-    <li><strong>Políticas de Acesso</strong> — Garantir o princípio do "menor privilégio" (quem não precisa, não vê)</li>
-    <li><strong>Segurança Física</strong> — Bloqueio de portas USB, telas e descarte seguro de hardware</li>
-    <li><strong>Argumento de Venda</strong> — Como explicar o risco financeiro da não adequação para o cliente</li>
+    <li><strong>Administração de Tenant</strong> — Licenciamento, domínios personalizados e segurança global</li>
+    <li><strong>Exchange Online</strong> — Caixas compartilhadas (financeiro@), regras de fluxo e grupos de distribuição</li>
+    <li><strong>OneDrive & SharePoint</strong> — Estrutura de pastas corporativas, permissões de acesso e controle de compartilhamento externo</li>
+    <li><strong>Políticas de Acesso Condicional</strong> — Bloquear tentativas de login de países estrangeiros (China/Rússia) e forçar MFA</li>
+    <li><strong>Nuvem Híbrida</strong> — Migração de arquivos locais para a nuvem sem perda de dados</li>
   </ul>
 
   <div class="lbl">Links oficiais ✓</div>
   <div class="llinks">
-    <a class="ll" href="https://www.gov.br/anpd/pt-br" target="_blank" rel="noopener">
-      <span class="ll-icon">⚖️</span><span class="ll-body"><span class="ll-title">Portal ANPD</span><span class="ll-desc">Acompanhe as normas oficiais para Pequenas e Médias Empresas (PME).</span><span class="ll-url">gov.br/anpd</span></span><span class="ll-arr">↗</span>
+    <a class="ll" href="https://admin.microsoft.com/" target="_blank" rel="noopener">
+      <span class="ll-icon">☁️</span><span class="ll-body"><span class="ll-title">Centro de Admin Microsoft 365</span><span class="ll-desc">O coração da operação cloud. Explore o painel de usuários e licenças.</span><span class="ll-url">admin.microsoft.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://admin.google.com/" target="_blank" rel="noopener">
+      <span class="ll-icon">📧</span><span class="ll-body"><span class="ll-title">Google Admin Console (Workspace)</span><span class="ll-desc">Para clientes que preferem o Gmail e Drive. Foco em unidades organizacionais.</span><span class="ll-url">admin.google.com</span></span><span class="ll-arr">↗</span>
     </a>
   </div>
 
   <div class="lbl">🛠 Mão na Massa — Missão Prática</div>
   <div class="cenarios" style="border-color:rgba(212,112,58,.3);background:rgba(212,112,58,.04)">
     <div class="cenarios-lbl" style="color:var(--orange-l)">🎯 Complete as 5 Missões antes de concluir</div>
-    <div class="cenario"><strong>Missão 1 — Mapa de Risco:</strong> Escolha uma clínica parceira e identifique 3 pontos onde os dados do paciente estão vulneráveis hoje.</div>
-    <div class="cenario"><strong>Missão 2 — Criptografia Total:</strong> Ative a criptografia de disco em um notebook de teste e simule a perda da senha de recuperação.</div>
-    <div class="cenario"><strong>Missão 3 — Auditoria de Log:</strong> Use o Visualizador de Eventos para identificar quem acessou o servidor de arquivos nas últimas 24h.</div>
-    <div class="cenario"><strong>Missão 4 — Termo de Uso:</strong> Redija um aviso simples de "Confidencialidade" para ser colado nos monitores das recepções.</div>
-    <div class="cenario"><strong>Missão 5 — Venda Consultiva:</strong> Grave um áudio simulando uma explicação de 2 min sobre por que a Clínica precisa de LGPD.</div>
+    <div class="cenario"><strong>Missão 1 — O Arquiteto de E-mail:</strong> Crie um grupo de e-mail "comercial@suaempresa" e configure para que 3 usuários diferentes recebam as mensagens simultaneamente.</div>
+    <div class="cenario"><strong>Missão 2 — Cofre de Arquivos:</strong> Crie um site no SharePoint para o "Financeiro" e configure para que apenas usuários desse grupo possam excluir arquivos.</div>
+    <div class="cenario"><strong>Missão 3 — Muralha Cloud:</strong> Configure uma política para exigir MFA (Senha + App) em todos os administradores do tenant.</div>
+    <div class="cenario"><strong>Missão 4 — Auditoria Externo:</strong> Gere um relatório de todos os arquivos do OneDrive que estão sendo compartilhados com pessoas de fora da empresa.</div>
+    <div class="cenario"><strong>Missão 5 — Migração On-premise:</strong> Use a ferramenta "SharePoint Migration Tool" para simular a subida de uma pasta local de 1GB para o SharePoint.</div>
   </div>
 
   <div class="phase-prog" id="m9-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m9-pfill" style="background:var(--orange-l)"></div></div><div class="phase-prog-txt" id="m9-ptxt">0%</div></div>
@@ -752,6 +766,7 @@ footer span{color:var(--bordeaux)}
     <li><strong>Métricas de Negócio</strong> — Churn (perda), CAC (custo de aquisição) e Lucratividade</li>
     <li><strong>Upsell SaaS</strong> — Como oferecer o seu software próprio para quem já paga suporte</li>
     <li><strong>Cultura de Sócios</strong> — Divisão clara de tarefas: Sócio 1 (Técnico) e Sócio 2 (Comercial)</li>
+    <li><strong>Venda Consultiva</strong> — Converter as oportunidades do "Hardware Assessment" (M1) em contratos e orçamentos aprovados</li>
     <li><strong>Escalabilidade</strong> — O momento certo de contratar o primeiro técnico auxiliar</li>
   </ul>
 
