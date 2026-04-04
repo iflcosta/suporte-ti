@@ -85,7 +85,27 @@ export const SERVICOS = [
   {
     icone: "💡",
     titulo: "Consultoria Estratégica",
-    desc: "Mais que suporte, somos seu braço de tecnologia. Ajudamos você a escolher as melhores ferramentas para escalar.",
+    desc: "Mais que suporte, somos seu braço de tecnologia em Bragança Paulista. Projetamos o seu crescimento.",
+  },
+  {
+    icone: "🧱",
+    titulo: "Segurança de Perímetro",
+    desc: "Configuração de Firewalls e VPNs seguras para proteger sua rede interna contra invasões e acessos não autorizados.",
+  },
+  {
+    icone: "📂",
+    titulo: "Gestão Documental Cloud",
+    desc: "Organização estratégica de arquivos em nuvem com permissões granulares, ideal para imobiliárias e advocacias.",
+  },
+  {
+    icone: "🔑",
+    titulo: "Identidade & E-mail",
+    desc: "Gestão profissional de domínios, e-mails corporativos e identidades digitais para manter sua marca segura e profissional.",
+  },
+  {
+    icone: "🧠",
+    titulo: "Automação com IA",
+    desc: "Scripts inteligentes e agentes de IA para automatizar tarefas repetitivas e gerar relatórios de desempenho automáticos.",
   },
 ]
 

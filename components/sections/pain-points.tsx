@@ -7,23 +7,30 @@ const PAINS = [
   {
     icon: <AlertCircle className="w-8 h-8 text-[#8B2635]" />,
     title: "Clínicas & Saúde",
-    problem: "Recepção parada e receio com a LGPD?",
-    description: "Sistema offline significa pacientes esperando e faturamento travado. Dados sensíveis exigem proteção total contra vazamentos.",
-    relief: "Garantimos disponibilidade total dos prontuários e blindagem de dados padrão médico."
+    problem: "Sistemas offline e receio com a LGPD?",
+    description: "Prontuários e exames de imagem inacessíveis significam pacientes esperando e faturamento travado. Dados sensíveis exigem proteção total.",
+    relief: "Garantimos disponibilidade total dos seus sistemas médicos e blindagem de dados Nível 3-2-1."
   },
   {
     icon: <ShieldAlert className="w-8 h-8 text-[#C9A962]" />,
     title: "Escritórios de Advocacia",
     problem: "Incerteza com prazos e peticionamento?",
-    description: "Computador travando no meio de um prazo fatal ou falha de certificado digital podem custar processos inteiros.",
+    description: "Computador travando no meio de um prazo fatal ou falha de certificado digital podem custar processos de alto valor.",
     relief: "Monitoramento pró-ativo de sistemas e suporte prioritário para que nenhum prazo seja perdido."
   },
   {
     icon: <Clock className="w-8 h-8 text-[#8B2635]" />,
     title: "Contabilidades",
     problem: "Lentidão e servidores instáveis no fechamento?",
-    description: "A carga de trabalho já é alta. Servidores lentos e backups duvidosos em época de impostos são uma receita para o desastre.",
+    description: "Servidores lentos e backups duvidosos em época de impostos são uma receita para o desastre e stress da equipe.",
     relief: "Infraestrutura otimizada e backup imutável para suportar o pico de demanda sem stress."
+  },
+  {
+    icon: <AlertCircle className="w-8 h-8 text-[#C9A962]" />,
+    title: "Imobiliárias",
+    problem: "Gestão de contratos e vistorias offline?",
+    description: "Perda de documentos físicos e lentidão no fechamento de locações custam caro. Dados de inquilinos protegidos são exigência legal.",
+    relief: "Digitalização estratégica, backup em nuvem e segurança total para sua carteira de imóveis."
   }
 ]
 
@@ -39,12 +46,12 @@ export function PainPoints() {
              O que tira o sono da<br />sua empresa?
           </h2>
           <p className="text-[#78716c] text-lg md:text-xl max-w-2xl mx-auto">
-            Tecnologia deveria ser uma ferramenta de crescimento, não uma fonte constante de estresse. 
+            A Il Potere entende que tecnologia deveria ser uma ferramenta de crescimento, não uma fonte de estresse. 
             Você se identifica com algum desses cenários?
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {PAINS.map((item, i) => (
             <div 
               key={i}

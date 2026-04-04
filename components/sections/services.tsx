@@ -15,20 +15,20 @@ export function Services() {
           subtitle="Da manutenção preventiva à consultoria estratégica, cuidamos de toda a sua infraestrutura de TI."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SERVICOS.map((servico, i) => (
             <div
               key={i}
-              className="group relative bg-[#0F0F0F] border border-[#1F1F1F] p-8 hover:border-[#8B2635]/50 transition-all duration-500 animate-fade-up"
-              style={{ animationDelay: `${i * 100}ms` }}
+              className="group relative bg-[#0F0F0F] border border-[#1F1F1F] p-6 hover:border-[#8B2635]/50 transition-all duration-500 animate-fade-up"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
-              <div className="absolute top-0 left-0 w-0 h-[2px] bg-[#8B2635] group-hover:w-full transition-all duration-500" />
+              <div className="absolute top-0 left-0 w-0 h-[1px] bg-[#8B2635] group-hover:w-full transition-all duration-500" />
               
-              <span className="text-4xl mb-6 block">{servico.icone}</span>
-              <h3 className="font-serif text-xl text-[#F5F0E8] mb-3 group-hover:text-[#C9A962] transition-colors">
+              <span className="text-3xl mb-4 block">{servico.icone}</span>
+              <h3 className="font-serif text-lg text-[#F5F0E8] mb-2 group-hover:text-[#C9A962] transition-colors">
                 {servico.titulo}
               </h3>
-              <p className="text-[#78716c] text-sm leading-relaxed">
+              <p className="text-[#78716c] text-xs leading-relaxed">
                 {servico.desc}
               </p>
             </div>
