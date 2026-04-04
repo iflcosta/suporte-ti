@@ -111,9 +111,10 @@ ul.blist li strong{color:var(--light)}
 .ll:hover{border-color:rgba(139,26,46,.5);transform:translateX(3px)}
 .ll-icon{font-size:.9rem;flex-shrink:0}
 .ll-body{flex:1;min-width:0}
-.ll-title{font-size:.88rem;font-weight:500;color:var(--parchment);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ll-url{font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--silver);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ll-arr{color:var(--silver);font-size:.8rem;flex-shrink:0}
+.ll-title{font-size:.88rem;font-weight:600;color:var(--parchment);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.ll-desc{font-size:.75rem;color:var(--silver);display:block;margin:.1rem 0 .2rem;line-height:1.3}
+.ll-url{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ll-arr{color:var(--muted);font-size:.8rem;flex-shrink:0}
 
 /* ── CALLOUT ── */
 .callout{background:rgba(139,26,46,.07);border:1px solid rgba(139,26,46,.25);border-left:3px solid var(--bordeaux);border-radius:0 3px 3px 0;padding:.85rem 1.1rem;margin-top:.9rem;font-size:.88rem;color:var(--silver);line-height:1.75;font-style:italic}
@@ -759,7 +760,6 @@ footer span{color:var(--bordeaux)}
 
 <!-- M10 -->
 <div class="card" id="m10" style="--c:var(--cyan-l)">
-  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cyan-l)"></div>
   <div class="card-head">
     <span class="badge" style="color:var(--cyan-l);border-color:rgba(58,189,212,.3);background:rgba(58,189,212,.07)">Módulo 10</span>
     <span class="time">1 a 2 semanas</span>
@@ -769,20 +769,38 @@ footer span{color:var(--bordeaux)}
 
   <div class="lbl">O que dominar</div>
   <ul class="blist">
-    <li><strong>Configuração de Mikrotik</strong> — Regras de Firewall, Port Forwarding e NAT seguro</li>
-    <li><strong>VPN de Acesso Remoto</strong> — Implementar WireGuard ou Tailscale para acesso remoto</li>
-    <li><strong>Bloqueio de Site & Content Filter</strong> — Garantir que a rede seja usada apenas para fins profissionais</li>
-    <li><strong>Failover de Link</strong> — Configurar internet em dobro (ex: Starlink + Vivo) para evitar quedas</li>
+    <li><strong>Regras de Firewall</strong> — Conceito de portas (80, 443, 8080) e protocolos (TCP/UDP)</li>
+    <li><strong>NAT e Port Forwarding</strong> — Como liberar acesso externo de forma segura</li>
+    <li><strong>VPN de Acesso Remoto</strong> — Implementar WireGuard ou Tailscale para acesso ao servidor</li>
+    <li><strong>Bloqueio de Site</strong> — Configurar Web Filtering básico para produtividade</li>
   </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.youtube.com/watch?v=fIKmVLl9ESc" target="_blank">
+      <span class="ll-icon">🛰️</span><span class="ll-body"><span class="ll-title">Firewall MikroTik (Guia Completo)</span><span class="ll-desc">Tutorial passo a passo em PT-BR sobre segurança básica e avançada.</span><span class="ll-url">youtube.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://www.youtube.com/watch?v=eCZW--yF1qg" target="_blank">
+      <span class="ll-icon">🔗</span><span class="ll-body"><span class="ll-title">Tailscale: VPN para TI</span><span class="ll-desc">Como acessar seu Homelab e clientes de qualquer lugar (Diolinux).</span><span class="ll-url">youtube.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
 
   <div class="lbl">Ferramentas de Elite</div>
   <div class="kit">
     <div class="kit-grid">
       <div class="kit-item">Mikrotik WinBox</div>
-      <div class="kit-item">pfSense (Firewall Open Source)</div>
-      <div class="kit-item">Tailscale (VPN Mesh)</div>
-      <div class="kit-item">Nmap (Scan de vulnerabilidade)</div>
+      <div class="kit-item">pfSense ISO</div>
+      <div class="kit-item">Tailscale Client</div>
+      <div class="kit-item">Advanced Port Scanner</div>
     </div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática</div>
+  <div class="cenarios" style="border-color:rgba(58,189,212,.3);background:rgba(58,189,212,.04)">
+    <div class="cenarios-lbl" style="color:var(--cyan-l)">🎯 Defesa e Conectividade</div>
+    <div class="cenario"><strong>Missão 1 — O Guardião:</strong> Configure um MikroTik para bloquear qualquer entrada de IPs estrangeiros (China/Rússia) e permita apenas conexões do Brasil.</div>
+    <div class="cenario"><strong>Missão 2 — Túnel Seguro:</strong> Instale o Tailscale num servidor e conecte seu celular. Verifique se consegue acessar o IP interno do servidor via 4G.</div>
+    <div class="cenario"><strong>Missão 3 — Teste de Penetração:</strong> Use o site *ShieldsUP!* para testar se as portas do seu cliente estão realmente fechadas ou "invisíveis".</div>
   </div>
 
   <div class="phase-prog" id="m10-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m10-pfill" style="background:var(--cyan-l)"></div></div><div class="phase-prog-txt" id="m10-ptxt">0%</div></div>
@@ -790,20 +808,38 @@ footer span{color:var(--bordeaux)}
 </div>
 <!-- M11 -->
 <div class="card" id="m11" style="--c:var(--gold-l)">
-  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold-l)"></div>
   <div class="card-head">
     <span class="badge" style="color:var(--gold-l);border-color:rgba(232,201,122,.3);background:rgba(232,201,122,.07)">Módulo 11</span>
     <span class="time">1 semana</span>
   </div>
   <div class="card-title">Identidade Digital & E-mail Strategy</div>
-  <p class="card-desc">Gestão de domínios e e-mails profissionais. Se o e-mail da imobiliária cai no spam, o negócio para. Aprenda a blindar as <strong>identidades digitais</strong>.</p>
+  <p class="card-desc">Gestão de domínios e e-mails profissionais. Se o e-mail da imobiliária cai no spam ou o site expira, o problema é seu. Aprenda a blindar as <strong>identidades digitais</strong>.</p>
 
   <div class="lbl">O que dominar</div>
   <ul class="blist">
-    <li><strong>Gestão de DNS</strong> — Entender registros A, MX, CNAME, TXT e TTL</li>
-    <li><strong>Email Security</strong> — Configurar SPF, DKIM e DMARC (O trio essencial)</li>
-    <li><strong>Hospedagem & Cloudflare</strong> — Gerenciar domínios no Registro.br e usar o Cloudflare como escudo</li>
+    <li><strong>DNS Expert</strong> — Registros A (Site), MX (E-mail), CNAME (Apelidos) e TXT (Segurança)</li>
+    <li><strong>Email Security</strong> — Configurar SPF, DKIM e DMARC (O trio anti-spam)</li>
+    <li><strong>Cloudflare Proxy</strong> — Usar o Cloudflare para esconder o IP real do servidor e acelerar o site</li>
+    <li><strong>Certificados SSL/TLS</strong> — Garantir o 'cadeado verde' em todos os serviços do cliente</li>
   </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.hostinger.com.br/tutoriais/o-que-e-spf-dkim-dmarc-como-configurar" target="_blank">
+      <span class="ll-icon">📧</span><span class="ll-body"><span class="ll-title">Guia SPF, DKIM e DMARC</span><span class="ll-desc">Tudo sobre a configuração essencial para e-mails não caírem no spam.</span><span class="ll-url">hostinger.com.br</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://www.cloudflare.com/pt-br/learning/dns/what-is-dns/" target="_blank">
+      <span class="ll-icon">☁️</span><span class="ll-body"><span class="ll-title">DNS Decifrado (Cloudflare PT-BR)</span><span class="ll-desc">Entenda como a infraestrutura da internet funciona na camada de nomes.</span><span class="ll-url">cloudflare.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática</div>
+  <div class="cenarios" style="border-color:rgba(232,201,122,.3);background:rgba(232,201,122,.04)">
+    <div class="cenarios-lbl" style="color:var(--gold-l)">🎯 Gestão de Presença</div>
+    <div class="cenario"><strong>Missão 1 — O Escudo:</strong> Migre o DNS de um domínio gratuito (ex: .tk ou .xyz) para o Cloudflare e ative o Proxy (Nuvem Laranja).</div>
+    <div class="cenario"><strong>Missão 2 — Anti-Spoofing:</strong> Gere uma entrada SPF e uma política DMARC (p=none) para um domínio e valide no verificador do Google.</div>
+    <div class="cenario"><strong>Missão 3 — Auditoria DNS:</strong> Identifique todos os registros MX de um cliente e verifique se algum aponta para um servidor legado desativado.</div>
+  </div>
 
   <div class="phase-prog" id="m11-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m11-pfill" style="background:var(--gold-l)"></div></div><div class="phase-prog-txt" id="m11-ptxt">0%</div></div>
   <button class="done-btn" id="m11-btn" onclick="toggleDone('m11')"><span class="check" id="m11-check">○</span><span class="btn-label" id="m11-label">Marcar módulo como concluído</span><span class="btn-date" id="m11-date"></span></button>
@@ -811,24 +847,42 @@ footer span{color:var(--bordeaux)}
 
 <!-- M12 -->
 <div class="card" id="m12" style="--c:var(--purple-l)">
-  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple-l)"></div>
   <div class="card-head">
-    <span class="badge" style="color:var(--purple-l);border-color:rgba(155,89,182,.3);background:rgba(155,89,182,.07)">Módulo 12</span>
-    <span class="time">Vitalício</span>
+    <span class="badge" style="color:var(--purple-l);border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.07)">Módulo 12</span>
+    <span class="time">Contínuo</span>
   </div>
   <div class="card-title">O Topo: IA & Automação (Hybrid Strategy)</div>
-  <p class="card-desc">O multiplicador de força da Il Potere. Use IA para processar chamados e automações para escalar seu faturamento sem escalar seu cansaço.</p>
+  <p class="card-desc">O multiplicador de força do Solo Founder. Use IA para diagnosticar erros em segundos e automação para escalar seu atendimento sem contratar funcionários.</p>
 
   <div class="lbl">O que dominar</div>
   <ul class="blist">
-    <li><strong>Groq API (Llama 3/Qwen)</strong> — Velocidade pura para diagnósticos e agentes de triagem</li>
-    <li><strong>Microsoft/Claude API</strong> — Raciocínio profundo para planejamento e análise de contratos</li>
-    <li><strong>N8N / Make</strong> — Criar fluxos que unem RMM + WhatsApp + IA</li>
+    <li><strong>Groq API Speed</strong> — Como usar o Groq (Llama 3/Qwen) para análise instantânea de logs</li>
+    <li><strong>Prompt Engineering</strong> — Criar "Personas" de suporte que resolvem problemas técnicos reais</li>
+    <li><strong>N8N & Workflows</strong> — Automatizar o recebimento de alertas do RMM direto no WhatsApp/E-mail</li>
+    <li><strong>Hybrid Strategy</strong> — Quando usar Groq (Velocidade) vs Claude/GPT (Raciocínio Complexo)</li>
   </ul>
+
+  <div class="lbl">Links verificados ✓</div>
+  <div class="llinks">
+    <a class="ll" href="https://www.youtube.com/watch?v=PhkNKcQdKMg" target="_blank">
+      <span class="ll-icon">⚡</span><span class="ll-body"><span class="ll-title">Groq Speed (IA Pura)</span><span class="ll-desc">Como usar a IA mais rápida do mundo no seu dia a dia (Ricardo Merces).</span><span class="ll-url">youtube.com</span></span><span class="ll-arr">↗</span>
+    </a>
+    <a class="ll" href="https://www.youtube.com/watch?v=8czBd4isHSg" target="_blank">
+      <span class="ll-icon">🤖</span><span class="ll-body"><span class="ll-title">n8n: Guia de Automação</span><span class="ll-desc">Aprenda a criar fluxos inteligentes para o seu negócio (Well Pires).</span><span class="ll-url">youtube.com</span></span><span class="ll-arr">↗</span>
+    </a>
+  </div>
 
   <div class="warn">
     <span class="warn-icon">💡</span>
-    <div class="warn-txt">Dica de Elite: Use o <strong>Groq</strong> para a "luta do dia a dia" e guarde o <strong>GPT-4o/Claude 3.5</strong> para quando precisar de análise lógica profunda.</div>
+    <div class="warn-txt">Dica de Elite: Use o <strong>Groq</strong> para a "luta do dia a dia" (suporte rápido) e guarde o <strong>Claude 3.5</strong> para planejamento estratégico.</div>
+  </div>
+
+  <div class="lbl">🛠 Mão na Massa — Missão Prática</div>
+  <div class="cenarios" style="border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.04)">
+    <div class="cenarios-lbl" style="color:var(--purple-l)">🎯 Velocidade e Escala</div>
+    <div class="cenario"><strong>Missão 1 — O Agente Diagnóstico:</strong> Crie um prompt no Playground do Groq que receba um erro do log do Windows e retorne uma solução de 3 passos para um nível N1.</div>
+    <div class="cenario"><strong>Missão 2 — Automação de Alerta:</strong> Desenhe um fluxo no N8N (mental ou real) que receba um Webhook de "Servidor Offline" e envie um WhatsApp para você.</div>
+    <div class="cenario"><strong>Missão 3 — Estrategista Híbrido:</strong> Use o Groq para gerar 10 ideias de automação para uma imobiliária e o Claude para detalhar a melhor delas.</div>
   </div>
 
   <div class="phase-prog" id="m12-prog"><div class="phase-prog-bar"><div class="phase-prog-fill" id="m12-pfill" style="background:var(--purple-l)"></div></div><div class="phase-prog-txt" id="m12-ptxt">0%</div></div>
@@ -845,53 +899,44 @@ footer span{color:var(--bordeaux)}
   <div class="kit" style="margin-top:.4rem">
     <div class="kit-grid">
       <div class="kit-item">Ventoy (multi-ISO no mesmo pen)</div>
-      <div class="kit-item">Windows 10 ISO (MediaCreationTool)</div>
-      <div class="kit-item">Windows 11 ISO</div>
+      <div class="kit-item">Windows 10/11 ISO</div>
       <div class="kit-item">Hiren's BootCD PE</div>
       <div class="kit-item">Memtest86 (teste de RAM)</div>
-      <div class="kit-item">GParted Live (gerenciar partições)</div>
+      <div class="kit-item">GParted Live</div>
     </div>
   </div>
 
-  <div class="lbl" style="margin-top:1rem">📁 Segurança</div>
+  <div class="lbl" style="margin-top:1rem">📁 Kit de Hardware de Elite</div>
   <div class="kit" style="margin-top:.4rem">
     <div class="kit-grid">
-      <div class="kit-item">Malwarebytes portable</div>
-      <div class="kit-item">AdwCleaner</div>
-      <div class="kit-item">RKill (mata processos maliciosos)</div>
+      <div class="kit-item">Pasta Térmica (Noctua/Arctic Silver)</div>
+      <div class="kit-item">Kit de Chaves de Precisão (iFixit)</div>
+      <div class="kit-item">SSD de Teste (120GB SATA/NVMe)</div>
+      <div class="kit-item">Álcool Isopropílico + Pincéis ESD</div>
+      <div class="kit-item">Testador de Cabos de Rede RJ45</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Gestão e Monitoramento (RMM)</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Tactical RMM Agent Installer</div>
+      <div class="kit-item">AnyDesk Professional (Portable)</div>
+      <div class="kit-item">RustDesk (Alternativa Open Source)</div>
+      <div class="kit-item">Chrome/Firefox Offline Installers</div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:1rem">📁 Segurança e Reparo</div>
+  <div class="kit" style="margin-top:.4rem">
+    <div class="kit-grid">
+      <div class="kit-item">Malwarebytes + AdwCleaner</div>
+      <div class="kit-item">Autoruns + Process Explorer</div>
       <div class="kit-item">Kaspersky Rescue Disk ISO</div>
+      <div class="kit-item">CrystalDiskInfo (Saúde HD)</div>
     </div>
   </div>
-
-  <div class="lbl" style="margin-top:1rem">📁 Windows / Reparo</div>
-  <div class="kit" style="margin-top:.4rem">
-    <div class="kit-grid">
-      <div class="kit-item">Autoruns (inicialização)</div>
-      <div class="kit-item">Process Explorer</div>
-      <div class="kit-item">NTLite (reparar Windows)</div>
-      <div class="kit-item">DriverBooster portable</div>
-    </div>
-  </div>
-
-  <div class="lbl" style="margin-top:1rem">📁 Rede</div>
-  <div class="kit" style="margin-top:.4rem">
-    <div class="kit-grid">
-      <div class="kit-item">Advanced IP Scanner</div>
-      <div class="kit-item">WirelessKeyView</div>
-      <div class="kit-item">NetAdapter Repair</div>
-      <div class="kit-item">PingPlotter</div>
-    </div>
-  </div>
-
-  <div class="lbl" style="margin-top:1rem">📁 Recuperação de Dados</div>
-  <div class="kit" style="margin-top:.4rem">
-    <div class="kit-grid">
-      <div class="kit-item">Recuva portable</div>
-      <div class="kit-item">TestDisk / PhotoRec</div>
-      <div class="kit-item">MiniTool Partition Wizard</div>
-      <div class="kit-item">CrystalDiskInfo (saúde HD)</div>
-    </div>
-  </div>
+</div>
 
   <div class="lbl" style="margin-top:1rem">📁 Utilitários e Documentação</div>
   <div class="kit" style="margin-top:.4rem">
@@ -927,10 +972,38 @@ footer span{color:var(--bordeaux)}
 
 </main>
 
+<!-- GOVERNANÇA: PASSAGEM DE BASTÃO -->
+<div class="sdiv" id="governanca">Governança — A Passagem de Bastão (Coesão)</div>
+<div class="card" id="coesao" style="--c:var(--red)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)"></div>
+  <div class="card-head">
+    <span class="badge" style="color:var(--red);border-color:rgba(139,26,46,.3);background:rgba(139,26,46,.07)">Estratégico</span>
+    <span class="time">Diário (13:50–14:00)</span>
+  </div>
+  <div class="card-title">Protocolo de Coesão: Manhã ➔ Tarde</div>
+  <p class="card-desc">O segredo de um suporte profissional é o cliente não sentir a mudança de turno. O estagiário (Manhã) deve preparar o terreno para a Tia (Tarde).</p>
+
+  <div class="lbl">A Regra de Ouro</div>
+  <div class="callout">"Nenhum chamado morre no silêncio. Se parou, anote onde parou."</div>
+
+  <div class="lbl">Checklist da Passagem (Sincronização)</div>
+  <ul class="blist">
+    <li><strong>O que foi resolvido?</strong> Marque como Resolvido no RMM e avise o cliente.</li>
+    <li><strong>O que está pendente (On-Hold)?</strong> O que falta para terminar? Peça para a Tia dar continuidade.</li>
+    <li><strong>Alerta Vermelho:</strong> Algum cliente ficou bravo ou precisa de prioridade máxima?</li>
+    <li><strong>Registro de Notas:</strong> Use o campo "Notes" no Tactical RMM ou o log compartilhado para cada ticket.</li>
+  </ul>
+
+  <div class="warn">
+    <span class="warn-icon">⚠️</span>
+    <div class="warn-txt"><strong>Importante:</strong> Se houver suporte presencial pendente, o estagiário informa ao Fundador e a Tia assume o monitoramento remoto.</div>
+  </div>
+</div>
+
 <footer>
-  <div style="display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:.5rem">
+  <div class="hero-eyebrow" style="margin-bottom:0.5rem">
     <div class="diamond"></div>
-    <span style="font-family:'Playfair Display',serif;font-style:italic;color:var(--parchment);font-size:1rem">Il Potere del Tech</span>
+    <span>Il Potere Tech — Suporte de Elite</span>
     <div class="diamond"></div>
   </div>
   <span>Autoridade · Lealdade · Resolução</span>

@@ -52,17 +52,30 @@ Este guia foi criado para que o **Fundador** e sua equipe dominem tecnicamente e
 - **O que estudar**: Configuração de Firewalls (Mikrotik/PFSense), VPNs de Acesso Remoto Seguro (WireGuard/Tailscale).
 - **Serviço**: Card de "Segurança de Perímetro" no site.
 
-## 11. Identidade Digital & Estratégia Web
-*E-mail profissional e presença digital.*
-- **O que estudar**: Configuração de DNS (A, CNAME, MX), Segurança de E-mail (SPF, DKIM, DMARC), Hospedagem.
-- **Serviço**: Card de "Identidade & E-mail" no site.
+### Módulo 11 — Identidade Digital & E-mail Strategy
+*   **O que dominar:** DNS Expert (A, MX, CNAME, TXT), SPF/DKIM/DMARC (Anti-spam), Cloudflare Proxy, SSL/TLS.
+*   **Links Chave:** [Guia SPF/DKIM/DMARC (PT)](https://www.hostinger.com.br/tutoriais/o-que-e-spf-dkim-dmarc-como-configurar), [Cloudflare DNS (PT)](https://www.cloudflare.com/pt-br/learning/dns/what-is-dns/).
+*   **Missão:** Migrar DNS para Cloudflare e configurar política DMARC.
 
-## 12. Automação & IA (O Diferencial Solo+)
-*O multiplicador de força do Fundador.*
-- **O que estudar**: **Groq API** (Llama 3/Qwen) para processamento ultra-rápido, N8N/Make para automação de tarefas.
-- **Missão**: Criar agentes que geram relatórios de suporte automatizados a partir dos logs do RMM.
+### Módulo 12 — O Topo: IA & Automação (Hybrid Strategy)
+*   **O que dominar:** Groq API Speed, Automações com n8n, Prompt Engineering para suporte técnico.
+*   **Links Chave:** [IA Groq (PT)](https://www.youtube.com/watch?v=PhkNKcQdKMg), [Curso n8n (PT)](https://www.youtube.com/watch?v=8czBd4isHSg).
+*   **Missão:** Criar um agente de diagnóstico com Groq e um fluxo de alerta automático no n8n.
 
 ---
 
-> [!IMPORTANT]
-> **Prioridade Fundador**: Foque nos Módulos 7, 10 e 12. Eles são os que geram o maior valor percebido e permitem que você escale o negócio sem precisar de uma equipe gigante no início.
+## 🛠 Recursos — O que levar para o campo
+
+### 📁 Kit Pen Drive (Software)
+*   **Ventoy:** Sistema multi-boot (Windows 10/11, Hiren's Boot, Linux).
+*   **Segurança:** Malwarebytes, AdwCleaner, Kaspersky Rescue Disk.
+*   **Manutenção:** Autoruns, Process Explorer, CrystalDiskInfo.
+
+### 📁 Kit de Hardware de Elite (Físico)
+*   **Ferramentas:** Kit de chaves de precisão (iFixit), Pasta Térmica (Noctua), Testador de cabos RJ45.
+*   **Backup:** SSD externo de 120GB/240GB para testes e migração rápida de dados.
+*   **Insumos:** Álcool isopropílico, pincéis antiestáticos e ar comprimido.
+
+### 📁 Gestão e Monitoramento (RMM)
+*   **Controle:** Tactical RMM (Agente instalado em todos os clientes), AnyDesk, RustDesk.
+*   **Infra:** Instaladores offline de navegadores e suítes de escritório. permitem que você escale o negócio sem precisar de uma equipe gigante no início.
