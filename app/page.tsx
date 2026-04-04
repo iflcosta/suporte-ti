@@ -3,6 +3,7 @@
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Hero } from "@/components/sections/hero"
+import { PainPoints } from "@/components/sections/pain-points"
 import { Services } from "@/components/sections/services"
 import { Plans } from "@/components/sections/plans"
 import { FAQ } from "@/components/sections/faq"
@@ -17,6 +18,7 @@ export default function Page() {
       
       <main>
         <Hero />
+        <PainPoints />
         <Services />
         <Process />
         <Plans />

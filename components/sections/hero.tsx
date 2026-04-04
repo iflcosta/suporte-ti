@@ -39,18 +39,18 @@ export function Hero() {
           </span>
 
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] mb-10 animate-fade-up delay-100 max-w-4xl">
-            Tecnologia que{" "}
+            Sua empresa não pode{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-[#C9A962]">funciona</span>
+              <span className="relative z-10 text-[#C9A962]">parar</span>
               <span className="absolute bottom-2 left-0 w-full h-4 bg-[#8B2635]/20 -z-0" />
             </span>
             <br />
-            para você focar no que importa
+            por falha técnica
           </h1>
 
           <p className="text-xl md:text-2xl text-[#78716c] leading-relaxed mb-12 max-w-2xl animate-fade-up delay-200">
-            Suporte técnico humano e eficiente para pequenas empresas de Bragança e região. 
-            Sem fidelidade, sem surpresas.
+            Suporte de Elite e Monitoramento Pró-ativo para Bragança e Região. 
+            Blindagem digital para clínicas e escritórios. Sem fidelidade, sem stress.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 mb-24 animate-fade-up delay-300">
