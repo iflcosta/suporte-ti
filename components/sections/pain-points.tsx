@@ -8,7 +8,7 @@ const PAINS = [
     icon: <AlertCircle className="w-8 h-8 text-[#8B2635]" />,
     title: "Clínicas & Saúde",
     problem: "Recepção parada e receio com a LGPD?",
-    description: "Um sistema offline significa pacientes esperando e faturamento travado. Além disso, dados sensíveis exigem proteção total contra vazamentos.",
+    description: "Sistema offline significa pacientes esperando e faturamento travado. Dados sensíveis exigem proteção total contra vazamentos.",
     relief: "Garantimos disponibilidade total dos prontuários e blindagem de dados padrão médico."
   },
   {
