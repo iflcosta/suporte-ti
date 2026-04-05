@@ -19,18 +19,19 @@
     --muted: #64748b;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { overflow-x: hidden; scroll-behavior: smooth; }
+  html { height: 100vh; overflow: hidden; }
   body {
     background: var(--bg);
     color: var(--text);
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     line-height: 1.6;
+    overflow-y: scroll;
     overflow-x: hidden;
+    height: 100vh;
     width: 100%;
     position: relative;
-    min-height: 100vh;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
   }
   .noise {
     position: absolute; inset: 0; pointer-events: none; z-index: 0;
@@ -39,12 +40,15 @@
     height: 100%;
   }
   .container { 
-    max-width: 900px; 
+    max-width: 960px; 
     margin: 0 auto; 
-    padding: 40px 24px; 
+    padding: 40px 40px; 
     position: relative; 
     z-index: 1; 
     width: 100%;
+  }
+  @media (max-width: 768px) {
+    .container { padding: 20px 20px; }
   }
 
   /* HEADER */
@@ -996,10 +1000,8 @@
           <td class="num positive">R$ 9.000+</td>
         </tr>
       </tbody>
-    </table></div>
+    </table>
     <div style="font-size:10px; color:var(--muted); margin-top:10px;">*Mês 1 focado em Breakeven (Equilíbrio) considerando custo de Estagiário (R$ 1.200) e Ads (R$ 500).</div>
-      </tbody>
-    </table></div>
   </div>
 
   <!-- FERRAMENTAS DE GESTÃO (FREE STACK) -->
