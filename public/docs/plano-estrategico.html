@@ -19,16 +19,20 @@
     --muted: #64748b;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { height: 100vh; overflow: hidden; }
-  body {
+  html { 
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    height: auto; 
+    scroll-behavior: smooth; 
     background: var(--bg);
+  }
+  body {
+    background: transparent;
     color: var(--text);
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 100vh;
+    overflow: visible;
     width: 100%;
     position: relative;
     padding-bottom: 120px;
