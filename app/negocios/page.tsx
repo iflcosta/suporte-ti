@@ -1,57 +1,18 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
-import { Printer, ShieldCheck, CheckSquare, Lock, Target, LayoutDashboard, GraduationCap } from "lucide-react"
+import { Printer, ShieldCheck, CheckSquare, Target, LayoutDashboard, GraduationCap } from "lucide-react"
 
-const PASSWORD_KEY = "ilpotere2026"
 type TabType = "dashboard" | "contrato" | "proposta" | "checklist" | "trilha"
 
 export default function BusinessHub() {
   const [activeTab, setActiveTab] = useState<TabType>("dashboard")
-  const [password, setPassword] = useState("")
-  const [isAuthorized, setIsAuthorized] = useState(false)
-  const [error, setError] = useState("")
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (password === PASSWORD_KEY) {
-      setIsAuthorized(true)
-      localStorage.setItem("hub_auth", "true")
-    } else {
-      setError("Senha incorreta. Tente novamente.")
-    }
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem("hub_auth") === "true") setIsAuthorized(true)
-  }, [])
 
   const handlePrint = () => {
     if (activeTab === "contrato") window.open("/docs/contrato.html", "_blank")
     else if (activeTab === "proposta") window.open("/docs/proposta.html", "_blank")
     else window.print()
-  }
-
-  if (!isAuthorized) {
-    return (
-      <div className="min-h-screen bg-[#080808] flex items-center justify-center p-6 font-sans">
-        <div className="max-w-md w-full bg-[#0F0F0F] border border-[#1F1F1F] p-8 shadow-2xl" style={{ animation: "scale-in 0.4s cubic-bezier(0.16,1,0.3,1) both" }}>
-          <div className="flex justify-center mb-6 text-[#8B2635]"><Lock size={48} /></div>
-          <h1 className="text-2xl font-serif text-center mb-2 text-[#F5F0E8]">Área Restrita</h1>
-          <p className="text-[#78716c] text-center mb-8 text-sm uppercase tracking-widest font-mono italic">Il Potere Tech // Business Hub</p>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <input type="password" placeholder="Sua senha de sócio"
-              className="w-full bg-[#141414] border border-[#1F1F1F] px-4 py-3 text-[#F5F0E8] focus:outline-none focus:border-[#8B2635] transition-colors font-mono"
-              value={password} onChange={(e) => setPassword(e.target.value)} autoFocus />
-            {error && <p className="text-[#8B2635] text-xs font-mono text-center">{error}</p>}
-            <button type="submit" className="w-full bg-[#8B2635] text-white py-3 font-semibold uppercase tracking-widest text-sm hover:bg-[#A63344] transition-colors shadow-lg">
-              Entrar no Comando
-            </button>
-          </form>
-        </div>
-      </div>
-    )
   }
 
   const tabs: { id: TabType; label: string; icon: React.ReactNode }[] = [
