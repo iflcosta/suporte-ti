@@ -184,22 +184,22 @@ export default function BusinessHub() {
       </nav>
 
       {/* Conteúdo */}
-      <main className="flex-1 bg-[#080808]">
+      <main className="flex-1 bg-[#080808] overflow-hidden flex flex-col">
         {activeTab === "dashboard" && (
-          <iframe src="/docs/plano-estrategico.html" className="w-full min-h-[calc(100vh-80px)] border-none" title="Dashboard Estratégico" />
+          <iframe src="/docs/plano-estrategico.html" className="w-full flex-1 border-none" title="Dashboard Estratégico" />
         )}
         {activeTab === "trilha" && (
-          <iframe src="/docs/trilha-tecnica.html" className="w-full min-h-[calc(100vh-80px)] border-none" title="Trilha Técnica" />
+          <iframe src="/docs/trilha-tecnica.html" className="w-full flex-1 border-none" title="Trilha Técnica" />
         )}
         {activeTab === "contrato" && (
-          <iframe src="/docs/contrato.html" className="w-full min-h-[calc(100vh-80px)] border-none" title="Contrato" />
+          <iframe src="/docs/contrato.html" className="w-full flex-1 border-none" title="Contrato" />
         )}
         {activeTab === "proposta" && (
-          <iframe src="/docs/proposta.html" className="w-full min-h-[calc(100vh-80px)] border-none" title="Proposta Comercial" />
+          <iframe src="/docs/proposta.html" className="w-full flex-1 border-none" title="Proposta Comercial" />
         )}
 
         {activeTab === "checklist" && (
-          <div className="p-6 md:p-12">
+          <div className="flex-1 overflow-y-auto p-6 md:p-12">
             <div className="print-page bg-white text-black p-8 md:p-12 shadow-[0_0_50px_rgba(0,0,0,0.4)] w-full max-w-[860px] mx-auto anim-up">
               
               {/* Header */}

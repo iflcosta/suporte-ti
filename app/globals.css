@@ -67,12 +67,12 @@
     background: var(--background); 
   }
   ::-webkit-scrollbar-thumb { 
-    background: #2A2A2A; 
+    background: var(--accent); 
     border-radius: 10px;
     border: 2px solid var(--background);
   }
   ::-webkit-scrollbar-thumb:hover { 
-    background: var(--accent); 
+    background: #A63344; 
   }
 }
 
