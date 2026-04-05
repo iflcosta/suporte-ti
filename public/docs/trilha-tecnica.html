@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--parchment);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.7;position:relative;min-height:100vh}
+body{background:var(--bg);color:var(--parchment);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.7;position:relative;min-height:100vh;padding-bottom:80px;overflow-x:hidden}
 body::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.15;height:100%}
 
 /* ── NAV ── */
@@ -970,35 +970,34 @@ footer span{color:var(--bordeaux)}
   </tbody>
 </table>
 
+  <!-- GOVERNANÇA: PASSAGEM DE BASTÃO -->
+  <div class="sdiv" id="governanca">Governança — A Passagem de Bastão (Coesão)</div>
+  <div class="card" id="coesao" style="--c:var(--red)">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)"></div>
+    <div class="card-head">
+      <span class="badge" style="color:var(--red);border-color:rgba(139,26,46,.3);background:rgba(139,26,46,.07)">Estratégico</span>
+      <span class="time">Diário (13:50–14:00)</span>
+    </div>
+    <div class="card-title">Protocolo de Coesão: Manhã ➔ Tarde</div>
+    <p class="card-desc">O segredo de um suporte profissional é o cliente não sentir a mudança de turno. O estagiário (Manhã) deve preparar o terreno para a Tia (Tarde).</p>
+
+    <div class="lbl">A Regra de Ouro</div>
+    <div class="callout">"Nenhum chamado morre no silêncio. Se parou, anote onde parou."</div>
+
+    <div class="lbl">Checklist da Passagem (Sincronização)</div>
+    <ul class="blist">
+      <li><strong>O que foi resolvido?</strong> Marque como Resolvido no RMM e avise o cliente.</li>
+      <li><strong>O que está pendente (On-Hold)?</strong> O que falta para terminar? Peça para a Tia dar continuidade.</li>
+      <li><strong>Alerta Vermelho:</strong> Algum cliente ficou bravo ou precisa de prioridade máxima?</li>
+      <li><strong>Registro de Notas:</strong> Use o campo "Notes" no Tactical RMM ou o log compartilhado para cada ticket.</li>
+    </ul>
+
+    <div class="warn">
+      <span class="warn-icon">⚠️</span>
+      <div class="warn-txt"><strong>Importante:</strong> Se houver suporte presencial pendente, o estagiário informa ao Fundador e a Tia assume o monitoramento remoto.</div>
+    </div>
+  </div>
 </main>
-
-<!-- GOVERNANÇA: PASSAGEM DE BASTÃO -->
-<div class="sdiv" id="governanca">Governança — A Passagem de Bastão (Coesão)</div>
-<div class="card" id="coesao" style="--c:var(--red)">
-  <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)"></div>
-  <div class="card-head">
-    <span class="badge" style="color:var(--red);border-color:rgba(139,26,46,.3);background:rgba(139,26,46,.07)">Estratégico</span>
-    <span class="time">Diário (13:50–14:00)</span>
-  </div>
-  <div class="card-title">Protocolo de Coesão: Manhã ➔ Tarde</div>
-  <p class="card-desc">O segredo de um suporte profissional é o cliente não sentir a mudança de turno. O estagiário (Manhã) deve preparar o terreno para a Tia (Tarde).</p>
-
-  <div class="lbl">A Regra de Ouro</div>
-  <div class="callout">"Nenhum chamado morre no silêncio. Se parou, anote onde parou."</div>
-
-  <div class="lbl">Checklist da Passagem (Sincronização)</div>
-  <ul class="blist">
-    <li><strong>O que foi resolvido?</strong> Marque como Resolvido no RMM e avise o cliente.</li>
-    <li><strong>O que está pendente (On-Hold)?</strong> O que falta para terminar? Peça para a Tia dar continuidade.</li>
-    <li><strong>Alerta Vermelho:</strong> Algum cliente ficou bravo ou precisa de prioridade máxima?</li>
-    <li><strong>Registro de Notas:</strong> Use o campo "Notes" no Tactical RMM ou o log compartilhado para cada ticket.</li>
-  </ul>
-
-  <div class="warn">
-    <span class="warn-icon">⚠️</span>
-    <div class="warn-txt"><strong>Importante:</strong> Se houver suporte presencial pendente, o estagiário informa ao Fundador e a Tia assume o monitoramento remoto.</div>
-  </div>
-</div>
 
 <footer>
   <div class="hero-eyebrow" style="margin-bottom:0.5rem">
