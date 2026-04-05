@@ -701,11 +701,46 @@
       <div class="stat-sub">15 contratos ativos</div>
     </div>
   </div>
-
-  <!-- SEMANA 1 -->
-  <div class="section">
+  
+  <!-- INVESTIMENTO INICIAL -->
+  <div class="section" id="investSection">
     <div class="section-header">
       <span class="section-num">01</span>
+      <span class="section-title">INVESTIMENTO INICIAL DETALHADO</span>
+    </div>
+
+    <div class="invest-table-wrap"><table class="invest-table" id="investTable">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Descrição</th>
+          <th>Valor (R$)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="investBody">
+        <!-- linhas geradas pelo JS -->
+      </tbody>
+      <tfoot>
+        <tr class="invest-total-row">
+          <td colspan="2" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;">TOTAL ESTIMADO</td>
+          <td><span class="invest-total-value" id="investTotal">R$ 0</span></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table></div>
+
+    <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
+    <div class="tip">
+      <ul><li><strong>Cultura do Líder Fundador</strong> — Operação 100% Fundador com Suporte Híbrido</li></ul>
+      <p>O Fundador assume 100% da estratégia e comercial (prospecção e contratos). O operacional N1 é compartilhado com o Estagiário e a equipe de apoio (TIA), focando em agilidade e escala.</p>
+    </div>
+  </div>
+
+  <!-- ESTRUTURA LEGAL & ADMINISTRATIVA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
       <span class="section-title">ESTRUTURA LEGAL & ADMINISTRATIVA</span>
     </div>
 
@@ -806,7 +841,7 @@
   <!-- SPRINT 2 -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <span class="section-title">IDENTIDADE & MATERIAIS</span>
     </div>
 
@@ -837,7 +872,7 @@
   <!-- SEMANA 3 -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span class="section-title">PROSPECÇÃO & PRIMEIRO CONTRATO</span>
     </div>
 
@@ -899,7 +934,7 @@
   <!-- SEMANA 4+ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <span class="section-title">OPERAÇÃO & ESCALA</span>
     </div>
 
@@ -927,45 +962,12 @@
     </div>
   </div>
 
-  <!-- INVESTIMENTO INICIAL -->
-  <div class="section" id="investSection">
-    <div class="section-header">
-      <span class="section-num">04b</span>
-      <span class="section-title">INVESTIMENTO INICIAL</span>
-    </div>
 
-    <div class="invest-table-wrap"><table class="invest-table" id="investTable">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Descrição</th>
-          <th>Valor (R$)</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="investBody">
-        <!-- linhas geradas pelo JS -->
-      </tbody>
-      <tfoot>
-        <tr class="invest-total-row">
-          <td colspan="2" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;">TOTAL ESTIMADO</td>
-          <td><span class="invest-total-value" id="investTotal">R$ 0</span></td>
-          <td></td>
-        </tr>
-      </tfoot>
-    </table></div>
-
-    <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
-    <div class="tip">
-      <ul><li><strong>Cultura do Líder Fundador</strong> — Operação 100% Fundador com Suporte Híbrido</li></ul>
-      <p>O Fundador assume 100% da estratégia e comercial (prospecção e contratos). O operacional N1 é compartilhado com o Estagiário e a equipe de apoio (TIA), focando em agilidade e escala.</p>
-    </div>
-  </div>
 
   <!-- PROJEÇÃO FINANCEIRA -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">05</span>
+      <span class="section-num">06</span>
       <span class="section-title">PROJEÇÃO FINANCEIRA</span>
     </div>
 
@@ -1011,7 +1013,7 @@
   <!-- FERRAMENTAS DE GESTÃO (FREE STACK) -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">06</span>
+      <span class="section-num">07</span>
       <span class="section-title">STACK DE GESTÃO (FREE)</span>
     </div>
 
@@ -1054,7 +1056,7 @@
   <!-- AGENTE DE IA OPERACIONAL -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">06b</span>
+      <span class="section-num">07b</span>
       <span class="section-title">IA AGENT // CO-PILOTO</span>
     </div>
     
@@ -1080,7 +1082,7 @@
   <!-- UPSELL SAAS -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">07</span>
+      <span class="section-num">08</span>
       <span class="section-title">SAAS — PRODUTO PRÓPRIO</span>
     </div>
 
@@ -1118,7 +1120,7 @@
   <!-- ROTINA DO FUNDADOR (PRE-LAUNCH) -->
   <div class="section" id="routine">
     <div class="section-header">
-      <span class="section-num">08</span>
+      <span class="section-num">09</span>
       <span class="section-title">ROTINA DO FUNDADOR (SPRINT 17 DIAS)</span>
     </div>
     <div class="alert" style="border-left-color: var(--accent); background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.15);">
@@ -1158,7 +1160,7 @@
   <!-- CATÁLOGO DE SERVIÇOS AVULSOS -->
   <div class="section" id="catalogSection">
     <div class="section-header">
-      <span class="section-num">07b</span>
+      <span class="section-num">08b</span>
       <span class="section-title">CATÁLOGO DE SERVIÇOS AVULSOS</span>
     </div>
 
