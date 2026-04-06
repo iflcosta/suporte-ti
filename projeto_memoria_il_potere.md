@@ -44,5 +44,15 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Visual:** Minimalismo de alta performance, tipografia moderna (Inter/Outfit).
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
+## 💹 7. DNA Econômico & Metas (Rev. 10/25/50%)
+- **Custo Fixo de Guerra:** **R$ 1.850,00/mês** (Estagiário + Ads + Sede Virtual).
+- **Setup Inicial (Onboarding):** Valor de 1 mensalidade (Cortesía ou Sob Consulta).
+- **Visita Técnica Excedente:** **R$ 120,00/hora** (Mínimo 1h30).
+- **Descontos Progressivos (Avulsos):** Essenziale (**10%**), Professionale (**25%**), Impresa (**50%**).
+- **Projeções de Lucro Líquido (Fundador):**
+    - **Mês 1 (Breakeven):** ~ -R$ 200,00 (Fase de Ativação).
+    - **Mês 2 (Tração):** **R$ 3.300,00** (12 contratos).
+    - **Mês 3 (Escala):** **R$ 5.970,00** (15 contratos mistos).
+
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀
