@@ -39,10 +39,10 @@ export const PLANOS = [
     emBreve: true,
     features: [
       "Escala até 30 dispositivos",
+      "Visitas Técnicas Semanais (4 Mensais)",
       "SLA Crítico (Resposta em até 30min)",
       "Consultoria Estratégica de Gestão de TI",
       "Blindagem Técnica & Jurídica LGPD",
-      "Governança Documental & Auditoria",
       "Arquitetura de Inteligência Artificial",
     ],
     destaque: false,

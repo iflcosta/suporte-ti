@@ -68,20 +68,28 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Backdrop */}
       <div 
-        className={`fixed inset-0 bg-[#080808]/95 backdrop-blur-2xl z-40 transition-transform duration-500 ease-in-out md:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 bg-[#080808]/60 backdrop-blur-sm z-40 transition-opacity duration-500 md:hidden ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <div 
+        className={`fixed top-0 right-0 h-[100dvh] w-[75%] max-w-[300px] bg-[#0A0A0A] border-l border-[#1F1F1F] z-50 transition-transform duration-500 ease-in-out md:hidden flex flex-col ${
+          mobileMenuOpen ? "translate-x-0 shadow-2xl shadow-black" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 px-6 text-center">
+        <div className="flex flex-col p-8 pt-24 gap-6">
           {navItems.map((item, i) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-serif text-[#F5F0E8] hover:text-[#C9A962] transition-colors"
-              style={{ transitionDelay: `${i * 50}ms` }}
+              className="text-lg font-serif text-[#F5F0E8] hover:text-[#C9A962] transition-colors border-b border-[#1F1F1F]/50 pb-4"
+              style={{ transitionDelay: `${i * 40}ms` }}
             >
               {item.label}
             </a>
@@ -90,7 +98,7 @@ export function Header() {
             href="https://wa.me/5511999999999"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 px-10 py-4 bg-[#8B2635] text-[#F5F0E8] text-lg font-medium tracking-wide shadow-xl shadow-[#8B2635]/20"
+            className="mt-4 px-6 py-4 bg-[#8B2635] text-[#F5F0E8] text-center text-sm font-medium tracking-wide shadow-lg shadow-[#8B2635]/10"
           >
             Falar no WhatsApp
           </a>
