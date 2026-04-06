@@ -9,15 +9,14 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Diferencial Competitivo:** TI de Performance, Segurança Anti-Ransomware e Automação com IA integradas ao suporte básico.
 
 ## 👥 2. Estrutura Operacional (Hybrid-Solo)
-- **Fundador (Elite):** 100% da estratégia, comercial e suporte N3 (projetos).
-- **Estagiário (Time A):** Operacional N1 (Suporte remoto, 08h-14h).
-- **familiar (Time B):** Apoio remoto em regime de retaguarda (14h-18h), garantindo a continuidade do serviço.
-- **Cultura:** Foco em agilidade, proatividade e escala sem inflar a folha de pagamento.
+- **Fase Solo (Meses 1-2):** Fundador assume 100% (Estratégia, Comercial e Suporte Total N1-N3).
+- **Fase de Escala (Mês 3+):** Introdução de Estagiário (N1) e equipe de apoio para desalavancagem do Fundador.
+- **Cultura:** Foco em agilidade, proatividade e lucro líquido máximo antes da expansão do time.
 
-## 📊 3. Portfólio de Planos & Projeções
-- **Essenziale (R$ 390/mês):** Até 5 dispositivos. Monitoramento 24/7, Suporte remoto comercial e 1 visita de emergência.
-- **Professionale (R$ 690/mês):** O "Carro-chefe". Até 15 dispositivos. Backup Blindado Cloud, Suporte Remoto Imediato e Consultoria de Infra.
-- **Impresa (R$ 1.290/mês):** Até 30 dispositivos. Visitas ilimitadas, Gestão de Ransomware, Conformidade LGPD, Governança Documental e Automação com IA.
+## 📊 3. Portfólio de Planos & Projeções (Rev. Solo)
+- **Essenziale (R$ 390/mês):** Até 5 dispositivos. 1 visita técnica mensal inclusa + 10% Off avulsos.
+- **Professionale (R$ 690/mês):** Até 15 dispositivos. 2 visitas mensais + 25% Off avulsos.
+- **Impresa (R$ 1.290/mês):** Até 30 dispositivos. Visitas Técnicas Semanais + 50% Off em Projetos & IA.
 
 ## 🚀 4. Os 12 Pilares da Solução de Elite
 1.  **Suporte Pró-ativo (Essenziale+):** Monitoramento 24/7 via RMM.
@@ -45,12 +44,13 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
 ## 💹 7. DNA Econômico & Metas (Rev. 10/25/50%)
+- **Investimento Inicial:** **R$ 2.300,00** (Kit Campo, Sede Virtual, Ads).
 - **Custo Fixo de Guerra:** **R$ 1.850,00/mês** (Estagiário + Ads + Sede Virtual).
 - **Setup Inicial (Onboarding):** Valor de 1 mensalidade (Cortesía ou Sob Consulta).
 - **Visita Técnica Excedente:** **R$ 120,00/hora** (Mínimo 1h30).
 - **Descontos Progressivos (Avulsos):** Essenziale (**10%**), Professionale (**25%**), Impresa (**50%**).
 - **Projeções de Lucro Líquido (Fundador):**
-    - **Mês 1 (Breakeven):** ~ -R$ 200,00 (Fase de Ativação).
+    - **Mês 1 (Breakeven):** ~ -R$ 350,00 (Fase de Ativação).
     - **Mês 2 (Tração):** **R$ 3.300,00** (12 contratos).
     - **Mês 3 (Escala):** **R$ 5.970,00** (15 contratos mistos).
 
