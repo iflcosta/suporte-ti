@@ -39,8 +39,8 @@ export const PLANOS = [
     emBreve: true,
     features: [
       "Até 30 dispositivos",
-      "Consultoria de Gestão (Breve)",
-      "Adequação LGPD (Breve)",
+      "Consultoria de Gestão",
+      "Adequação LGPD",
       "Governança Documental",
       "Arquitetura de IA",
       "Resposta em até 30min",
