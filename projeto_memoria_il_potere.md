@@ -40,6 +40,10 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 
 ## 🎯 6. Diretrizes de Comunicação & Visual
 - **Paleta:** Preto (#080808), Branco e Bordeaux (#8B2635).
+- **Identidade de Planos (Badges):**
+    - Essenziale: `COMPLETE SOLUTION` (Cinza Elite)
+    - Professionale: `SHIELDED SYSTEM` (Bordeaux)
+    - Impresa: `STRATEGIC EVOLUTION` (Ouro/Gold)
 - **Visual:** Minimalismo de alta performance, tipografia moderna (Inter/Outfit).
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
