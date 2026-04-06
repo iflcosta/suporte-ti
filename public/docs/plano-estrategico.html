@@ -731,7 +731,6 @@
     </table></div>
 
     <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
-    <button class="invest-add-btn" id="investResetBtn" style="background: var(--red); border-color: var(--red); margin-left: 10px;">Resetar Padrão Elite</button>
     <div class="tip">
       <ul><li><strong>Cultura do Líder Fundador</strong> — Operação 100% Fundador com Suporte Híbrido</li></ul>
       <p>O Fundador assume 100% da estratégia e comercial (prospecção e contratos). O operacional N1 é compartilhado com o Estagiário e a equipe de apoio (familiar), focando em agilidade e escala.</p>
@@ -1646,14 +1645,7 @@ function initInvest() {
     });
   }
 
-  var resetBtn = document.getElementById('investResetBtn');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', function() {
-      if (!confirm('Deseja resetar a tabela para o Padrão de Elite (v. Abril 2026)? Todos os seus ajustes manuais nesta tabela serão perdidos.')) return;
-      localStorage.removeItem(INVEST_KEY);
-      location.reload();
-    });
-  }
+
 }
 
 // ── INIT ──────────────────────────────────────────────────
