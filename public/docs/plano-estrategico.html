@@ -687,7 +687,7 @@
 <div class="summary-grid">
     <div class="stat-card">
       <div class="stat-label">Investimento inicial</div>
-      <div class="stat-value" id="headerInvest">R$ 2.490</div>
+      <div class="stat-value" id="headerInvest">R$ 2.300</div>
       <div class="stat-sub">Kit Campo + Ads + Sede Virtual</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
@@ -731,6 +731,7 @@
     </table></div>
 
     <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
+    <button class="invest-add-btn" id="investResetBtn" style="background: var(--red); border-color: var(--red); margin-left: 10px;">Resetar Padrão Elite</button>
     <div class="tip">
       <ul><li><strong>Cultura do Líder Fundador</strong> — Operação 100% Fundador com Suporte Híbrido</li></ul>
       <p>O Fundador assume 100% da estratégia e comercial (prospecção e contratos). O operacional N1 é compartilhado com o Estagiário e a equipe de apoio (familiar), focando em agilidade e escala.</p>
@@ -1532,14 +1533,13 @@ function restoreExtras() {
 // ── INVESTIMENTO ──────────────────────────────────────────
 var DEFAULT_INVEST = [
   { id: 'inv-1', item: 'Kit Pen Drives (2x 64GB)', desc: 'Kingston/Sandisk para Ventoy e ISOs',   value: 120 },
-  { id: 'inv-2', item: 'Chip + Domínio + Email', desc: 'WhatsApp Business + Registro.br (Anual)', value: 140 },
+  { id: 'inv-2', item: 'Chip + Domínio + Email', desc: 'WhatsApp Business + Registro.br (Anual)', value: 150 },
   { id: 'inv-h', item: 'Endereço Fiscal (Anual/Ativação)', desc: 'Reserva para Escritório Virtual e registro', value: 300 },
   { id: 'inv-3', item: '1x Kit de Campo (Elite/Completo)', desc: 'Multímetro, Testadores, Fixit, Insumos Profissionais',  value: 750 },
   { id: 'inv-4', item: 'Marketing Inicial', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
   { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Provisão para abertura e primeira guia',          value: 70 },
   { id: 'inv-7', item: 'Infra Cloud (VPS)', desc: 'Tactical RMM + RustDesk Relay (Mensal)',          value: 50 },
   { id: 'inv-8', item: 'Uniforme (Elite)', desc: '2x Camisas Polo com logo bordado',          value: 160 },
-  { id: 'inv-a', item: 'Reserva Técnica', desc: 'Pequenos componentes e cabos para estoque inicial', value: 200 },
   { id: 'inv-b', item: 'Extra Contingência', desc: 'Reserva para imprevistos de campo', value: 200 }
 ];
 
@@ -1643,6 +1643,15 @@ function initInvest() {
       saveInvest(data);
       renderInvestRow(newRow, tbody);
       syncHeader(calcTotal(data));
+    });
+  }
+
+  var resetBtn = document.getElementById('investResetBtn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (!confirm('Deseja resetar a tabela para o Padrão de Elite (v. Abril 2026)? Todos os seus ajustes manuais nesta tabela serão perdidos.')) return;
+      localStorage.removeItem(INVEST_KEY);
+      location.reload();
     });
   }
 }
