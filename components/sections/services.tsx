@@ -19,11 +19,17 @@ export function Services() {
           {SERVICOS.map((servico, i) => (
             <div
               key={i}
-              className="group relative bg-[#0F0F0F] border border-[#1F1F1F] p-6 hover:border-[#8B2635]/50 transition-all duration-500 animate-fade-up"
+              className={`group relative bg-[#0F0F0F] border border-[#1F1F1F] p-6 hover:border-[#8B2635]/50 transition-all duration-500 animate-fade-up ${servico.comingSoon ? "opacity-90" : ""}`}
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="absolute top-0 left-0 w-0 h-[1px] bg-[#8B2635] group-hover:w-full transition-all duration-500" />
               
+              {servico.comingSoon && (
+                <span className="absolute top-4 right-4 text-[8px] font-bold tracking-widest uppercase px-1.5 py-0.5 bg-[#C9A962]/10 text-[#C9A962] border border-[#C9A962]/20 rounded">
+                  Coming Soon
+                </span>
+              )}
+
               <span className="text-3xl mb-4 block">{servico.icone}</span>
               <h3 className="font-serif text-lg text-[#F5F0E8] mb-2 group-hover:text-[#C9A962] transition-colors">
                 {servico.titulo}

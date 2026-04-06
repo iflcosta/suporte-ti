@@ -93,22 +93,26 @@ export const SERVICOS = [
   {
     icone: "💡",
     titulo: "Consultoria Gestão",
-    desc: "(Em breve) Seu braço estratégico de TI projetando o crescimento e a modernização tecnológica do seu negócio.",
+    desc: "Seu braço estratégico de TI projetando o crescimento e a modernização tecnológica do seu negócio.",
+    comingSoon: true,
   },
   {
     icone: "⚖️",
     titulo: "Adequação LGPD",
-    desc: "(Em breve) Blindagem jurídica e técnica de dados sensíveis para clínicas e advocacias em conformidade legal.",
+    desc: "Blindagem jurídica e técnica de dados sensíveis para clínicas e advocacias em conformidade legal.",
+    comingSoon: true,
   },
   {
     icone: "📂",
     titulo: "Governança Documental",
-    desc: "(Em breve) Organização estratégica de arquivos em nuvem com permissões granulares, auditoria e segurança máxima.",
+    desc: "Organização estratégica de arquivos em nuvem com permissões granulares, auditoria e segurança máxima.",
+    comingSoon: true,
   },
   {
     icone: "🧠",
     titulo: "Arquitetura de IA",
-    desc: "(Em breve) Implementação de agentes e automações inteligentes para ganho bruto de produtividade e escala.",
+    desc: "Implementação de agentes e automações inteligentes para ganho bruto de produtividade e escala.",
+    comingSoon: true,
   },
 ]
 
