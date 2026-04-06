@@ -13,24 +13,24 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Fase de Escala (Mês 3+):** Introdução de Estagiário (N1) e equipe de apoio para desalavancagem do Fundador.
 - **Cultura:** Foco em agilidade, proatividade e lucro líquido máximo antes da expansão do time.
 
-## 📊 3. Portfólio de Planos & Projeções (Rev. Solo)
-- **Essenziale (R$ 390/mês):** Até 5 dispositivos. 1 visita técnica mensal inclusa + 10% Off avulsos.
-- **Professionale (R$ 690/mês):** Até 15 dispositivos. 2 visitas mensais + 25% Off avulsos.
-- **Impresa (R$ 1.290/mês):** Até 30 dispositivos. Visitas Técnicas Semanais + 50% Off em Projetos & IA.
+## 📊 3. Portfólio de Planos & Projeções (Rev. Simetria 4/4/4)
+- **Essenziale (R$ 390/mês):** Até 5 dispositivos. 4 Pilares: Suporte, Visitas, Marca e TI/Conectividade.
+- **Professionale (R$ 690/mês):** Até 15 dispositivos. 4 Pilares: Backup, Cloud, Proteção Elite (EDR) e Perímetro.
+- **Impresa (R$ 1.290/mês) — [EM BREVE]:** Até 30 dispositivos. 4 Pilares: Consultoria, LGPD, Governança e IA.
 
 ## 🚀 4. Os 12 Pilares da Solução de Elite
-1.  **Suporte Pró-ativo (Essenziale+):** Monitoramento 24/7 via RMM.
-2.  **Backup Anti-Ransom (Professionale+):** Estratégia 3-2-1 de segurança.
-3.  **TI em Performance (Professionale+):** Otimização de sistemas (iClinic, ProJuris).
-4.  **Visitas de Presença (Essenziale+):** Engenharia física ágil em campo.
-5.  **Adequação LGPD (Impresa Only):** Blindagem de dados sensíveis e conformidade.
-6.  **Estratégia Cloud (Professionale+):** Microsoft 365 e Google Workspace blindados.
-7.  **Wi-Fi Corporativo (Professionale+):** Projetos de redes estáveis.
-8.  **Consultoria Especial (Professionale+):** Planejamento de crescimento tecnológico.
-9.  **Segurança de Perímetro (Professionale+):** Firewalls e VPNs seguras.
-10. **Gestão Documental (Impresa Only):** Governança de arquivos e permissões.
-11. **Identidade & E-mail (Essenziale+):** Gestão de marcas e e-mails profissionais.
-12. **Automação com IA (Impresa Only):** Scripts e agentes de IA para produtividade.
+1.  **Suporte & Segurança (Essenziale+):** Monitoramento 24/7 e remoção de ameaças digitais.
+2.  **Visitas de Presença (Essenziale+):** Kit profissional para hardware e redes.
+3.  **Identidade & Marca (Essenziale+):** Gestão de domínios e e-mails corporativos.
+4.  **TI & Conectividade (Essenziale+):** Otimização de sistemas e Wi-Fi sem pontos cegos.
+5.  **Backup Blindado (Professionale+):** Estratégia 3-2-1 Local/Nuvem.
+6.  **Estratégia Cloud (Professionale+):** Gestão segura de M365 e Google Workspace.
+7.  **Proteção Elite EDR (Professionale+):** Defesa contra Ransomware via IA.
+8.  **Segurança Perímetro (Professionale+):** Firewalls e VPNs seguras.
+9.  **Consultoria Gestão (Impresa - Breve):** Estratégia de crescimento tecnológico.
+10. **Adequação LGPD (Impresa - Breve):** Blindagem jurídica e técnica de dados.
+11. **Governança Documental (Impresa - Breve):** Organização de arquivos e permissões.
+12. **Arquitetura de IA (Impresa - Breve):** Automação inteligente de processos.
 
 ## 🛠️ 5. Stack Tecnológica & Infra do Hub
 - **Front-end:** Next.js 15, Tailwind CSS. Layout Elite Minimalista.
