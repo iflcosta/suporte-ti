@@ -43,16 +43,16 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Visual:** Minimalismo de alta performance, tipografia moderna (Inter/Outfit).
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
-## 💹 7. DNA Econômico & Metas (Rev. 10/25/50%)
+## 💹 7. DNA Econômico & Metas (Blindagem 6k)
 - **Investimento Inicial:** **R$ 2.300,00** (Kit Campo, Sede Virtual, Ads).
-- **Custo Fixo de Guerra:** **R$ 1.850,00/mês** (Estagiário + Ads + Sede Virtual).
-- **Setup Inicial (Onboarding):** Valor de 1 mensalidade (Cortesía ou Sob Consulta).
-- **Visita Técnica Excedente:** **R$ 120,00/hora** (Mínimo 1h30).
-- **Descontos Progressivos (Avulsos):** Essenziale (**10%**), Professionale (**25%**), Impresa (**50%**).
-- **Projeções de Lucro Líquido (Fundador):**
-    - **Mês 1 (Breakeven):** ~ -R$ 350,00 (Fase de Ativação).
-    - **Mês 2 (Tração):** **R$ 3.300,00** (12 contratos).
-    - **Mês 3 (Escala):** **R$ 5.970,00** (15 contratos mistos).
+- **OPEX Solo (Meses 1-2):** **R$ 1.000,00/mês**.
+- **OPEX Blindado (Mês 3+):** **R$ 3.500,00/mês** (Inclui Suporte N1, Apoio Familiar, Ads e SaaS).
+- **Teto de Gasto Total (Guerra):** **R$ 6.000,00/mês** (OPEX + Salário Fundador de R$ 2.500).
+- **Projeções de Sobra Líquida (Caixa Empresa):**
+    - **Mês 1:** **R$ 950,00**.
+    - **Mês 2:** **R$ 1.780,00** (Já com salário de 2.5k).
+    - **Mês 3:** **R$ 1.950,00** (Regra do Teto 6k ativa).
+    - **Mês 4 (Escala):** **R$ 6.000,00/mês** (Margem líquida excepcional).
 
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀

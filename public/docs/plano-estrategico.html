@@ -692,13 +692,13 @@
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
       <div class="stat-label">Meta mês 1 (Solo)</div>
-      <div class="stat-value" style="color:var(--green)">+ R$ 850</div>
+      <div class="stat-value" style="color:var(--green)">+ R$ 950</div>
       <div class="stat-sub">5 contratos Elite Solo fechados</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--accent2)">
-      <div class="stat-label">Lucro Médio (Mês 3)</div>
-      <div class="stat-value" style="color:var(--accent2)">R$ 5.970</div>
-      <div class="stat-sub">15 contratos ativos (MRR)</div>
+      <div class="stat-label">Sobra Mês 3 (Equipe)</div>
+      <div class="stat-value" style="color:var(--accent2)">R$ 1.950</div>
+      <div class="stat-sub">Livre após Teto de Gasto 6k</div>
     </div>
   </div>
   
@@ -731,7 +731,6 @@
     </table></div>
 
     <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
-    <button class="invest-add-btn" id="investResetBtn" style="background: var(--red); border-color: var(--red); margin-left: 10px;">Resetar Padrão Elite</button>
     <div class="tip">
       <ul><li><strong>Cultura do Líder Fundador</strong> — Operação 100% Fundador com Suporte Híbrido</li></ul>
       <p>O Fundador assume 100% da estratégia e comercial. <strong>Fase Solo (Meses 1-2):</strong> O Fundador opera todos os níveis de suporte para maximizar o lucro líquido inicial. <strong>Fase de Escala (Mês 3+):</strong> Introdução do Estagiário e equipe de apoio para desalavancagem operacional após atingir a meta de 15 contratos.</p>
@@ -1022,30 +1021,32 @@
           <td>Mês 1 (Abr/Maio)</td>
           <td>5 Essenziale (Solo)</td>
           <td class="num neutral">R$ 1.950</td>
-          <td class="num positive">+ R$ 850*</td>
+          <td class="num positive">+ R$ 950*</td>
         </tr>
         <tr>
           <td>Mês 2 (Junho)</td>
           <td>12 Contratos (Solo)</td>
           <td class="num neutral">R$ 5.280</td>
-          <td class="num positive">R$ 4.180*</td>
+          <td class="num positive">R$ 1.780**</td>
         </tr>
         <tr>
           <td>Mês 3 (Julho)</td>
           <td>15 Contratos (Equipe)</td>
           <td class="num positive">R$ 7.950</td>
-          <td class="num positive">R$ 5.650**</td>
+          <td class="num positive">R$ 1.950***</td>
         </tr>
         <tr class="total-row">
           <td>Escala Mês 4+</td>
           <td>TI + SaaS Upsell</td>
           <td class="num positive">R$ 12.000+</td>
-          <td class="num positive">R$ 9.700+</td>
+          <td class="num positive">R$ 6.000+</td>
         </tr>
       </tbody>
     </table>
-    <div style="font-size:10px; color:var(--muted); margin-top:10px;">*Mês 1 & 2 operados 100% Solo pelo Fundador. Custo Operacional Fixo de **R$ 1.100** (Ads, Sede e Cloud).<br>
-    **Mês 3 em diante considera suporte operacional N1 contratado. Custo Fixo de Guerra total: **R$ 2.300**.</div>
+    <div style="font-size:10px; color:var(--muted); margin-top:10px;">
+      *Mês 1 considera OPEX Solo de **R$ 1.000**. Mês 2 considera OPEX Solo + Salário Fundador (R$ 2.500).<br>
+      **Mês 3 em diante considera Suporte N1 + Apoio Familiar. Teto de Gasto Total (**OPEX Blindado + Salário Fundador**): **R$ 6.000**. Sobra livre acumula no caixa da empresa.
+    </div>
   </div>
 
   <!-- FERRAMENTAS DE GESTÃO (FREE STACK) -->
@@ -1644,15 +1645,6 @@ function initInvest() {
       saveInvest(data);
       renderInvestRow(newRow, tbody);
       syncHeader(calcTotal(data));
-    });
-  }
-
-  var resetBtn = document.getElementById('investResetBtn');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', function() {
-      if (!confirm('Deseja resetar a tabela para o Padrão de Elite (v. Abril 2026)? Todos os seus ajustes manuais nesta tabela serão perdidos.')) return;
-      localStorage.removeItem(INVEST_KEY);
-      location.reload();
     });
   }
 }
