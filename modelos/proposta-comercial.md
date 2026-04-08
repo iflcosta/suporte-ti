@@ -25,10 +25,14 @@ Somos uma empresa local de suporte técnico com foco em **Pequenas e Médias Emp
 
 ## 💰 PLANOS MENSAIS (Fidelidade Zero)
 
-| BASIC | STANDARD | PREMIUM |
+( ) Plano Basic — R$ 390/mês
+( ) Plano Standard — R$ 690/mês
+( ) Plano Impresa — Sob consulta
+
+| BASIC | STANDARD | IMPRESA |
 | :--- | :--- | :--- |
-| **R$ 390/mês** | **R$ 690/mês** | **R$ 1.290/mês** |
-| *Foco: 01 a 05 PCs* | *Foco: 06 a 15 PCs* | *Foco: 16 a 40 PCs* |
+| **R$ 390/mês** | **R$ 690/mês** | **Sob consulta** |
+| *Foco: 01 a 05 PCs* | *Foco: 06 a 15 PCs* | *Foco: 16 a 30 PCs* |
 | **Ilimitado** Remoto | **Ilimitado** Remoto | **Ilimitado** Remoto |
 | 1 Visita Presencial mensal | 2 Visitas Presenciais mensais | Visitas Semanais |
 | Resposta em até 4h | Resposta em até 2h | Resposta Prioritária (1h) |

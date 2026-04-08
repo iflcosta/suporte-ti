@@ -700,7 +700,7 @@
 <div class="summary-grid">
     <div class="stat-card">
       <div class="stat-label">Investimento inicial</div>
-      <div class="stat-value" id="headerInvest">R$190</div>
+      <div class="stat-value" id="headerInvest">R$2.150</div>
       <div class="stat-sub">Sincronizado com seção 04b</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
@@ -1097,8 +1097,10 @@
         <tr>
           <th>Período</th>
           <th>Contratos</th>
-          <th>Receita Bruta</th>
-          <th>Por sócio (50/50)</th>
+          <th>Rec. Bruta</th>
+          <th>OPEX (Gastos)</th>
+          <th>Lucro Líq.</th>
+          <th>P/ Sócio (50/50)</th>
         </tr>
       </thead>
       <tbody>
@@ -1106,34 +1108,41 @@
           <td>Mês 1</td>
           <td>5 Basic</td>
           <td class="num neutral">R$ 1.950</td>
-          <td class="num neutral">R$ 975</td>
+          <td class="num">R$ 1.000</td>
+          <td class="num neutral">R$ 950</td>
+          <td class="num neutral">R$ 475</td>
         </tr>
         <tr>
           <td>Mês 2</td>
-          <td>10 Basic + 2 Standard</td>
+          <td>10 Basic + 2 Std</td>
           <td class="num neutral">R$ 5.280</td>
-          <td class="num neutral">R$ 2.640</td>
+          <td class="num">R$ 2.000*</td>
+          <td class="num positive">R$ 3.280</td>
+          <td class="num positive">R$ 1.640</td>
         </tr>
         <tr>
           <td>Mês 3</td>
-          <td>10 Basic + 5 Standard</td>
+          <td>10 Basic + 5 Std</td>
           <td class="num positive">R$ 7.350</td>
-          <td class="num positive">R$ 3.675</td>
-        </tr>
-        <tr>
-          <td>Mês 3+ SaaS</td>
-          <td>+5 clientes SaaS</td>
-          <td class="num positive">+R$ 750–1.750</td>
-          <td class="num positive">+R$ 375–875</td>
+          <td class="num">R$ 2.300†</td>
+          <td class="num positive">R$ 5.050</td>
+          <td class="num positive">R$ 2.525</td>
         </tr>
         <tr class="total-row">
-          <td>Potencial Mês 4</td>
-          <td>15 TI + SaaS</td>
+          <td>Mês 4 (Escala)</td>
+          <td>15+ TI + SaaS</td>
           <td class="num positive">~R$ 12.000+</td>
-          <td class="num positive">~R$ 6.000+</td>
+          <td class="num">R$ 2.300</td>
+          <td class="num positive">R$ 9.700+</td>
+          <td class="num positive">R$ 4.850+</td>
         </tr>
       </tbody>
-    </table></div>
+    </table>
+    <div style="font-size: 10px; color: var(--muted); margin-top: 8px; font-family: 'IBM Plex Mono', monospace;">
+      * Inclui R$ 1.000 extras para finalização do Kit de Campo Full.<br>
+      † Entrada Estagiário (5h - R$ 950) + Apoio Remoto (5h - R$ 800) + Softwares.
+    </div>
+    </div>
   </div>
 
   <!-- FERRAMENTAS DE GESTÃO (FREE STACK) -->
@@ -1602,7 +1611,7 @@ function restoreExtras() {
 var DEFAULT_INVEST = [
   { id: 'inv-1', item: 'Kit Pen Drives (2x 64GB)', desc: 'Kingston/Sandisk para Ventoy e ISOs',   value: 120 },
   { id: 'inv-2', item: 'Chip + Email + Dom\u00ednio', desc: 'WhatsApp Business + Registro.br (Anual)', value: 100 },
-  { id: 'inv-3', item: 'Materiais de Campo',     desc: 'Cart\u00f5es de visita + Cabos teste',  value: 150 },
+  { id: 'inv-3', item: 'Kit de Campo Essencial', desc: 'Ferramentas, conectores e insu\u00admos b\u00e1sicos', value: 1000 },
   { id: 'inv-4', item: 'Marketing (Google+Meta)', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
   { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Primeira guia DAS simplificada',          value: 70 },
   { id: 'inv-7', item: '2x VPS (Infraestrutura)', desc: 'Tactical RMM + RustDesk Relay',          value: 50 },

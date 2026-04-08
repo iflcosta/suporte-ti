@@ -16,7 +16,7 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 ## 📊 3. Portfólio de Planos & Projeções (Rev. Simetria 4/4/4)
 - **Essenziale (R$ 390/mês):** Até 5 dispositivos. 4 Pilares: Suporte, Visitas, Marca e TI/Conectividade.
 - **Professionale (R$ 690/mês):** Até 15 dispositivos. 4 Pilares: Backup, Cloud, Proteção Elite (EDR) e Perímetro.
-- **Impresa (R$ 1.290/mês) — [EM BREVE]:** Até 30 dispositivos. 4 Pilares: Consultoria, LGPD, Governança e IA.
+- **Impresa (Sob consulta) — [EM BREVE]:** Até 30 dispositivos. 4 Pilares: Consultoria, LGPD, Governança e IA.
 
 ## 🚀 4. Os 12 Pilares da Solução de Elite
 1.  **Suporte & Segurança (Essenziale+):** Monitoramento 24/7 e remoção de ameaças digitais.
@@ -47,16 +47,18 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Visual:** Minimalismo de alta performance, tipografia moderna (Inter/Outfit).
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
-## 💹 7. DNA Econômico & Metas (Blindagem 6k)
-- **Investimento Inicial:** **R$ 2.300,00** (Kit Campo, Sede Virtual, Ads).
-- **OPEX Solo (Meses 1-2):** **R$ 1.000,00/mês**.
-- **OPEX Blindado (Mês 3+):** **R$ 3.500,00/mês** (Inclui Suporte N1, Apoio Familiar, Ads e SaaS).
-- **Teto de Gasto Total (Guerra):** **R$ 6.000,00/mês** (OPEX + Salário Fundador de R$ 2.500).
+## 💹 7. DNA Econômico & Metas (Blindagem 4.8k)
+- **Investimento Inicial:** **R$ 2.150,00** (Kit Essencial R$ 1000, Sede Virtual/Domínio, Ads, Infra).
+- **Expansão Mês 2:** **+ R$ 1.000,00** (Finalização do Kit de Campo Full).
+- **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads e Softwares).
+- **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).
+- **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Estagiário 5h R$ 950, Apoio Tia 5h R$ 800, Ads e Softwares).
+- **Teto de Gasto Total (Guerra):** **R$ 4.800,00/mês** (OPEX + Salário Fundador de R$ 2.500).
 - **Projeções de Sobra Líquida (Caixa Empresa):**
-    - **Mês 1:** **R$ 950,00**.
-    - **Mês 2:** **R$ 1.780,00** (Já com salário de 2.5k).
-    - **Mês 3:** **R$ 1.950,00** (Regra do Teto 6k ativa).
-    - **Mês 4 (Escala):** **R$ 6.000,00/mês** (Margem líquida excepcional).
+    - **Mês 1:** **R$ 950,00** (Rev 1.95k - 1k opex).
+    - **Mês 2:** **R$ 780,00** (Rev ~4.3k - 2.5k sal - 1k opex - 1k kit extra).
+    - **Mês 3:** **R$ 2.550,00** (Rev 7.35k - 4.8k teto).
+    - **Mês 4 (Escala):** **R$ 7.200,00/mês** (Rev ~12k - 4.8k teto).
 
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀

@@ -22,7 +22,7 @@ Telefone: (__) ___________ | E-mail: ____________________________
 
 ( ) Plano Basic — R$ 390/mês
 ( ) Plano Standard — R$ 690/mês
-( ) Plano Premium — R$ 1.290/mês
+( ) Plano Impresa — Sob consulta
 
 **Valor mensal: R$ ___________ | Vencimento: Todo dia 10 de cada mês**
 

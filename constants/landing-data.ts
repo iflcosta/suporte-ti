@@ -34,8 +34,8 @@ export const PLANOS = [
     nome: "Impresa",
     subtitulo: "Liderança & Inovação",
     tagIngles: "STRATEGIC EVOLUTION",
-    preco: "R$ 1.290",
-    periodo: "/mês",
+    preco: "Sob consulta",
+    periodo: "",
     emBreve: true,
     features: [
       "Escala até 30 dispositivos",
