@@ -14,12 +14,11 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { label: "Servi\u00e7os", href: "#servicos" },
-    { label: "ClinicalTech", href: "/clinical-tech" },
+    { label: "Serviços", href: "#servicos" },
     { label: "Planos", href: "#planos" },
     { label: "FAQ", href: "#faq" },
     { label: "Contato", href: "#contato" },
-    { label: "Plano de Neg\u00f3cios", href: "/negocios" },
+    { label: "Plano de Negócios", href: "/negocios" },
   ]
 
   return (
