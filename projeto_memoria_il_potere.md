@@ -91,11 +91,14 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
 ## 💹 7. DNA Econômico & Metas (Blindagem 4.5k)
-- **Investimento Inicial:** **R$ 2.550,00** (Kit Essencial R$ 1000, Endereço Fiscal, Ads, Infra).
+- **Investimento Inicial:** **R$ 2.380,00** (Kit Campo R$ 1000, Fiscal, Ads, Infra + R$ 150 Reserva Técnica).
 - **Expansão Mês 2:** **+ R$ 1.000,00** (Finalização do Kit de Campo Full).
-- **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads e Softwares).
+- **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads R$ 500 + Softwares R$ 500).
 - **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).
-- **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Estagiário 5h R$ 950, Apoio Tia 5h R$ 800, Ads e Softwares).
+- **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Opex Total).
+    - **Estagiário N1 (5h - R$ 950):** Suporte remoto, formatações e gestão do Tactical RMM.
+    - **Apoio CS (Tia - 5h - R$ 800):** Triagem de suporte, cobranças (Asaas) e agendamento.
+    - **Infra/Ads (R$ 550):** Manutenção das ferramentas Google/Meta e VPS.
 - **Teto de Gasto Total (Guerra):** **R$ 4.500,00/mês** (OPEX + Salário Fundador de R$ 2.200).
 - **Projeções de Sobra Líquida (Caixa Empresa):**
     - **Mês 1:** **R$ 950,00** (Rev 1.95k - 1k opex).
