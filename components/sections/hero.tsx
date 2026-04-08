@@ -1,14 +1,8 @@
 "use client"
 
-import React from "react"
 import Image from "next/image"
 import { DIFERENCIAIS } from "@/constants/landing-data"
 import { Section } from "@/components/ui/section-components"
-
-interface DiferencialItem {
-  numero: string
-  label: string
-}
 
 export function Hero() {
   return (
@@ -41,16 +35,22 @@ export function Hero() {
           </div>
           
           <span className="inline-block font-mono text-xs tracking-[0.4em] uppercase text-[#8B2635] mb-8 animate-slide-in">
-            Suporte em TI \u00b7 Bragan\u00e7a Paulista
+            Suporte em TI · Bragança Paulista
           </span>
 
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] mb-10 animate-fade-up delay-100 max-w-4xl">
-            Tecnologia de Alta Performance para Bragan\u00e7a Paulista
+            Sua empresa não pode{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-[#C9A962]">parar</span>
+              <span className="absolute bottom-2 left-0 w-full h-4 bg-[#8B2635]/20 -z-0" />
+            </span>
+            <br />
+            por falha técnica
           </h1>
 
           <p className="text-xl md:text-2xl text-[#78716c] leading-relaxed mb-12 max-w-2xl animate-fade-up delay-200">
-            Gest\u00e3o de TI Especializada para Cl\u00ednicas e Escrit\u00f3rios. 
-            Estabilidade, seguran\u00e7a e suporte consultivo n\u00edvel N3 para sua empresa.
+            Suporte de Elite e Monitoramento Pró-ativo para Bragança e Região. 
+            Blindagem digital para clínicas e escritórios. Sem fidelidade, sem stress.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 mb-24 animate-fade-up delay-300">
@@ -59,7 +59,7 @@ export function Hero() {
               className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#8B2635] text-[#F5F0E8] font-medium tracking-wide hover:bg-[#A63344] transition-all text-lg"
             >
               Ver Planos
-              <span className="group-hover:translate-x-1 transition-transform">\u2192</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
               href="https://wa.me/5511999999999"
@@ -79,7 +79,7 @@ export function Hero() {
               
               <div className="relative bg-[#0F0F0F]/50 backdrop-blur-sm border border-[#1F1F1F] p-8 md:p-12">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-                  {DIFERENCIAIS.map((item: DiferencialItem, i: number) => (
+                  {DIFERENCIAIS.map((item, i) => (
                     <div
                       key={i}
                       className="text-center group"
