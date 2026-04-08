@@ -23,14 +23,14 @@ export default function ClinicalTechPage() {
             </span>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-[#F5F0E8] leading-[1.1] mb-8 animate-fade-up">
               {SOFTWARE_SOLUTION.nome}<br />
-              <span className="text-[#C9A962]">Blindagem M\u00e9dica.</span>
+              <span className="text-[#C9A962]">Blindagem Médica.</span>
             </h1>
             <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#a8a29e] mb-12 leading-relaxed animate-fade-up">
-              Software de prateleira \u00e9 apenas c\u00f3digo. O <strong>{SOFTWARE_SOLUTION.nome}</strong> \u00e9 a fus\u00e3o definitiva entre gest\u00e3o de alta performance e a infraestrutura de elite da Il Potere.
+              Software de prateleira é apenas código. O <strong>{SOFTWARE_SOLUTION.nome}</strong> é a fusão definitiva entre gestão de alta performance e a infraestrutura de elite da Il Potere.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-up">
               <Button className="w-full sm:w-auto px-10 py-7 h-auto text-sm font-bold bg-[#8B2635] hover:bg-[#a12d3e] text-white rounded-none border border-[#8B2635] shadow-[0_0_30px_rgba(139,38,53,0.3)] transition-all">
-                Solicitar Demonstra\u00e7\u00e3o
+                Solicitar Demonstração
               </Button>
               <Button variant="outline" className="w-full sm:w-auto px-10 py-7 h-auto text-sm font-bold border-[#1F1F1F] bg-transparent text-[#F5F0E8] hover:bg-white/5 rounded-none">
                 Ver Funcionalidades
@@ -46,7 +46,7 @@ export default function ClinicalTechPage() {
               <div>
                 <h2 className="font-serif text-3xl md:text-4xl text-[#F5F0E8] mb-6">
                   Por que softwares comuns <br />
-                  <span className="text-[#8B2635]">colocam sua cl\u00ednica em risco?</span>
+                  <span className="text-[#8B2635]">colocam sua clínica em risco?</span>
                 </h2>
                 <div className="space-y-6">
                   <div className="flex gap-4">
@@ -55,18 +55,18 @@ export default function ClinicalTechPage() {
                   </div>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 font-bold text-xs">X</div>
-                    <p className="text-[#a8a29e] text-sm leading-relaxed"><strong>LGPD de Fachada:</strong> Ter cripotografia n\u00e3o \u00e9 estar seguro se o roteador da sua cl\u00ednica est\u00e1 vulner\u00e1vel.</p>
+                    <p className="text-[#a8a29e] text-sm leading-relaxed"><strong>LGPD de Fachada:</strong> Ter cripotografia não é estar seguro se o roteador da sua clínica está vulnerável.</p>
                   </div>
                 </div>
               </div>
               <div className="p-8 bg-[#8B2635]/5 border border-[#8B2635]/20 rounded-2xl relative overflow-hidden">
                 <ShieldCheck className="absolute -bottom-8 -right-8 w-40 h-40 text-[#8B2635]/10" />
-                <h3 className="font-serif text-2xl text-[#C9A962] mb-4">A Diferen\u00e7a Potere</h3>
+                <h3 className="font-serif text-2xl text-[#C9A962] mb-4">A Diferença Potere</h3>
                 <p className="text-[#F5F0E8] text-sm leading-relaxed mb-6 italic">
-                  "O ClinicalTech inclui nosso Suporte N3. N\u00f3s n\u00e3o cuidamos apenas do dado, n\u00f3s cuidamos da m\u00e1quina, da rede e da segurança por onde o dado viaja."
+                  "O ClinicalTech inclui nosso Suporte N3. Nós não cuidamos apenas do dado, nós cuidamos da máquina, da rede e da segurança por onde o dado viaja."
                 </p>
                 <ul className="space-y-3">
-                  {["Rede Monitorada 24/7", "Backup Imut\u00e1vel MSP", "Suporte VIP Priorit\u00e1rio"].map((item, i) => (
+                  {["Rede Monitorada 24/7", "Backup Imutável MSP", "Suporte VIP Prioritário"].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-xs font-medium text-[#F5F0E8]">
                       <Check className="w-4 h-4 text-[#C9A962]" /> {item}
                     </li>
@@ -86,12 +86,12 @@ export default function ClinicalTechPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6 md:px-12">
             {[
-              { icon: Activity, title: "Prontu\u00e1rio Inteligente", desc: "Hist\u00f3rico completo com filtros por especialidade e anexa\u00e7\u00e3o de exames." },
-              { icon: Zap, title: "Fluxo de Caixa TISS/TUSS", desc: "Faturamento de conv\u00eanios automatizado e gest\u00e3o de glosas." },
-              { icon: Users, title: "CRM de Pacientes", desc: "Marketing focado no paciente com lembretes de retorno e anivers\u00e1rio." },
-              { icon: Database, title: "Estoque de Insumos", desc: "Alerta autom\u00e1tico de validade e reposi\u00e7\u00e3o de materiais t\u00e9cnicos." },
-              { icon: ShieldCheck, title: "Assinatura Digital", desc: "Receitu\u00e1rios e atestados com validade jur\u00eddica ICP-Brasil." },
-              { icon: Zap, title: "Teleconsulta HD", desc: "Sala virtual segura integrada diretamente ao prontu\u00e1rio." },
+              { icon: Activity, title: "Prontuário Inteligente", desc: "Histórico completo com filtros por especialidade e anexação de exames." },
+              { icon: Zap, title: "Fluxo de Caixa TISS/TUSS", desc: "Faturamento de convênios automatizado e gestão de glosas." },
+              { icon: Users, title: "CRM de Pacientes", desc: "Marketing focado no paciente com lembretes de retorno e aniversário." },
+              { icon: Database, title: "Estoque de Insumos", desc: "Alerta automático de validade e reposição de materiais técnicos." },
+              { icon: ShieldCheck, title: "Assinatura Digital", desc: "Receituários e atestados com validade jurídica ICP-Brasil." },
+              { icon: Zap, title: "Teleconsulta HD", desc: "Sala virtual segura integrada diretamente ao prontuário." },
             ].map((f, i) => (
               <div key={i} className="p-8 bg-[#0F0F0F] border border-[#1F1F1F] hover:border-[#8B2635]/30 transition-all group">
                 <f.icon className="w-8 h-8 text-[#8B2635] mb-6 group-hover:scale-110 transition-transform" />
@@ -105,8 +105,8 @@ export default function ClinicalTechPage() {
         {/* CTA FINAL */}
         <Section className="py-24 bg-gradient-to-b from-transparent to-[#8B2635]/10">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="font-serif text-4xl md:text-5xl text-[#F5F0E8] mb-8">Sua cl\u00ednica merece ser de Elite.</h2>
-            <p className="text-lg text-[#a8a29e] mb-12">Agende uma conversa estrat\u00e9gica e veja como o ClinicalTech pode mudar seu faturamento.</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#F5F0E8] mb-8">Sua clínica merece ser de Elite.</h2>
+            <p className="text-lg text-[#a8a29e] mb-12">Agende uma conversa estratégica e veja como o ClinicalTech pode mudar seu faturamento.</p>
             <Button className="px-12 py-8 h-auto text-base font-bold bg-[#C9A962] hover:bg-[#b8954d] text-[#080808] rounded-none shadow-[0_0_40px_rgba(201,169,98,0.2)]">
               Quero o ClinicalTech Agora
             </Button>
