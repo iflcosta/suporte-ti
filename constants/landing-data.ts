@@ -146,3 +146,31 @@ export const FAQ = [
     a: "Com certeza. Acreditamos na entrega de valor. Se o serviço não for impecável para você, cancelamos sem multas ou burocracia.",
   },
 ]
+export const SOFTWARE_SOLUTION = {
+  nome: "Il Potere Clinica",
+  subtitulo: "Software de Gest\u00e3o & Suporte Blindado",
+  desc: "A solu\u00e7\u00e3o definitiva para cl\u00ednicas que n\u00e3o podem parar. Um sistema de gest\u00e3o completo que j\u00e1 nasce com a segurança de TI (MSP) integrada.",
+  features: [
+    {
+      titulo: "Agendamento Inteligente",
+      desc: "Gest\u00e3o de hor\u00e1rios, cancelamentos e lembretes autom\u00e1ticos via WhatsApp.",
+      icone: "📅"
+    },
+    {
+      titulo: "Prontu\u00e1rio Digital LGPD",
+      desc: "Armazenamento seguro de dados sens\u00edveis com criptografia de n\u00edvel banc\u00e1rio.",
+      icone: "🏥"
+    },
+    {
+      titulo: "Faturamento & Financeiro",
+      desc: "Controle total de entradas, sa\u00eddas e integra\u00e7\u00e3o com emiss\u00e3o de notas.",
+      icone: "💰"
+    },
+    {
+      titulo: "Suporte N3 Incluso",
+      desc: "Diferente de outros softwares, n\u00f3s cuidamos da sua infraestrutura completa.",
+      icone: "🛠\ufe0f"
+    }
+  ],
+  cta: "Solicitar Demonstra\u00e7\u00e3o"
+}
