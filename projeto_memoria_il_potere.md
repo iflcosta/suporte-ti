@@ -41,24 +41,67 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 ## 🎯 6. Diretrizes de Comunicação & Visual
 - **Paleta:** Preto (#080808), Branco e Bordeaux (#8B2635).
 - **Identidade de Planos (Badges):**
+# 🧠 Memória do Projeto: Il Potere Tech — Rev. 05/04/2026
+
+Este documento contém o DNA estratégico, visual e operacional atualizado da **Il Potere Tech**, servindo como base de contexto para qualquer interação de IA ou novos parceiros.
+
+## 🛡️ 1. Identidade & Posicionamento de Elite
+- **Nome Comercial:** Il Potere Tech (ou Business Hub Il Potere).
+- **Posicionamento:** Outsourcing de TI e Hub de Negócios para Clínicas, Advocacias e PMEs.
+- **Filosofia de Vendas:** "Fidelidade Zero" — Retenção pela qualidade total, não por burocracia contratual.
+- **Diferencial Competitivo:** TI de Performance, Segurança Anti-Ransomware e Automação com IA integradas ao suporte básico.
+
+## 👥 2. Estrutura Operacional (Hybrid-Solo)
+- **Fase Solo (Meses 1-2):** Fundador assume 100% (Estratégia, Comercial e Suporte Total N1-N3).
+- **Fase de Escala (Mês 3+):** Introdução de Estagiário (N1) e equipe de apoio para desalavancagem do Fundador.
+- **Cultura:** Foco em agilidade, proatividade e lucro líquido máximo antes da expansão do time.
+
+## 📊 3. Portfólio de Planos & Projeções (Rev. Simetria 4/4/4)
+- **Essenziale (R$ 390/mês):** Até 5 dispositivos. 4 Pilares: Suporte, Visitas, Marca e TI/Conectividade.
+- **Professionale (R$ 690/mês):** Até 15 dispositivos. 4 Pilares: Backup, Cloud, Proteção Elite (EDR) e Perímetro.
+- **Impresa (Sob consulta) — [EM BREVE]:** Até 30 dispositivos. 4 Pilares: Consultoria, LGPD, Governança e IA.
+
+## 🚀 4. Os 12 Pilares da Solução de Elite
+1.  **Suporte & Segurança (Essenziale+):** Monitoramento 24/7 e remoção de ameaças digitais.
+2.  **Visitas de Presença (Essenziale+):** Kit profissional para hardware e redes.
+3.  **Identidade & Marca (Essenziale+):** Gestão de domínios e e-mails corporativos.
+4.  **TI & Conectividade (Essenziale+):** Otimização de sistemas e Wi-Fi sem pontos cegos.
+5.  **Backup Blindado (Professionale+):** Estratégia 3-2-1 Local/Nuvem.
+6.  **Estratégia Cloud (Professionale+):** Gestão segura de M365 e Google Workspace.
+7.  **Proteção Elite EDR (Professionale+):** Defesa contra Ransomware via IA.
+8.  **Segurança Perímetro (Professionale+):** Firewalls e VPNs seguras.
+9.  **Consultoria Gestão (Impresa - Breve):** Estratégia de crescimento tecnológico.
+10. **Adequação LGPD (Impresa - Breve):** Blindagem jurídica e técnica de dados.
+11. **Governança Documental (Impresa - Breve):** Organização de arquivos e permissões.
+12. **Arquitetura de IA (Impresa - Breve):** Automação inteligente de processos.
+
+## 🛠️ 5. Stack Tecnológica & Infra do Hub
+- **Front-end:** Next.js 15, Tailwind CSS. Layout Elite Minimalista.
+- **Acesso Documental:** Business Hub com carregamento via iframe (Plano Estratégico, Contrato, Trilha, Proposta).
+- **Interface:** Sistema de Scroll Unificado (Bordeaux) e carregamento sem barras duplicadas.
+- **Gestão Operacional:** Tactical RMM (Self-hosted) + RustDesk (Acesso Remoto).
+
+## 🎯 6. Diretrizes de Comunicação & Visual
+- **Paleta:** Preto (#080808), Branco e Bordeaux (#8B2635).
+- **Identidade de Planos (Badges):**
     - Essenziale: `COMPLETE SOLUTION` (Cinza Elite)
     - Professionale: `SHIELDED SYSTEM` (Bordeaux)
     - Impresa: `STRATEGIC EVOLUTION` (Ouro/Gold)
 - **Visual:** Minimalismo de alta performance, tipografia moderna (Inter/Outfit).
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
-## 💹 7. DNA Econômico & Metas (Blindagem 4.8k)
+## 💹 7. DNA Econômico & Metas (Blindagem 4.5k)
 - **Investimento Inicial:** **R$ 2.150,00** (Kit Essencial R$ 1000, Sede Virtual/Domínio, Ads, Infra).
 - **Expansão Mês 2:** **+ R$ 1.000,00** (Finalização do Kit de Campo Full).
 - **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads e Softwares).
 - **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).
 - **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Estagiário 5h R$ 950, Apoio Tia 5h R$ 800, Ads e Softwares).
-- **Teto de Gasto Total (Guerra):** **R$ 4.800,00/mês** (OPEX + Salário Fundador de R$ 2.500).
+- **Teto de Gasto Total (Guerra):** **R$ 4.500,00/mês** (OPEX + Salário Fundador de R$ 2.200).
 - **Projeções de Sobra Líquida (Caixa Empresa):**
     - **Mês 1:** **R$ 950,00** (Rev 1.95k - 1k opex).
-    - **Mês 2:** **R$ 780,00** (Rev ~4.3k - 2.5k sal - 1k opex - 1k kit extra).
-    - **Mês 3:** **R$ 2.550,00** (Rev 7.35k - 4.8k teto).
-    - **Mês 4 (Escala):** **R$ 7.200,00/mês** (Rev ~12k - 4.8k teto).
+    - **Mês 2:** **R$ 1.080,00** (Rev ~5.2k - 2.2k sal - 1k opex - 1k kit extra).
+    - **Mês 3:** **R$ 2.850,00** (Rev 7.35k - 4.5k teto).
+    - **Mês 4 (Escala):** **R$ 7.500,00/mês** (Rev ~12k - 4.5k teto).
 
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀
