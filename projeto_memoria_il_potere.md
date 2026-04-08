@@ -91,7 +91,7 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
 ## 💹 7. DNA Econômico & Metas (Blindagem 4.5k)
-- **Investimento Inicial:** **R$ 2.150,00** (Kit Essencial R$ 1000, Sede Virtual/Domínio, Ads, Infra).
+- **Investimento Inicial:** **R$ 2.550,00** (Kit Essencial R$ 1000, Endereço Fiscal, Ads, Infra).
 - **Expansão Mês 2:** **+ R$ 1.000,00** (Finalização do Kit de Campo Full).
 - **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads e Softwares).
 - **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).

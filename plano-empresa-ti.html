@@ -700,7 +700,7 @@
 <div class="summary-grid">
     <div class="stat-card">
       <div class="stat-label">Investimento inicial</div>
-      <div class="stat-value" id="headerInvest">R$2.150</div>
+      <div class="stat-value" id="headerInvest">R$2.550</div>
       <div class="stat-sub">Sincronizado com seção 04b</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
@@ -1610,13 +1610,14 @@ function restoreExtras() {
 // ── INVESTIMENTO ──────────────────────────────────────────
 var DEFAULT_INVEST = [
   { id: 'inv-1', item: 'Kit Pen Drives (2x 64GB)', desc: 'Kingston/Sandisk para Ventoy e ISOs',   value: 120 },
-  { id: 'inv-2', item: 'Chip + Email + Dom\u00ednio', desc: 'WhatsApp Business + Registro.br (Anual)', value: 100 },
-  { id: 'inv-3', item: 'Kit de Campo Essencial', desc: 'Ferramentas, conectores e insu\u00admos b\u00e1sicos', value: 1000 },
-  { id: 'inv-4', item: 'Marketing (Google+Meta)', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
-  { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Primeira guia DAS simplificada',          value: 70 },
-  { id: 'inv-7', item: '2x VPS (Infraestrutura)', desc: 'Tactical RMM + RustDesk Relay',          value: 50 },
-  { id: 'inv-8', item: 'Uniforme (Camisas Polo)', desc: '2x Unidades com logo bordado',          value: 160 },
-  { id: 'inv-9', item: 'Reserva p/ Imprevistos', desc: 'Fundo para emerg\u00eancias / pe\u00e7as r\u00e1pidas', value: 150 }
+  { id: 'inv-2', item: 'Chip + Dom\u00ednio + Email', desc: 'WhatsApp Business + Registro.br (Anual)', value: 150 },
+  { id: 'inv-fiscal', item: 'Endere\u00e7o Fiscal (Anual/Ativa\u00e7\u00e3o)', desc: 'Reserva para Escrit\u00f3rio Virtual e registro', value: 300 },
+  { id: 'inv-3', item: 'Kit de Campo Essencial',     desc: 'Mult\u00edmetro, Testadores, Fixit, Insumos Profissionais', value: 1000 },
+  { id: 'inv-4', item: 'Marketing Inicial', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
+  { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Provis\u00e3o para abertura e primeira guia', value: 70 },
+  { id: 'inv-7', item: 'Infra Cloud (VPS)', desc: 'Tactical RMM + RustDesk Relay (Mensal)', value: 50 },
+  { id: 'inv-8', item: 'Uniforme (Elite)', desc: '2x Camisas Polo com logo bordado', value: 160 },
+  { id: 'inv-9', item: 'Extra Conting\u00eancia', desc: 'Reserva para imprevistos de campo', value: 200 }
 ];
 
 function loadInvest() {
