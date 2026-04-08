@@ -147,30 +147,40 @@ export const FAQ = [
   },
 ]
 export const SOFTWARE_SOLUTION = {
-  nome: "Il Potere Clinica",
-  subtitulo: "Software de Gest\u00e3o & Suporte Blindado",
-  desc: "A solu\u00e7\u00e3o definitiva para cl\u00ednicas que n\u00e3o podem parar. Um sistema de gest\u00e3o completo que j\u00e1 nasce com a segurança de TI (MSP) integrada.",
+  nome: "ClinicalTech",
+  subtitulo: "A Evolu\u00e7\u00e3o Digital da sua Cl\u00ednica",
+  desc: "N\u00e3o \u00e9 apenas um software. \u00c9 a fus\u00e3o entre gest\u00e3o m\u00e9dica de alta performance e a segurança de TI (MSP) que apenas a Il Potere oferece. Blindagem total de dados e produtividade absoluta.",
   features: [
     {
-      titulo: "Agendamento Inteligente",
-      desc: "Gest\u00e3o de hor\u00e1rios, cancelamentos e lembretes autom\u00e1ticos via WhatsApp.",
+      titulo: "Agendamento & Recep\u00e7\u00e3o",
+      desc: "Gest\u00e3o de hor\u00e1rios multi-profissional com confirma\u00e7\u00e3o autom\u00e1tica via WhatsApp.",
       icone: "📅"
     },
     {
-      titulo: "Prontu\u00e1rio Digital LGPD",
-      desc: "Armazenamento seguro de dados sens\u00edveis com criptografia de n\u00edvel banc\u00e1rio.",
+      titulo: "Prontu\u00e1rio & Receita Digital",
+      desc: "Assinatura digital integrada, histórico completo e total conformidade com a LGPD.",
       icone: "🏥"
     },
     {
-      titulo: "Faturamento & Financeiro",
-      desc: "Controle total de entradas, sa\u00eddas e integra\u00e7\u00e3o com emiss\u00e3o de notas.",
+      titulo: "Gest\u00e3o Financeira & Fluxo",
+      desc: "Controle de caixa, faturamento de conv\u00eanios (TISS/TUSS) e repasse m\u00e9dico automático.",
       icone: "💰"
     },
     {
-      titulo: "Suporte N3 Incluso",
-      desc: "Diferente de outros softwares, n\u00f3s cuidamos da sua infraestrutura completa.",
-      icone: "🛠\ufe0f"
+      titulo: "Estoque & Patrim\u00f4nio",
+      desc: "Rastreabilidade de materiais, validade de insumos e controle de ativos de TI.",
+      icone: "📦"
+    },
+    {
+      titulo: "Telemedicina Integrada",
+      desc: "Consultas remotas com grava\u00e7\u00e3o segura e anexa\u00e7\u00e3o imediata ao prontu\u00e1rio.",
+      icone: "🖥\ufe0f"
+    },
+    {
+      titulo: "Blindagem de Dados MSP",
+      desc: "Suporte N3 incluso. Seu software nunca para porque sua infraestrutura \u00e9 vigiada 24/7.",
+      icone: "🛡\ufe0f"
     }
   ],
-  cta: "Solicitar Demonstra\u00e7\u00e3o"
+  cta: "Conhecer o ClinicalTech"
 }

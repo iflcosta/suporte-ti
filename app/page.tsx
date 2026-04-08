@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/footer"
 import { Hero } from "@/components/sections/hero"
 import { PainPoints } from "@/components/sections/pain-points"
 import { Services } from "@/components/sections/services"
-import { SoftwareSolution } from "@/components/sections/software-solution"
 import { Plans } from "@/components/sections/plans"
 import { FAQ } from "@/components/sections/faq"
 import { Process } from "@/components/sections/process"
@@ -21,7 +20,6 @@ export default function Page() {
         <Hero />
         <PainPoints />
         <Services />
-        <SoftwareSolution />
         <Process />
         <Plans />
         <FAQ />

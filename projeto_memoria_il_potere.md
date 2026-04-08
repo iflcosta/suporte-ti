@@ -96,15 +96,11 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads R$ 500 + Softwares R$ 500).
 - **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).
 - **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Opex Total).
-    - **Estagiário N1 (5h - R$ 950):** Suporte remoto, formatações e gestão do Tactical RMM.
-    - **Apoio CS (Tia - 5h - R$ 800):** Triagem de suporte, cobranças (Asaas) e agendamento.
-    - **Infra/Ads (R$ 550):** Manutenção das ferramentas Google/Meta e VPS.
-- **Teto de Gasto Total (Guerra):** **R$ 4.500,00/mês** (OPEX + Salário Fundador de R$ 2.200).
-- **Projeções de Sobra Líquida (Caixa Empresa):**
-    - **Mês 1:** **R$ 950,00** (Rev 1.95k - 1k opex).
-    - **Mês 2:** **R$ 1.080,00** (Rev ~5.2k - 2.2k sal - 1k opex - 1k kit extra).
-    - **Mês 3:** **R$ 2.850,00** (Rev 7.35k - 4.5k teto).
-    - **Mês 4 (Escala):** **R$ 7.500,00/mês** (Rev ~12k - 4.5k teto).
+    - **Estagiário N1 (H\u00edbrido):** Suporte remoto, campo N1 e Uber (Log\u00edstica inclusa).
+    - **Apoio CS (Tia - 5h):** Estritamente remoto, triagem e cobran\u00e7as.
+- **Teto de Gasto Total (Guerra):** **R$ 4.650,00/mês** (OPEX + Uber + Salário Fundador).
+- **Projeções de Sobra Líquida:**
+    - **Mês 4 (Escala):** **R$ 7.500,00/mês** (Foco em Upsell do **ClinicalTech**).
 
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀
