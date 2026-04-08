@@ -96,11 +96,23 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads R$ 500 + Softwares R$ 500).
 - **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).
 - **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Opex Total).
-    - **Estagiário N1 (H\u00edbrido):** Suporte remoto, campo N1 e Uber (Log\u00edstica inclusa).
-    - **Apoio CS (Tia - 5h):** Estritamente remoto, triagem e cobran\u00e7as.
+    - **Estagiário N1 (Híbrido):** Suporte remoto, campo N1 e Uber (Logística inclusa).
+    - **Apoio CS (Tia - 5h):** Estritamente remoto, triagem e cobranças.
 - **Teto de Gasto Total (Guerra):** **R$ 4.650,00/mês** (OPEX + Uber + Salário Fundador).
 - **Projeções de Sobra Líquida:**
     - **Mês 4 (Escala):** **R$ 7.500,00/mês** (Foco em Upsell do **ClinicalTech**).
+
+## 🛡️ 8. Auditoria de Liderança & Authority Marketing
+- **Branding Sensorial (Toque de Elite):**
+    - **Cartões:** Papel 300g, Soft-Touch + Verniz Localizado.
+    - **Uniforme:** Polo de algodão pima (Preto) com bordado dourado discreto.
+    - **Cheiro da Marca:** Uso de álcool isopropílico neutralizador de odores em campo.
+- **Funil de Autoridade (CMO):**
+    - **Magneto:** Diagnóstico Gratuito de Vulnerabilidade & Blindagem LGPD.
+    - **Conversão:** Entrega de proposta via Dashboard Exclusivo (estética de alta tecnologia).
+- **Projetos Futuros (Mês 3):**
+    - **Welcome Kit:** Caixa premium de onboarding para clientes Professionale.
+    - **Live Dashboard:** Painel em tempo real para o cliente ver a "saúde" de sua rede.
 
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀
