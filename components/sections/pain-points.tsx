@@ -1,36 +1,45 @@
 "use client"
 
+import React from "react"
 import { Section } from "@/components/ui/section-components"
-import { AlertCircle, Clock, ShieldAlert } from "lucide-react"
+import { AlertCircle, Clock, ShieldAlert, LucideIcon } from "lucide-react"
 
-const PAINS = [
+interface PainPoint {
+  icon: React.ReactNode
+  title: string
+  problem: string
+  description: string
+  relief: string
+}
+
+const PAINS: PainPoint[] = [
   {
     icon: <AlertCircle className="w-8 h-8 text-[#8B2635]" />,
-    title: "Clínicas & Saúde",
-    problem: "Sistemas offline e receio com a LGPD?",
-    description: "Prontuários e exames de imagem inacessíveis significam pacientes esperando e faturamento travado. Dados sensíveis exigem proteção total.",
-    relief: "Garantimos disponibilidade total dos seus sistemas médicos e blindagem de dados Nível 3-2-1."
+    title: "Cl\u00ednicas & Sa\u00fade",
+    problem: "Sistemas offline e conformidade com a LGPD?",
+    description: "Prontu\u00e1rios e exames de imagem inacess\u00edveis significam pacientes esperando e faturamento interrompido. Dados sens\u00edveis exigem gest\u00e3o rigorosa.",
+    relief: "Asseguramos a disponibilidade total dos seus sistemas e a conformidade t\u00e9cnica com normas de prote\u00e7\u00e3o de dados."
   },
   {
     icon: <ShieldAlert className="w-8 h-8 text-[#C9A962]" />,
-    title: "Escritórios de Advocacia",
-    problem: "Incerteza com prazos e peticionamento?",
-    description: "Computador travando no meio de um prazo fatal ou falha de certificado digital podem custar processos de alto valor.",
-    relief: "Monitoramento pró-ativo de sistemas e suporte prioritário para que nenhum prazo seja perdido."
+    title: "Escrit\u00f3rios de Advocacia",
+    problem: "Incerteza com prazos e certificados digitais?",
+    description: "Falhas t\u00e9cnicas no momento do peticionamento ou instabilidade no servidor podem comprometer processos de alto valor.",
+    relief: "Monitoramento de sistemas cr\u00edtico e suporte priorit\u00e1rio para garantir que sua equipe nunca perca um prazo."
   },
   {
     icon: <Clock className="w-8 h-8 text-[#8B2635]" />,
     title: "Contabilidades",
-    problem: "Lentidão e servidores instáveis no fechamento?",
-    description: "Servidores lentos e backups duvidosos em época de impostos são uma receita para o desastre e stress da equipe.",
-    relief: "Infraestrutura otimizada e backup imutável para suportar o pico de demanda sem stress."
+    problem: "Lentid\u00e3o e servidores inst\u00e1veis no fechamento?",
+    description: "Equipes paradas por lentid\u00e3o no servidor em per\u00edodos fiscais geram custos operacionais altos e stress desnecess\u00e1rio.",
+    relief: "Otimiza\u00e7\u00e3o de infraestrutura e sistemas de redund\u00e2ncia para suportar picos de demanda com performance constante."
   },
   {
     icon: <AlertCircle className="w-8 h-8 text-[#C9A962]" />,
-    title: "Imobiliárias",
-    problem: "Gestão de contratos e vistorias offline?",
-    description: "Perda de documentos físicos e lentidão no fechamento de locações custam caro. Dados de inquilinos protegidos são exigência legal.",
-    relief: "Digitalização estratégica, backup em nuvem e segurança total para sua carteira de imóveis."
+    title: "Imobili\u00e1rias",
+    problem: "Gest\u00e3o de contratos e vistorias offline?",
+    description: "A digitaliza\u00e7\u00e3o de documentos e a agilidade no atendimento s\u00e3o cruciais. A seguran\u00e7a dos dados de clientes \u00e9 uma prioridade legal.",
+    relief: "Solu\u00e7\u00f5es de nuvem corporativa e prote\u00e7\u00e3o de dados para garantir agilidade e seguran\u00e7a jur\u00eddica em cada contrato."
   }
 ]
 
@@ -46,13 +55,13 @@ export function PainPoints() {
              O que tira o sono da<br />sua empresa?
           </h2>
           <p className="text-[#78716c] text-lg md:text-xl max-w-2xl mx-auto">
-            A Il Potere entende que tecnologia deveria ser uma ferramenta de crescimento, não uma fonte de estresse. 
-            Você se identifica com algum desses cenários?
+            A Il Potere entende que tecnologia deveria ser uma ferramenta de crescimento, n\u00e3o uma fonte de estresse. 
+            Voc\u00ea se identifica com algum desses cen\u00e1rios?
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PAINS.map((item, i) => (
+          {PAINS.map((item: PainPoint, i: number) => (
             <div 
               key={i}
               className="group bg-[#0F0F0F] border border-[#1F1F1F] p-8 hover:border-[#8B2635]/50 transition-all duration-500 relative overflow-hidden"
@@ -71,7 +80,7 @@ export function PainPoints() {
               </p>
 
               <div className="pt-6 border-t border-[#1A1A1A]">
-                <p className="text-xs font-mono uppercase tracking-widest text-[#8B2635] mb-2">Nosso Alívio:</p>
+                <p className="text-xs font-mono uppercase tracking-widest text-[#8B2635] mb-2">Nosso Al\u00edvio:</p>
                 <p className="text-sm text-[#F5F0E8] italic">"{item.relief}"</p>
               </div>
             </div>

@@ -1,7 +1,19 @@
 "use client"
 
+import React from "react"
 import { PLANOS } from "@/constants/landing-data"
 import { Section, SectionTitle } from "@/components/ui/section-components"
+
+interface Plano {
+  nome: string
+  subtitulo: string
+  tagIngles?: string
+  preco: string
+  periodo: string
+  features: string[]
+  destaque: boolean
+  emBreve?: boolean
+}
 
 export function Plans() {
   return (
@@ -12,11 +24,11 @@ export function Plans() {
         <SectionTitle
           eyebrow="Planos"
           title="Escolha o plano ideal para sua empresa"
-          subtitle="Todos os planos incluem suporte humano de verdade. Sem robôs, sem espera interminável."
+          subtitle="Todos os planos incluem suporte humano de verdade. Sem rob\u00f4s, sem espera intermin\u00e1vel."
         />
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {PLANOS.map((plano, i) => (
+          {PLANOS.map((plano: Plano, i: number) => (
             <div
               key={plano.nome}
               className={`relative flex flex-col animate-fade-up ${
@@ -66,9 +78,9 @@ export function Plans() {
               </div>
 
               <ul className="flex-grow space-y-4 mb-10">
-                {plano.features.map((feature, j) => (
+                {plano.features.map((feature: string, j: number) => (
                   <li key={j} className="flex items-start gap-3 text-sm text-[#a8a29e]">
-                    <span className="text-[#8B2635] mt-0.5">✓</span>
+                    <span className="text-[#8B2635] mt-0.5">\u2713</span>
                     {feature}
                   </li>
                 ))}
