@@ -619,6 +619,18 @@
     cursor: text;
     border-radius: 2px;
   }
+  .task-edit-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 10px; opacity: 0; transition: opacity 0.2s;
+    padding: 2px 6px; color: var(--muted);
+    margin: 2px 0 0 4px;
+  }
+  .task:hover .task-edit-btn { opacity: 0.8; }
+  .task-edit-btn:hover { color: var(--accent); opacity: 1 !important; }
+
+  @media (max-width: 768px) {
+    .task-edit-btn { opacity: 0.6; }
+  }
   .task-remove {
     width: 18px; height: 18px; min-width: 18px;
     display: flex; align-items: center; justify-content: center;
@@ -1567,7 +1579,8 @@ function createTaskEl(sectionId, id, text, owner) {
   div.dataset.id = id;
   div.innerHTML =
     '<div class="task-check"></div>' +
-    '<span class="task-text">' + text + '</span>' +
+     '<span class="task-text">' + text + '</span>' +
+    '<button class="task-edit-btn" title="Editar texto">\u270e</button>' +
     '<span class="task-owner"><select class="owner-select" onclick="event.stopPropagation()">' +
       '<option value="socio1"'    + (owner==='socio1'   ?' selected':'') + '>SÓCIO 1 (TÉCNICO)</option>' +
       '<option value="socio2"' + (owner==='socio2'?' selected':'') + '>SÓCIO 2 (COMERCIAL)</option>' +
@@ -1582,6 +1595,7 @@ function bindTask(task) {
   var id      = task.dataset.id;
   var select  = task.querySelector('.owner-select');
   var textEl  = task.querySelector('.task-text');
+  var editBtn = task.querySelector('.task-edit-btn');
   var rmBtn   = task.querySelector('.task-remove');
 
   var state  = loadJSON(STORAGE_KEY);
@@ -1597,7 +1611,7 @@ function bindTask(task) {
   if (texts[id] && textEl) textEl.textContent = texts[id];
 
   task.addEventListener('click', function(e) {
-    if (e.target.closest('.owner-select, .task-remove')) return;
+    if (e.target.closest('.owner-select, .task-remove, .task-edit-btn')) return;
     if (textEl && textEl.contentEditable === 'true') return;
     task.classList.toggle('done');
     var s = loadJSON(STORAGE_KEY);
@@ -1632,6 +1646,18 @@ function bindTask(task) {
         if (t[id]) textEl.textContent = t[id];
         textEl.contentEditable = 'false';
       }
+    });
+  }
+
+  if (editBtn && textEl) {
+    editBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      textEl.contentEditable = 'true';
+      textEl.focus();
+      var range = document.createRange();
+      range.selectNodeContents(textEl);
+      var sel = window.getSelection();
+      sel.removeAllRanges(); sel.addRange(range);
     });
   }
 
