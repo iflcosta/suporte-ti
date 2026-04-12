@@ -188,16 +188,20 @@
 
   .week-tasks { padding: 16px 20px; }
   .task {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(30,30,46,0.8);
-    font-size: 13px;
+    display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    transition: background 0.2s;
   }
-  .task:last-child { border-bottom: none; }
+  .task:hover { background: rgba(255,255,255,0.02); }
+  .task-reorder { display: flex; flex-direction: column; gap: 2px; }
+  .task-reorder-btn {
+    background: none; border: none; color: var(--muted); cursor: pointer;
+    font-size: 10px; padding: 2px; line-height: 1; border-radius: 2px;
+  }
+  .task-reorder-btn:hover { color: var(--accent); background: rgba(0,212,255,0.1); }
   .task-check {
-    width: 16px; height: 16px; min-width: 16px;
-    border: 1px solid var(--border);
-    margin-top: 2px;
+    width: 18px; height: 18px; border: 1px solid var(--muted); border-radius: 3px;
+    cursor: pointer; flex-shrink: 0; position: relative;
   }
   .task-owner {
     font-family: 'IBM Plex Mono', monospace;
@@ -315,6 +319,13 @@
   }
   .tool-name { font-size: 13px; font-weight: 600; }
   .tool-cost { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
+  .add-task-btn {
+    background: none; border: 1px dashed var(--muted); color: var(--muted);
+    padding: 6px 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    cursor: pointer; transition: all 0.2s; margin-top: 10px;
+  }
+  .add-task-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.05); }
+  .add-task-wrap { padding: 0 20px 12px; display: flex; justify-content: flex-start; }
   .free { color: var(--green); }
 
   /* PROSPECÇÃO */
@@ -889,7 +900,7 @@
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s1">Adicionar tarefa</button></div>
+        <div class="add-task-wrap"><button class="add-task-btn" data-section="s1">Adicionar tarefa</button></div>
               </div>
     </div>
 
@@ -989,7 +1000,7 @@
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s2">Adicionar tarefa</button></div>
+        <div class="add-task-wrap"><button class="add-task-btn" data-section="s2">Adicionar tarefa</button></div>
               </div>
     </div>
   </div>
@@ -1053,7 +1064,7 @@
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s3">Adicionar tarefa</button></div>
+        <div class="add-task-wrap"><button class="add-task-btn" data-section="s3">Adicionar tarefa</button></div>
               </div>
     </div>
 
@@ -1153,7 +1164,7 @@
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s4">Adicionar tarefa</button></div>
+        <div class="add-task-wrap"><button class="add-task-btn" data-section="s4">Adicionar tarefa</button></div>
               </div>
     </div>
   </div>
@@ -1463,6 +1474,7 @@ var TEXT_KEY    = 'plano-ti-texts';
 var EXTRA_KEY   = 'plano-ti-extra';
 var TRASH_KEY   = 'plano-ti-trash';
 var INVEST_KEY  = 'plano-ti-invest';
+var ORDER_KEY   = 'plano-ti-order';
 
 function loadJSON(key) {
   try { return JSON.parse(localStorage.getItem(key)) || {}; }
@@ -1483,7 +1495,8 @@ async function saveCloud() {
     taskTexts: loadJSON(TEXT_KEY),
     customTasks: loadJSON(EXTRA_KEY),
     investItems: loadJSON(INVEST_KEY),
-    trashItems: loadJSON(TRASH_KEY)
+    trashItems: loadJSON(TRASH_KEY),
+    orderMap: loadJSON(ORDER_KEY)
   };
   try {
     const { error } = await sb.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
@@ -1514,6 +1527,7 @@ function applyCloudData(d) {
   localStorage.setItem(EXTRA_KEY,   JSON.stringify(d.customTasks || d.extras || {}));
   localStorage.setItem(INVEST_KEY,  JSON.stringify(d.investItems || d.invest || {}));
   localStorage.setItem(TRASH_KEY,   JSON.stringify(d.trashItems || {}));
+  localStorage.setItem(ORDER_KEY,   JSON.stringify(d.orderMap || {}));
   refreshUI();
 }
 
@@ -1541,6 +1555,8 @@ function refreshUI() {
     var txt = t.querySelector('.task-text');
     if (txt && texts[id]) txt.textContent = texts[id];
   });
+
+  ['s1','s2','s3','s4'].forEach(applySavedOrder);
   
   initInvest(); // Refresh investments
   restoreExtras(); // Refresh dynamic tasks
@@ -1551,6 +1567,23 @@ function refreshUI() {
   
   const status = document.getElementById('syncStatus');
   if (status) status.innerText = 'Nuvem: Atualizado';
+}
+
+function applySavedOrder(sectionId) {
+  var section = document.querySelector('.week-tasks[data-section="' + sectionId + '"]');
+  if (!section) return;
+  var order = loadJSON(ORDER_KEY)[sectionId];
+  if (!order || !order.length) return;
+  
+  var addWrap = section.querySelector('.add-task-wrap');
+  
+  order.forEach(function(id) {
+    var task = section.querySelector('.task[data-id="' + id + '"]');
+    if (task) {
+      if (addWrap) section.insertBefore(task, addWrap);
+      else section.appendChild(task);
+    }
+  });
 }
 
 // ── OWNER SELECT ──────────────────────────────────────────
@@ -1672,6 +1705,10 @@ function createTaskEl(sectionId, id, text, owner) {
   div.className = 'task';
   div.dataset.id = id;
   div.innerHTML =
+    '<div class="task-reorder">' +
+      '<button class="task-reorder-btn move-up" title="Subir">\u25b2</button>' +
+      '<button class="task-reorder-btn move-down" title="Descer">\u25bc</button>' +
+    '</div>' +
     '<div class="task-check"></div>' +
      '<span class="task-text">' + text + '</span>' +
     '<button class="task-edit-btn" title="Editar texto">\u270e</button>' +
@@ -1684,6 +1721,36 @@ function createTaskEl(sectionId, id, text, owner) {
   return div;
 }
 
+function moveTask(task, direction) {
+  var parent = task.parentNode;
+  if (!parent) return;
+  if (direction === 'up') {
+    var prev = task.previousElementSibling;
+    if (prev && prev.classList.contains('task')) {
+      parent.insertBefore(task, prev);
+    }
+  } else {
+    var next = task.nextElementSibling;
+    if (next && next.classList.contains('task')) {
+      parent.insertBefore(next, task);
+    }
+  }
+  saveOrder(parent.dataset.section);
+}
+
+function saveOrder(sectionId) {
+  if (!sectionId) return;
+  var section = document.querySelector('.week-tasks[data-section="' + sectionId + '"]');
+  if (!section) return;
+  var ids = [];
+  section.querySelectorAll('.task[data-id]').forEach(function(t) {
+    if (t.dataset.id) ids.push(t.dataset.id);
+  });
+  var order = loadJSON(ORDER_KEY);
+  order[sectionId] = ids;
+  saveJSON(ORDER_KEY, order);
+}
+
 // ── BIND TASK ─────────────────────────────────────────────
 function bindTask(task) {
   var id      = task.dataset.id;
@@ -1691,6 +1758,20 @@ function bindTask(task) {
   var textEl  = task.querySelector('.task-text');
   var editBtn = task.querySelector('.task-edit-btn');
   var rmBtn   = task.querySelector('.task-remove');
+  
+  // Injetar botões de reorder se não existirem (para tasks estáticas)
+  if (!task.querySelector('.task-reorder')) {
+    var reorderDiv = document.createElement('div');
+    reorderDiv.className = 'task-reorder';
+    reorderDiv.innerHTML = '<button class="task-reorder-btn move-up" title="Subir">\u25b2</button>' +
+                           '<button class="task-reorder-btn move-down" title="Descer">\u25bc</button>';
+    task.insertBefore(reorderDiv, task.firstChild);
+  }
+  
+  var upBtn = task.querySelector('.move-up');
+  var dnBtn = task.querySelector('.move-down');
+  if(upBtn) upBtn.onclick = function(e) { e.stopPropagation(); moveTask(task, 'up'); };
+  if(dnBtn) dnBtn.onclick = function(e) { e.stopPropagation(); moveTask(task, 'down'); };
 
   var state  = loadJSON(STORAGE_KEY);
   var owners = loadJSON(OWNER_KEY);
@@ -1790,13 +1871,13 @@ function bindTask(task) {
 function bindAddButton(btn) {
   var sectionId = btn.dataset.section;
   btn.addEventListener('click', function() {
-    var section = document.querySelector('[data-section="' + sectionId + '"]');
+    var section = document.querySelector('.week-tasks[data-section="' + sectionId + '"]');
     if (!section) return;
     var text = prompt('Texto da nova tarefa:');
     if (!text || !text.trim()) return;
     var id   = 'extra-' + sectionId + '-' + Date.now();
     var task = createTaskEl(sectionId, id, text.trim(), 'ambos');
-    section.appendChild(task);
+    section.insertBefore(task, btn.parentNode);
     bindTask(task);
     var ex = loadJSON(EXTRA_KEY);
     ex[id] = { section: sectionId, text: text.trim(), owner: 'ambos' };
@@ -1818,8 +1899,13 @@ function restoreExtras() {
     var owners  = loadJSON(OWNER_KEY);
     var owner   = owners[id] || data.owner || 'ambos';
     var task    = createTaskEl(data.section, id, data.text, owner);
-    var section = document.querySelector('[data-section="' + data.section + '"]');
-    if (section) { section.appendChild(task); bindTask(task); }
+    var section = document.querySelector('.week-tasks[data-section="' + data.section + '"]');
+    if (section) { 
+      var addWrap = section.querySelector('.add-task-wrap');
+      if (addWrap) section.insertBefore(task, addWrap);
+      else section.appendChild(task);
+      bindTask(task); 
+    }
   });
 }
 
@@ -2010,6 +2096,10 @@ async function init() {
   initInvest();
   restoreExtras();
   document.querySelectorAll('.task[data-id]').forEach(function(t) { bindTask(t); });
+  
+  // Aplicar ordem salva
+  ['s1','s2','s3','s4'].forEach(applySavedOrder);
+  
   document.querySelectorAll('.add-task-btn').forEach(function(b) { bindAddButton(b); });
   
   // Eventos de filtro

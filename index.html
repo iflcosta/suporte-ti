@@ -136,16 +136,17 @@
   /* TASKS */
   .week-tasks { padding: 16px 20px; }
   .task {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 7px 6px;
-    border-bottom: 1px solid rgba(30,30,46,0.8);
-    font-size: 13px;
-    cursor: pointer;
-    transition: background 0.15s;
-    border-radius: 2px;
+    display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    transition: background 0.2s;
   }
-  .task:hover { background: rgba(0,212,255,0.04); }
-  .task:last-child { border-bottom: none; }
+  .task:hover { background: rgba(255,255,255,0.02); }
+  .task-reorder { display: flex; flex-direction: column; gap: 2px; }
+  .task-reorder-btn {
+    background: none; border: none; color: var(--muted); cursor: pointer;
+    font-size: 10px; padding: 2px; line-height: 1; border-radius: 2px;
+  }
+  .task-reorder-btn:hover { color: var(--accent); background: rgba(0,212,255,0.1); }
   .task-check {
     width: 18px; height: 18px; min-width: 18px;
     border: 1.5px solid var(--muted);
@@ -631,6 +632,7 @@ let taskTexts = {};
 let customTasks = {};
 let investItems = DEFAULT_INVEST;
 let trashItems = {};
+let orderMap = {};
 
 // ── ENGINE ─────────────────────────────────────────────────
 async function init() {
@@ -667,7 +669,7 @@ async function save() {
   if(status) { status.innerText = 'Salvando...'; status.className = 'syncing'; }
   if (sb) {
     const payload = {
-      tasksDone, taskOwners, taskTexts, customTasks, investItems, trashItems
+      tasksDone, taskOwners, taskTexts, customTasks, investItems, trashItems, orderMap
     };
     try {
       const { error } = await sb.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
@@ -691,6 +693,7 @@ async function pullFromSupabase() {
       customTasks = d.customTasks || d.extras || {};
       investItems = d.investItems || d.invest || DEFAULT_INVEST;
       trashItems = d.trashItems || {};
+      orderMap = d.orderMap || {};
       saveLocal();
     }
   } catch (e) { console.error("Cloud sync error:", e); loadLocal(); }
@@ -707,6 +710,7 @@ function subscribeToChanges() {
       customTasks = d.customTasks || d.extras || {};
       investItems = d.investItems || d.invest || [];
       trashItems = d.trashItems || {};
+      orderMap = d.orderMap || {};
       saveLocal();
       renderEverything();
     }
@@ -752,16 +756,55 @@ function renderSections() {
     root.appendChild(wrap);
     const list = document.getElementById(`tasks-${sec.id}`);
     
-    sec.tasks.forEach(task => {
-      if (!trashItems[task.id]) list.appendChild(createTaskEl(task.id, task.text, task.owner, sec.id));
-    });
+    // Coletar todas as tarefas da seção
+    let allInSec = [];
+    sec.tasks.forEach(t => allInSec.push({ id: t.id, text: t.text, owner: t.owner }));
     Object.keys(customTasks).forEach(id => {
       const t = customTasks[id];
-      if (t.section === sec.id && !trashItems[id]) {
-        list.appendChild(createTaskEl(id, t.text, t.owner, sec.id));
+      if (t.section === sec.id) allInSec.push({ id, text: t.text, owner: t.owner });
+    });
+
+    // Ordenar se houver mapa
+    const order = orderMap[sec.id];
+    if (order && order.length) {
+      const sorted = [];
+      order.forEach(oid => {
+        const found = allInSec.find(x => x.id === oid);
+        if (found) sorted.push(found);
+      });
+      // Adicionar pendentes (novas tarefas)
+      allInSec.forEach(x => {
+        if (!sorted.find(s => s.id === x.id)) sorted.push(x);
+      });
+      allInSec = sorted;
+    }
+
+    allInSec.forEach(t => {
+      if (!trashItems[t.id]) {
+        list.appendChild(createTaskEl(t.id, t.text, t.owner, sec.id));
       }
     });
   });
+}
+
+function moveTask(id, sectionId, dir) {
+  const list = document.getElementById(`tasks-${sectionId}`);
+  if (!list) return;
+  const ids = Array.from(list.querySelectorAll('.task')).map(el => el.dataset.id);
+  const idx = ids.indexOf(id);
+  if (idx === -1) return;
+
+  if (dir === 'up' && idx > 0) {
+    [ids[idx], ids[idx-1]] = [ids[idx-1], ids[idx]];
+  } else if (dir === 'down' && idx < ids.length - 1) {
+    [ids[idx], ids[idx+1]] = [ids[idx+1], ids[idx]];
+  } else {
+    return;
+  }
+
+  orderMap[sectionId] = ids;
+  save();
+  renderEverything();
 }
 
 function createTaskEl(id, defaultText, defaultOwner, sectionId) {
@@ -771,7 +814,12 @@ function createTaskEl(id, defaultText, defaultOwner, sectionId) {
   
   const el = document.createElement('div');
   el.className = `task ${done ? 'done' : ''}`;
+  el.dataset.id = id;
   el.innerHTML = `
+    <div class="task-reorder">
+      <button class="task-reorder-btn" onclick="event.stopPropagation(); moveTask('${id}', '${sectionId}', 'up')">▲</button>
+      <button class="task-reorder-btn" onclick="event.stopPropagation(); moveTask('${id}', '${sectionId}', 'down')">▼</button>
+    </div>
     <div class="task-check"></div>
     <span class="task-text" contenteditable="false">${text}</span>
     <span class="task-owner">
