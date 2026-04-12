@@ -14,46 +14,88 @@
     --accent2: #7c3aed;
     --green: #00ff88;
     --yellow: #ffd60a;
+    --muted: #64748b;
     --red: #ff4444;
     --text: #e2e8f0;
-    --muted: #64748b;
   }
+
+  /* Novos Estilos: Filtros e Dashboards */
+  .readiness-dash {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .readiness-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .readiness-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .readiness-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .readiness-fill { height: 100%; width: 0%; transition: width 0.5s ease; }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+  }
+  .filter-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--muted);
+    padding: 6px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0,212,255,0.1);
+  }
+  .filter-btn.active[data-filter="socio1"] { border-color: #00d4ff; color: #00d4ff; background: rgba(0,212,255,0.1); }
+  .filter-btn.active[data-filter="socio2"] { border-color: #f472b6; color: #f472b6; background: rgba(244,114,182,0.1); }
+  .filter-btn.active[data-filter="ambos"] { border-color: #00ff88; color: #00ff88; background: rgba(0,255,136,0.1); }
+
+  .task.filtered-out { display: none !important; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { 
-    overflow-y: auto; 
-    overflow-x: hidden; 
-    height: auto; 
-    scroll-behavior: smooth; 
-    background: var(--bg);
-  }
   body {
-    background: transparent;
+    background: var(--bg);
+    -webkit-tap-highlight-color: transparent;
     color: var(--text);
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    overflow: visible;
-    width: 100%;
-    position: relative;
-    padding-bottom: 120px;
   }
   .noise {
-    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity: 0.15;
-    height: 100%;
+    opacity: 0.4;
   }
-  .container { 
-    max-width: 960px; 
-    margin: 0 auto; 
-    padding: 40px 40px; 
-    position: relative; 
-    z-index: 1; 
-    width: 100%;
-  }
-  @media (max-width: 768px) {
-    .container { padding: 20px 20px; }
-  }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; position: relative; z-index: 1; }
 
   /* HEADER */
   .header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 40px; }
@@ -143,7 +185,7 @@
   .badge-sales { color: var(--green); border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.05); }
   .badge-ops { color: var(--accent); border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.05); }
 
-  .week-tasks { padding: 16px 20px; font-size: 13px; word-break: break-word; }
+  .week-tasks { padding: 16px 20px; }
   .task {
     display: flex; align-items: flex-start; gap: 10px;
     padding: 7px 0;
@@ -156,7 +198,46 @@
     border: 1px solid var(--border);
     margin-top: 2px;
   }
-  .task-text { font-size: 13px; flex: 1; }
+  .task-owner {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 0;
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .owner-select {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border: 1px solid #333;
+    border-radius: 2px;
+    background: #1a1a24;
+    color: #e2e8f0;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.2s;
+    min-width: 72px;
+    text-align: center;
+  }
+  .owner-select option { background: #111118; color: #e2e8f0; }
+  .owner-select.socio1 {
+    color: #00d4ff;
+    border-color: #00d4ff;
+    background: #0d1f2d;
+  }
+  .owner-select.socio2 {
+    color: #f472b6;
+    border-color: #f472b6;
+    background: #2d0f1e;
+  }
+  .owner-select.ambos {
+    color: #00ff88;
+    border-color: #00ff88;
+    background: #0d2d1a;
+  }
 
   /* FINANCEIRO */
   .finance-table { width: 100%; border-collapse: collapse; }
@@ -382,8 +463,6 @@
 
 
 
-
-
   /* INVESTIMENTO EDITÁVEL */
   .invest-table { width: 100%; border-collapse: collapse; }
   .invest-table th {
@@ -532,7 +611,6 @@
     padding: 1px 4px;
     transition: background 0.15s;
     min-width: 0;
-    word-break: break-word; /* Prevents layout expansion on long tasks */
   }
   .task-text:hover { background: rgba(0,212,255,0.06); }
   .task-text[contenteditable="true"] {
@@ -650,17 +728,14 @@
   .global-progress-fill {
     height: 100%; width: 0%;
     background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 3px;
+    transition: width 0.4s ease;
   }
   .global-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px; color: var(--accent);
     white-space: nowrap;
   }
-  /* SCROLLBAR ÚNICA ELITE */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: #8B2635; border-radius: 10px; border: 2px solid #0D0D0D; }
-  ::-webkit-scrollbar-thumb:hover { background: #A63344; }
 </style>
 </head>
 <body>
@@ -669,16 +744,45 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-tag">// plano estratégico — 2026</div>
-    <h1>IL POTERE<br><span>TECH</span></h1>
+    <div class="header-tag">// plano de negócio — v1.0</div>
+    <h1>EMPRESA DE<br><span>SUPORTE TI</span></h1>
     <div class="header-meta">
       <span><span class="dot"></span> Status: Pré-operação</span>
       <span>// Bragança Paulista, SP</span>
-      <span>// Sócio Único (Fundador)</span>
+      <span>// Sociedade: Sócio 1 (CTO) & Sócio 2 (CXO)</span>
+      <span>// Abril 2026</span>
     </div>
     <div class="global-progress">
       <div class="global-progress-bg"><div class="global-progress-fill" id="globalFill"></div></div>
-      <span class="global-label" id="globalLabel">0 / 0 tarefas</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px;">
+        <span class="global-label" id="globalLabel">0 / 0 tarefas</span>
+      </div>
+    </div>
+
+    <!-- DASHBOARD DE PRONTIDÃO -->
+    <div class="readiness-dash">
+      <div class="readiness-card">
+        <div class="readiness-header">
+          <span style="color: #00d4ff">Sócio 1 (Técnico)</span>
+          <span id="readiness-s1">0%</span>
+        </div>
+        <div class="readiness-bar"><div class="readiness-fill" id="fill-s1" style="background: #00d4ff"></div></div>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-header">
+          <span style="color: #f472b6">Sócio 2 (Comercial)</span>
+          <span id="readiness-s2">0%</span>
+        </div>
+        <div class="readiness-bar"><div class="readiness-fill" id="fill-s2" style="background: #f472b6"></div></div>
+      </div>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Tudo</button>
+      <button class="filter-btn" data-filter="socio1">Sócio 1</button>
+      <button class="filter-btn" data-filter="socio2">Sócio 2</button>
+      <button class="filter-btn" data-filter="ambos">Ambos</button>
     </div>
   </div>
 
@@ -687,26 +791,364 @@
 <div class="summary-grid">
     <div class="stat-card">
       <div class="stat-label">Investimento inicial</div>
-      <div class="stat-value" id="headerInvest">R$ 2.300</div>
-      <div class="stat-sub">Kit Campo + Ads + Sede Virtual</div>
+      <div class="stat-value" id="headerInvest">R$2.150</div>
+      <div class="stat-sub">Sincronizado com seção 04b</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
       <div class="stat-label">Meta mês 1</div>
-      <div class="stat-value" style="color:var(--green)">R$1.950</div>
+      <div class="stat-value" style="color:var(--green)">R$1.750</div>
       <div class="stat-sub">5 contratos Basic fechados</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--accent2)">
-      <div class="stat-label">Lucro Médio (Mês 3)</div>
-      <div class="stat-value" style="color:var(--accent2)">R$ 5.970</div>
-      <div class="stat-sub">15 contratos ativos (MRR)</div>
+      <div class="stat-label">Potencial mês 3</div>
+      <div class="stat-value" style="color:var(--accent2)">R$9.250</div>
+      <div class="stat-sub">15 contratos + upsell SaaS</div>
     </div>
   </div>
-  
+
+  <!-- SEMANA 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">ESTRUTURA LEGAL & ADMINISTRATIVA</span>
+    </div>
+
+    <div class="week-block">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 1 — Dias 1 a 7</span>
+        <span class="week-badge badge-legal">LEGAL</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s1"></div></div>
+          <span class="progress-label" id="label-s1">0/8</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s1">
+        <div class="task" data-id="s1-1"><div class="task-check"></div><span class="task-text">Definir nome da empresa</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-2"><div class="task-check"></div><span class="task-text">Decidir modelo jurídico: MEI do Sócio 2</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-3"><div class="task-check"></div><span class="task-text">Abrir MEI no gov.br — CNAE 6209-1/00 (Sócio 2)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-4"><div class="task-check"></div><span class="task-text">Abrir conta PJ gratuita — Nubank PJ ou Inter PJ (Sócio 2)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-5"><div class="task-check"></div><span class="task-text">Comprar chip novo para número comercial (R$ 50)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-6"><div class="task-check"></div><span class="task-text">Configurar WhatsApp Business com perfil completo</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-7"><div class="task-check"></div><span class="task-text">Criar email profissional no Registro.br (R$ 50/ano)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-8"><div class="task-check"></div><span class="task-text">Definir divisão financeira — redigir acordo entre sócios por escrito</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-9"><div class="task-check"></div><span class="task-text">Adquirir Uniforme/Apresentação (Polo com logo ou Crachá)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-10"><div class="task-check"></div><span class="task-text">Montar Kit Físico de Campo (Álcool Isopropílico, Pincel, Limpa Telas)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s1">Adicionar tarefa</button></div>
+              </div>
+    </div>
+
+    <!-- JURÍDICO -->
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h4>⚡ Recomendação — MEI do Sócio 2</h4>
+        <p>Abertura do MEI no nome do Sócio 2 para centralizar o faturamento e contratos iniciais. <strong>O Sócio 1 atua como parceiro técnico</strong> até a migração para LTDA. Custo zero, 15 minutos.</p>
+        <span class="rec-tag">✓ ESTRATÉGIA INICIAL</span>
+      </div>
+      <div class="legal-card">
+        <h4>📋 LTDA depois (mês 3+)</h4>
+        <p>Quando tiver faturamento recorrente comprovado, abrir uma <strong>LTDA ou SLU</strong> para emitir NF, ter CNPJ único e proteger os dois juridicamente. Custo: ~R$ 500–1.500 com contador.</p>
+        <span class="rec-tag" style="color:var(--yellow);border-color:rgba(255,214,10,0.3);background:rgba(255,214,10,0.05)">PLANEJADO MÊS 3</span>
+      </div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-title">⚠ Acordo entre sócios</div>
+      <p>Antes de qualquer cliente, definam por escrito: divisão de receita (50/50 ou outro), quem paga o quê, o que acontece se um quiser sair. Um documento simples evita 90% dos conflitos futuros.</p>
+    </div>
+
+    <div class="alert" style="border-left-color: #00d4ff; background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.15); margin-top: 12px;">
+      <div class="alert-title" style="color: #00d4ff;">🔧 Cyber Informática — Parceiro Fornecedor</div>
+      <p><strong style="color:#e2e8f0">Peças e componentes:</strong> usar a Cyber como fornecedor principal. Custo de compra + 20–30% de margem na revenda para o cliente.<br>
+      <strong style="color:#e2e8f0">Manutenções complexas:</strong> encaminhar para a bancada da Cyber quando o suporte remoto não resolver.<br>
+      <strong style="color:#e2e8f0">Formalizar:</strong> combinar preço de custo fixo com o dono — mesmo que informalmente no início.</p>
+    </div>
+
+    <div class="alert" style="border-left-color: #7c3aed; background: rgba(124,58,237,0.03); border-color: rgba(124,58,237,0.15); margin-top: 12px;">
+      <div class="alert-title" style="color: #a78bfa;">🏦 Conta PJ Compartilhada</div>
+      <p>MEI é individual — cada um abre o seu. No <strong style="color:#e2e8f0">Inter PJ</strong>, um sócio abre a conta e adiciona o outro como operador com acesso completo. Funciona como conta conjunta na prática.</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">IDENTIDADE & MATERIAIS</span>
+    </div>
+
+    <div class="week-block" style="border-left-color: #f472b6">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 1 & 2 — 03 a 17 de Abil</span>
+        <span class="week-badge badge-brand">FUNDAÇÃO & MARCA</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s2" style="background: #f472b6"></div></div>
+          <span class="progress-label" id="label-s2">0/8</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s2">
+        <div class="task" data-id="s2-1"><div class="task-check"></div><span class="task-text">Criar logo no Ideogram ou Canva — estilo tech/profissional</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-2"><div class="task-check"></div><span class="task-text">Registrar domínio .com.br — R$ 50/ano</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-3"><div class="task-check"></div><span class="task-text">Criar landing page simples (Next.js ou Carrd — 1 página)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task done" data-id="s2-4"><div class="task-check"></div><span class="task-text">Modelo de proposta comercial de 1 página finalizado (Foco em Produtividade)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task done" data-id="s2-5"><div class="task-check"></div><span class="task-text">Modelo de contrato técnico profissional finalizado (SLA Seguro - 4h/8h)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-6"><div class="task-check"></div><span class="task-text">Pedir cartões de visita (100–200 unid.) — logo + WhatsApp + site + QR Code</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-7"><div class="task-check"></div><span class="task-text">Instalar RustDesk nos notebooks</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-8"><div class="task-check"></div><span class="task-text">Criar perfil no Google Meu Negócio (SEO local gratuito)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s2-9"><div class="task-check"></div><span class="task-text">Configurar Campanha Google Ads (R$ 150/mês — Foco em Intenção)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s2">Adicionar tarefa</button></div>
+              </div>
+    </div>
+  </div>
+
+  <!-- SEMANA 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">PROSPECÇÃO & PRIMEIRO CONTRATO</span>
+    </div>
+
+    <div class="week-block" style="border-left-color: var(--green)">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 3 — 18 a 26 de Abril</span>
+        <span class="week-badge badge-sales">PREPARAÇÃO VENDAS</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s3"></div></div>
+          <span class="progress-label" id="label-s3">0/6</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s3">
+        <div class="task" data-id="s3-1"><div class="task-check"></div><span class="task-text">Mapear 20 empresas-alvo em BP (Google Maps — contabilidades, clínicas, farmácias)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-2"><div class="task-check"></div><span class="task-text">Definir roteiro de visitas por bairro/rua (otimizar deslocamento)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-3"><div class="task-check"></div><span class="task-text">Fazer as 5 primeiras visitas presenciais — foco em contabilidades (Sócio 2 diariamente + Sócio 1 quando flexível)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-4"><div class="task-check"></div><span class="task-text">Enviar proposta PDF no mesmo dia da visita via WhatsApp</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-5"><div class="task-check"></div><span class="task-text">Follow-up dia 3 se não respondeu</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-6"><div class="task-check"></div><span class="task-text">Meta: 1 contrato fechado até o final da semana</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-7"><div class="task-check"></div><span class="task-text">Roleplay/Simulação de Atendimento e Venda (Treinar objeções)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s3-8"><div class="task-check"></div><span class="task-text">Ativar Campanha Meta Ads (R$ 350 — Vídeos e Prova Social Local)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s3">Adicionar tarefa</button></div>
+              </div>
+    </div>
+
+    <!-- FLUXO DE PROSPECÇÃO -->
+    <div style="margin-top: 20px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">// Fluxo por prospect</div>
+      <div class="prospect-flow">
+        <div class="flow-step">
+          <div class="flow-day">DIA 1</div>
+          <div class="flow-action">Visita presencial</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day">DIA 1</div>
+          <div class="flow-action">Proposta PDF no WhatsApp</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day">DIA 3</div>
+          <div class="flow-action">Follow-up se silêncio</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day">DIA 7</div>
+          <div class="flow-action">Último contato</div>
+        </div>
+        <div class="flow-step" style="border-top: 2px solid var(--green); background: rgba(45,106,79,0.1); padding: 15px;">
+          <div class="flow-day" style="color: var(--green-l); font-size: 14px; font-weight: bold;">DIA 27 DE ABRIL</div>
+          <div class="flow-action" style="color: #fff; font-size: 16px;">🚀 GRANDE LANÇAMENTO EM BRAGANÇA</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-day" style="color:var(--green)">FECHOU</div>
+          <div class="flow-action">Assinar contrato</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.2);">
+      <div class="alert-title" style="color: var(--green)">💡 Melhor abordagem presencial</div>
+      <p>"Somos da [nome], oferecemos suporte de TI para pequenas empresas em Bragança Paulista. Posso te mostrar como funciona em 5 minutos?" — Se mostrar interesse, marcar reunião e apresentar proposta no notebook.</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 4+ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">OPERAÇÃO & ESCALA</span>
+    </div>
+
+    <div class="week-block" style="border-left-color: var(--accent2)">
+      <div class="week-header">
+        <span class="week-title">// SEMANA 4 em diante — Operação contínua</span>
+        <span class="week-badge badge-ops">OPERAÇÃO</span>
+      </div>
+      <div style="padding: 10px 20px 0;">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s4" style="background: var(--accent2)"></div></div>
+          <span class="progress-label" id="label-s4">0/7</span>
+        </div>
+      </div>
+      <div class="week-tasks" data-section="s4">
+        <div class="task" data-id="s4-1"><div class="task-check"></div><span class="task-text">5 novas visitas por semana — meta cumulativa de 15 contratos em 60 dias</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2" selected>SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-2"><div class="task-check"></div><span class="task-text">Atendimento remoto pela manhã e noite (RustDesk)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-3"><div class="task-check"></div><span class="task-text">Visitas presenciais programadas conforme plano de cada cliente</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-4"><div class="task-check"></div><span class="task-text">Registrar todos os clientes no Notion ou Trello (nome, plano, vencimento, histórico)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-5"><div class="task-check"></div><span class="task-text">Emitir cobranças mensais via PIX ou boleto (Asaas/Inter PJ)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-6"><div class="task-check"></div><span class="task-text">Identificar clientes com sistema de gestão ruim → oportunidade SaaS</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-7"><div class="task-check"></div><span class="task-text">Mês 3: avaliar abertura de LTDA e contratação de contador</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
+        <option value="ambos" selected>AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task done" data-id="s4-8"><div class="task-check"></div><span class="task-text">Checklist de Onboarding Elite finalizado (Equipe Sócio 1 & Sócio 2)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s4">Adicionar tarefa</button></div>
+              </div>
+    </div>
+  </div>
+
   <!-- INVESTIMENTO INICIAL -->
   <div class="section" id="investSection">
     <div class="section-header">
-      <span class="section-num">01</span>
-      <span class="section-title">INVESTIMENTO INICIAL DETALHADO</span>
+      <span class="section-num">04b</span>
+      <span class="section-title">INVESTIMENTO INICIAL</span>
     </div>
 
     <div class="invest-table-wrap"><table class="invest-table" id="investTable">
@@ -731,279 +1173,13 @@
     </table></div>
 
     <button class="invest-add-btn" id="investAddBtn">Adicionar item</button>
-    <div class="tip">
-      <ul><li><strong>Cultura do Líder Fundador</strong> — Operação 100% Fundador com Suporte Híbrido</li></ul>
-      <p>O Fundador assume 100% da estratégia e comercial (prospecção e contratos). O operacional N1 é compartilhado com o Estagiário e a equipe de apoio (familiar), focando em agilidade e escala.</p>
-    </div>
+    <div class="invest-note">// clique em qualquer campo para editar • total sincroniza com o header automaticamente</div>
   </div>
-
-  <!-- MAPA DA SPRINT (VISÃO GERAL) -->
-  <div class="section" id="sprintMap">
-    <div class="section-header">
-      <span class="section-num">!!</span>
-      <span class="section-title">MAPA DA SPRINT: 21 DIAS DE IGNIÇÃO</span>
-    </div>
-    
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;">
-      <div class="stat-card" style="padding: 12px; border-top-color: var(--yellow);">
-        <div class="flow-day" style="color: var(--yellow);">FASE 1 (06-10/04)</div>
-        <div style="font-size: 12px; font-weight: 600; margin-top: 4px;">BASE & LEGAL</div>
-        <div style="font-size: 10px; color: var(--muted); line-height: 1.4; margin-top: 4px;">MEI, Conta PJ, Kit de Campo e Identidade Visual.</div>
-      </div>
-      <div class="stat-card" style="padding: 12px; border-top-color: #f472b6;">
-        <div class="flow-day" style="color: #f472b6;">FASE 2 (13-17/04)</div>
-        <div style="font-size: 12px; font-weight: 600; margin-top: 4px;">INFRA & TECH</div>
-        <div style="font-size: 10px; color: var(--muted); line-height: 1.4; margin-top: 4px;">VPS, RMM, RustDesk, Landing Page e Wiki.</div>
-      </div>
-      <div class="stat-card" style="padding: 12px; border-top-color: var(--green);">
-        <div class="flow-day" style="color: var(--green);">FASE 3 (20-26/04)</div>
-        <div style="font-size: 12px; font-weight: 600; margin-top: 4px;">VENDAS & ADS</div>
-        <div style="font-size: 10px; color: var(--muted); line-height: 1.4; margin-top: 4px;">Meta/Google Ads, Seleção Estagiário e Prospecção.</div>
-      </div>
-      <div class="stat-card" style="padding: 12px; border-top-color: var(--accent);">
-        <div class="flow-day" style="color: var(--accent);">D-DAY (27/04)</div>
-        <div style="font-size: 12px; font-weight: 600; margin-top: 4px;">LANÇAMENTO</div>
-        <div style="font-size: 10px; color: var(--muted); line-height: 1.4; margin-top: 4px;">Início oficial das operações e primeiros contratos.</div>
-      </div>
-    </div>
-    
-    <div class="alert" style="margin-top: 0; background: rgba(0,212,255,0.02); border-color: rgba(0,212,255,0.1);">
-      <p style="font-size: 11px; text-align: center; letter-spacing: 1px;">// FOCO TOTAL NA EXECUÇÃO: <strong>6H ÚTEIS/DIA</strong> // DOMÍNIO DA TRILHA TÉCNICA EM PARALELO //</p>
-    </div>
-  </div>
-
-  <!-- ESTRUTURA LEGAL & ADMINISTRATIVA -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <span class="section-title">ESTRUTURA LEGAL & ADMINISTRATIVA</span>
-    </div>
-
-    <div class="week-block">
-      <div class="week-header">
-        <span class="week-title">// SPRINT 1 — 06 de Abril a 10 de Abril</span>
-        <span class="week-badge badge-legal">LEGAL</span>
-      </div>
-      <div style="padding: 10px 20px 0;">
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s1"></div></div>
-          <span class="progress-label" id="label-s1">0/8</span>
-        </div>
-      </div>
-      <div class="week-tasks" data-section="s1">
-        <div class="task" data-id="s1-1"><div class="task-check"></div><span class="task-text">Definir nome e identidade visual básica (Solo)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-1b"><div class="task-check"></div><span class="task-text">Assinar Endereço Fiscal (Virtual/Coworking)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-2"><div class="task-check"></div><span class="task-text">Abrir MEI Unipessoal (CNAE 6209-1/00)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-3"><div class="task-check"></div><span class="task-text">Abrir conta PJ gratuita (Nubank, Inter ou Cora)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-4"><div class="task-check"></div><span class="task-text">Chip Comercial + WhatsApp Business configurado</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-5"><div class="task-check"></div><span class="task-text">Email Profissional (Registro.br)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-6"><div class="task-check"></div><span class="task-text">Definir Pró-labore inicial e Reserva de Emergência</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-7"><div class="task-check"></div><span class="task-text">Adquirir Kit de Campo (Multímetro, Fixit, Insumos)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-8"><div class="task-check"></div><span class="task-text">Uniforme (Polo com logo bordado)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s1">Adicionar tarefa</button></div>
-      </div>
-    </div>
-
-    <!-- JURÍDICO -->
-    <div class="legal-grid">
-      <div class="legal-card">
-        <h4>⚡ Estrutura — MEI Unipessoal</h4>
-        <p>Modelo ideal para início imediato. Custo fixo mensal de <strong>~R$ 230</strong> (Guia MEI + Sede Virtual) e emissão de NFs simplificada. <strong>Sem burocracia de sócios.</strong></p>
-        <span class="rec-tag">✓ OPERAÇÃO ATUAL</span>
-      </div>
-      <div class="legal-card">
-        <h4>📋 Expansão — LTDA (Futuro)</h4>
-        <p>Migrar para uma <strong>SLU (Sociedade Limitada Unipessoal)</strong> quando o faturamento exceder o teto do MEI ou para proteção patrimonial robusta.</p>
-        <span class="rec-tag" style="color:var(--yellow);border-color:rgba(255,214,10,0.3);background:rgba(255,214,10,0.05)">PLANEJADO ESCALA</span>
-      </div>
-    </div>
-
-    <div class="alert" style="border-left-color: #7c3aed; background: rgba(124,58,237,0.03); border-color: rgba(124,58,237,0.15); margin-top: 12px;">
-      <div class="alert-title" style="color: #a78bfa;">🎓 Operação Hybrid-Solo (SLA 8h-18h)</div>
-      <div class="finance-table-wrap" style="margin-top: 10px;">
-        <table class="finance-table">
-          <thead>
-            <tr>
-              <th>Período</th>
-              <th>Responsável</th>
-              <th>Role Principal</th>
-              <th>Campo (N1)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="num">08h - 14h</td>
-              <td>Estagiário (Time A)</td>
-              <td>Suporte Remoto Total</td>
-              <td class="positive">SIM (N1)</td>
-            </tr>
-            <tr>
-              <td class="num">14h - 18h</td>
-              <td>familiar (Time B)</td>
-              <td>Suporte Remoto Total</td>
-              <td class="neutral">NÃO</td>
-            </tr>
-            <tr>
-              <td class="num">14h - 18h</td>
-              <td>Você (Fundador)</td>
-              <td>Suporte N3 / Projetos</td>
-              <td class="positive">SIM (Elite)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="margin-top: 10px; font-size: 11px; color: var(--muted);"><strong>Regra de Ouro:</strong> Às 14:00h ocorre a <em>Sincronização de Bastão</em> via Notas do Tactical RMM. O Fundador supervisiona remotamente e assume N3/Presencial.</p>
-    </div>
-  </div>
-
-  <!-- MARCOS DE MARKETING (IGNITION) -->
-  <div class="section" id="marketing-ignition">
-    <div class="section-header">
-      <span class="section-num">!!</span>
-      <span class="section-title">MARCOS DE MARKETING (IGNITION)</span>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:20px">
-      <div class="alert" style="border-left-color: var(--green); margin:0">
-        <div class="alert-title" style="color:var(--green)">⚡ 23/04 - GOOGLE ADS</div>
-        <p style="font-size:11px">Ativação Rede de Pesquisa (Fundo de Funil). Bragança Paulista e Região.</p>
-      </div>
-      <div class="alert" style="border-left-color: var(--accent); margin:0">
-        <div class="alert-title" style="color:var(--accent)">💥 26/04 - META ADS</div>
-        <p style="font-size:11px">Ativação Vídeos de Autoridade (Instagram/FB). Foco: Clínicas e Escritórios.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SPRINT 2 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <span class="section-title">IDENTIDADE & MATERIAIS</span>
-    </div>
-
-    <div class="week-block" style="border-left-color: #f472b6">
-      <div class="week-header">
-        <span class="week-title">// SPRINT 2 — 13 de Abril a 17 de Abril</span>
-        <span class="week-badge badge-brand">FUNDAÇÃO & MARCA</span>
-      </div>
-      <div style="padding: 10px 20px 0;">
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s2" style="background: #f472b6"></div></div>
-          <span class="progress-label" id="label-s2">0/7</span>
-        </div>
-      </div>
-      <div class="week-tasks" data-section="s2">
-        <div class="task" data-id="s2-1"><div class="task-check"></div><span class="task-text">Registrar domínio .com.br</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-2"><div class="task-check"></div><span class="task-text">Setup de VPS (Ubuntu 22.04) para Tactical RMM</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-3"><div class="task-check"></div><span class="task-text">Instalação e Teste do Painel de Controle Tactical RMM</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-4"><div class="task-check"></div><span class="task-text">Configuração de Relay RustDesk Próprio (Independência total)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-5"><div class="task-check"></div><span class="task-text">Estruturar Wiki no Notion (Modelos de SLAs e Onboarding)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-6"><div class="task-check"></div><span class="task-text">Criar Landing Page simples focada em Solução de Problemas</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-7"><div class="task-check"></div><span class="task-text">Configurar Google Meu Negócio (SEO Local e Maps)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s2">Adicionar tarefa</button></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SEMANA 3 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title">PROSPECÇÃO & PRIMEIRO CONTRATO</span>
-    </div>
-
-    <div class="week-block" style="border-left-color: var(--green)">
-      <div class="week-header">
-        <span class="week-title">// SPRINT 3 — 20 de Abril a 26 de Abril (PRE-LAUNCH)</span>
-        <span class="week-badge badge-sales">PREPARAÇÃO VENDAS</span>
-      </div>
-      <div style="padding: 10px 20px 0;">
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s3"></div></div>
-          <span class="progress-label" id="label-s3">0/6</span>
-        </div>
-      </div>
-      <div class="week-tasks" data-section="s3">
-        <div class="task" data-id="s3-1"><div class="task-check"></div><span class="task-text">Redigir vaga de Estágio N1 (Manto, Proatividade, 30h/sem)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-2"><div class="task-check"></div><span class="task-text">Divulgar vaga no CIEE, Nube e faculdades de Bragança</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-3"><div class="task-check"></div><span class="task-text">Entrevistas e Seleção da "Mão Direita" (Estagiário)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-4"><div class="task-check"></div><span class="task-text">Treinamento Inicial: RMM, RustDesk e Padrão de Atendimento</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-5"><div class="task-check"></div><span class="task-text">Finalizar Modelos de Proposta Elite e Contrato Solo</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-6"><div class="task-check"></div><span class="task-text">Mapear 20 Alvos em BP (Clínicas, Contabilidades e Advocacias)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s3">Adicionar tarefa</button></div>
-      </div>
-    </div>
-
-    <!-- FLUXO DE PROSPECÇÃO -->
-    <div style="margin-top: 20px;">
-      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">// Fluxo por prospect</div>
-      <div class="prospect-flow">
-        <div class="flow-step">
-          <div class="flow-day">DIA 1</div>
-          <div class="flow-action">Visita presencial</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-day">DIA 1</div>
-          <div class="flow-action">Proposta PDF no WhatsApp</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-day">DIA 3</div>
-          <div class="flow-action">Follow-up se silêncio</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-day">DIA 7</div>
-          <div class="flow-action">Último contato</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-day" style="color:var(--green)">FECHOU</div>
-          <div class="flow-action">Assinar contrato</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.2);">
-      <div class="alert-title" style="color: var(--green)">💡 Melhor abordagem presencial</div>
-      <p>"Somos da [nome], oferecemos suporte de TI para pequenas empresas em Bragança Paulista. Posso te mostrar como funciona em 5 minutos?" — Se mostrar interesse, marcar reunião e apresentar proposta no notebook.</p>
-    </div>
-  </div>
-
-  <!-- SEMANA 4+ -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-title">OPERAÇÃO & ESCALA</span>
-    </div>
-
-    <div class="week-block" style="border-left-color: var(--accent2)">
-      <div class="week-header">
-        <span class="week-title">// OPERAÇÃO FULL — Início 27 de Abril</span>
-        <span class="week-badge badge-ops">OPERAÇÃO</span>
-      </div>
-      <div style="padding: 10px 20px 0;">
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-s4" style="background: var(--accent2)"></div></div>
-          <span class="progress-label" id="label-s4">0/7</span>
-        </div>
-      </div>
-      <div class="week-tasks" data-section="s4">
-        <div class="task" data-id="s4-1"><div class="task-check"></div><span class="task-text">Ciclo de 5 visitas presenciais / semana</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-2"><div class="task-check"></div><span class="task-text">Follow-up 48h via WhatsApp (Roteiro de Elite)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-3"><div class="task-check"></div><span class="task-text">Meta: Primeiro Contrato Recorrente (MRR) Assinado</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-4"><div class="task-check"></div><span class="task-text">Onboarding do cliente no Tactical RMM (Agente instalado)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-5"><div class="task-check"></div><span class="task-text">Ativar Ads (Google por Intenção + Meta por Autoridade)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-6"><div class="task-check"></div><span class="task-text">Setup do IA Agent para Automação de Relatórios Mensais</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-7"><div class="task-check"></div><span class="task-text">Configurar Cobrança Automática via Asaas (PIX/Boleto)</span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div style="padding: 0 20px 12px;"><button class="add-task-btn" data-section="s4">Adicionar tarefa</button></div>
-      </div>
-    </div>
-  </div>
-
-
 
   <!-- PROJEÇÃO FINANCEIRA -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">06</span>
+      <span class="section-num">05</span>
       <span class="section-title">PROJEÇÃO FINANCEIRA</span>
     </div>
 
@@ -1012,44 +1188,58 @@
         <tr>
           <th>Período</th>
           <th>Contratos</th>
-          <th>Receita Bruta</th>
-          <th>Lucro p/ Fundador</th>
+          <th>Rec. Bruta</th>
+          <th>OPEX (Gastos)</th>
+          <th>Lucro Líq.</th>
+          <th>P/ Sócio (50/50)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Mês 1 (Abr/Maio)</td>
-          <td>5 Essenziale</td>
+          <td>Mês 1</td>
+          <td>5 Basic</td>
           <td class="num neutral">R$ 1.950</td>
-          <td class="num red" style="color: var(--red)">- R$ 200*</td>
+          <td class="num">R$ 1.000</td>
+          <td class="num neutral">R$ 950</td>
+          <td class="num neutral">R$ 475</td>
         </tr>
         <tr>
-          <td>Mês 2 (Junho)</td>
-          <td>10 Essenziale + 2 Professionale</td>
+          <td>Mês 2</td>
+          <td>10 Basic + 2 Std</td>
           <td class="num neutral">R$ 5.280</td>
-          <td class="num positive">R$ 3.300</td>
+          <td class="num">R$ 2.000*</td>
+          <td class="num positive">R$ 3.280</td>
+          <td class="num positive">R$ 1.640</td>
         </tr>
         <tr>
-          <td>Mês 3 (Julho)</td>
-          <td>15 Contratos Mistos</td>
-          <td class="num positive">R$ 7.950</td>
-          <td class="num positive">R$ 5.970</td>
+          <td>Mês 3</td>
+          <td>10 Basic + 5 Std</td>
+          <td class="num positive">R$ 7.350</td>
+          <td class="num">R$ 2.300†</td>
+          <td class="num positive">R$ 5.050</td>
+          <td class="num positive">R$ 2.525</td>
         </tr>
         <tr class="total-row">
-          <td>Escala Mês 4+</td>
-          <td>TI + SaaS Upsell</td>
-          <td class="num positive">R$ 12.000+</td>
-          <td class="num positive">R$ 8.850+</td>
+          <td>Mês 4 (Escala)</td>
+          <td>15+ TI + SaaS</td>
+          <td class="num positive">~R$ 12.000+</td>
+          <td class="num">R$ 2.300</td>
+          <td class="num positive">R$ 9.700+</td>
+          <td class="num positive">R$ 4.850+</td>
         </tr>
       </tbody>
     </table>
-    <div style="font-size:10px; color:var(--muted); margin-top:10px;">*Mês 1 focado em Breakeven (Equilíbrio) considerando custo de Estagiário (R$ 1.200), Ads (R$ 500) e Endereço Fiscal (R$ 150).</div>
+    <div style="font-size: 10px; color: var(--muted); margin-top: 8px; font-family: 'IBM Plex Mono', monospace;">
+      * Divisão de lucros iniciada após cobertura dos custos fixos operacionais.<br>
+      † Estrutura de Sociedade: ausência de custos com estagiário/apoio no início devido à dedicação total da dupla.
+    </div>
+    </div>
   </div>
 
   <!-- FERRAMENTAS DE GESTÃO (FREE STACK) -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">07</span>
+      <span class="section-num">06</span>
       <span class="section-title">STACK DE GESTÃO (FREE)</span>
     </div>
 
@@ -1092,7 +1282,7 @@
   <!-- AGENTE DE IA OPERACIONAL -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">07b</span>
+      <span class="section-num">06b</span>
       <span class="section-title">IA AGENT // CO-PILOTO</span>
     </div>
     
@@ -1109,7 +1299,7 @@
 
     <!-- ESTRATÉGIA DE TRÁFEGO -->
     <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.02); border-color: rgba(0,255,136,0.15); margin-top: 12px;">
-      <div class="alert-title" style="color: var(--green);">🎯 Estratégia de Tráfego — Aquisição Contínua</div>
+      <div class="alert-title" style="color: var(--green);">🎯 Estratégia de Tráfego — Launch Day</div>
       <p><strong style="color:var(--text);">Google Ads (R$ 150):</strong> Foco total em termos "fundo de funil". Ex: <i>Suporte de TI em Bragança</i>, <i>Conserto de PC empresa</i>. O objetivo é pegar quem já está com urgência.</p>
       <p style="margin-top:8px;"><strong style="color:var(--text);">Meta Ads (R$ 350):</strong> Foco em vídeos de autoridade. Mostrar o kit de campo, as ferramentas (Tactical RMM) e o diferencial do "Suporte de Elite".</p>
     </div>
@@ -1118,7 +1308,7 @@
   <!-- UPSELL SAAS -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">08</span>
+      <span class="section-num">07</span>
       <span class="section-title">SAAS — PRODUTO PRÓPRIO</span>
     </div>
 
@@ -1141,10 +1331,10 @@
     </div>
 
     <div class="alert" style="border-left-color: var(--green); background: rgba(0,255,136,0.03); border-color: rgba(0,255,136,0.15); margin-top: 16px;">
-      <div class="alert-title" style="color: var(--green);">💰 Estratégia SaaS — Lucro Solo</div>
-      <p>Desenvolvimento e comercialização de micro-SaaS focados na base de clientes atual.<br>
-      <strong style="color:#e2e8f0">Foco:</strong> Automação de processos específicos para clínicas e contabilidades.<br>
-      <strong style="color:#e2e8f0">Receita:</strong> 100% destinada ao reinvestimento na infraestrutura de IA e Workstation do Fundador.</p>
+      <div class="alert-title" style="color: var(--green);">💰 Divisão SaaS — 50/50</div>
+      <p><strong style="color:#e2e8f0">Sócio 1:</strong> desenvolvimento, produto, decisões técnicas.<br>
+      <strong style="color:#e2e8f0">Sócio 2:</strong> suporte, atendimento ao cliente, decisões comerciais.<br>
+      Receita líquida dividida igualmente.<br>Em caso de divergência:<br><strong style="color:#e2e8f0">Sócio 1 tem voto de minerva em decisões técnicas. Sócio 2 em decisões comerciais.</strong></p>
     </div>
 
     <div class="alert" style="margin-top: 12px;">
@@ -1153,55 +1343,11 @@
     </div>
   </div>
 
-  <!-- ROTINA DO FUNDADOR (PRE-LAUNCH) -->
-  <div class="section" id="routine">
-    <div class="section-header">
-      <span class="section-num">09</span>
-      <span class="section-title">ROTINA DO FUNDADOR (SPRINT 17 DIAS)</span>
-    </div>
-    <div class="alert" style="border-left-color: var(--accent); background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.15);">
-      <div class="alert-title" style="color: var(--accent);">🕒 Agenda Diária de Elite (6h Úteis)</div>
-      <div class="finance-table-wrap">
-        <table class="finance-table">
-          <thead>
-            <tr>
-              <th>Bloco</th>
-              <th>Horário</th>
-              <th>Foco / Task</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Manhã (Deep Work)</td>
-              <td class="num">09:00 - 12:00</td>
-              <td>Domínio Técnico (Módulos M1-M12)</td>
-            </tr>
-            <tr>
-              <td>Intervalo</td>
-              <td class="num">12:00 - 14:00</td>
-              <td>Almoço / Estratégico</td>
-            </tr>
-            <tr>
-              <td>Tarde (Ops & Mkt)</td>
-              <td class="num">14:00 - 17:00</td>
-              <td>Setup infra, LP, Ads e Gestão</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="margin-top: 10px; font-size: 11px; color: var(--muted);"><strong>Total Mensal de Preparação:</strong> 102 Horas Focadas.</p>
-    </div>
-  </div>
-
   <!-- CATÁLOGO DE SERVIÇOS AVULSOS -->
   <div class="section" id="catalogSection">
     <div class="section-header">
-      <span class="section-num">08b</span>
-      <span class="section-title">CATÁLOGO DE SERVIÇOS AVULSOS (GATEWAY)</span>
-    </div>
-    <div class="alert" style="border-left-color: var(--yellow); background: rgba(255,184,0,0.03); border-color: rgba(255,184,0,0.15); margin-bottom: 15px;">
-      <div class="alert-title" style="color: var(--yellow);">🎯 Estratégia de Captura (Trojan Horse)</div>
-      <p style="font-size: 11px;">Para clientes resistentes ao modelo de assinatura, utilizar a tabela abaixo como entrada. <strong>O objetivo é converter o cliente após a 3ª intervenção pontual</strong>, comparando o gasto acumulado vs. o custo-benefício dos planos recorrentes.</p>
+      <span class="section-num">07b</span>
+      <span class="section-title">CATÁLOGO DE SERVIÇOS AVULSOS</span>
     </div>
 
     <div class="finance-table-wrap">
@@ -1256,9 +1402,8 @@
     </div>
     
     <div class="alert" style="border-left-color: var(--accent2); background: rgba(124,58,237,0.03); border-color: rgba(124,58,237,0.15); margin-top: 12px;">
-      <div class="alert-title" style="color: #a78bfa;">💸 Desconto Progressivo em Avulsos</div>
-      <p>Retenção de Elite: <strong>Essenziale (10%)</strong>, <strong>Professionale (25%)</strong> e <strong>Impresa (50%)</strong>.<br>
-      A utilização recorrente de itens avulsos deve ser o gatilho para o <strong>Upsell de Plano</strong>.</p>
+      <div class="alert-title" style="color: #a78bfa;">💸 Desconto para Clientes com Plano</div>
+      <p>Clientes dos planos <strong>Professionale</strong> e <strong>Impresa</strong> têm 20% de desconto em qualquer serviço avulso desta lista.</p>
     </div>
   </div>
 
@@ -1306,9 +1451,9 @@ function saveJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
 function applyOwnerStyle(sel, val) {
   sel.className = 'owner-select ' + val;
   var map = {
-    fundador: { color: '#00d4ff', borderColor: '#00d4ff', background: '#0d1f2d' },
-    equipe:   { color: '#f472b6', borderColor: '#f472b6', background: '#2d0f1e' },
-    ambos:    { color: '#00ff88', borderColor: '#00ff88', background: '#0d2d1a' }
+    socio1:    { color: '#00d4ff', borderColor: '#00d4ff', background: '#0d1f2d' },
+    socio2: { color: '#f472b6', borderColor: '#f472b6', background: '#2d0f1e' },
+    ambos:   { color: '#00ff88', borderColor: '#00ff88', background: '#0d2d1a' }
   };
   var s = map[val] || map.ambos;
   sel.style.color       = s.color;
@@ -1415,13 +1560,19 @@ function restoreTask(id) {
 }
 
 // ── CRIAR TASK ────────────────────────────────────────────
-function createTaskEl(sectionId, id, text) {
+function createTaskEl(sectionId, id, text, owner) {
+  owner = owner || 'ambos';
   var div = document.createElement('div');
   div.className = 'task';
   div.dataset.id = id;
   div.innerHTML =
     '<div class="task-check"></div>' +
     '<span class="task-text">' + text + '</span>' +
+    '<span class="task-owner"><select class="owner-select" onclick="event.stopPropagation()">' +
+      '<option value="socio1"'    + (owner==='socio1'   ?' selected':'') + '>SÓCIO 1 (TÉCNICO)</option>' +
+      '<option value="socio2"' + (owner==='socio2'?' selected':'') + '>SÓCIO 2 (COMERCIAL)</option>' +
+      '<option value="ambos"'   + (owner==='ambos'  ?' selected':'') + '>AMBOS</option>' +
+    '</select></span>' +
     '<button class="task-remove" title="Remover">\u00d7</button>';
   return div;
 }
@@ -1429,13 +1580,20 @@ function createTaskEl(sectionId, id, text) {
 // ── BIND TASK ─────────────────────────────────────────────
 function bindTask(task) {
   var id      = task.dataset.id;
+  var select  = task.querySelector('.owner-select');
   var textEl  = task.querySelector('.task-text');
   var rmBtn   = task.querySelector('.task-remove');
 
   var state  = loadJSON(STORAGE_KEY);
+  var owners = loadJSON(OWNER_KEY);
   var texts  = loadJSON(TEXT_KEY);
 
   if (state[id]) task.classList.add('done');
+  if (select) {
+    var ownerVal = owners[id] || select.value || 'ambos';
+    select.value = ownerVal;
+    applyOwnerStyle(select, ownerVal);
+  }
   if (texts[id] && textEl) textEl.textContent = texts[id];
 
   task.addEventListener('click', function(e) {
@@ -1448,6 +1606,7 @@ function bindTask(task) {
     var sec = task.closest('[data-section]');
     if (sec) updateSectionProgress(sec.dataset.section);
     updateGlobalProgress();
+    updateReadiness();
   });
 
   if (textEl) {
@@ -1476,6 +1635,17 @@ function bindTask(task) {
     });
   }
 
+  if (select) {
+    select.addEventListener('change', function(e) {
+      var val = e.target.value;
+      applyOwnerStyle(select, val);
+      var o = loadJSON(OWNER_KEY);
+      o[id] = val;
+      saveJSON(OWNER_KEY, o);
+      updateReadiness();
+      if (currentFilter !== 'all') applyFilter(currentFilter);
+    });
+  }
 
   if (rmBtn) {
     rmBtn.addEventListener('click', function(e) {
@@ -1491,6 +1661,7 @@ function bindTask(task) {
       task.remove();
       updateSectionProgress(secId);
       updateGlobalProgress();
+    updateReadiness();
     });
   }
 }
@@ -1504,14 +1675,15 @@ function bindAddButton(btn) {
     var text = prompt('Texto da nova tarefa:');
     if (!text || !text.trim()) return;
     var id   = 'extra-' + sectionId + '-' + Date.now();
-    var task = createTaskEl(sectionId, id, text.trim());
+    var task = createTaskEl(sectionId, id, text.trim(), 'ambos');
     section.appendChild(task);
     bindTask(task);
     var ex = loadJSON(EXTRA_KEY);
-    ex[id] = { section: sectionId, text: text.trim() };
+    ex[id] = { section: sectionId, text: text.trim(), owner: 'ambos' };
     saveJSON(EXTRA_KEY, ex);
     updateSectionProgress(sectionId);
     updateGlobalProgress();
+    updateReadiness();
   });
 }
 
@@ -1523,7 +1695,9 @@ function restoreExtras() {
     if (trash[id]) return;
     if (document.querySelector('[data-id="' + id + '"]')) return;
     var data    = ex[id];
-    var task    = createTaskEl(data.section, id, data.text);
+    var owners  = loadJSON(OWNER_KEY);
+    var owner   = owners[id] || data.owner || 'ambos';
+    var task    = createTaskEl(data.section, id, data.text, owner);
     var section = document.querySelector('[data-section="' + data.section + '"]');
     if (section) { section.appendChild(task); bindTask(task); }
   });
@@ -1531,15 +1705,13 @@ function restoreExtras() {
 
 // ── INVESTIMENTO ──────────────────────────────────────────
 var DEFAULT_INVEST = [
-  { id: 'inv-1', item: 'Kit Pen Drives (2x 64GB)', desc: 'Kingston/Sandisk para Ventoy e ISOs',   value: 120 },
-  { id: 'inv-2', item: 'Chip + Domínio + Email', desc: 'WhatsApp Business + Registro.br (Anual)', value: 150 },
-  { id: 'inv-h', item: 'Endereço Fiscal (Anual/Ativação)', desc: 'Reserva para Escritório Virtual e registro', value: 300 },
-  { id: 'inv-3', item: '1x Kit de Campo (Elite/Completo)', desc: 'Multímetro, Testadores, Fixit, Insumos Profissionais',  value: 750 },
-  { id: 'inv-4', item: 'Marketing Inicial', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
-  { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Provisão para abertura e primeira guia',          value: 70 },
-  { id: 'inv-7', item: 'Infra Cloud (VPS)', desc: 'Tactical RMM + RustDesk Relay (Mensal)',          value: 50 },
-  { id: 'inv-8', item: 'Uniforme (Elite)', desc: '2x Camisas Polo com logo bordado',          value: 160 },
-  { id: 'inv-b', item: 'Extra Contingência', desc: 'Reserva para imprevistos de campo', value: 200 }
+  { id: 'inv-2', item: 'Chip + Email + Dom\u00ednio', desc: 'WhatsApp Business + Registro.br (Anual)', value: 100 },
+  { id: 'inv-3', item: 'Kit de Campo Essencial', desc: 'Ferramentas, conectores e insu\u00admos b\u00e1sicos', value: 1900 },
+  { id: 'inv-4', item: 'Marketing (Google+Meta)', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
+  { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Primeira guia DAS simplificada',          value: 70 },
+  { id: 'inv-7', item: '2x VPS (Infraestrutura)', desc: 'Tactical RMM + RustDesk Relay',          value: 50 },
+  { id: 'inv-8', item: 'Uniforme (Camisas Polo)', desc: '2x Unidades com logo bordado',          value: 160 },
+  { id: 'inv-9', item: 'Reserva p/ Imprevistos', desc: 'Fundo para emerg\u00eancias / pe\u00e7as r\u00e1pidas', value: 150 }
 ];
 
 function loadInvest() {
@@ -1644,19 +1816,70 @@ function initInvest() {
       syncHeader(calcTotal(data));
     });
   }
+}
 
+// ── FILTROS & READINESS ──────────────────────────────────
+var currentFilter = 'all';
 
+function updateReadiness() {
+  var allTasks = document.querySelectorAll('.task[data-id]');
+  var s1Done = 0, s1Total = 0;
+  var s2Done = 0, s2Total = 0;
+
+  allTasks.forEach(function(t) {
+    var owner = t.querySelector('.owner-select').value;
+    var isDone = t.classList.contains('done');
+    
+    if (owner === 'socio1' || owner === 'ambos') {
+      s1Total++;
+      if (isDone) s1Done++;
+    }
+    if (owner === 'socio2' || owner === 'ambos') {
+      s2Total++;
+      if (isDone) s2Done++;
+    }
+  });
+
+  var p1 = s1Total ? Math.round(s1Done/s1Total*100) : 0;
+  var p2 = s2Total ? Math.round(s2Done/s2Total*100) : 0;
+
+  document.getElementById('readiness-s1').textContent = p1 + '%';
+  document.getElementById('fill-s1').style.width = p1 + '%';
+  document.getElementById('readiness-s2').textContent = p2 + '%';
+  document.getElementById('fill-s2').style.width = p2 + '%';
+}
+
+function applyFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  
+  document.querySelectorAll('.task[data-id]').forEach(function(t) {
+    var owner = t.querySelector('.owner-select').value;
+    if (filter === 'all') {
+      t.classList.remove('filtered-out');
+    } else {
+      t.classList.toggle('filtered-out', owner !== filter);
+    }
+  });
 }
 
 // ── INIT ──────────────────────────────────────────────────
 function init() {
-  // O progresso é carregado automaticamente pela bindTask
   initInvest();
   restoreExtras();
   document.querySelectorAll('.task[data-id]').forEach(function(t) { bindTask(t); });
   document.querySelectorAll('.add-task-btn').forEach(function(b) { bindAddButton(b); });
+  
+  // Eventos de filtro
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyFilter(btn.dataset.filter); });
+  });
+
   ['s1','s2','s3','s4'].forEach(updateSectionProgress);
   updateGlobalProgress();
+  updateReadiness();
   renderTrash();
 }
 
