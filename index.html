@@ -209,7 +209,8 @@
     cursor: pointer;
     outline: none;
     transition: all 0.2s;
-    min-width: 72px;
+    min-width: 85px;
+    width: 85px;
     text-align: center;
   }
   .owner-select.socio1 { color: #00d4ff; border-color: #00d4ff; background: #0d1f2d; }
@@ -418,12 +419,12 @@
   <div class="summary-grid">
     <div class="stat-card">
       <div class="stat-label">Investimento inicial</div>
-      <div class="stat-value" id="headerInvest">R$ 0</div>
+      <div class="stat-value" id="headerInvest">R$ 3.500</div>
       <div class="stat-sub">Sincronizado com seção 04b</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--green)">
       <div class="stat-label">Meta mês 1</div>
-      <div class="stat-value" style="color:var(--green)">R$ 1.750</div>
+      <div class="stat-value" style="color:var(--green)">R$ 1.950</div>
       <div class="stat-sub">5 contratos Basic fechados</div>
     </div>
     <div class="stat-card" style="border-top-color: var(--accent2)">
@@ -482,7 +483,7 @@
         <tfoot>
           <tr class="invest-total-row">
             <td colspan="2" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;">TOTAL ESTIMADO</td>
-            <td id="investTotal" class="invest-total-value">R$ 0</td>
+            <td id="investTotal" class="invest-total-value">R$ 3.500</td>
             <td></td>
           </tr>
         </tfoot>
@@ -499,15 +500,19 @@
     <div class="section-header"><span class="section-num">05</span><span class="section-title">PROJEÇÃO FINANCEIRA</span></div>
     <div class="finance-table-wrap">
       <table class="finance-table">
-        <thead><tr><th>Período</th><th>Contratos</th><th>Receita Bruta</th><th>Por sócio</th></tr></thead>
+        <thead><tr><th>Período</th><th>Contratos</th><th>Receita Bruta</th><th>Por Sócio</th></tr></thead>
         <tbody>
-          <tr><td>Mês 1</td><td>5 Basic</td><td class="num neutral">R$ 1.750–2.500</td><td class="num neutral">R$ 875–1.250</td></tr>
-          <tr><td>Mês 2</td><td>10 Basic + 2 Std</td><td class="num neutral">R$ 5.100–6.400</td><td class="num neutral">R$ 2.550–3.200</td></tr>
-          <tr><td>Mês 3</td><td>10 Basic + 5 Std</td><td class="num positive">R$ 7.500–11.000</td><td class="num positive">R$ 3.750–5.500</td></tr>
-          <tr><td>Mês 3+ SaaS</td><td>+5 clientes SaaS</td><td class="num positive">+R$ 750–1.750</td><td class="num positive">+R$ 375–875</td></tr>
-          <tr class="total-row"><td>Potencial Mês 4</td><td>15 TI + SaaS</td><td class="num positive">~R$ 10.000–12.000</td><td class="num positive">~R$ 5.000–6.000</td></tr>
+          <tr><td>Mês 1</td><td>5 Basic</td><td class="num neutral">R$ 1.950–2.500</td><td class="num neutral">R$ 475 / R$ 475</td></tr>
+          <tr><td>Mês 2</td><td>10 Basic + 2 Std</td><td class="num neutral">R$ 5.280–6.500</td><td class="num neutral">R$ 1.640 / R$ 1.640</td></tr>
+          <tr><td>Mês 3</td><td>10 Basic + 5 Std</td><td class="num positive">R$ 7.350–11.000</td><td class="num positive">R$ 2.550 / R$ 2.500‡</td></tr>
+          <tr><td>Mês 3+ SaaS</td><td>+5 clientes SaaS</td><td class="num positive">+R$ 750–1.750</td><td class="num positive">+R$ 375 / R$ 375</td></tr>
+          <tr class="total-row"><td>Potencial Mês 4</td><td>15 TI + SaaS</td><td class="num positive">~R$ 12.000+</td><td class="num positive">~R$ 6.700 / R$ 3.000§</td></tr>
         </tbody>
       </table>
+    </div>
+    <div style="font-size: 10px; color: var(--muted); margin-top: 8px; font-family: 'IBM Plex Mono', monospace;">
+      ‡ Mês 3+: Regra de 25% do faturamento bruto ou Garantia Mínima de R$ 2.500 para o Sócio Comercial.<br>
+      § Mês 4+: 25% do faturamento (R$ 3.000) supera o mínimo, garantindo ganho proporcional ao esforço de vendas.
     </div>
   </div>
 
@@ -607,9 +612,16 @@ const SECTIONS = [
 ];
 
 const DEFAULT_INVEST = [
-  { id: 'i1', item: 'Chip Comercial', desc: 'WhatsApp Business', val: 50 },
-  { id: 'i2', item: 'Domínio .com.br', desc: 'Registro anual', val: 40 },
-  { id: 'i3', item: 'Email Profissional', desc: 'Registro.br', val: 60 }
+  { id: 'i1', item: 'Chip + Email + Dom\u00ednio', desc: 'WhatsApp Business + Registro.br', val: 100 },
+  { id: 'i2', item: 'Kit de Campo Essencial', desc: 'Ferramentas, conectores e insumos', val: 1900 },
+  { id: 'i3', item: 'Marketing (Google+Meta)', desc: 'An\u00fancios de lan\u00e7amento', val: 500 },
+  { id: 'i4', item: 'Taxa MEI (Reserva)', desc: 'Guia DAS inicial', val: 70 },
+  { id: 'i5', item: '2x VPS (Infra)', desc: 'Tactical RMM + Relay', val: 50 },
+  { id: 'i6', item: 'Uniforme (Polos)', desc: '2x Unidades com logo', val: 160 },
+  { id: 'i7', item: 'Reserva p/ Imprevistos', desc: 'Fundo emergencial', val: 150 },
+  { id: 'i8', item: 'Endere\u00e7o Fiscal', desc: 'Coworking', val: 170 },
+  { id: 'i9', item: 'Transporte', desc: 'Uber visitas presenciais', val: 300 },
+  { id: 'i10', item: 'Cart\u00e3o de visita', desc: 'Gr\u00e1fica', val: 100 }
 ];
 
 // ── STATE ──────────────────────────────────────────────────
