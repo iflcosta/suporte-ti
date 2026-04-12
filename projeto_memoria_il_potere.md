@@ -8,10 +8,10 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Filosofia de Vendas:** "Fidelidade Zero" — Retenção pela qualidade total, não por burocracia contratual.
 - **Diferencial Competitivo:** TI de Performance, Segurança Anti-Ransomware e Automação com IA integradas ao suporte básico.
 
-## 👥 2. Estrutura Operacional (Hybrid-Solo)
-- **Fase Solo (Meses 1-2):** Fundador assume 100% (Estratégia, Comercial e Suporte Total N1-N3).
-- **Fase de Escala (Mês 3+):** Introdução de Estagiário (N1) e equipe de apoio para desalavancagem do Fundador.
-- **Cultura:** Foco em agilidade, proatividade e lucro líquido máximo antes da expansão do time.
+## 👥 2. Estrutura Operacional (Double-Force)
+- **Sócio 1 (Técnico - CTO):** Foco 100% em Desenvolvimento, Suporte Crítico N3, Infraestrutura e Inovação em IA.
+- **Sócio 2 (Executivo - CXO):** Responsável por Operação Comercial, Financeiro, Prospecção Ativa, Assinatura de Contratos e Gestão de Clientes.
+- **Cultura:** Sinergia total entre excelência técnica e agressividade comercial, eliminando sobrecarga do fundador técnico.
 
 ## 📊 3. Portfólio de Planos & Projeções (Rev. Simetria 4/4/4)
 - **Essenziale (R$ 390/mês):** Até 5 dispositivos. 4 Pilares: Suporte, Visitas, Marca e TI/Conectividade.
@@ -90,18 +90,12 @@ Este documento contém o DNA estratégico, visual e operacional atualizado da **
 - **Visual:** Minimalismo de alta performance, tipografia moderna (Inter/Outfit).
 - **Tom de Voz:** Autoridade, Lealdade e Resolução. Sem tecnicismos desnecessários; foco em produtividade real.
 
-## 💹 7. DNA Econômico & Metas (Blindagem 4.5k)
-- **Investimento Inicial:** **R$ 2.150,00** (Kit Essencial R$ 1000, Sede Virtual/Domínio, Ads, Infra).
-- **Expansão Mês 2:** **+ R$ 1.000,00** (Finalização do Kit de Campo Full).
-- **OPEX Solo (Mês 1):** **R$ 1.000,00/mês** (Ads e Softwares).
-- **OPEX Mix (Mês 2):** **R$ 2.000,00** (Opex + R$ 1.000 do Kit complementar).
-- **OPEX Blindado (Mês 3+):** **R$ 2.300,00/mês** (Estagiário 5h R$ 950, Apoio Tia 5h R$ 800, Ads e Softwares).
-- **Teto de Gasto Total (Guerra):** **R$ 4.500,00/mês** (OPEX + Salário Fundador de R$ 2.200).
-- **Projeções de Sobra Líquida (Caixa Empresa):**
-    - **Mês 1:** **R$ 950,00** (Rev 1.95k - 1k opex).
-    - **Mês 2:** **R$ 1.080,00** (Rev ~5.2k - 2.2k sal - 1k opex - 1k kit extra).
-    - **Mês 3:** **R$ 2.850,00** (Rev 7.35k - 4.5k teto).
-    - **Mês 4 (Escala):** **R$ 7.500,00/mês** (Rev ~12k - 4.5k teto).
+## 💹 7. DNA Econômico & Metas (Estrutura de Sociedade)
+- **Investimento Inicial:** **R$ 2.150,00** (Kit Essencial, Sede Virtual, Ads, Infra).
+- **Operação Inicial:** Utilização do MEI do Sócio 2 como empresa guarda-chuva para faturamento inicial.
+- **Transição Tributária:** Migração para LTDA planejada assim que o faturamento recorrente estabilizar.
+- **OPEX Blindado:** Redução de custos de contratação inicial (estagiário) substituído pelo trabalho focado da dupla.
+- **Divisão de Resultados:** Sobra líquida reinvestida ou distribuída conforme acordo interno de sociedade.
 
 ---
 *Documento Finalizado em 05/04/2026 // Il Potere Tech - Central de Inteligência*🛡️🚀

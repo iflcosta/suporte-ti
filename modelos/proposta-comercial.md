@@ -5,7 +5,12 @@
 ---
 
 ## 🚀 SOBRE NÓS
-Somos uma empresa local de suporte técnico com foco em **Pequenas e Médias Empresas (PMEs)**. Operamos com um modelo simples: **Sem Fidelidade** e **Sem Surpresas**. Tecnologia funcionando é a sua produtividade em alta, e nós cuidamos da infraestrutura para você focar no que importa.
+Somos uma empresa local de suporte tecnológico de alta performance sediada em Bragança Paulista. Nossa operação é liderada por uma dupla de especialistas dedicados:
+
+- **Excelência Técnica:** Garantindo infraestrutura robusta, segurança de dados e inovação.
+- **Excelência no Atendimento:** Gestão comercial ágil, consultoria financeira e proximidade total com o cliente.
+
+Operamos com o modelo **Fidelidade Zero**: nossa retenção é baseada na qualidade absoluta do serviço, sem amarras contratuais.
 
 ---
 
@@ -56,6 +61,6 @@ Somos uma empresa local de suporte técnico com foco em **Pequenas e Médias Emp
 ---
 
 ### Vamos otimizar sua TI agora?
-**Sócio 1 & Sócio 2**
+**Sócio 1 (Técnico) & Sócio 2 (Comercial)**
 WhatsApp: (11) 9 ____-____ | contato@ilpotere.tech | www.ilpotere.tech
 *Respondemos em até 2 horas em horário comercial.*

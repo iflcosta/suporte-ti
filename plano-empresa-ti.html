@@ -14,10 +14,73 @@
     --accent2: #7c3aed;
     --green: #00ff88;
     --yellow: #ffd60a;
+    --muted: #64748b;
     --red: #ff4444;
     --text: #e2e8f0;
-    --muted: #64748b;
   }
+
+  /* Novos Estilos: Filtros e Dashboards */
+  .readiness-dash {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .readiness-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .readiness-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .readiness-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .readiness-fill { height: 100%; width: 0%; transition: width 0.5s ease; }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+  }
+  .filter-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--muted);
+    padding: 6px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0,212,255,0.1);
+  }
+  .filter-btn.active[data-filter="socio1"] { border-color: #00d4ff; color: #00d4ff; background: rgba(0,212,255,0.1); }
+  .filter-btn.active[data-filter="socio2"] { border-color: #f472b6; color: #f472b6; background: rgba(244,114,182,0.1); }
+  .filter-btn.active[data-filter="ambos"] { border-color: #00ff88; color: #00ff88; background: rgba(0,255,136,0.1); }
+
+  .task.filtered-out { display: none !important; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--bg);
@@ -686,12 +749,40 @@
     <div class="header-meta">
       <span><span class="dot"></span> Status: Pré-operação</span>
       <span>// Bragança Paulista, SP</span>
-      <span>// 2 sócios</span>
-      <span>// Março 2026</span>
+      <span>// Sociedade: Sócio 1 (CTO) & Sócio 2 (CXO)</span>
+      <span>// Abril 2026</span>
     </div>
     <div class="global-progress">
       <div class="global-progress-bg"><div class="global-progress-fill" id="globalFill"></div></div>
-      <span class="global-label" id="globalLabel">0 / 0 tarefas</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px;">
+        <span class="global-label" id="globalLabel">0 / 0 tarefas</span>
+      </div>
+    </div>
+
+    <!-- DASHBOARD DE PRONTIDÃO -->
+    <div class="readiness-dash">
+      <div class="readiness-card">
+        <div class="readiness-header">
+          <span style="color: #00d4ff">Sócio 1 (Técnico)</span>
+          <span id="readiness-s1">0%</span>
+        </div>
+        <div class="readiness-bar"><div class="readiness-fill" id="fill-s1" style="background: #00d4ff"></div></div>
+      </div>
+      <div class="readiness-card">
+        <div class="readiness-header">
+          <span style="color: #f472b6">Sócio 2 (Comercial)</span>
+          <span id="readiness-s2">0%</span>
+        </div>
+        <div class="readiness-bar"><div class="readiness-fill" id="fill-s2" style="background: #f472b6"></div></div>
+      </div>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Tudo</button>
+      <button class="filter-btn" data-filter="socio1">Sócio 1</button>
+      <button class="filter-btn" data-filter="socio2">Sócio 2</button>
+      <button class="filter-btn" data-filter="ambos">Ambos</button>
     </div>
   </div>
 
@@ -735,31 +826,31 @@
       </div>
       <div class="week-tasks" data-section="s1">
         <div class="task" data-id="s1-1"><div class="task-check"></div><span class="task-text">Definir nome da empresa</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-2"><div class="task-check"></div><span class="task-text">Decidir modelo jurídico: MEI por enquanto (recomendado abrir cada um o seu MEI — veja seção jurídica)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
-        <option value="ambos" selected>AMBOS</option>
-      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-3"><div class="task-check"></div><span class="task-text">Abrir MEI no gov.br — CNAE 6209-1/00 — gratuito, ~15min</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
-        <option value="ambos" selected>AMBOS</option>
-      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-4"><div class="task-check"></div><span class="task-text">Abrir conta PJ gratuita — Nubank PJ ou Inter PJ</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
-        <option value="ambos" selected>AMBOS</option>
-      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-5"><div class="task-check"></div><span class="task-text">Comprar chip novo para número comercial (R$ 50)</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <div class="task" data-id="s1-2"><div class="task-check"></div><span class="task-text">Decidir modelo jurídico: MEI do Sócio 2</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s1-6"><div class="task-check"></div><span class="task-text">Configurar WhatsApp Business com perfil completo</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <div class="task" data-id="s1-3"><div class="task-check"></div><span class="task-text">Abrir MEI no gov.br — CNAE 6209-1/00 (Sócio 2)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-4"><div class="task-check"></div><span class="task-text">Abrir conta PJ gratuita — Nubank PJ ou Inter PJ (Sócio 2)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-5"><div class="task-check"></div><span class="task-text">Comprar chip novo para número comercial (R$ 50)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1</option>
+        <option value="socio2" selected>SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s1-6"><div class="task-check"></div><span class="task-text">Configurar WhatsApp Business com perfil completo</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
@@ -770,8 +861,8 @@
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s1-8"><div class="task-check"></div><span class="task-text">Definir divisão financeira — redigir acordo entre sócios por escrito</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s1-9"><div class="task-check"></div><span class="task-text">Adquirir Uniforme/Apresentação (Polo com logo ou Crachá)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
@@ -791,9 +882,9 @@
     <!-- JURÍDICO -->
     <div class="legal-grid">
       <div class="legal-card">
-        <h4>⚡ Recomendação — MEI agora</h4>
-        <p>Cada sócio abre seu próprio MEI. <strong>MEI não permite sociedade</strong>, mas vocês podem operar como dois prestadores independentes usando o mesmo nome comercial. Custo zero, 15 minutos cada.</p>
-        <span class="rec-tag">✓ RECOMENDADO PARA INÍCIO</span>
+        <h4>⚡ Recomendação — MEI do Sócio 2</h4>
+        <p>Abertura do MEI no nome do Sócio 2 para centralizar o faturamento e contratos iniciais. <strong>O Sócio 1 atua como parceiro técnico</strong> até a migração para LTDA. Custo zero, 15 minutos.</p>
+        <span class="rec-tag">✓ ESTRATÉGIA INICIAL</span>
       </div>
       <div class="legal-card">
         <h4>📋 LTDA depois (mês 3+)</h4>
@@ -855,8 +946,8 @@
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task done" data-id="s2-4"><div class="task-check"></div><span class="task-text">Modelo de proposta comercial de 1 página finalizado (Foco em Produtividade)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task done" data-id="s2-5"><div class="task-check"></div><span class="task-text">Modelo de contrato técnico profissional finalizado (SLA Seguro - 4h/8h)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
@@ -864,15 +955,15 @@
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-6"><div class="task-check"></div><span class="task-text">Pedir cartões de visita (100–200 unid.) — logo + WhatsApp + site + QR Code</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <div class="task" data-id="s2-6"><div class="task-check"></div><span class="task-text">Pedir cartões de visita (100–200 unid.) — logo + WhatsApp + site + QR Code</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s2-7"><div class="task-check"></div><span class="task-text">Instalar RustDesk nos notebooks</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
+        <div class="task" data-id="s2-7"><div class="task-check"></div><span class="task-text">Instalar RustDesk nos notebooks</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
         <option value="socio2">SÓCIO 2</option>
-        <option value="ambos" selected>AMBOS</option>
+        <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s2-8"><div class="task-check"></div><span class="task-text">Criar perfil no Google Meu Negócio (SEO local gratuito)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
         <option value="socio1" selected>SÓCIO 1</option>
@@ -909,38 +1000,38 @@
       </div>
       <div class="week-tasks" data-section="s3">
         <div class="task" data-id="s3-1"><div class="task-check"></div><span class="task-text">Mapear 20 empresas-alvo em BP (Google Maps — contabilidades, clínicas, farmácias)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-2"><div class="task-check"></div><span class="task-text">Definir roteiro de visitas por bairro/rua (otimizar deslocamento)</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <div class="task" data-id="s3-2"><div class="task-check"></div><span class="task-text">Definir roteiro de visitas por bairro/rua (otimizar deslocamento)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s3-3"><div class="task-check"></div><span class="task-text">Fazer as 5 primeiras visitas presenciais — foco em contabilidades (Sócio 2 diariamente + Sócio 1 quando flexível)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s3-4"><div class="task-check"></div><span class="task-text">Enviar proposta PDF no mesmo dia da visita via WhatsApp</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s3-5"><div class="task-check"></div><span class="task-text">Follow-up dia 3 se não respondeu</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <div class="task" data-id="s3-5"><div class="task-check"></div><span class="task-text">Follow-up dia 3 se não respondeu</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s3-6"><div class="task-check"></div><span class="task-text">Meta: 1 contrato fechado até o final da semana</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s3-7"><div class="task-check"></div><span class="task-text">Roleplay/Simulação de Atendimento e Venda (Treinar objeções)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s3-8"><div class="task-check"></div><span class="task-text">Ativar Campanha Meta Ads (R$ 350 — Vídeos e Prova Social Local)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
@@ -1008,9 +1099,9 @@
         </div>
       </div>
       <div class="week-tasks" data-section="s4">
-        <div class="task" data-id="s4-1"><div class="task-check"></div><span class="task-text">5 novas visitas por semana — meta cumulativa de 15 contratos em 60 dias</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2" selected>SÓCIO 2</option>
+        <div class="task" data-id="s4-1"><div class="task-check"></div><span class="task-text">5 novas visitas por semana — meta cumulativa de 15 contratos em 60 dias</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2" selected>SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s4-2"><div class="task-check"></div><span class="task-text">Atendimento remoto pela manhã e noite (RustDesk)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
@@ -1018,29 +1109,29 @@
         <option value="socio2">SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-3"><div class="task-check"></div><span class="task-text">Visitas presenciais programadas conforme plano de cada cliente</span><span class="task-owner"><select class="owner-select amigo" onclick="event.stopPropagation()">
+        <div class="task" data-id="s4-3"><div class="task-check"></div><span class="task-text">Visitas presenciais programadas conforme plano de cada cliente</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
+        <option value="socio1" selected>SÓCIO 1</option>
+        <option value="socio2">SÓCIO 2</option>
+        <option value="ambos">AMBOS</option>
+      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
+        <div class="task" data-id="s4-4"><div class="task-check"></div><span class="task-text">Registrar todos os clientes no Notion ou Trello (nome, plano, vencimento, histórico)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-4"><div class="task-check"></div><span class="task-text">Registrar todos os clientes no Notion ou Trello (nome, plano, vencimento, histórico)</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
-        <option value="ambos" selected>AMBOS</option>
-      </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
-        <div class="task" data-id="s4-5"><div class="task-check"></div><span class="task-text">Emitir cobranças mensais via PIX ou boleto (Inter PJ)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
+        <div class="task" data-id="s4-5"><div class="task-check"></div><span class="task-text">Emitir cobranças mensais via PIX ou boleto (Asaas/Inter PJ)</span><span class="task-owner"><select class="owner-select socio2" onclick="event.stopPropagation()">
         <option value="socio1">SÓCIO 1</option>
         <option value="socio2" selected>SÓCIO 2</option>
         <option value="ambos">AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s4-6"><div class="task-check"></div><span class="task-text">Identificar clientes com sistema de gestão ruim → oportunidade SaaS</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task" data-id="s4-7"><div class="task-check"></div><span class="task-text">Mês 3: avaliar abertura de LTDA e contratação de contador</span><span class="task-owner"><select class="owner-select ambos" onclick="event.stopPropagation()">
-        <option value="socio1">SÓCIO 1</option>
-        <option value="socio2">SÓCIO 2</option>
+        <option value="socio1">SÓCIO 1 (TÉCNICO)</option>
+        <option value="socio2">SÓCIO 2 (COMERCIAL)</option>
         <option value="ambos" selected>AMBOS</option>
       </select></span><button class="task-remove" title="Remover tarefa">×</button></div>
         <div class="task done" data-id="s4-8"><div class="task-check"></div><span class="task-text">Checklist de Onboarding Elite finalizado (Equipe Sócio 1 & Sócio 2)</span><span class="task-owner"><select class="owner-select socio1" onclick="event.stopPropagation()">
@@ -1139,8 +1230,8 @@
       </tbody>
     </table>
     <div style="font-size: 10px; color: var(--muted); margin-top: 8px; font-family: 'IBM Plex Mono', monospace;">
-      * Inclui R$ 1.000 extras para finalização do Kit de Campo Full.<br>
-      † Entrada Estagiário (5h - R$ 950) + Apoio Remoto (5h - R$ 800) + Softwares.
+      * Divisão de lucros iniciada após cobertura dos custos fixos operacionais.<br>
+      † Estrutura de Sociedade: ausência de custos com estagiário/apoio no início devido à dedicação total da dupla.
     </div>
     </div>
   </div>
@@ -1478,8 +1569,8 @@ function createTaskEl(sectionId, id, text, owner) {
     '<div class="task-check"></div>' +
     '<span class="task-text">' + text + '</span>' +
     '<span class="task-owner"><select class="owner-select" onclick="event.stopPropagation()">' +
-      '<option value="socio1"'    + (owner==='socio1'   ?' selected':'') + '>SÓCIO 1</option>' +
-      '<option value="socio2"' + (owner==='socio2'?' selected':'') + '>SÓCIO 2</option>' +
+      '<option value="socio1"'    + (owner==='socio1'   ?' selected':'') + '>SÓCIO 1 (TÉCNICO)</option>' +
+      '<option value="socio2"' + (owner==='socio2'?' selected':'') + '>SÓCIO 2 (COMERCIAL)</option>' +
       '<option value="ambos"'   + (owner==='ambos'  ?' selected':'') + '>AMBOS</option>' +
     '</select></span>' +
     '<button class="task-remove" title="Remover">\u00d7</button>';
@@ -1515,6 +1606,7 @@ function bindTask(task) {
     var sec = task.closest('[data-section]');
     if (sec) updateSectionProgress(sec.dataset.section);
     updateGlobalProgress();
+    updateReadiness();
   });
 
   if (textEl) {
@@ -1550,6 +1642,8 @@ function bindTask(task) {
       var o = loadJSON(OWNER_KEY);
       o[id] = val;
       saveJSON(OWNER_KEY, o);
+      updateReadiness();
+      if (currentFilter !== 'all') applyFilter(currentFilter);
     });
   }
 
@@ -1567,6 +1661,7 @@ function bindTask(task) {
       task.remove();
       updateSectionProgress(secId);
       updateGlobalProgress();
+    updateReadiness();
     });
   }
 }
@@ -1588,6 +1683,7 @@ function bindAddButton(btn) {
     saveJSON(EXTRA_KEY, ex);
     updateSectionProgress(sectionId);
     updateGlobalProgress();
+    updateReadiness();
   });
 }
 
@@ -1609,9 +1705,8 @@ function restoreExtras() {
 
 // ── INVESTIMENTO ──────────────────────────────────────────
 var DEFAULT_INVEST = [
-  { id: 'inv-1', item: 'Kit Pen Drives (2x 64GB)', desc: 'Kingston/Sandisk para Ventoy e ISOs',   value: 120 },
   { id: 'inv-2', item: 'Chip + Email + Dom\u00ednio', desc: 'WhatsApp Business + Registro.br (Anual)', value: 100 },
-  { id: 'inv-3', item: 'Kit de Campo Essencial', desc: 'Ferramentas, conectores e insu\u00admos b\u00e1sicos', value: 1000 },
+  { id: 'inv-3', item: 'Kit de Campo Essencial', desc: 'Ferramentas, conectores e insu\u00admos b\u00e1sicos', value: 1900 },
   { id: 'inv-4', item: 'Marketing (Google+Meta)', desc: 'R$ 150 Google (Busca) + R$ 350 Meta (Autoridade)', value: 500 },
   { id: 'inv-5', item: 'Taxa MEI (Reserva)',     desc: 'Primeira guia DAS simplificada',          value: 70 },
   { id: 'inv-7', item: '2x VPS (Infraestrutura)', desc: 'Tactical RMM + RustDesk Relay',          value: 50 },
@@ -1723,14 +1818,68 @@ function initInvest() {
   }
 }
 
+// ── FILTROS & READINESS ──────────────────────────────────
+var currentFilter = 'all';
+
+function updateReadiness() {
+  var allTasks = document.querySelectorAll('.task[data-id]');
+  var s1Done = 0, s1Total = 0;
+  var s2Done = 0, s2Total = 0;
+
+  allTasks.forEach(function(t) {
+    var owner = t.querySelector('.owner-select').value;
+    var isDone = t.classList.contains('done');
+    
+    if (owner === 'socio1' || owner === 'ambos') {
+      s1Total++;
+      if (isDone) s1Done++;
+    }
+    if (owner === 'socio2' || owner === 'ambos') {
+      s2Total++;
+      if (isDone) s2Done++;
+    }
+  });
+
+  var p1 = s1Total ? Math.round(s1Done/s1Total*100) : 0;
+  var p2 = s2Total ? Math.round(s2Done/s2Total*100) : 0;
+
+  document.getElementById('readiness-s1').textContent = p1 + '%';
+  document.getElementById('fill-s1').style.width = p1 + '%';
+  document.getElementById('readiness-s2').textContent = p2 + '%';
+  document.getElementById('fill-s2').style.width = p2 + '%';
+}
+
+function applyFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  
+  document.querySelectorAll('.task[data-id]').forEach(function(t) {
+    var owner = t.querySelector('.owner-select').value;
+    if (filter === 'all') {
+      t.classList.remove('filtered-out');
+    } else {
+      t.classList.toggle('filtered-out', owner !== filter);
+    }
+  });
+}
+
 // ── INIT ──────────────────────────────────────────────────
 function init() {
   initInvest();
   restoreExtras();
   document.querySelectorAll('.task[data-id]').forEach(function(t) { bindTask(t); });
   document.querySelectorAll('.add-task-btn').forEach(function(b) { bindAddButton(b); });
+  
+  // Eventos de filtro
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyFilter(btn.dataset.filter); });
+  });
+
   ['s1','s2','s3','s4'].forEach(updateSectionProgress);
   updateGlobalProgress();
+  updateReadiness();
   renderTrash();
 }
 

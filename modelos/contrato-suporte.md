@@ -7,7 +7,7 @@
 ### IDENTIFICAÇÃO DAS PARTES
 
 **CONTRATADO (Prestador):**
-[Nome do Sócio Responsável] | CPF: __.__.__-___ | CNPJ MEI: __.__.__/____-__
+[Nome do Sócio 2] | CPF: __.__.__-___ | CNPJ MEI: __.__.__/____-__
 Endereço: Bragança Paulista, SP | WhatsApp: (11) 9 ____-____
 
 **CONTRATANTE (Cliente):**
@@ -62,6 +62,6 @@ Bragança Paulista, ______ de ________________ de 2026.
 
 ---
 
-**[NOME DO SÓCIO] // CONTRATADO (IL POTERE TECH)**
+**[NOME DO SÓCIO 2] // CONTRATADO (IL POTERE TECH)**
 
 **[NOME DO RESPONSÁVEL] // CONTRATANTE (CLIENTE)**

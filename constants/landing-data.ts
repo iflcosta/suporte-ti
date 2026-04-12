@@ -121,7 +121,7 @@ export const DIFERENCIAIS = [
   { numero: "24/7", label: "Monitoramento de Saúde Digital" },
   { numero: "30min", label: "Tempo de Resposta em Emergências" },
   { numero: "0", label: "Contrato de Fidelidade (Confiança)" },
-  { numero: "100%", label: "Atendimento por Fundador Especialista" },
+  { numero: "100%", label: "Suporte Técnico Especializado" },
 ]
 
 export const FAQ = [
