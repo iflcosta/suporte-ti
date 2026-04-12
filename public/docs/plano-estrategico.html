@@ -1666,11 +1666,11 @@ function bindTask(task) {
   }
 }
 
-// ── ADD BUTTON ────────────────────────────────────────────
+// ── ADICIONAR TASK ────────────────────────────────────────
 function bindAddButton(btn) {
+  var sectionId = btn.dataset.section;
   btn.addEventListener('click', function() {
-    var sectionId = btn.dataset.section;
-    var section   = document.querySelector('[data-section="' + sectionId + '"]');
+    var section = document.querySelector('[data-section="' + sectionId + '"]');
     if (!section) return;
     var text = prompt('Texto da nova tarefa:');
     if (!text || !text.trim()) return;
@@ -1827,7 +1827,9 @@ function updateReadiness() {
   var s2Done = 0, s2Total = 0;
 
   allTasks.forEach(function(t) {
-    var owner = t.querySelector('.owner-select').value;
+    var ownerSelect = t.querySelector('.owner-select');
+    if (!ownerSelect) return;
+    var owner = ownerSelect.value;
     var isDone = t.classList.contains('done');
     
     if (owner === 'socio1' || owner === 'ambos') {
@@ -1843,10 +1845,15 @@ function updateReadiness() {
   var p1 = s1Total ? Math.round(s1Done/s1Total*100) : 0;
   var p2 = s2Total ? Math.round(s2Done/s2Total*100) : 0;
 
-  document.getElementById('readiness-s1').textContent = p1 + '%';
-  document.getElementById('fill-s1').style.width = p1 + '%';
-  document.getElementById('readiness-s2').textContent = p2 + '%';
-  document.getElementById('fill-s2').style.width = p2 + '%';
+  var r1 = document.getElementById('readiness-s1');
+  var f1 = document.getElementById('fill-s1');
+  var r2 = document.getElementById('readiness-s2');
+  var f2 = document.getElementById('fill-s2');
+
+  if (r1) r1.textContent = p1 + '%';
+  if (f1) f1.style.width = p1 + '%';
+  if (r2) r2.textContent = p2 + '%';
+  if (f2) f2.style.width = p2 + '%';
 }
 
 function applyFilter(filter) {
@@ -1856,7 +1863,9 @@ function applyFilter(filter) {
   });
   
   document.querySelectorAll('.task[data-id]').forEach(function(t) {
-    var owner = t.querySelector('.owner-select').value;
+    var sel = t.querySelector('.owner-select');
+    if (!sel) return;
+    var owner = sel.value;
     if (filter === 'all') {
       t.classList.remove('filtered-out');
     } else {
