@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Plano — Empresa de Suporte TI</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <style>
   :root {
     --bg: #0a0a0f;
@@ -1443,11 +1444,18 @@
       Gerado em Março/2026 — Confidencial<br>
       Revisão: quando bater 15 contratos
     </div>
+    <div id="syncStatus" style="font-family:'IBM Plex Mono',monospace; font-size:10px; opacity:0.6;">Nuvem: Conectando...</div>
     <div class="footer-right">SUPORTE TI // BP</div>
   </div>
 
 </div>
 <script>
+// ── CONFIGURAÇÃO SUPABASE ──────────────────────────────────
+const SB_URL = "https://bbaximodkdadaxtyjuzw.supabase.co"; 
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJiYXhpbW9ka2RhZGF4dHlqdXp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwMDgxNzAsImV4cCI6MjA5MDU4NDE3MH0.76IaVw9T8wRq_k29s133_WrAoEkepXiO1Ky5AQDj6fU"; 
+const ROW_ID = "main_flow";
+const sb = (SB_URL && SB_URL.indexOf('http') === 0) ? supabase.createClient(SB_URL, SB_KEY) : null;
+
 // ── STORAGE HELPERS ───────────────────────────────────────
 var STORAGE_KEY = 'plano-ti-tasks';
 var OWNER_KEY   = 'plano-ti-owners';
@@ -1460,7 +1468,90 @@ function loadJSON(key) {
   try { return JSON.parse(localStorage.getItem(key)) || {}; }
   catch(e) { return {}; }
 }
-function saveJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+function saveJSON(key, val) { 
+  localStorage.setItem(key, JSON.stringify(val)); 
+  saveCloud();
+}
+
+async function saveCloud() {
+  const status = document.getElementById('syncStatus');
+  if (status) status.innerText = 'Nuvem: Salvando...';
+  if (!sb) return;
+  const payload = {
+    tasksDone: loadJSON(STORAGE_KEY),
+    taskOwners: loadJSON(OWNER_KEY),
+    taskTexts: loadJSON(TEXT_KEY),
+    customTasks: loadJSON(EXTRA_KEY),
+    investItems: loadJSON(INVEST_KEY),
+    trashItems: loadJSON(TRASH_KEY)
+  };
+  try {
+    const { error } = await sb.from('plano_ti_sync').upsert({ id: ROW_ID, data: payload });
+    if (error) throw error;
+    if (status) status.innerText = 'Nuvem: Sincronizado';
+  } catch(e) {
+    if (status) status.innerText = 'Nuvem: Erro ao salvar';
+    console.error("Cloud push error:", e);
+  }
+}
+
+async function pullCloud() {
+  if (!sb) return;
+  try {
+    const { data, error } = await sb.from('plano_ti_sync').select('data').eq('id', ROW_ID).single();
+    if (error) throw error;
+    if (data && data.data) {
+      applyCloudData(data.data);
+    }
+  } catch(e) { console.error("Cloud pull error:", e); }
+}
+
+function applyCloudData(d) {
+  if (!d) return;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(d.tasksDone || d.state || {}));
+  localStorage.setItem(OWNER_KEY,   JSON.stringify(d.taskOwners || {}));
+  localStorage.setItem(TEXT_KEY,    JSON.stringify(d.taskTexts || {}));
+  localStorage.setItem(EXTRA_KEY,   JSON.stringify(d.customTasks || d.extras || {}));
+  localStorage.setItem(INVEST_KEY,  JSON.stringify(d.investItems || d.invest || {}));
+  localStorage.setItem(TRASH_KEY,   JSON.stringify(d.trashItems || {}));
+  refreshUI();
+}
+
+function subscribeToChanges() {
+  if (!sb) return;
+  sb.channel('db-changes')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'plano_ti_sync' }, (p) => {
+      if (p.new && p.new.id === ROW_ID) applyCloudData(p.new.data);
+    }).subscribe();
+}
+
+function refreshUI() {
+  document.querySelectorAll('.task[data-id]').forEach(function(t) {
+    var id = t.dataset.id;
+    var state = loadJSON(STORAGE_KEY);
+    var owners = loadJSON(OWNER_KEY);
+    var texts = loadJSON(TEXT_KEY);
+    
+    t.classList.toggle('done', !!state[id]);
+    var sel = t.querySelector('.owner-select');
+    if (sel && owners[id]) {
+      sel.value = owners[id];
+      applyOwnerStyle(sel, owners[id]);
+    }
+    var txt = t.querySelector('.task-text');
+    if (txt && texts[id]) txt.textContent = texts[id];
+  });
+  
+  initInvest(); // Refresh investments
+  restoreExtras(); // Refresh dynamic tasks
+  ['s1','s2','s3','s4'].forEach(updateSectionProgress);
+  updateGlobalProgress();
+  updateReadiness();
+  renderTrash();
+  
+  const status = document.getElementById('syncStatus');
+  if (status) status.innerText = 'Nuvem: Atualizado';
+}
 
 // ── OWNER SELECT ──────────────────────────────────────────
 function applyOwnerStyle(sel, val) {
@@ -1752,7 +1843,10 @@ function loadInvest() {
     return (stored && stored.length) ? stored : DEFAULT_INVEST;
   } catch(e) { return DEFAULT_INVEST; }
 }
-function saveInvest(data) { localStorage.setItem(INVEST_KEY, JSON.stringify(data)); }
+function saveInvest(data) { 
+  localStorage.setItem(INVEST_KEY, JSON.stringify(data)); 
+  saveCloud();
+}
 
 function calcTotal(data) {
   return data.reduce(function(acc, row) { return acc + (parseFloat(row.value) || 0); }, 0);
@@ -1907,7 +2001,12 @@ function applyFilter(filter) {
 }
 
 // ── INIT ──────────────────────────────────────────────────
-function init() {
+async function init() {
+  if (sb) {
+    await pullCloud();
+    subscribeToChanges();
+  }
+  
   initInvest();
   restoreExtras();
   document.querySelectorAll('.task[data-id]').forEach(function(t) { bindTask(t); });
