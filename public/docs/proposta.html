@@ -227,7 +227,7 @@
     .doc-footer strong { color: #777; font-style: normal; }
 
     @media print {
-      body { background: white; font-size: 8pt; }
+      body { background: white; font-size: 8pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .print-btn { display: none !important; }
       .page {
         margin: 0; padding: 0.8cm 1cm;
@@ -245,6 +245,26 @@
       .plano-price { font-size: 18pt; }
       .rodape-grid { margin-bottom: 12px; }
       .cta-bar { margin-bottom: 12px; padding: 10px 14px; }
+
+      /* Forçar cores de fundo na impressão */
+      .plano-col.destaque { background: #8B2635 !important; color: white !important; }
+      .plano-col.destaque .plano-name { color: rgba(255,255,255,0.5) !important; }
+      .plano-col.destaque .plano-price { color: white !important; }
+      .plano-col.destaque .plano-price span { color: rgba(255,255,255,0.5) !important; }
+      .plano-col.destaque .plano-tagline { color: rgba(255,255,255,0.6) !important; border-color: rgba(255,255,255,0.15) !important; }
+      .plano-col.destaque ul { color: rgba(255,255,255,0.85) !important; }
+      .plano-col.destaque .check { color: #C9A962 !important; }
+      .tag-mv { background: #C9A962 !important; color: #111 !important; }
+      .rodape-box.cinza { background: #f4f4f4 !important; }
+      .rodape-box.preto { background: #0F0F0F !important; color: white !important; }
+      .rodape-box.preto h4 { color: #C9A962 !important; }
+      .rodape-box.preto ul { color: rgba(255,255,255,0.7) !important; }
+      .cta-bar { background: #8B2635 !important; color: white !important; }
+      .cta-bar p { color: rgba(255,255,255,0.8) !important; }
+      .cta-bar strong { color: white !important; }
+      .cta-contact { color: white !important; }
+      .cta-contact span { color: rgba(255,255,255,0.6) !important; }
+      .pilar { background: #fafafa !important; }
     }
 
     /* MOBILE */
