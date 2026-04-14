@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta — Il Potere Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bordeaux: #8B2635; --black: #080808; }
+    body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.6; color: #222; background: #fafafa; }
+    .page { width: 21cm; margin: 1cm auto; background: white; padding: 1.5cm 2cm; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    h1 { font-family: 'Playfair Display', serif; font-size: 16pt; color: var(--bordeaux); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .sub { font-size: 7pt; color: #888; letter-spacing: 0.3em; text-transform: uppercase; border-bottom: 2px solid var(--bordeaux); padding-bottom: 12px; margin-bottom: 20px; }
+    h2 { font-size: 10pt; color: var(--bordeaux); text-transform: uppercase; letter-spacing: 0.15em; margin: 16px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+    .intro { background: #f8f8f8; padding: 16px; margin-bottom: 16px; border-left: 3px solid var(--bordeaux); }
+    .intro p { font-size: 10pt; color: #555; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .plano { border: 1px solid #ddd; padding: 16px; }
+    .plano.destaque { background: var(--bordeaux); color: white; border-color: var(--bordeaux); }
+    .plano h3 { font-size: 9pt; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; }
+    .plano.destaque h3 { color: rgba(255,255,255,0.7); }
+    .plano .price { font-size: 20pt; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+    .plano .price span { font-size: 10pt; font-weight: 400; }
+    .plano ul { font-size: 9pt; list-style: none; }
+    .plano ul li { padding: 3px 0; border-bottom: 1px solid #eee; }
+    .plano.destaque ul li { border-color: rgba(255,255,255,0.2); }
+    .badge-lanc { background: var(--bordeaux); color: white; font-size: 6pt; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; margin-bottom: 8px; }
+    .garantia { background: #f0f0f0; padding: 12px; text-align: center; font-size: 9pt; }
+    .garantia strong { color: var(--bordeaux); }
+    .cta { text-align: center; margin-top: 20px; }
+    .cta a { display: inline-block; background: var(--bordeaux); color: white; padding: 12px 32px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer { margin-top: 24px; font-size: 8pt; color: #888; text-align: center; border-top: 1px solid #eee; padding-top: 12px; }
+    @media print { body { background: white; } .page { box-shadow: none; margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Il Potere Tech</h1>
+    <div class="sub">Suporte TI para Negócios</div>
+
+    <div class="intro">
+      <p><strong>Sua empresa merece um TI que funciona.</strong> Monitoramento 24/7, suporte remoto imediato e visitas técnicas quando precisar. Sem contrato de fidelidade — resolvemos ou você não paga.</p>
+    </div>
+
+    <h2>Oferta de Lançamento</h2>
+    <p style="font-size: 10pt; margin-bottom: 12px;">Primeiros 5 clientes: <strong>20% de desconto</strong> garanteido por 6 meses.</p>
+
+    <div class="grid">
+      <div class="plano">
+        <h3>Essenziale</h3>
+        <div class="price">R$ 290<span>/mês</span></div>
+        <ul>
+          <li>✓ Até 5 dispositivos</li>
+          <li>✓ Suporte Remoto 24/7</li>
+          <li>✓ 1 Visita Mensal</li>
+          <li>✓ E-mail Corporativo</li>
+          <li>✓ Monitoramento Proativo</li>
+        </ul>
+      </div>
+      <div class="plano destaque">
+        <span class="badge-lanc">Mais Escolhido</span>
+        <h3>Professionale</h3>
+        <div class="price">R$ 550<span>/mês</span></div>
+        <ul>
+          <li>✓ Até 15 dispositivos</li>
+          <li>✓ Suporte Prioritário</li>
+          <li>✓ 2 Visitas Mensais</li>
+          <li>✓ Backup Blindado 3-2-1</li>
+          <li>✓ Proteção EDR via IA</li>
+          <li>✓ Firewall & VPN</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Diagnóstico Grátis</h2>
+    <p>Nossa oferta incluye diagnóstico gratuito do seu ambiente de TI. Identificamos problemas e apresentamos solução sem compromisso.</p>
+
+    <div class="garantia">
+      <strong>Garantia Il Potere:</strong> Se não resolver, você não paga. Sem multas ou burocracia.
+    </div>
+
+    <div class="cta">
+      <a href="https://wa.me/5511999999999?text=Olá!+Gostaria+de+agendar+o+diagnóstico+grátis">Agendar Diagnóstico</a>
+    </div>
+
+    <div class="footer">
+      Proposta válida por 15 dias. Bragança Paulista e região.<br>
+      ilpoderetech.com.br | (11) 99999-9999
+    </div>
+  </div>
+</body>
+</html>

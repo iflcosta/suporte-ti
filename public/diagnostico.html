@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico Grátis — Il Potere Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bordeaux: #8B2635; --bg: #080808; --text: #F5F0E8; }
+    body { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; color: var(--text); background: var(--bg); min-height: 100vh; }
+    .container { max-width: 600px; margin: 0 auto; padding: 60px 24px; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--text); margin-bottom: 8px; }
+    .sub { color: #888; margin-bottom: 32px; }
+    .badge { display: inline-block; background: var(--bordeaux); color: white; font-size: 10px; padding: 4px 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin-bottom: 8px; }
+    input, select, textarea { width: 100%; padding: 14px 16px; background: #111; border: 1px solid #222; color: var(--text); font-family: inherited; font-size: 14px; border-radius: 4px; transition: border-color 0.2s; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--bordeaux); }
+    textarea { min-height: 100px; resize: vertical; }
+    .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+    .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 12px; background: #111; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+    .checkbox-item:hover { background: #1a1a1a; }
+    .checkbox-item input { width: auto; }
+    .checkbox-item span { font-size: 13px; }
+    .range-labels { display: flex; justify-content: space-between; font-size: 11px; color: #666; margin-top: 8px; }
+    button { width: 100%; padding: 16px; background: var(--bordeaux); color: white; border: none; font-family: inherit; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border-radius: 4px; transition: background 0.2s; }
+    button:hover { background: #A63344; }
+    .obs { font-size: 11px; color: #666; margin-top: 16px; text-align: center; }
+    .obs a { color: var(--bordeaux); }
+    .garantia { background: #111; padding: 16px; margin-top: 32px; border-radius: 4px; text-align: center; }
+    .garantia strong { color: var(--bordeaux); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Diagnóstico Grátis</span>
+    <h1>Auditoria de TI</h1>
+    <p class="sub">Preencha abaixo para agendar seu diagnóstico gratuito. Leva menos de 2 minutos.</p>
+
+    <form action="https://wa.me/5511999999999" method="get" target="_blank">
+      
+      <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="text" placeholder="Seu nome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="empresa">Nome da Empresa</label>
+        <input type="text" id="empresa" name="text" placeholder="Nome da sua empresa" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dispositivos">Quantos dispositivos precisa atender?</label>
+        <select id="dispositivos" name="text">
+          <option value="1-5 dispositivos">1 a 5 dispositivos</option>
+          <option value="6-10 dispositivos">6 a 10 dispositivos</option>
+          <option value="11-15 dispositivos">11 a 15 dispositivos</option>
+          <option value="16+ dispositivos">Mais de 15</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Quais problemas você enfrenta?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="text" value="Computador lento">
+            <span>Computador lento</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="text" value="Wi-Fi instável">
+            <span>Wi-Fi instável</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="text" value="Dados inseguros">
+            <span>Dados inseguros</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="text" value="Vírus malwares">
+            <span>Vírus/malwares</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="text" value="Servidor fora">
+            <span>Servidor fora do ar</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="text" value="Outro problema">
+            <span>Outro problema</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="observacoes">Observações (opcional)</label>
+        <textarea id="observacoes" name="text" placeholder="Descreva outros problemas ou necessidades específicas..."></textarea>
+      </div>
+
+      <button type="submit">Agendar Diagnóstico Grátis</button>
+
+      <p class="obs">Responderemos via WhatsApp em até 30 minutos.</p>
+    </form>
+
+    <div class="garantia">
+      <strong>Garantia Il Potere:</strong> Diagnóstico_sem compromisso. Se não resolver, você não paga.<br>
+      Sem contrato de fidelidade.
+    </div>
+  </div>
+</body>
+</html>

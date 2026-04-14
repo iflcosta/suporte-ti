@@ -16,6 +16,7 @@ export function Header() {
   const navItems = [
     { label: "Serviços", href: "#servicos" },
     { label: "Planos", href: "#planos" },
+    { label: "Diagnóstico", href: "/diagnostico" },
     { label: "FAQ", href: "#faq" },
     { label: "Contato", href: "#contato" },
     { label: "Plano de Negócios", href: "/negocios" },
@@ -88,7 +89,9 @@ export function Header() {
               key={item.label}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-serif text-[#F5F0E8] hover:text-[#C9A962] transition-colors border-b border-[#1F1F1F]/50 pb-4"
+              className={`text-lg font-serif text-[#F5F0E8] hover:text-[#C9A962] transition-colors border-b border-[#1F1F1F]/50 pb-4 ${
+                item.label === "Diagnóstico" ? "text-[#C9A962]" : ""
+              }`}
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               {item.label}

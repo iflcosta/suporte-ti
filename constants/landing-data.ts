@@ -124,6 +124,21 @@ export const DIFERENCIAIS = [
   { numero: "100%", label: "Suporte Técnico Especializado" },
 ]
 
+export const CONTATO = {
+  telefone: "5511999999999",
+  whatsapp: "https://wa.me/5511999999999",
+  email: "contato@ilpoderetech.com.br",
+  cidade: "Bragança Paulista",
+  regiao: "Região de Bragança",
+}
+
+export const LANDING_CONFIG = {
+  titulo: "Il Potere Tech",
+ _subtitulo: "Suporte TI para Negócios",
+  descricao: "Monitoramento 24/7, suporte remoto imediato e visitas técnicas. Sem contrato de fidelidade.",
+  ogImage: "/og-image.png",
+}
+
 export const FAQ = [
   {
     q: "O que é Suporte Pró-ativo?",
@@ -144,5 +159,9 @@ export const FAQ = [
   {
     q: "Posso cancelar se não estiver satisfeito?",
     a: "Com certeza. Acreditamos na entrega de valor. Se o serviço não for impecável para você, cancelamos sem multas ou burocracia.",
+  },
+  {
+    q: "Vocês atendem_ONLY em Bragança Paulista?",
+    a: "Atendemos Bragança Paulista e região. Para outras localidades, consulte disponibilidade.",
   },
 ]

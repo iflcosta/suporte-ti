@@ -34,9 +34,14 @@ export function Hero() {
             />
           </div>
           
-          <span className="inline-block font-mono text-xs tracking-[0.4em] uppercase text-[#8B2635] mb-8 animate-slide-in">
-            Suporte em TI · Bragança Paulista
-          </span>
+          <div className="flex flex-wrap justify-center gap-3 mb-8 animate-slide-in">
+            <span className="inline-block font-mono text-xs tracking-[0.4em] uppercase text-[#8B2635]">
+              Suporte em TI · Bragança Paulista
+            </span>
+            <span className="inline-block px-3 py-1 bg-[#C9A962]/20 text-[#C9A962] text-xs font-mono tracking-[0.2em] uppercase">
+              Diagnóstico Grátis
+            </span>
+          </div>
 
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.1] mb-10 animate-fade-up delay-100 max-w-4xl">
             Sua empresa não pode{" "}
@@ -55,19 +60,17 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-6 mb-24 animate-fade-up delay-300">
             <a
-              href="#planos"
-              className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#8B2635] text-[#F5F0E8] font-medium tracking-wide hover:bg-[#A63344] transition-all text-lg"
+              href="/diagnostico"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#C9A962] text-[#080808] font-medium tracking-wide hover:bg-[#d4b872] transition-all text-lg"
             >
-              Ver Planos
+              Diagnóstico Grátis
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
-              href="https://wa.me/5511999999999"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#planos"
               className="inline-flex items-center justify-center gap-3 px-10 py-5 border border-[#2a2a2a] text-[#F5F0E8] font-medium tracking-wide hover:border-[#8B2635] hover:bg-[#8B2635]/10 transition-all text-lg"
             >
-              Falar Agora
+              Ver Planos
             </a>
           </div>
 
