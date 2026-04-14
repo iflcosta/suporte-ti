@@ -1,6 +1,6 @@
 export const PLANOS = [
   {
-    nome: "Essenziale",
+    nome: "Essencial",
     subtitulo: "Fundação & Segurança Digital",
     tagIngles: "COMPLETE SOLUTION",
     preco: "R$ 390",
@@ -21,7 +21,7 @@ export const PLANOS = [
     destaque: false,
   },
   {
-    nome: "Professionale",
+    nome: "Professional",
     subtitulo: "Blindagem de Negócio (O mais escolhido)",
     tagIngles: "SHIELDED SYSTEM",
     preco: "R$ 690",
@@ -43,7 +43,7 @@ export const PLANOS = [
     destaque: true,
   },
   {
-    nome: "Impresa",
+    nome: "Executivo",
     subtitulo: "Liderança & Inovação",
     tagIngles: "STRATEGIC EVOLUTION",
     preco: "Sob consulta",
