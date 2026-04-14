@@ -35,22 +35,30 @@ export function Header() {
           <Logo />
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm tracking-wide text-[#78716c] hover:text-[#F5F0E8] transition-colors relative group font-medium"
+                className={`text-sm tracking-wide transition-colors relative group font-medium ${
+                  item.label === "Diagnóstico"
+                    ? "text-[#C9A962]"
+                    : "text-[#78716c] hover:text-[#F5F0E8]"
+                }`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#8B2635] group-hover:w-full transition-all duration-300" />
+                <span className={`absolute -bottom-1 left-0 h-[1px] transition-all duration-300 ${
+                  item.label === "Diagnóstico"
+                    ? "w-full bg-[#C9A962]"
+                    : "w-0 bg-[#8B2635] group-hover:w-full"
+                }`} />
               </a>
             ))}
             <a
               href="https://wa.me/5511999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 px-6 py-2.5 bg-[#8B2635] text-[#F5F0E8] text-sm font-medium tracking-wide hover:bg-[#A63344] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8B2635]/20"
+              className="ml-2 px-5 py-2 bg-[#8B2635] text-[#F5F0E8] text-sm font-medium tracking-wide hover:bg-[#A63344] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#8B2635]/20"
             >
               Falar no WhatsApp
             </a>
