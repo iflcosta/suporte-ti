@@ -54,31 +54,48 @@
 
     /* Cabeçalho */
     .doc-header {
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
       border-bottom: 2.5px solid var(--bordeaux);
-      padding-bottom: 14px;
-      margin-bottom: 18px;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
     }
     .doc-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 18pt;
+      font-size: 17pt;
       font-weight: 700;
       color: var(--bordeaux);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      line-height: 1.2;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
     }
-    .doc-header .sub { font-size: 7.5pt; color: #888; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 5px; }
+    .doc-header .meta {
+      text-align: right;
+      font-size: 7pt;
+      color: #999;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.7;
+    }
 
-    /* Quote */
-    .quote {
-      border-left: 3px solid var(--bordeaux);
-      padding: 8px 14px;
+    /* Headline / Dor */
+    .headline {
+      margin-bottom: 20px;
+    }
+    .headline h2 {
       font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 10pt;
-      color: #444;
-      margin-bottom: 18px;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .headline p {
+      font-size: 8.5pt;
+      color: #555;
+      max-width: 85%;
+      line-height: 1.6;
     }
 
     /* Section label */
@@ -88,206 +105,165 @@
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: var(--bordeaux);
-      border-bottom: 1px solid rgba(139,38,53,0.25);
+      border-bottom: 1px solid rgba(139,38,53,0.2);
       padding-bottom: 4px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    /* 8 Pilares */
+    /* Pilares — 4 cards horizontais */
     .pilares-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin-bottom: 14px;
+      gap: 8px;
+      margin-bottom: 20px;
     }
     .pilar {
-      background: #f9f9f9;
-      border: 1px solid #eee;
-      padding: 8px 9px 15px; /* Espaço extra embaixo para os selos */
-      position: relative;
+      border-left: 3px solid var(--bordeaux);
+      padding: 8px 10px;
+      background: #fafafa;
     }
     .pilar h4 {
-      font-size: 7.2pt;
+      font-size: 7pt;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--bordeaux);
+      color: var(--black);
       letter-spacing: 0.05em;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
-    .pilar p { font-size: 6.8pt; color: #666; line-height: 1.3; }
-    
-    .pilar-badges {
-      position: absolute;
-      bottom: 6px;
-      right: 8px;
-      display: flex;
-      gap: 3px;
-    }
-    .badge-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      border: 0.5px solid rgba(0,0,0,0.1);
-    }
-    .dot-e { background: #888; }
-    .dot-p { background: var(--bordeaux); }
-    .dot-i { background: #C9A962; }
-
-    .pilares-legenda {
-      display: flex; gap: 12px; margin-bottom: 12px;
-      font-size: 6pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
-      justify-content: center; opacity: 0.8;
-    }
-    .legenda-item { display: flex; align-items: center; gap: 4px; }
-    .dot { width: 4px; height: 4px; border-radius: 50%; }
-
-    /* Canais */
-    .canais-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-      padding: 12px 0;
-      margin-bottom: 14px;
-    }
-    .canal h3 { font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 4px; }
-    .canal h3.bordeaux { color: var(--bordeaux); }
-    .canal p { font-size: 8pt; color: #555; }
+    .pilar p { font-size: 7pt; color: #666; line-height: 1.4; }
 
     /* Planos */
     .planos-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      border: 1px solid #e5e5e5;
-      margin-bottom: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1.5px solid #e5e5e5;
+      margin-bottom: 20px;
     }
     .plano-col {
-      padding: 14px;
-      border-right: 1px solid #e5e5e5;
+      padding: 16px 18px;
     }
-    .plano-col:last-child { border-right: none; }
+    .plano-col:first-child {
+      border-right: 1.5px solid #e5e5e5;
+    }
     .plano-col.destaque {
       background: var(--bordeaux);
       color: white;
       position: relative;
     }
-    .plano-col .plano-name {
+    .plano-name {
       font-size: 6pt; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.2em; color: #999; margin-bottom: 4px;
+      letter-spacing: 0.2em; color: #aaa; margin-bottom: 4px;
     }
     .plano-col.destaque .plano-name { color: rgba(255,255,255,0.5); }
-    .plano-col .plano-price {
-      font-size: 18pt; font-weight: 700; color: #111;
-      line-height: 1; margin-bottom: 6px;
+    .plano-price {
+      font-size: 22pt; font-weight: 700; color: #111;
+      line-height: 1; margin-bottom: 4px;
     }
-    .plano-col .plano-price span { font-size: 7pt; font-weight: 400; color: #aaa; }
+    .plano-price span { font-size: 7pt; font-weight: 400; color: #aaa; }
     .plano-col.destaque .plano-price { color: white; }
     .plano-col.destaque .plano-price span { color: rgba(255,255,255,0.5); }
+    .plano-tagline {
+      font-size: 7.5pt; color: #777; margin-bottom: 12px;
+      border-bottom: 1px solid #eee; padding-bottom: 10px;
+    }
+    .plano-col.destaque .plano-tagline { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.15); }
     .plano-col ul { list-style: none; font-size: 7.5pt; color: #555; }
-    .plano-col ul li + li { margin-top: 3px; }
+    .plano-col ul li + li { margin-top: 4px; }
     .plano-col.destaque ul { color: rgba(255,255,255,0.85); }
     .tag-mv {
       position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
       background: var(--gold); color: #111;
       font-size: 5.5pt; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.15em; padding: 2px 8px; white-space: nowrap;
+      letter-spacing: 0.15em; padding: 2px 10px; white-space: nowrap;
     }
+    .check { color: var(--bordeaux); font-weight: 700; margin-right: 2px; }
+    .plano-col.destaque .check { color: var(--gold); }
 
-    /* Avulsos */
-    .avulsos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
-      margin-bottom: 14px;
-    }
-    .avulso-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 8pt;
-      color: #555;
-      padding: 5px 10px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .avulso-item strong { color: #111; white-space: nowrap; margin-left: 8px; }
-    .avulso-item:nth-child(3n + 1) { border-right: 1px solid #eee; }
-    .avulso-item:nth-child(3n + 2) { border-right: 1px solid #eee; }
-
-    /* Garantia e Diferenciais */
+    /* Rodapé em 3 colunas */
     .rodape-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
-    .garantia-box {
-      background: #f4f4f4;
-      padding: 12px 14px;
+    .rodape-box {
+      padding: 10px 12px;
     }
-    .garantia-box h4 {
+    .rodape-box.cinza { background: #f4f4f4; }
+    .rodape-box.preto { background: var(--black); color: white; }
+    .rodape-box h4 {
       font-size: 6.5pt; font-weight: 700; text-transform: uppercase;
       color: var(--bordeaux); letter-spacing: 0.15em;
       border-bottom: 1px solid rgba(139,38,53,0.2); padding-bottom: 4px; margin-bottom: 6px;
     }
-    .garantia-box p { font-size: 7.5pt; color: #666; }
-    .diferenciais-box {
-      background: var(--black);
-      padding: 12px 14px;
+    .rodape-box.preto h4 { color: var(--gold); border-color: rgba(255,255,255,0.1); }
+    .rodape-box p, .rodape-box ul { font-size: 7.5pt; color: #666; }
+    .rodape-box.preto p, .rodape-box.preto ul { color: rgba(255,255,255,0.7); }
+    .rodape-box ul { list-style: none; }
+    .rodape-box ul li + li { margin-top: 3px; }
+
+    /* CTA */
+    .cta-bar {
+      background: var(--bordeaux);
       color: white;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
     }
-    .diferenciais-box h4 {
-      font-size: 6.5pt; font-weight: 700; text-transform: uppercase;
-      color: var(--gold); letter-spacing: 0.15em;
-      border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; margin-bottom: 6px;
-    }
-    .diferenciais-box ul { list-style: none; font-size: 7.5pt; color: rgba(255,255,255,0.7); }
-    .diferenciais-box ul li + li { margin-top: 3px; }
-    .diferenciais-box strong { color: white; }
+    .cta-bar p { font-size: 8pt; color: rgba(255,255,255,0.8); }
+    .cta-bar strong { font-size: 9.5pt; color: white; display: block; margin-bottom: 1px; }
+    .cta-contact { text-align: right; font-size: 8pt; color: white; }
+    .cta-contact span { display: block; font-size: 7pt; color: rgba(255,255,255,0.6); margin-top: 2px; letter-spacing: 0.1em; text-transform: uppercase; }
 
     /* Footer */
     .doc-footer {
       display: flex; justify-content: space-between; align-items: flex-end;
-      font-size: 7pt; color: #aaa; font-style: italic;
-      border-top: 1px solid #eee; padding-top: 10px; margin-top: 6px;
+      font-size: 6.5pt; color: #aaa; font-style: italic;
+      border-top: 1px solid #eee; padding-top: 10px;
     }
     .doc-footer strong { color: #777; font-style: normal; }
 
     @media print {
-      body { background: white; }
+      body { background: white; font-size: 8pt; }
       .print-btn { display: none !important; }
       .page {
-        margin: 0; padding: 1.5cm 1.8cm;
+        margin: 0; padding: 0.8cm 1cm;
         box-shadow: none; width: 100%; min-height: auto;
       }
       @page { size: A4; margin: 0; }
+
+      .doc-header { margin-bottom: 14px; padding-bottom: 8px; }
+      .doc-header h1 { font-size: 14pt; }
+      .headline { margin-bottom: 14px; }
+      .headline h2 { font-size: 11pt; }
+      .pilares-grid { gap: 6px; margin-bottom: 14px; }
+      .planos-grid { margin-bottom: 14px; }
+      .plano-col { padding: 12px 14px; }
+      .plano-price { font-size: 18pt; }
+      .rodape-grid { margin-bottom: 12px; }
+      .cta-bar { margin-bottom: 12px; padding: 10px 14px; }
     }
 
-    /* ── MOBILE ── */
+    /* MOBILE */
     @media (max-width: 700px) {
       body { background: white; }
       .print-btn { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 10px; }
-      .page {
-        width: 100%;
-        margin: 0;
-        padding: 1.2rem 1rem;
-        box-shadow: none;
-        border-radius: 0;
-        min-height: unset;
-      }
-      .doc-header h1 { font-size: 14pt; }
+      .page { width: 100%; margin: 0; padding: 1.2rem 1rem; box-shadow: none; min-height: unset; }
+      .doc-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .doc-header .meta { text-align: left; }
+      .headline p { max-width: 100%; }
       .pilares-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-      .canais-grid { grid-template-columns: 1fr; }
       .planos-grid { grid-template-columns: 1fr; }
-      .plano-col { border-right: none; border-bottom: 1px solid #e5e5e5; }
-      .avulsos-grid { grid-template-columns: 1fr; }
-      .avulso-item:nth-child(n) { border-right: none; }
+      .plano-col:first-child { border-right: none; border-bottom: 1.5px solid #e5e5e5; }
       .rodape-grid { grid-template-columns: 1fr; }
-      .doc-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .pilar h4, .pilar p { font-size: 8pt; }
-      .section-label { font-size: 7pt; }
+      .cta-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .cta-contact { text-align: left; }
+      .doc-footer { flex-direction: column; gap: 8px; }
     }
 
-    /* Scrollbar Premium */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f4f4f4; }
     ::-webkit-scrollbar-thumb { background: #8B2635; border-radius: 10px; border: 2px solid #f4f4f4; }
@@ -303,177 +279,106 @@
     <!-- Cabeçalho -->
     <div class="doc-header">
       <h1>Proposta Comercial</h1>
-      <p class="sub">Il Potere Tech &nbsp;//&nbsp; Bragança Paulista, SP</p>
+      <div class="meta">
+        Il Potere Tech &nbsp;//&nbsp; Bragança Paulista, SP<br>
+        www.ilpotere.tech &nbsp;//&nbsp; 2026
+      </div>
     </div>
 
-    <!-- Quote -->
-    <div class="quote">
-      "Sua tecnologia não deve ser um custo de manutenção, mas um motor de produtividade ininterrupta."
+    <!-- Headline -->
+    <div class="headline">
+      <h2>Sua empresa merece uma TI que resolve, não que complica.</h2>
+      <p>Problemas de lentidão, vírus, backups falhos e e-mails instáveis custam tempo e dinheiro todo mês. A Il Potere Tech elimina esses custos com suporte proativo, presença em campo e segurança de alto nível — tudo sob um único contrato mensal sem fidelidade.</p>
     </div>
 
-    <!-- 12 Pilares -->
-    <div class="section-label">Nossos 12 Pilares de Solução de Elite</div>
-    <div class="pilares-legenda">
-      <div class="legenda-item"><div class="dot" style="background:#888"></div> Essenziale+</div>
-      <div class="legenda-item"><div class="dot" style="background:var(--bordeaux)"></div> Professionale+</div>
-      <div class="legenda-item"><div class="dot" style="background:#C9A962"></div> Impresa Only</div>
-    </div>
+    <!-- 4 Pilares -->
+    <div class="section-label">O que entregamos</div>
     <div class="pilares-grid">
-      <!-- 1. ESSENZIALE+ (Fundação & Segurança de Elite) -->
       <div class="pilar">
-        <h4>🖥️ Suporte & Segurança</h4>
-        <p>Monitoramos 24/7 para resolver falhas e remover ameaças digitais remotamente.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-e"></div><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
+        <h4>Suporte 24/7</h4>
+        <p>Monitoramento contínuo e resolução remota em minutos — antes que o problema vire crise.</p>
       </div>
       <div class="pilar">
-        <h4>🏢 Visitas de Presença</h4>
-        <p>Presença ágil em campo com kit profissional para problemas físicos de hardware e redes.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-e"></div><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
+        <h4>Presença em Campo</h4>
+        <p>Hardware, redes, cabeamento e infraestrutura física resolvidos com kit profissional no local.</p>
       </div>
       <div class="pilar">
-        <h4>🔑 Identidade & Marca</h4>
-        <p>Gestão profissional de domínios e e-mails para uma imagem corporativa segura e confiável.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-e"></div><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
+        <h4>Segurança & Backup</h4>
+        <p>Proteção Anti-Ransomware via IA e backup 3-2-1 (local + nuvem) para sobreviver a qualquer falha.</p>
       </div>
       <div class="pilar">
-        <h4>🚀 TI & Conectividade</h4>
-        <p>Otimizamos seus computadores e rede Wi-Fi para que funcionem sem travamentos ou pontos cegos.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-e"></div><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
-      </div>
-
-      <!-- 2. PROFESSIONALE+ (A Blindagem de Negócio) -->
-      <div class="pilar">
-        <h4>🛡️ Backup Blindado</h4>
-        <p>Estratégia 3-2-1 (Local/Nuvem) que garante que seu negócio sobreviva a qualquer falha crítica.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
-      </div>
-      <div class="pilar">
-        <h4>☁️ Estratégia Cloud</h4>
-        <p>Migração e gestão de M365/Google Workspace com segurança de arquivos e colaboração total.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
-      </div>
-      <div class="pilar">
-        <h4>🛡️ Proteção Elite (EDR)</h4>
-        <p>Defesa avançada contra Ransomware e invasões via Inteligência Artificial em cada dispositivo.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
-      </div>
-      <div class="pilar">
-        <h4>🧱 Segurança Perímetro</h4>
-        <p>Firewalls e VPNs seguras para blindar sua rede interna contra acessos externos não autorizados.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-p"></div><div class="badge-dot dot-i"></div></div>
-      </div>
-
-      <!-- 3. IMPRESA ONLY (Liderança & Inovação) — EM BREVE -->
-      <div class="pilar">
-        <h4>💡 Consultoria Gestão</h4>
-        <p>Seu braço estratégico de TI projetando o crescimento e a modernização do seu negócio.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-i"></div></div>
-      </div>
-      <div class="pilar">
-        <h4>⚖️ Adequação LGPD</h4>
-        <p>Blindagem jurídica e técnica de dados sensíveis em conformidade com a LGPD.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-i"></div></div>
-      </div>
-      <div class="pilar">
-        <h4>📂 Governança Documental</h4>
-        <p>Organização estratégica de arquivos com permissões granulares e auditoria constante.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-i"></div></div>
-      </div>
-      <div class="pilar">
-        <h4>🧠 Arquitetura de IA</h4>
-        <p>Implementação de agentes e automações inteligentes para ganho bruto de produtividade.</p>
-        <div class="pilar-badges"><div class="badge-dot dot-i"></div></div>
-      </div>
-    </div>
-
-    <!-- Canais -->
-    <div class="canais-grid">
-      <div class="canal">
-        <h3 class="bordeaux">O que resolvemos no Remoto</h3>
-        <p><strong>90% dos chamados:</strong> lentidão, erros de e-mail, softwares, vírus e gestão de usuários. Resolução em minutos.</p>
-      </div>
-      <div class="canal">
-        <h3>O que resolvemos no Presencial</h3>
-        <p><strong>Engenharia Física:</strong> hardware, cabeamento de rede, racks, impressoras e toda infraestrutura de campo.</p>
+        <h4>E-mail & Identidade</h4>
+        <p>Domínio, e-mails corporativos e Google Workspace ou M365 gerenciados com segurança e estabilidade.</p>
       </div>
     </div>
 
     <!-- Planos -->
-    <div class="section-label">Planos de Suporte Mensal (Escaláveis)</div>
+    <div class="section-label">Planos de Suporte Mensal</div>
     <div class="planos-grid">
       <div class="plano-col">
         <div class="plano-name">Essenziale</div>
         <div class="plano-price">R$ 390<span>/mês</span></div>
+        <div class="plano-tagline">Até 5 dispositivos — a base sólida para PMEs.</div>
         <ul>
-          <li>• Até 5 dispositivos monitorados</li>
-          <li>• Suporte Remoto Ilimitado (24/7)</li>
-          <li>• 1 Visita Presencial de Emergência</li>
-          <li>• Gestão de Identidade & E-mail</li>
-          <li>• Resposta em até 4h</li>
+          <li><span class="check">✓</span> Suporte remoto ilimitado (24/7)</li>
+          <li><span class="check">✓</span> 1 visita presencial de emergência/mês</li>
+          <li><span class="check">✓</span> Gestão de e-mail e domínio corporativo</li>
+          <li><span class="check">✓</span> Otimização de PCs e Wi-Fi</li>
+          <li><span class="check">✓</span> Resposta em até 4h</li>
         </ul>
       </div>
       <div class="plano-col destaque">
         <div class="tag-mv">Mais Escolhido</div>
         <div class="plano-name">Professionale</div>
         <div class="plano-price">R$ 690<span>/mês</span></div>
-        <ul style="border-top: 1px solid rgba(139, 38, 53, 0.2); padding-top: 10px;">
-          <li style="color:var(--bordeaux); font-weight:bold; margin-bottom:10px;">Diferenciais do Upgrade:</li>
-          <li>• Upgrade para 15 dispositivos</li>
-          <li>• Suporte Remoto Imediato</li>
-          <li>• 2 Visitas Mensais (Rotina)</li>
-          <li>• Backup Blindado (Local + Nuvem)</li>
-          <li>• Proteção de Elite (EDR via IA)</li>
-          <li>• Estratégia Cloud & Perímetro</li>
-        </ul>
-      </div>
-      <div class="plano-col">
-        <div class="plano-name">Impresa <span style="font-size:10px; color:var(--bordeaux)">(Em breve)</span></div>
-        <div class="plano-price">Sob consulta<span></span></div>
-        <ul style="border-top: 1px solid rgba(201, 169, 98, 0.2); padding-top: 10px;">
-          <li style="color:var(--gold); font-weight:bold; margin-bottom:10px;">Diferenciais de Liderança:</li>
-          <li>• Escala até 30 dispositivos</li>
-          <li>• SLA Crítico (Resposta 30min)</li>
-          <li>• Visitas Técnicas Semanais</li>
-          <li>• Consultoria Estratégica / vCISO</li>
-          <li>• Blindagem Técnica & Jurídica LGPD</li>
-          <li>• Governança Documental & Auditoria</li>
-          <li>• Arquitetura de IA & Automação</li>
+        <div class="plano-tagline">Até 15 dispositivos — blindagem completa do negócio.</div>
+        <ul>
+          <li><span class="check">✓</span> Tudo do Essenziale, mais:</li>
+          <li><span class="check">✓</span> Suporte remoto imediato (prioridade)</li>
+          <li><span class="check">✓</span> 2 visitas presenciais mensais de rotina</li>
+          <li><span class="check">✓</span> Backup blindado 3-2-1 (local + nuvem)</li>
+          <li><span class="check">✓</span> Proteção Anti-Ransomware via IA (EDR)</li>
+          <li><span class="check">✓</span> Firewall, VPN e estratégia cloud</li>
         </ul>
       </div>
     </div>
 
-    <!-- Avulsos -->
-    <div class="section-label">Projetos & Serviços Avulsos (Adesão Opcional)</div>
-    <div class="avulsos-grid">
-      <div class="avulso-item"><span>Setup Inicial (Onboarding & RMM)</span><strong>Cortesía ou Sob Consulta</strong></div>
-      <div class="avulso-item"><span>Formatação Estação (OS + Driver)</span><strong>R$ 180</strong></div>
-      <div class="avulso-item"><span>Limpeza Técnica de Hardware</span><strong>R$ 110</strong></div>
-      <div class="avulso-item"><span>Configuração Servidor / NAS</span><strong>R$ 350</strong></div>
-      <div class="avulso-item"><span>Auditoria de Segurança / LGPD</span><strong>R$ 500</strong></div>
-      <div class="avulso-item"><span>Implantação Cloud (M365/Google)</span><strong>R$ 450</strong></div>
-      <div class="avulso-item"><span>Projeto de Redes / Racks CAT6</span><strong>Sob Consulta</strong></div>
-    </div>
-
-    <!-- Garantia + Diferenciais -->
+    <!-- Rodapé em 3 colunas -->
     <div class="rodape-grid">
-      <div class="garantia-box">
+      <div class="rodape-box cinza">
         <h4>Garantia de Resolução</h4>
-        <p>Se não houver solução técnica viável para o problema apresentado, o valor da visita excedente não será faturado. Sem letra miúda.</p>
+        <p>Se não houver solução técnica viável, o valor da visita excedente não é faturado. Sem letra miúda, sem surpresas.</p>
       </div>
-      <div class="diferenciais-box">
+      <div class="rodape-box cinza">
+        <h4>Fidelidade Zero</h4>
+        <p>Cancele quando quiser, sem multas. Ficamos porque entregamos resultado — não por cláusula contratual.</p>
+      </div>
+      <div class="rodape-box preto">
         <h4>Diferenciais de Elite</h4>
         <ul>
-          <li>• <strong>Fidelidade Zero:</strong> cancele quando quiser, sem multas.</li>
-          <li>• <strong>Transparência:</strong> relatório mensal de saúde do ambiente.</li>
-          <li>• <strong>Acesso Direto:</strong> você fala com os sócios especialistas, não com um atendente.</li>
+          <li>• Você fala direto com os sócios especialistas</li>
+          <li>• Relatório mensal de saúde do ambiente</li>
+          <li>• Setup inicial incluso na adesão</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-bar">
+      <div>
+        <strong>Pronto para eliminar os problemas de TI de uma vez por todas?</strong>
+        <p>Agende uma conversa sem compromisso. Analisamos seu ambiente e indicamos o plano ideal.</p>
+      </div>
+      <div class="cta-contact">
+        <strong>(11) 9 XXXX-XXXX</strong>
+        <span>WhatsApp ou ligação</span>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="doc-footer">
-      <div><strong>IL POTERE TECH — SOLUÇÕES PROATIVAS EM TI</strong><br>Rep: Sócio 2 (Comercial) | Bragança Paulista, SP | www.ilpotere.tech</div>
-      <div style="text-align:right; font-family: monospace; letter-spacing: 0.15em; text-transform: uppercase;">Apresentação de Serviços // 2026</div>
+      <div><strong>IL POTERE TECH — SOLUÇÕES PROATIVAS EM TI</strong><br>Rep: Iago Lopes (Sócio Comercial) | Bragança Paulista, SP</div>
+      <div style="text-align:right; font-family: monospace; letter-spacing: 0.12em; text-transform: uppercase;">Proposta Comercial // 2026</div>
     </div>
 
   </div>
