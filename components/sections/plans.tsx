@@ -26,7 +26,7 @@ export function Plans() {
               } border p-8 lg:p-10 ${plano.emBreve ? "opacity-80" : ""}`}
               style={{ animationDelay: `${i * 150}ms` }}
             >
-              {plano.destaque && !plano.emBreve && (
+              {plano.destaque && !plano.emBreve && !plano.ofertaLançamento && (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-[#8B2635] text-xs tracking-widest uppercase">
                   Recomendado
                 </span>
@@ -53,11 +53,28 @@ export function Plans() {
               </div>
 
               <div className="mb-8">
-                <div className="flex items-baseline gap-1">
-                  <span className="font-serif text-5xl lg:text-6xl text-[#F5F0E8]">{plano.preco}</span>
+                {plano.ofertaLançamento && (
+                  <div className="mb-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#C9A962]/10 border border-[#C9A962]/30">
+                    <span className="w-2 h-2 rounded-full bg-[#C9A962] animate-pulse" />
+                    <span className="text-[10px] uppercase tracking-wider font-medium text-[#C9A962]">
+                      {plano.ofertaLançamento.badge} · {plano.ofertaLançamento.texto}
+                    </span>
+                  </div>
+                )}
+                
+                <div className="flex items-baseline gap-3">
+                  {plano.precoPromo ? (
+                    <>
+                      <span className="font-serif text-4xl lg:text-5xl text-[#78716c] line-through">{plano.preco}</span>
+                      <span className="font-serif text-5xl lg:text-6xl text-[#C9A962]">{plano.precoPromo}</span>
+                    </>
+                  ) : (
+                    <span className="font-serif text-5xl lg:text-6xl text-[#F5F0E8]">{plano.preco}</span>
+                  )}
                   <span className="text-[#78716c] text-sm">{plano.periodo}</span>
                 </div>
-                {!plano.emBreve && (
+                
+                {!plano.emBreve && !plano.ofertaLançamento && (
                   <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#8B2635]/10 border border-[#8B2635]/20">
                     <span className="w-1 h-1 rounded-full bg-[#8B2635] animate-pulse" />
                     <span className="text-[10px] uppercase tracking-wider font-medium text-[#F5F0E8]/70">Sem Fidelidade</span>

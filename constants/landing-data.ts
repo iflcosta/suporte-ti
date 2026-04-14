@@ -4,7 +4,13 @@ export const PLANOS = [
     subtitulo: "Fundação & Segurança Digital",
     tagIngles: "COMPLETE SOLUTION",
     preco: "R$ 390",
+    precoPromo: "R$ 290",
     periodo: "/mês",
+    ofertaLançamento: {
+      badge: "10 vagas",
+      texto: "20% desconto garatido por 6 meses",
+      vagasRestantes: 10,
+    },
     features: [
       "Até 5 dispositivos monitorados",
       "Suporte Remoto Ilimitado (24/7)",
@@ -19,7 +25,13 @@ export const PLANOS = [
     subtitulo: "Blindagem de Negócio (O mais escolhido)",
     tagIngles: "SHIELDED SYSTEM",
     preco: "R$ 690",
+    precoPromo: "R$ 550",
     periodo: "/mês",
+    ofertaLançamento: {
+      badge: "5 vagas",
+      texto: "20% desconto garatido por 6 meses",
+      vagasRestantes: 5,
+    },
     features: [
       "Upgrade para 15 dispositivos",
       "Suporte Remoto Imediato (Prioritário)",
